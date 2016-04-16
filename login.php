@@ -123,7 +123,7 @@ if(isset($_POST['signin'])){
 
     if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
     {
-      $page = "app_config.php";
+      $page = "sup_dashboard.php";
     }
     else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5)
     {
