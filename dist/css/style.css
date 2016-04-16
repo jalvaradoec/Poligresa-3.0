@@ -1,0 +1,95 @@
+.canvasjs-chart-credit{display:none;}
+.pia_title{text-align:center;}
+.pia{margin: 0px;padding-left: 0px;margin:0 auto;}
+.box1{height:350px;}
+.goal{text-align: center;margin: 15px 5px; font-size: 14px;}
+.bar-chart{height: 150px;width: 100%;}
+.op_heading{text-align:center;font-size: large;padding-right: 15px;}
+.bar_percentage{height: 120px;margin-top: 20px;}
+.bar_box{height:327px;}
+.op_img{width:100px;height:100px;}
+.data1{margin: 60px;}
+.data_p{margin-top: 25px;text-align: justify;}
+.data_button{text-align: center;}
+.data_tools{text-align: center;margin-top: 10px;}
+.data_tools_button{text-align: center;}
+.tools_date h4 span{padding-right: 5px;}
+.tools_date h4 input[type="date"]{height: 24px;width: 170px;margin-right: 6px;}
+.piagoal{position: relative;overflow: hidden;width: 180px;height: 190px;margin-left: 33px;}
+.goalpercentage{text-align:center;}
+.op{border-top: 2px solid #ccc;}
+.op_filter{width: 155px;clear: both;float: right;}
+.reg_contact{text-align: center;}
+.reg_contact_no{    text-align: center;
+    border: 1px solid honeydew;
+    border-radius: 47px;
+    width: 100px;
+    height: 95px;
+    padding: 0px;
+    background: green;
+    margin-left: 161px;
+    font-size: 80px;
+    color: #fff;}
+.reg_show{margin-top: 10px;}
+.tbl_product{margin-left: 100px;font-size: 15px;font-style: normal;font-weight: 600;}
+.tbl_row{width: 170px;padding:4px;}
+.tbl_product1{margin-left: 20px;font-size: 15px;font-style: normal;font-weight: 600;width: 100%;}
+.fa_pay{text-align: center;margin-left: 27px;color: #337ab7;}
+.fa_cal{clear: both;float: right;}
+.bx_title{padding: 20px;font-size: 30px;}
+.deb_info_row{font-size: 18px;font-style: normal;font-weight: 600;width: 75px;}
+.deb_info_tbl{margin-left: 21px;}
+.deb_info_tbl1{border-right: 2px solid #ddd;}
+.deb_info_row1{font-size: 16px;padding: 10px;}
+.op_agree_details{margin-top: 20px;}
+.activity_tbl{margin-top: 25px;}
+.activity_head{float: left;font-size: large;font-weight: 600;}
+.activity_head1{margin-top: 25px;margin-left: 50px;}
+.actv{border-right: 2px solid rgba(128, 124, 124, 0.53);margin-bottom: 10px;}
+.red{color:red;}
+.btn-red{margin-left: 485px;}
+.tbl{position: relative; padding-left: 330px;font-weight: 600;font-size: 22px;}
+.tbl{position: relative; padding-left: 330px;font-weight: 600;font-size: 22px;}
+.reg_pay{font-size: 18px;font-weight: 500;}
+.ad_select2{width: 20%;float: right;}
+.act1_head{border-bottom: 2px solid #D2D6DE;}
+.act1_d{border-right: 2px solid #D2D6DE;}
+.act1_bx{margin-left: 130px;}
+.act1_main{display: inline-flex;margin-top: 15px;}
+.act1_sl{margin-right: 30px;}
+.act1_sl1{margin-right:25px;;width:50%;}
+.op_tl{margin-left: 15px;}
+.gl_td{font-weight: 600;padding-right: 25px;}
+.login_image{margin-top: 44px; margin-left: 200px; box-shadow: 1px 1px 9px 0px #556979}
+.img1{padding: 40px;margin-left: 40px;}
+.model1_body{display:inline-flex;border-bottom: 2px solid #ccc;}
+.md_side{font-size: larger;margin-left: 50px;margin-top: 15px;}
+.md_box{border-bottom: 2px solid #ccc;}
+
+
+@media (max-width: 767px) {
+	
+	.piacharts{display:block;}
+	.bar-chart{height: 100px;width: 200px;}
+	.op_img{width:70px;height:70px;}
+	.data_button{margin-left:0px;}
+	.reg_contact_no{text-align: center; font-size: 50px;color: #fff; border: 1px solid honeydew;border-radius: 47px;width: 70px;height: 66px; padding: 3px;background: green;margin-left:88px;}
+	.tbl_product{margin-left: 20px;font-size: 15px;font-style: normal;font-weight: 600;    margin-bottom: 25px;}
+ .tbl_row{width: 170px;padding: 3px;}
+ .table{width: 8%;}
+ .actv{border-bottom:2px solid rgba(128, 124, 124, 0.53);border-right: 0px; width:240px;margin-left: 15px;}
+ .tbl{position: relative;padding-left:0px;font-weight: 600;font-size: 18px;}
+ .op_heading{clear: both; margin-left: 54px;position: relative; margin-top: -42px; font-size: 22px;  text-align: center;  padding-bottom: 20px;}
+.fa_pay{margin-left: 85px;margin-top: 10px;    color: #337ab7;}	
+.reg_pay{font-size: 18px;font-weight: 500;margin-left:50px;}
+.ad_select2{width: 45%;float: right;}
+.inp_date{margin-left: 20px;}
+.act1_d{border-bottom: 2px solid #D2D6DE; border-right:0px;padding:10px;}	
+.act1_d1{padding:10px;}
+.login_image{margin-top: 0px; margin-left: 0px;box-shadow: 1px 1px 9px 0px #556979;height: 100%; width: 100%;}
+.img1{padding: 0px;margin-left: 20px;}
+.model1_body{display:block;}
+.deb_info_tbl1{border-bottom: 2px solid #ddd; border-right:0px;}
+	
+	
+	}
