@@ -86,7 +86,7 @@
 .inp_date{margin-left: 20px;}
 .act1_d{border-bottom: 2px solid #D2D6DE; border-right:0px;padding:10px;}	
 .act1_d1{padding:10px;}
-.login_image{margin-top: 0px; margin-left: 0px;box-shadow: 1px 1px 9px 0px #556979;height: 100%; width: 100%;}
+.login_image{text-align: center;margin-top: 0px; margin-left: 0px;box-shadow: 1px 1px 9px 0px #556979;height: 100%; width: 100%;}
 .img1{padding: 0px;margin-left: 20px;}
 .model1_body{display:block;}
 .deb_info_tbl1{border-bottom: 2px solid #ddd; border-right:0px;}
