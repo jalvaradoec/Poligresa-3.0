@@ -59,7 +59,7 @@ $operators = getViewOperators();
                                             <div class="panel-body">
                                                 <div class="col-lg-12">
                                                     <div class="col-lg-2">
-                                                        <img src="dist/img/avatar5.png" style="text-align:center;" class="img-circle op_img"
+                                                        <img src="dist/img/avatar5.png" class="img-circle op_img"
                                                              alt="operator1">
                                                         <h5 class="op_heading" style="text-align:center;"><?php echo $operator["App_Users_fullname"];?></h5>
                                                     </div>
@@ -76,8 +76,8 @@ $operators = getViewOperators();
                                                 //['Jan', 1500],
                                                 //['Feb', 8000],
                                                 //['March', 800],
-                                                ['Actual', 2700],
-                                                ['Goal', 6200]
+                                                ['Actual', 3700],
+                                                ['Goal', 8000]
                                             ]);
 
                                             var options = {
