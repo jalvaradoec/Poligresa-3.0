@@ -59,9 +59,9 @@ $operators = getViewOperators();
                                             <div class="panel-body">
                                                 <div class="col-lg-12">
                                                     <div class="col-lg-2">
-                                                        <img src="dist/img/avatar5.png" class="img-circle op_img"
+                                                        <img src="dist/img/avatar5.png" style="text-align:center;" class="img-circle op_img"
                                                              alt="operator1">
-                                                        <h5 class="op_heading"><?php echo $operator["App_Users_fullname"];?></h5>
+                                                        <h5 class="op_heading" style="text-align:center;"><?php echo $operator["App_Users_fullname"];?></h5>
                                                     </div>
                                                     <div class="col-lg-10">
                                                         <div id="chart_div<?php echo $operator["App_Users_ID"];?>"></div>
@@ -73,11 +73,11 @@ $operators = getViewOperators();
                                         google.charts.setOnLoadCallback(function(){
                                             var data = google.visualization.arrayToDataTable([
                                                 ['Month', 'Objective',],
-                                                ['Jan', 1500],
-                                                ['Feb', 8000],
-                                                ['March', 800],
-                                                ['Apr', 2700],
-                                                ['May', 6200]
+                                                //['Jan', 1500],
+                                                //['Feb', 8000],
+                                                //['March', 800],
+                                                ['Actual', 2700],
+                                                ['Goal', 6200]
                                             ]);
 
                                             var options = {
@@ -145,7 +145,7 @@ $operators = getViewOperators();
                         <h4 class="goal"><a href="./goals_assignations.php" style="font-size: 12px;"> Goals
                                 Assignation </a></h4>
                         <h4 class="goal"><a href="./oper_assignations.php" style="font-size: 12px;"> Operations
-                                Assignation </a></h4>
+                                Assignation </a></h4> <br>
 
 
                     </div>
