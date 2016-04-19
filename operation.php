@@ -37,7 +37,7 @@ include_once("utils.php");
                 <tbody>
                 <tr>
                   <td>ID:</td>
-                  <td><?php echo $row['App_Credits_DebtorId']." / ".$row['App_Clients_FullName']; ?></td>
+                  <td><?php echo $row['App_Credits_DebtorId']." / ".$row['App_Clients_FullName'] ?></td>
                   <td></td>
                 </tr>
 				<tr>
