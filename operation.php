@@ -418,7 +418,7 @@ include_once("utils.php");
 				$sql1="select * from App_Users WHERE App_Credits_AssignedTo =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
-				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."'";
+				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
 				
