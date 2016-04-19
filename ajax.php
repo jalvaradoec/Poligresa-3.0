@@ -126,12 +126,12 @@ if ($action == "retrieveOperators") {
     }
     echo json_encode($response);
 }
-elseif ($action == "App_Task_status") {
-    $App_Task_ID = isset($_POST["App_Task_ID"]) ? $_POST["App_Task_ID"] : null;
-    $App_Task_status = isset($_POST["App_Task_status"]) ? $_POST["App_Task_status"] : 0;
+elseif ($action == "updateTaskStatus") {
+    $taskId = isset($_POST["taskId"]) ? $_POST["taskId"] : null;
+    $status = isset($_POST["status"]) ? $_POST["status"] : null;
     $response = array();
 
-    if($App_Task_status != null)
+    if($status != null)
     {
         if(updateTaskStatus($taskId,$status)){
             $response["status"] = 1;
