@@ -37,29 +37,54 @@ include_once("utils.php");
                 <tbody>
                 <tr>
                   <td>ID:</td>
-                  <td><?php echo $row['App_Credits_DebtorId']." / ".$row['App_Clients_FullName'] ?></td>
+                  <td><?php echo $row['App_Credits_DebtorId']." / ".$row['App_Clients_FullName']; ?></td>
                   <td></td>
                 </tr>
+				<?php
+			   $sql="select * from App_Credits ac INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE ap.App_Phones_PhoneStatus = 1 and ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' limit 3";
+				$result=mysql_query($sql);
+				?>
 				<tr>
                   <td>Phone:</td>
-                  <td>(04)123654789,(09)12233551</td>
+                  <td><?php
+				  $i=1; 	
+				  while($row=mysql_fetch_array($result)){ 
+				  if($i>1){ $comma=","; }else { $comma=""; }
+				  echo $comma.$row['App_Phones_PhoneNumber'];
+				  $i++;
+				  } ?></td>
                   <td><a href="#Cli_Phones" data-toggle="modal" data-target="#Cli_Phones">More</a></td>
                 </tr>
+				<?php
+			   $sql="select * from App_Credits ac INNER JOIN App_Addresses aa ON ac.App_Credits_DebtorId = aa.App_Addresses_DebtorID WHERE aa.App_Addresses_Status = 1 and ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+			   ?>
 				<tr>
                   <td>Address:</td>
-                  <td>DOMICILO: calle 16 entire Bolvia y alinza</td>
+                  <td><?php echo $row['App_Addresses_MainStreet']; ?></td>
                   <td><a href="#Cli_Address" data-toggle="modal" data-target="#Cli_Address">More</a></td>
                
                 </tr>
+				<?php
+			   $sql="select * from App_Aux aa INNER JOIN App_Clients ac ON aa.App_Aux_value = ac.App_Clients_Plaza INNER JOIN App_Credits ac1 ON ac1.App_Credits_DebtorId = ac.App_Clients_DebtorIdNumber WHERE aa.App_Aux_field = 'City' and ac1.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+			   ?>
 				<tr>
                   <td>Zone:</td>
-                  <td>Centro</td>
+                  <td><?php echo $row['App_Aux_text']; ?></td>
                   <td></td>
                  
                 </tr>
+				<?php
+				$sql="select * from App_Aux aa INNER JOIN App_Clients ac ON aa.App_Aux_value = ac.App_Clients_BankAgency INNER JOIN App_Credits ac1 ON ac1.App_Credits_DebtorId = ac.App_Clients_DebtorIdNumber WHERE aa.App_Aux_field = 'Route' and ac1.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+			   ?>
 				<tr>
                   <td>Route</td>
-                  <td>GYE Centro</td>
+                  <td><?php echo $row['App_Aux_text']; ?></td>
                   <td></td>
                  
                 </tr>
