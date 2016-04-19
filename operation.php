@@ -1331,25 +1331,5 @@ include_once("utils.php");
 <script src="plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
-<script>
-$(document).on('change', '.chk_active', function () {
-        var value = ($(this).is(":checked")) ? 1 : 0;
-        var taskId = $(this).attr('id');
-        $.ajax({
-            type: "POST",
-            url: "ajax.php",
-            dataType: "json",
-            async: true,
-            data: {
-                action: 'updateTaskStatus', // as you are getting in php $_POST['action1']
-                taskId: taskId, // as you are getting in php $_POST['action1']
-                status: value // as you are getting in php $_POST['action1']
-            },
-            success: function (msg) {
-                alert(msg.message);
-            }
-        });
-    });
-</script>
 </body>
 </html>
