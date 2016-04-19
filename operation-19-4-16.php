@@ -27,17 +27,12 @@ include_once("utils.php");
 			   <div class="box-header">
 			   <h3>Debtor General Information</h3>
 			   </div>
-			   <?php
-			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-				$result=mysql_query($sql);
-				$row=mysql_fetch_array($result);
-			   ?>
             <div class="box-body no-padding">
                <table  class="table  table-hover">
                 <tbody>
                 <tr>
                   <td>ID:</td>
-                  <td><?php echo $row['App_Credits_DebtorId']." / ".$row['App_Clients_FullName']; ?></td>
+                  <td>Trancso Ferin</td>
                   <td></td>
                 </tr>
 				<tr>
