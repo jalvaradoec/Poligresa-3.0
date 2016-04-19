@@ -141,51 +141,48 @@ include_once("utils.php");
                   <th>Product</th>
                   <th>Due Date</th>
                   <th>Status</th>
-                  <th>More</th>
+                  
                 </tr>
                 </thead>
                 <tbody>
+				<?php
+			   $sql="select * from App_Credits WHERE App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				while($row=mysql_fetch_array($result)){ 
+				$interst=$row['App_Credits_BankTotalCredit']*0.18;
+				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
+				$totalcapital.=$totalcapital+$row['App_Credits_BankTotalCredit'];
+				$totalinterst.=$totalinterst+$interst;
+				$totalpayment.=$totalpayment+500;
+				$totaldebt.=$totaldebt+$debt;
+				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_BankCreditType']."' and App_Aux_field = 'TypeID'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_Status']."' and App_Aux_field = 'OperationStatus'";
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
+			   ?>
                 <tr>
-                  <td>985652321</td>
-                  <td>$1200</td>
-                  <td>$150</td>
-                  <td>$850</td>
+                  <td><a href="#"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
+                  <td><?php echo $row['App_Credits_BankTotalCredit'] ?></td>
+                  <td>$<?php echo $interst; ?></td>
                   <td>$500</td>
-                  <td>Amortization</td>
-                  <td>31/08/2015</td>
-                  <td>On Agreement</td>
-                  <td><a href="#">Details</a></td>
+                  <td>$<?php echo $debt; ?></td>
+                  <td><?php echo $row1['App_Aux_text'] ?></td>
+                  <td><?php echo $row['App_Credits_BankDueDate'] ?></td>
+                  <td><?php echo $row2['App_Aux_text'] ?></td>
+                  
                 </tr>
-				 <tr>
-                  <td>1232654</td>
-                  <td>$1800</td>
-                  <td>$600</td>
-                  <td>$1200</td>
-                  <td>$1200</td>
-                  <td>Amortization</td>
-                  <td>15/12/2015</td>
-                  <td>pending</td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-				 <tr>
-                  <td>46478252</td>
-                  <td>$1500</td>
-                  <td>$900</td>
-                  <td>$600</td>
-                  <td>$1800</td>
-                  <td>Amortization</td>
-                  <td>03/03/2016</td>
-                  <td>On Agreement</td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-                </tbody>
+				<?php } ?>
+				 </tbody>
                 <tfoot>
                         <tr>
                   <th></th>
-                  <th>$4500</th>
-                  <th>$1650</th>
-                  <th>$2650</th>
-                  <th>$3500</th>
+                  <th>$<?php echo $totalcapital; ?></th>
+                  <th>$<?php echo $totalinterst; ?></th>
+                  <th>$<?php echo $totalpayment; ?></th>
+                  <th>$<?php echo $totaldebt; ?></th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -405,59 +402,36 @@ include_once("utils.php");
                 <tr>
                   <th>Done</th>
                   <th>User</th>
-                  <th>Date</th>
-                  <th>Time</th>
+                  <th>Date/Time</th>
                   <th>Type</th>
                   <th>Obervations</th>
                   <th></th>
                 </tr>
                 </thead>
                 <tbody>
+				<?php
+			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				while($row=mysql_fetch_array($result)){ 
+				$checked = ($value['App_Task_status'] == 1) ? 'checked="checked' : '';
+				$sql1="select * from App_Users WHERE App_Credits_AssignedTo =".$row["App_Tasks_AssignedTo"];
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
+				
+				?>
                 <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Vgeruva</td>
-                  <td>04/03/2015</td>
-                  <td>00:00</td>
-                  <td>Phone Call</td>
-                  <td>testing </td>
+				  <td><input type="checkbox" <?php echo $checked; ?> value="1" class="chk_active" id="<?php echo $value['App_Aux_ID']; ?>" /></td>
+                  <td><?php echo $row1['App_Users_fullname'] ?></td>
+                  <td><?php echo $row['App_Task_DueDateTime'] ?></td>
+                  <td><?php echo $row2['App_Aux_text'] ?></td>
+                  <td><?php echo $row['App_Task_Description'] ?> </td>
                   <td><a href="#">Details</a></td>
                 </tr>
-				 <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Vgeruva</td>
-                  <td>04/03/2015</td>
-                  <td>00:00</td>
-                  <td>Phone Call</td>
-                  <td>testing </td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-				 <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Vgeruva</td>
-                  <td>04/03/2015</td>
-                  <td>00:00</td>
-                  <td>Phone Call</td>
-                  <td>testing </td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-				 <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Vgeruva</td>
-                  <td>04/03/2015</td>
-                  <td>00:00</td>
-                  <td>Phone Call</td>
-                  <td>testing </td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-				 <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Vgeruva</td>
-                  <td>04/03/2015</td>
-                  <td>00:00</td>
-                  <td>Phone Call</td>
-                  <td>testing </td>
-                  <td><a href="#">Details</a></td>
-                </tr>
+				 
 		   </tbody>
                 <tfoot>
                 <tr>
@@ -552,8 +526,8 @@ include_once("utils.php");
         </div>
         <div class="modal-footer">
            <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i> Add New Number</button>
-            <button type="button" class="btn btn-info"><i class="fa fa-reply"></i> Go Back</button>
-        </div>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		</div>
       </div>
       
     </div>
@@ -614,7 +588,7 @@ include_once("utils.php");
         </div>
         <div class="modal-footer">
            <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i> Add New Address</button>
-            <button type="button" class="btn btn-info"><i class="fa fa-reply"></i> Go Back</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </div>
       
@@ -1019,7 +993,7 @@ include_once("utils.php");
          </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i>Save</button>
-              <button type="button" class="btn btn-info"><i class="fa fa-reply"></i> Go Back</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </div>
       
@@ -1130,7 +1104,7 @@ include_once("utils.php");
          </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i>Save</button>
-              <button type="button" class="btn btn-info"><i class="fa fa-reply"></i> Go Back</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </div>
       
@@ -1357,6 +1331,25 @@ include_once("utils.php");
 <script src="plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
-
+<script>
+$(document).on('change', '.chk_active', function () {
+        var value = ($(this).is(":checked")) ? 1 : 0;
+        var taskId = $(this).attr('id');
+        $.ajax({
+            type: "POST",
+            url: "ajax.php",
+            dataType: "json",
+            async: true,
+            data: {
+                action: 'updateTaskStatus', // as you are getting in php $_POST['action1']
+                taskId: taskId, // as you are getting in php $_POST['action1']
+                status: value // as you are getting in php $_POST['action1']
+            },
+            success: function (msg) {
+                alert(msg.message);
+            }
+        });
+    });
+</script>
 </body>
 </html>

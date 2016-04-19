@@ -126,4 +126,20 @@ if ($action == "retrieveOperators") {
     }
     echo json_encode($response);
 }
+elseif ($action == "updateTaskStatus") {
+    $taskId = isset($_POST["taskId"]) ? $_POST["taskId"] : null;
+    $status = isset($_POST["status"]) ? $_POST["status"] : null;
+    $response = array();
 
+    if($status != null)
+    {
+        if(updateTaskStatus($taskId,$status)){
+            $response["status"] = 1;
+            $response["message"] = "Task status has been updated to $status ";
+        }else{
+            $response["status"] = 0;
+            $response["message"] = "Something went wrong while updating task status to $status ";
+        }
+    }
+    echo json_encode($response);
+}
