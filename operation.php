@@ -42,7 +42,7 @@ include_once("utils.php");
                 </tr>
 				<tr>
                   <td>Phone:</td>
-                  <td>(04)123654789,(09)122335511</td>
+                  <td>(04)123654789,(09)12233551</td>
                   <td><a href="#Cli_Phones" data-toggle="modal" data-target="#Cli_Phones">More</a></td>
                 </tr>
 				<tr>
