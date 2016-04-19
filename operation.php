@@ -168,7 +168,9 @@ include_once("utils.php");
                   <td>$<?php echo $interst; ?></td>
                   <td>$500</td>
                   <td>$<?php echo $debt; ?></td>
+                  <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><?php echo $row['App_Credits_BankDueDate'] ?></td>
+                  <td><?php echo $row2['App_Aux_text'] ?></td>
                   
                 </tr>
 				<?php } ?>
@@ -412,7 +414,7 @@ include_once("utils.php");
 				$row=mysql_fetch_array($result);
 				while($row=mysql_fetch_array($result)){ 
 				$checked = ($value['App_Task_status'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Users WHERE App_Credits_AssignedTo =".$row["App_Tasks_AssignedTo"];
+				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
