@@ -148,7 +148,6 @@ include_once("utils.php");
 				<?php
 			   $sql="select * from App_Credits WHERE App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
-				$row=mysql_fetch_array($result);
 				while($row=mysql_fetch_array($result)){ 
 				$interst=$row['App_Credits_BankTotalCredit']*0.18;
 				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
@@ -169,9 +168,7 @@ include_once("utils.php");
                   <td>$<?php echo $interst; ?></td>
                   <td>$500</td>
                   <td>$<?php echo $debt; ?></td>
-                  <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><?php echo $row['App_Credits_BankDueDate'] ?></td>
-                  <td><?php echo $row2['App_Aux_text'] ?></td>
                   
                 </tr>
 				<?php } ?>
