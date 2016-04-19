@@ -431,7 +431,7 @@ include_once("utils.php");
                   <td><?php echo $row['App_Task_Description'] ?> </td>
                   <td><a href="#">Details</a></td>
                 </tr>
-				<?php } }?>
+				<?php } ?>
 		   </tbody>
                 <tfoot>
                 <tr>
