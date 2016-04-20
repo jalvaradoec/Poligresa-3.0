@@ -1331,6 +1331,7 @@ include_once("utils.php");
 <script src="dist/js/app.min.js"></script>
 <script>
 $(document).on('change', '.chk_active', function () {
+	alert('hello');
         var value = ($(this).is(":checked")) ? 1 : 0;
         var taskId = $(this).attr('id');
         $.ajax({
