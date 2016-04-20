@@ -566,7 +566,13 @@ include_once("utils.php");
             <div>
 			    <table class="deb_info_tbl">
                 <tbody>
+				<?php
+				$sql="select * from App_Credits where App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				?>
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
+				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
                   <td class="deb_info_row">Number:</td>
                   <td class="deb_info_row1"><input type="text" name="no" /></td>          
