@@ -550,19 +550,24 @@ include_once("utils.php");
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Debtor General Information</h4>
+          <h4 class="modal-title">Addresses</h4>
         </div>
+		<?php
+			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Addresses ap ON ac.App_Credits_DebtorId = ap.App_Addresses_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+		?>
         <div class="modal-body">
             <div>
 			    <table class="deb_info_tbl">
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Addresses_DebtorID'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
                 </tr>	
 			 </tbody> 
 		     </table> 
@@ -572,21 +577,23 @@ include_once("utils.php");
                 <thead>
                 <tr>
                   <th>Address</th>
-                  <th>Name</th>
                   <th>Type</th>
-                  <th>Zone</th>
-                  <th>Confrom?</th>
-                  
+                  <th>Confirmed</th>
+                  <th>Status</th>
+                  <th>Reg. By</th>
+                  <th>Date</th>
                   
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Calba Sacio viviendra Mz 14k Solar 18</td>
-                  <td>Self</td>
-                  <td>Home</td>
-                  <td>Guayaqui</td>
-                  <td><input type="checkbox" /></td>
+                  <td><?php echo $row['App_Addresses_MainStreet'] ?></td>
+                  <td><?php echo $row['App_Addresses_AddressType'] ?></td>
+                  <td><?php echo $row['App_Addresses_Confirmed'] ?></td>
+                  <td><?php echo $row['App_Addresses_Status'] ?></td>
+				  <td><?php echo $row['App_Addresses_CreatedBy'] ?></td>
+				  <td><?php echo $row['App_Addresses_CreatedOn'] ?></td>
+                  //<td><input type="checkbox" /></td>
                
                 </tr>
 				  </tbody>
