@@ -745,7 +745,7 @@ include_once("utils.php");
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-dismiss="modal">Volver</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Go Back</button>
         </div>
       </div>
       
