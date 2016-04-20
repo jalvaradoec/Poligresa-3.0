@@ -717,7 +717,7 @@ include_once("utils.php");
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
                   <td class="deb_info_row">Address:</td>
-                  <td class="deb_info_row1"><input type="text" name="address" /></td>          
+                  <td class="deb_info_row1"><input type="text" name="address" size="50"/></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Type:</td>
