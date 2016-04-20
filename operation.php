@@ -215,7 +215,7 @@ include_once("utils.php");
 				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
 				$collectionfee=$initialdebt*0.2;
 				$currdebt=$debt+$collectionfee-150;
-				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_BankCreditType']."' and App_Aux_field = 'TypeID'";
+				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_BankCreditType']."' and App_Aux_field = 'BankProduct'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_Status']."' and App_Aux_field = 'OperationStatus'";
