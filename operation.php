@@ -818,10 +818,10 @@ include_once("utils.php");
                 
                 <tr>
                   <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
+				  <td>$<?php echo number_format($row['App_Amortization_Capital'], 2, '.', '') ?></td>
+                  <td>$<?php echo number_format($row['App_Amortization_Interest'], 2, '.', '') ?></td>
                   <td class="red">$53.00</td>
-                  <td>$9.59</td>
+                  <td>$<?php echo number_format($row['App_Amortization_FinInterest'], 2, '.', '') ?></td>
                   <td>$10.66</td>
                   <td>$10.72</td>
                   <td class="red">$83.97</td>
