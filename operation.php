@@ -481,19 +481,24 @@ include_once("utils.php");
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Debtor General Information</h4>
+          <h4 class="modal-title">Phone numbers</h4>
         </div>
+		<?php
+			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+		?>
         <div class="modal-body">
             <div>
 			    <table class="deb_info_tbl">
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Phones_DebtorID'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
                 </tr>	
 			 </tbody> 
 		     </table> 
@@ -502,39 +507,27 @@ include_once("utils.php");
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
                 <tr>
-                 <th>Phone Number</th>
-                 <th>Ext</th>
+                 <th>Number</th>
+                 <th>Ext.</th>
                  <th>Type</th>
-                 <th>Confrom?</th>
-                 <th>Registered date</th>
+                 <th>Confirmed</th>
                  <th>Status</th>
-                 <th>Operator</th>
-                  
-                  
+				 <th>Reg. By</th>
+				 <th>Date</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>015658855</td>
-                  <td></td>
-                  <td>CLARD</td>
-                  <td>Titluer Confirmado</td>
-                  <td>20/07/2015</td>
-                  <td>Active</td>
-                  <td>Vguevara</td>
+                  <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
+                  <td><?php echo $row['App_Phones_Ext'] ?></td>
+                  <td><?php echo $row['App_Phones_PhoneType'] ?></td>
+                  <td><?php echo $row['App_Phones_Confirmed'] ?></td>
+                  <td><?php echo $row['App_Phones_PhoneStatus'] ?></td>
+                  <td><?php echo $row['App_Phones_CreatedBy'] ?></td>
+                  <td><?php echo $row['App_Phones_CreatedOn'] ?></td>
                
                 </tr>
-				 <tr>
-                  <td>015658855</td>
-                  <td></td>
-                  <td>CLARD</td>
-                  <td>Titluer Confirmado</td>
-                  <td>20/07/2015</td>
-                  <td>Active</td>
-                  <td>Vguevara</td>
-               
-                </tr>
-				  </tbody>
+				</tbody>
                
               </table>
              
