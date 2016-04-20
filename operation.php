@@ -413,7 +413,7 @@ include_once("utils.php");
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				while($row=mysql_fetch_array($result)){ 
-				$checked = ($row['App_Task_status'] == 1) ? 'checked="checked' : '';
+				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
 				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
