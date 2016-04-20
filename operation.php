@@ -164,10 +164,10 @@ include_once("utils.php");
 			   ?>
                 <tr>
                   <td><a href="#"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
-                  <td align="right">$ <?php echo $row['App_Credits_BankTotalCredit'] ?></td>
-                  <td align="right">$ <?php echo $interst; ?></td>
-                  <td align="right">$500</td>
-                  <td align="right">$ <?php echo $debt; ?></td>
+                  <td style="text-align: right;">$ <?php echo $row['App_Credits_BankTotalCredit'] ?></td>
+                  <td style="text-align: right;">$ <?php echo $interst; ?></td>
+                  <td style="text-align: right;">$ 500</td>
+                  <td style="text-align: right;">$ <?php echo $debt; ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><?php echo $row['App_Credits_BankDueDate'] ?></td>
                   <td><?php echo $row2['App_Aux_text'] ?></td>
@@ -179,9 +179,9 @@ include_once("utils.php");
                         <tr>
                   <th></th>
                   <th style="text-align: right;">$ <?php echo $totalcapital; ?></th>
-                  <th align="right">$ <?php echo $totalinterst; ?></th>
-                  <th align="right">$ <?php echo $totalpayment; ?></th>
-                  <th align="right">$ <?php echo $totaldebt; ?></th>
+                  <th style="text-align: right;">$ <?php echo $totalinterst; ?></th>
+                  <th style="text-align: right;">$ <?php echo $totalpayment; ?></th>
+                  <th style="text-align: right;">$ <?php echo $totaldebt; ?></th>
                   <th></th>
                   <th></th>
                   <th></th>
