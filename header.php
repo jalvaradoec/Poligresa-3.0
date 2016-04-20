@@ -304,7 +304,7 @@ switch ($pageName) {
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 				
                 <p>
-                  <?php echo $_SESSION["logged_in_user"]["App_Users_fullname"]; ?>
+                  <?php echo $_SESSION["logged_in_user"]["App_Users_fullname"]; ?> <br>
                   <?php echo $_SESSION["logged_in_user"]["App_Users_Username"]; ?>
                   <!--<small>Member since Nov. 2012</small>-->
                 </p>
