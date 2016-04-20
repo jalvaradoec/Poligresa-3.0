@@ -593,7 +593,7 @@ include_once("utils.php");
                   <td><?php echo $row['App_Addresses_Status'] ?></td>
 				  <td><?php echo $row['App_Addresses_CreatedBy'] ?></td>
 				  <td><?php echo $row['App_Addresses_CreatedOn'] ?></td>
-                  //<td><input type="checkbox" /></td>
+                  
                
                 </tr>
 				  </tbody>
