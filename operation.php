@@ -36,7 +36,7 @@ include_once("utils.php");
                <table  class="table  table-hover">
                 <tbody>
                 <tr>
-                  <td>ID:</td>
+                  <td><b>ID and Name:</b></td>
                   <td><?php echo $row['App_Credits_DebtorId']." / ".$row['App_Clients_FullName']; ?></td>
                   <td></td>
                 </tr>
@@ -45,7 +45,7 @@ include_once("utils.php");
 				$result=mysql_query($sql);
 				?>
 				<tr>
-                  <td>Phone:</td>
+                  <td><b>Phone:</b></td>
                   <td><?php
 				  $i=1; 	
 				  while($row=mysql_fetch_array($result)){ 
@@ -61,7 +61,7 @@ include_once("utils.php");
 				$row=mysql_fetch_array($result);
 			   ?>
 				<tr>
-                  <td>Address:</td>
+                  <td><b>Address:</b></td>
                   <td><?php echo $row['App_Addresses_MainStreet']; ?></td>
                   <td><a href="#Cli_Address" data-toggle="modal" data-target="#Cli_Address">More</a></td>
                
@@ -72,7 +72,7 @@ include_once("utils.php");
 				$row=mysql_fetch_array($result);
 			   ?>
 				<tr>
-                  <td>Zone:</td>
+                  <td><b>City:</b></td>
                   <td><?php echo $row['App_Aux_text']; ?></td>
                   <td></td>
                  
@@ -83,7 +83,7 @@ include_once("utils.php");
 				$row=mysql_fetch_array($result);
 			   ?>
 				<tr>
-                  <td>Route</td>
+                  <td><b>Route:</b></td>
                   <td><?php echo $row['App_Aux_text']; ?></td>
                   <td></td>
                  
