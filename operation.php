@@ -409,7 +409,7 @@ include_once("utils.php");
                 </thead>
                 <tbody>
 				<?php
-			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]"";
+			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]" limit 30";
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				while($row=mysql_fetch_array($result)){ 
