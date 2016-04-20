@@ -821,7 +821,7 @@ include_once("utils.php");
 				  <td>$<?php echo number_format($row['App_Amortization_Capital'], 2, '.', '') ?></td>
                   <td>$<?php echo number_format($row['App_Amortization_Interest'], 2, '.', '') ?></td>
                   <td class="red">$53.00</td>
-                  <td>$<?php echo number_format($row['App_Amortization_Interest'], 2, '.', '') ?></td>
+                  <td>$<?php echo number_format($row['App_Amortization_FinInterest'], 2, '.', '') ?></td>
                   <td>$10.66</td>
                   <td>$10.72</td>
                   <td class="red">$83.97</td>
