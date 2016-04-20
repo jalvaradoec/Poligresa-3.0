@@ -259,11 +259,12 @@ include_once("utils.php");
                 </tr>
 				 <tr>
                   <td class="tbl_row">Previous Payment</td>
-                  <td class="tbl_row">$650.00 <hr /></td>          
+                  <td class="tbl_row">$650.00 </td>          
                 </tr>
 				
 				</tbody>
 	            </table>
+				<hr style="width: 365px;" />
 				 <table class="tbl_product">
                 <tbody>
 				 <tr>
@@ -276,11 +277,12 @@ include_once("utils.php");
                 </tr>
 				 <tr>
                   <td class="tbl_row">This Month Payments</td>
-                  <td class="tbl_row">$150.00 <hr /></td>          
+                  <td class="tbl_row">$150.00 </td>          
                 </tr>
 				
 		      </tbody>      
               </table>
+			  <hr style="width: 365px;" />
 			   <table class="tbl_product">
                 <tbody>
 				 <tr style="color: red;">
@@ -290,7 +292,7 @@ include_once("utils.php");
                 </tbody>
                
               </table>
-            
+            <hr style="width: 365px;" />
             </div>
             <!-- /.box-body -->
 		   </div>
