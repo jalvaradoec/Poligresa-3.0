@@ -1438,8 +1438,8 @@ $(document).on('change', '.chk_active', function () {
 </html>
 <?php
 if (isset($_POST['insert'])) {
-        //$sql = "insert into App_Users(App_Users_username,App_Users_password,App_Users_fullname,App_Users_email,App_Users_phone,App_Users_securitylevel,App_Users_supervisor,App_Users_status,App_Users_memo) values('" . $_POST['uname'] . "','" . $_POST['pwd'] . "','" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['phone'] . "','" . $_POST['slevel'] . "','" . $_POST['supervisor'] . "','" . $_POST['status'] . "','" . $_POST['memo'] . "')";
-        //mysql_query($sql);
+        $sql = "insert into App_Phones(App_Phones_PhoneNumber,App_Phones_PhoneType,App_Phones_PhoneStatus) values('" . $_POST['no'] . "','" . $_POST['type'] . "','" . $_POST['status'] . "')";
+        mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
 ?>
