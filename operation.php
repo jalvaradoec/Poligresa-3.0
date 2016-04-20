@@ -1445,7 +1445,7 @@ $(document).on('change', '.chk_active', function () {
 </html>
 <?php
 if (isset($_POST['insert'])) {
-        $sql = "insert into App_Phones(App_Phones_PhoneNumber,App_Phones_PhoneType,App_Phones_PhoneStatus,App_Phones_CreatedBy) values('" . $_POST['no'] . "','" . $_POST['type'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "')";
+        $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_PhoneType,App_Phones_PhoneStatus,App_Phones_CreatedBy) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['type'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
