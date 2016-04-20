@@ -436,8 +436,7 @@ include_once("utils.php");
                 <tr>
                   <th>Done</th>
                   <th>User</th>
-                  <th>Date</th>
-                  <th>Time</th>
+                  <th>Date/Time</th>
                   <th>Type</th>
                   <th>Obervations</th>
                   <th></th>
