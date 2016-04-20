@@ -423,7 +423,7 @@ include_once("utils.php");
 				
 				?>
                 <tr>
-				  <td><input type="checkbox" <?php echo $checked; ?> value="1" class="chk_active" id="<?php echo $value['App_Aux_ID']; ?>" /></td>
+				  <td><input type="checkbox" <?php echo $checked; ?> value="1" class="chk_active" id="<?php echo $row['App_Task_ID']; ?>" /></td>
                   <td><?php echo $row1['App_Users_fullname'] ?></td>
                   <td><?php echo $row['App_Task_DueDateTime'] ?></td>
                   <td><?php echo $row2['App_Aux_text'] ?></td>
