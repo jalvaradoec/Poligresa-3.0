@@ -165,9 +165,9 @@ include_once("utils.php");
                 <tr>
                   <td style="text-align: center;"><a href="#"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
                   <td style="text-align: right;">$ <?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>
-                  <td style="text-align: right;">$ <?php echo number_format($interst, 2, '.', ''); ?></td>
-                  <td style="text-align: right;">$ 500</td>
-                  <td style="text-align: right;">$ <?php echo $debt; ?></td>
+                  <td style="text-align: right;">$ <?php echo number_format($interst, 2, '.', '') ?></td>
+                  <td style="text-align: right;">$ 500.00</td>
+                  <td style="text-align: right;">$ <?php echo number_format($debt, 2, '.', '') ?></td>
                   <td style="text-align: center;"><?php echo $row1['App_Aux_text'] ?></td>
                   <td style="text-align: center;"><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_BankDueDate'])) ?>
 				  <td style="text-align: center;"><?php echo $row2['App_Aux_text'] ?></td>
@@ -178,10 +178,10 @@ include_once("utils.php");
                 <tfoot>
                         <tr>
                   <th></th>
-                  <th style="text-align: right;">$ <?php echo $totalcapital; ?></th>
-                  <th style="text-align: right;">$ <?php echo $totalinterst; ?></th>
-                  <th style="text-align: right;">$ <?php echo $totalpayment; ?></th>
-                  <th style="text-align: right;">$ <?php echo $totaldebt; ?></th>
+                  <th style="text-align: right;">$ <?php echo number_format($totalcapital, 2, '.', ''); ?></th>
+                  <th style="text-align: right;">$ <?php echo number_format($totalinterst, 2, '.', ''); ?></th>
+                  <th style="text-align: right;">$ <?php echo number_format($totalpayment, 2, '.', ''); ?></th>
+                  <th style="text-align: right;">$ <?php echo number_format($totaldebt, 2, '.', ''); ?></th>
                   <th></th>
                   <th></th>
                   <th></th>
