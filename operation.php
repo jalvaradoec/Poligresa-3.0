@@ -561,6 +561,7 @@ include_once("utils.php");
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Add New Number</h4>
         </div>
+		   <form role="form" action="" method="post">
 		<div class="modal-body">
             <div>
 			    <table class="deb_info_tbl">
@@ -595,8 +596,9 @@ include_once("utils.php");
 			 </div>
 			  
         </div>
+		</form>
         <div class="modal-footer">
-           <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i> Insert</button>
+           <button type="button" class="btn btn-info pull-left" name="insert"><i class="fa fa-plus"></i> Insert</button>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
       </div>
@@ -1433,3 +1435,10 @@ $(document).on('change', '.chk_active', function () {
 </script>
 </body>
 </html>
+<?php
+if (isset($_POST['insert'])) {
+        //$sql = "insert into App_Users(App_Users_username,App_Users_password,App_Users_fullname,App_Users_email,App_Users_phone,App_Users_securitylevel,App_Users_supervisor,App_Users_status,App_Users_memo) values('" . $_POST['uname'] . "','" . $_POST['pwd'] . "','" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['phone'] . "','" . $_POST['slevel'] . "','" . $_POST['supervisor'] . "','" . $_POST['status'] . "','" . $_POST['memo'] . "')";
+        //mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+?>
