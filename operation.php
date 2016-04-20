@@ -495,7 +495,7 @@ include_once("utils.php");
 				$sql1="select * from App_Aux aa INNER JOIN App_Phones ac ON aa.App_Aux_value = ac.App_Phones_PhoneType WHERE aa.App_Aux_field = 'PhoneType' and ac.App_Phones_DebtorID =".$row['App_Phones_DebtorID'];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
-				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Credits_AssignedTo"];
+				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Phones_CreatedBy"];
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
 		?>
@@ -566,6 +566,7 @@ include_once("utils.php");
             <div>
 			    <table class="deb_info_tbl">
                 <tbody>
+				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<tr>
                   <td class="deb_info_row">Number:</td>
                   <td class="deb_info_row1"><input type="text" name="no" /></td>          
@@ -1438,7 +1439,7 @@ $(document).on('change', '.chk_active', function () {
 </html>
 <?php
 if (isset($_POST['insert'])) {
-        $sql = "insert into App_Phones(App_Phones_PhoneNumber,App_Phones_PhoneType,App_Phones_PhoneStatus) values('" . $_POST['no'] . "','" . $_POST['type'] . "','" . $_POST['status'] . "')";
+        $sql = "insert into App_Phones(App_Phones_PhoneNumber,App_Phones_PhoneType,App_Phones_PhoneStatus,App_Phones_CreatedBy) values('" . $_POST['no'] . "','" . $_POST['type'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
