@@ -178,7 +178,7 @@ include_once("utils.php");
                 <tfoot>
                         <tr>
                   <th></th>
-                  <th align="right">$ <?php echo $totalcapital; ?></th>
+                  <th style="text-align: right;">$ <?php echo $totalcapital; ?></th>
                   <th align="right">$ <?php echo $totalinterst; ?></th>
                   <th align="right">$ <?php echo $totalpayment; ?></th>
                   <th align="right">$ <?php echo $totaldebt; ?></th>
