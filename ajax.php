@@ -135,7 +135,7 @@ elseif ($action == "updateTaskStatus") {
     {
         if(updateTaskStatus($taskId,$status)){
             $response["status"] = 1;
-            $response["message"] = "Task status has been updated to $status ";
+            $response["message"] = "Task status has been updated.";
         }else{
             $response["status"] = 0;
             $response["message"] = "Something went wrong while updating task status to $status ";
