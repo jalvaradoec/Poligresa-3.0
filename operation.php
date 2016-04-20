@@ -164,7 +164,7 @@ include_once("utils.php");
 			   ?>
                 <tr>
                   <td style="text-align: center;"><a href="#"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
-                  <td style="text-align: right;">$ <?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>
+                  <td style="text-align: right;">$ <?php echo $row['App_Credits_BankTotalCredit'] ?></td>
                   <td style="text-align: right;">$ <?php echo $interst; ?></td>
                   <td style="text-align: right;">$ 500</td>
                   <td style="text-align: right;">$ <?php echo $debt; ?></td>
