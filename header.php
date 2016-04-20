@@ -323,7 +323,7 @@ switch ($pageName) {
                   </div>
                 </div>
                 <!-- /.row -->
-              </li> -->
+              <!-- </li> -->
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
