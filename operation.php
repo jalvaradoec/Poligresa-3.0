@@ -634,7 +634,12 @@ include_once("utils.php");
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
-				
+				$sql1="select * from App_Aux aa INNER JOIN App_Addresses ac ON aa.App_Aux_value = ac.App_Addresses_AddressType WHERE aa.App_Aux_field = 'AddressType' and ac.App_Addresses_DebtorID =".$row['App_Addresses_DebtorID'];
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Addresses_CreatedBy"];
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
 		?>
         <div class="modal-body">
             <div>
@@ -667,13 +672,12 @@ include_once("utils.php");
                 <tbody>
                 <tr>
                   <td><?php echo $row['App_Addresses_MainStreet'] ?></td>
-                  <td><?php echo $row['App_Addresses_AddressType'] ?></td>
+                  <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Addresses_Id']; ?>" /></td>
-                  <td><?php echo $row['App_Addresses_Status'] ?></td>
-				  <td><?php echo $row['App_Addresses_CreatedBy'] ?></td>
+                  <td><?php if($row['App_Addresses_Status'] == 1){ echo "Active";}else{ echo "Deactive";} ?></td>
+                  <td><?php echo $row2['App_Users_fullname'] ?></td>
 				  <td><?php echo $row['App_Addresses_CreatedOn'] ?></td>
                   
-               
                 </tr>
 				  </tbody>
                
@@ -682,14 +686,71 @@ include_once("utils.php");
             </div>
         </div>
         <div class="modal-footer">
-           <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i> Add New Address</button>
-            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		<a href="#Cli_AddAddress" class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_AddAddress"><i class="fa fa-plus"></i> Add New Address</a>
+        <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </div>
       
     </div>
   </div>
   
+  <div class="modal fade" id="Cli_AddAddress" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add New Address</h4>
+        </div>
+		   <form role="form" action="" method="post">
+		<div class="modal-body">
+            <div>
+			    <table class="deb_info_tbl">
+                <tbody>
+				<?php
+				$sql="select * from App_Credits where App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				?>
+				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
+				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
+				<tr>
+                  <td class="deb_info_row">Address:</td>
+                  <td class="deb_info_row1"><input type="text" name="address" /></td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Type:</td>
+				  <td class="deb_info_row1"><input type="text" name="type" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Date:</td>
+				  <td class="deb_info_row1"><input type="date" name="date"><i class="fa fa-calendar"></i></td>          
+                </tr>				
+				<tr>
+                  <td class="deb_info_row">Confirmed:</td>
+				  <td class="deb_info_row1"><input type="checkbox" value="1" name="confirmed" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Status:</td>
+				  <td class="deb_info_row1"><input type="checkbox" value="1" name="status" /></td>          
+                </tr>	
+				
+			 </tbody> 
+		     </table> 
+			 </div>
+			  
+        </div>
+		
+        <div class="modal-footer">
+           <button type="submit" class="btn btn-info pull-left" name="insert1"><i class="fa fa-plus"></i> Insert</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		</div>
+		</form>
+      </div>
+      
+    </div>
+  </div>   
   
   <div class="modal fade" id="Oper_Amrotization" role="dialog">
 		<div class="modal-dialog">
@@ -1452,6 +1513,11 @@ $(document).on('change', '.chk_active', function () {
 <?php
 if (isset($_POST['insert'])) {
         $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_PhoneType,App_Phones_PhoneStatus,App_Phones_CreatedBy) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['type'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "')";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['insert1'])) {
+        $sql = "insert into App_Addresses(App_Addresses_DebtorID,App_Addresses_MainStreet,App_Addresses_AddressType,App_Addresses_Confirmed,App_Addresses_Status,App_Addresses_CreatedBy,App_Addresses_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['address'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . $_POST['date'] . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
