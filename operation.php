@@ -491,13 +491,7 @@ include_once("utils.php");
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
-				$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Aux aa INNER JOIN App_Phones ac ON aa.App_Aux_value = ac.App_Phones_PhoneType WHERE aa.App_Aux_field = 'PhoneType' and ac.App_Phones_DebtorID =".$row['App_Phones_DebtorID'];
-				$result1=mysql_query($sql1);
-				$row1=mysql_fetch_array($result1);
-				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Phones_CreatedBy"];
-				$result2=mysql_query($sql2);
-				$row2=mysql_fetch_array($result2);
+				
 		?>
         <div class="modal-body">
             <div>
@@ -532,6 +526,13 @@ include_once("utils.php");
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
+					$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
+				$sql1="select * from App_Aux aa INNER JOIN App_Phones ac ON aa.App_Aux_value = ac.App_Phones_PhoneType WHERE aa.App_Aux_field = 'PhoneType' and ac.App_Phones_DebtorID =".$row['App_Phones_DebtorID'];
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Phones_CreatedBy"];
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
 					?>
                 <tr>
                   <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
@@ -633,13 +634,7 @@ include_once("utils.php");
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Addresses ap ON ac.App_Credits_DebtorId = ap.App_Addresses_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
-				$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Aux aa INNER JOIN App_Addresses ac ON aa.App_Aux_value = ac.App_Addresses_AddressType WHERE aa.App_Aux_field = 'AddressType' and ac.App_Addresses_DebtorID =".$row['App_Addresses_DebtorID'];
-				$result1=mysql_query($sql1);
-				$row1=mysql_fetch_array($result1);
-				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Addresses_CreatedBy"];
-				$result2=mysql_query($sql2);
-				$row2=mysql_fetch_array($result2);
+				
 		?>
         <div class="modal-body">
             <div>
@@ -674,6 +669,13 @@ include_once("utils.php");
 				$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Addresses ap ON ac.App_Credits_DebtorId = ap.App_Addresses_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
+					$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
+				$sql1="select * from App_Aux aa INNER JOIN App_Addresses ac ON aa.App_Aux_value = ac.App_Addresses_AddressType WHERE aa.App_Aux_field = 'AddressType' and ac.App_Addresses_DebtorID =".$row['App_Addresses_DebtorID'];
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Addresses_CreatedBy"];
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
 				?>
                 <tr>
                   <td><?php echo $row['App_Addresses_MainStreet'] ?></td>
