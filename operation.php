@@ -767,23 +767,28 @@ include_once("utils.php");
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Tabla De Amortization-Banco Guayaqui</h4>
+          <h4 class="modal-title">Tabla de amortizacion</h4>
         </div>
+		<?php
+			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+		?>
         <div class="modal-body">
             <div>
 			    <table class="deb_info_tbl">
                 <tbody>
 				<tr>
                   <td class="deb_info_row">Number:</td>
-                  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">Cedula/RUC:</td>
-                  <td class="deb_info_row1">09123654599</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Amortization_DebtorID'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Operation:</td>
-				  <td class="deb_info_row1">98645636</td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'] ?></td>          
                 </tr>
 				
 			 </tbody> 
@@ -792,7 +797,7 @@ include_once("utils.php");
 		<div class="box-body table-responsive no-padding">
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
-                <tr>
+				<tr>
                   <th>Cuata</th>
                   <th>Capital</th>
                   <th>Interest</th>
@@ -803,8 +808,14 @@ include_once("utils.php");
                   <th>Total</th>
                   <th>F.vata</th> 
                 </tr>
-                </thead>
+				</thead>
                 <tbody>
+				<?php
+			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				while($row=mysql_fetch_array($result)){
+				?>
+                
                 <tr>
                   <td>15</td>
                   <td>$53.00</td>
@@ -816,95 +827,8 @@ include_once("utils.php");
                   <td class="red">$83.97</td>
                   <td>30/09/2014</td>
                 </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  <tr>
-                  <td>15</td>
-                  <td>$53.00</td>
-                  <td>$0.00</td>
-                  <td class="red">$53.00</td>
-                  <td>$9.59</td>
-                  <td>$10.66</td>
-                  <td>$10.72</td>
-                  <td class="red">$83.97</td>
-                  <td>30/09/2014</td>
-                </tr>
-				  </tbody>
+				<?php } ?>
+                </tbody>
                
               </table>
              
