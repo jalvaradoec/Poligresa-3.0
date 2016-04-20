@@ -163,14 +163,14 @@ include_once("utils.php");
 				$row2=mysql_fetch_array($result2);
 			   ?>
                 <tr>
-                  <td><a href="#"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
+                  <td style="text-align: center;"><a href="#"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
                   <td style="text-align: right;">$ <?php echo $row['App_Credits_BankTotalCredit'] ?></td>
                   <td style="text-align: right;">$ <?php echo $interst; ?></td>
                   <td style="text-align: right;">$ 500</td>
                   <td style="text-align: right;">$ <?php echo $debt; ?></td>
-                  <td><?php echo $row1['App_Aux_text'] ?></td>
-                  <td><?php echo $row['App_Credits_BankDueDate'] ?></td>
-                  <td><?php echo $row2['App_Aux_text'] ?></td>
+                  <td style="text-align: center;"><?php echo $row1['App_Aux_text'] ?></td>
+                  <td style="text-align: center;"><?php echo $row['App_Credits_BankDueDate'] ?></td>
+                  <td style="text-align: center;"><?php echo $row2['App_Aux_text'] ?></td>
                   
                 </tr>
 				<?php } ?>
