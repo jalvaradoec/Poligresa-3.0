@@ -244,7 +244,7 @@ include_once("utils.php");
                   <td class="tbl_row">$<?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>          
                 </tr>
 			     <tr>
-                  <td class="tbl_row">Intersts</td>
+                  <td class="tbl_row">+ Intersts</td>
 				 <td class="tbl_row">$<?php echo number_format($interst, 2, '.', '') ?></td>          
                 </tr>
 				
@@ -258,7 +258,7 @@ include_once("utils.php");
                   <td class="tbl_row">$<?php echo number_format($initialdebt, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
-                  <td class="tbl_row">Previous Payment</td>
+                  <td class="tbl_row">- Previous Payment</td>
                   <td class="tbl_row">$650.00 </td>          
                 </tr>
 				
@@ -272,7 +272,7 @@ include_once("utils.php");
                   <td class="tbl_row">$<?php echo number_format($debt, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
-                  <td class="tbl_row">Collection Fees</td>
+                  <td class="tbl_row">+ Collection Fees</td>
                   <td class="tbl_row">$<?php echo number_format($collectionfee, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
