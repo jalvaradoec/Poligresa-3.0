@@ -133,14 +133,14 @@ include_once("utils.php");
               <table class="table table-hover">
                 <thead>
                 <tr>
-                  <th>Operation</th>
-                  <th>Capital</th>
-                  <th>+ Intersts</th>
-                  <th>- Payment</th>
-                  <th>= debt</th>
-                  <th>Product</th>
-                  <th>Due Date</th>
-                  <th>Status</th>
+                  <th style="text-align: center;">Operation</th>
+                  <th style="text-align: center;">Capital</th>
+                  <th style="text-align: center;">+ Intersts</th>
+                  <th style="text-align: center;">- Payment</th>
+                  <th style="text-align: center;">= debt</th>
+                  <th style="text-align: center;">Product</th>
+                  <th style="text-align: center;">Due Date</th>
+                  <th style="text-align: center;">Status</th>
                   
                 </tr>
                 </thead>
