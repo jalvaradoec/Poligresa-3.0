@@ -245,7 +245,7 @@ include_once("utils.php");
                 </tr>
 			     <tr>
                   <td class="tbl_row">Intersts</td>
-				 <td class="tbl_row">$<?php echo number_format($interst, 2, '.', '') ?></td>          
+				 <td class="tbl_row">$<?php echo number_format($interst, 2, '.', '') ?><hr /></td>          
                 </tr>
 				
 			 </tbody> 
