@@ -545,7 +545,7 @@ include_once("utils.php");
             </div>
         </div>
         <div class="modal-footer">
-           <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i> Add New Number</button>
+           <a href="#Cli_Phones" class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_Phones"><i class="fa fa-plus"></i> Add New Number</a>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
       </div>
