@@ -545,14 +545,64 @@ include_once("utils.php");
             </div>
         </div>
         <div class="modal-footer">
-           <a href="#Cli_Phones" class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_Phones"><i class="fa fa-plus"></i> Add New Number</a>
+           <a href="#Cli_AddPhones" class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_AddPhones"><i class="fa fa-plus"></i> Add New Number</a>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
       </div>
       
     </div>
   </div>
+   <div class="modal fade" id="Cli_AddPhones" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add New Number</h4>
+        </div>
+		<div class="modal-body">
+            <div>
+			    <table class="deb_info_tbl">
+                <tbody>
+				<tr>
+                  <td class="deb_info_row">Number:</td>
+                  <td class="deb_info_row1"><input type="text" name="no" /></td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Ext.:</td>
+				  <td class="deb_info_row1"><input type="text" name="ext" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Type:</td>
+				  <td class="deb_info_row1"><input type="text" name="type" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Date:</td>
+				  <td class="deb_info_row1"><input type="date" name="date"><i class="fa fa-calendar"></i></td>          
+                </tr>				
+				<tr>
+                  <td class="deb_info_row">Confirmed:</td>
+				  <td class="deb_info_row1"><input type="checkbox" value="1" name="confirmed" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Status:</td>
+				  <td class="deb_info_row1"><input type="checkbox" value="1" name="status" /></td>          
+                </tr>	
+				
+			 </tbody> 
+		     </table> 
+			 </div>
+			  
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i> Insert</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		</div>
+      </div>
       
+    </div>
+  </div>   
   
      <div class="modal fade" id="Cli_Address" role="dialog">
 		<div class="modal-dialog">
