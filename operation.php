@@ -245,11 +245,12 @@ include_once("utils.php");
                 </tr>
 			     <tr>
                   <td class="tbl_row">Intersts</td>
-				 <td class="tbl_row">$<?php echo number_format($interst, 2, '.', '') ?><hr /></td>          
+				 <td class="tbl_row">$<?php echo number_format($interst, 2, '.', '') ?></td>          
                 </tr>
 				
 			 </tbody> 
 		     </table>
+			 <hr style="width: 365px;" />
 			  <table class="tbl_product">
                 <tbody>
 				 <tr>
