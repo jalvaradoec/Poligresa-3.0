@@ -527,6 +527,7 @@ include_once("utils.php");
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
+					$checked1 = ($row['App_Phones_PhoneStatus'] == 1) ? 'checked="checked' : '';
 				$sql1="select * from App_Aux aa INNER JOIN App_Phones ac ON aa.App_Aux_value = ac.App_Phones_PhoneType WHERE aa.App_Aux_field = 'PhoneType' and ac.App_Phones_DebtorID =".$row['App_Phones_DebtorID'];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
@@ -539,7 +540,7 @@ include_once("utils.php");
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
-				  <td><?php if($row['App_Phones_PhoneStatus'] == 1){ echo "Active";}else{ echo "Deactive";} ?></td>
+				  <td><input type="checkbox" <?php echo $checked1; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
                   <td><?php echo $row2['App_Users_fullname'] ?></td>
                   <td><?php echo $row['App_Phones_CreatedOn'] ?></td>
                
@@ -670,6 +671,7 @@ include_once("utils.php");
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
+					$checked1 = ($row['App_Addresses_Status'] == 1) ? 'checked="checked' : '';
 				$sql1="select * from App_Aux aa INNER JOIN App_Addresses ac ON aa.App_Aux_value = ac.App_Addresses_AddressType WHERE aa.App_Aux_field = 'AddressType' and ac.App_Addresses_DebtorID =".$row['App_Addresses_DebtorID'];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
@@ -681,7 +683,7 @@ include_once("utils.php");
                   <td><?php echo $row['App_Addresses_MainStreet'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Addresses_Id']; ?>" /></td>
-                  <td><?php if($row['App_Addresses_Status'] == 1){ echo "Active";}else{ echo "Deactive";} ?></td>
+                  <td><input type="checkbox" <?php echo $checked1; ?> value="1" id="<?php echo $row['App_Addresses_Id']; ?>" /></td>
                   <td><?php echo $row2['App_Users_fullname'] ?></td>
 				  <td><?php echo $row['App_Addresses_CreatedOn'] ?></td>
                   
@@ -1444,7 +1446,7 @@ $(document).on('change', '.chk_active', function () {
 </html>
 <?php
 if (isset($_POST['insert'])) {
-        $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_PhoneType,App_Phones_PhoneStatus,App_Phones_CreatedBy) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['type'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "')";
+        $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_Ext,App_Phones_PhoneType,App_Phones_Confirmed,App_Phones_PhoneStatus,App_Phones_CreatedBy,App_Phones_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['ext'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . $_POST['date'] . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
