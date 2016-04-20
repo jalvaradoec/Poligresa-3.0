@@ -169,7 +169,7 @@ include_once("utils.php");
                   <td style="text-align: right;">$ 500.00</td>
                   <td style="text-align: right;">$ <?php echo number_format($debt, 2, '.', '') ?></td>
                   <td style="text-align: center;"><?php echo $row1['App_Aux_text'] ?></td>
-                  <td style="text-align: center;"><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_BankDueDate'])) ?>
+                  <td style="text-align: center;"><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_BankDueDate'])) ?></td>
 				  <td style="text-align: center;"><?php echo $row2['App_Aux_text'] ?></td>
                   
                 </tr>
@@ -202,21 +202,37 @@ include_once("utils.php");
 			   <div class="box-header">
 			   <h3><u>Operation Details</u></h3>
 			   </div>
+			   <?php
+				$sql="select * from App_Credits WHERE App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				$interst=$row['App_Credits_BankTotalCredit']*0.18;
+				$initialdebt=$row['App_Credits_BankTotalCredit']+$interst;
+				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
+				$collectionfee=$initialdebt*0.2;
+				$currdebt=$debt+$collectionfee-150;
+				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_BankCreditType']."' and App_Aux_field = 'TypeID'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_Status']."' and App_Aux_field = 'OperationStatus'";
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
+			   ?>
             <div class="box-body no-padding">
                <table class="tbl_product">
                 <tbody>
                 <tr>
                   <td class="tbl_row">Product:</td>
-                  <td class="tbl_row">Amortization</td>
+                  <td class="tbl_row"><?php echo $row1['App_Aux_text'] ?></td>
                   <td><a href="#Oper_Amrotization" data-toggle="modal" data-target="#Oper_Amrotization" >Show table</a></td>
                 </tr>
 				<tr>
                   <td class="tbl_row">Due Date</td>
-                  <td class="tbl_row">31/08/2015</td>          
+                  <td class="tbl_row"><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_BankDueDate'])) ?></td>          
                 </tr>
 				<tr>
                   <td class="tbl_row">Status</td>
-                  <td class="tbl_row">En Convenio</td>          
+                  <td class="tbl_row"><?php echo $row2['App_Aux_text'] ?></td>          
                 </tr>
 			   </tbody>
 			   </table>
@@ -225,11 +241,11 @@ include_once("utils.php");
                 <tbody>
 				<tr>
                   <td class="tbl_row">Capital</td>
-                  <td class="tbl_row">$1200</td>          
+                  <td class="tbl_row">$<?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>          
                 </tr>
 			     <tr>
                   <td class="tbl_row">Intersts</td>
-				 <td class="tbl_row">$150(+)<hr /></td>          
+				 <td class="tbl_row">$<?php echo number_format($interst, 2, '.', '') ?><hr /></td>          
                 </tr>
 				
 			 </tbody> 
@@ -238,11 +254,11 @@ include_once("utils.php");
                 <tbody>
 				 <tr>
                   <td class="tbl_row">Intial Debt</td>
-                  <td class="tbl_row">$1350</td>          
+                  <td class="tbl_row">$<?php echo number_format($initialdebt, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
                   <td class="tbl_row">Previous Payment</td>
-                  <td class="tbl_row">$850(-) <hr /></td>          
+                  <td class="tbl_row">$650.00 <hr /></td>          
                 </tr>
 				
 				</tbody>
@@ -251,15 +267,15 @@ include_once("utils.php");
                 <tbody>
 				 <tr>
                   <td class="tbl_row">Debt</td>
-                  <td class="tbl_row">$500</td>          
+                  <td class="tbl_row">$<?php echo number_format($debt, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
                   <td class="tbl_row">Collection Fees</td>
-                  <td class="tbl_row">$300(+)</td>          
+                  <td class="tbl_row">$<?php echo number_format($collectionfee, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
                   <td class="tbl_row">This Month Payments</td>
-                  <td class="tbl_row">$0.00 <hr /></td>          
+                  <td class="tbl_row">$150.00 <hr /></td>          
                 </tr>
 				
 		      </tbody>      
@@ -268,7 +284,7 @@ include_once("utils.php");
                 <tbody>
 				 <tr style="color: red;">
                   <td class="tbl_row">Current Debt</td>
-                  <td class="tbl_row">$800.00</td>          
+                  <td class="tbl_row">$<?php echo number_format($currdebt, 2, '.', '') ?></td>          
                 </tr>
                 </tbody>
                
