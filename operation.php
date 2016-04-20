@@ -2,7 +2,11 @@
 include("header.php");
 include_once("utils.php");
 ?>
-
+<style>
+.textalign{
+	text-align:right;
+}
+</style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -223,15 +227,15 @@ include_once("utils.php");
                 <tbody>
                 <tr>
                   <td class="tbl_row">Product:</td>
-                  <td class="tbl_row"><a href="#Oper_Amrotization" data-toggle="modal" data-target="#Oper_Amrotization" ><?php echo $row1['App_Aux_text'] ?></a></td>
+                  <td class="tbl_row textalign"><a href="#Oper_Amrotization" data-toggle="modal" data-target="#Oper_Amrotization" ><?php echo $row1['App_Aux_text'] ?></a></td>
                 </tr>
 				<tr>
                   <td class="tbl_row">Due Date</td>
-                  <td class="tbl_row"><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_BankDueDate'])) ?></td>          
+                  <td class="tbl_row textalign"><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_BankDueDate'])) ?></td>          
                 </tr>
 				<tr>
                   <td class="tbl_row">Status</td>
-                  <td class="tbl_row"><?php echo $row2['App_Aux_text'] ?></td>          
+                  <td class="tbl_row textalign"><?php echo $row2['App_Aux_text'] ?></td>          
                 </tr>
 			   </tbody>
 			   </table>
@@ -240,11 +244,11 @@ include_once("utils.php");
                 <tbody>
 				<tr>
                   <td class="tbl_row">Capital</td>
-                  <td class="tbl_row">$<?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>          
+                  <td class="tbl_row textalign">$<?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>          
                 </tr>
 			     <tr>
                   <td class="tbl_row">+ Intersts</td>
-				 <td class="tbl_row">$<?php echo number_format($interst, 2, '.', '') ?></td>          
+				 <td class="tbl_row textalign">$<?php echo number_format($interst, 2, '.', '') ?></td>          
                 </tr>
 				
 			 </tbody> 
@@ -254,11 +258,11 @@ include_once("utils.php");
                 <tbody>
 				 <tr>
                   <td class="tbl_row">Intial Debt</td>
-                  <td class="tbl_row">$<?php echo number_format($initialdebt, 2, '.', '') ?></td>          
+                  <td class="tbl_row textalign">$<?php echo number_format($initialdebt, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
                   <td class="tbl_row">- Previous Payment</td>
-                  <td class="tbl_row">$650.00 </td>          
+                  <td class="tbl_row textalign">$650.00 </td>          
                 </tr>
 				
 				</tbody>
@@ -268,15 +272,15 @@ include_once("utils.php");
                 <tbody>
 				 <tr>
                   <td class="tbl_row">Debt</td>
-                  <td class="tbl_row">$<?php echo number_format($debt, 2, '.', '') ?></td>          
+                  <td class="tbl_row textalign">$<?php echo number_format($debt, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
                   <td class="tbl_row">+ Collection Fees</td>
-                  <td class="tbl_row">$<?php echo number_format($collectionfee, 2, '.', '') ?></td>          
+                  <td class="tbl_row textalign">$<?php echo number_format($collectionfee, 2, '.', '') ?></td>          
                 </tr>
 				 <tr>
                   <td class="tbl_row">This Month Payments</td>
-                  <td class="tbl_row">$150.00 </td>          
+                  <td class="tbl_row textalign">$150.00 </td>          
                 </tr>
 				
 		      </tbody>      
@@ -286,7 +290,7 @@ include_once("utils.php");
                 <tbody>
 				 <tr style="color: red;">
                   <td class="tbl_row">Current Debt</td>
-                  <td class="tbl_row">$<?php echo number_format($currdebt, 2, '.', '') ?></td>          
+                  <td class="tbl_row textalign">$<?php echo number_format($currdebt, 2, '.', '') ?></td>          
                 </tr>
                 </tbody>
                
@@ -487,6 +491,10 @@ include_once("utils.php");
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
+				$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
+				$sql1="select * from App_Aux aa INNER JOIN App_Clients ac ON aa.App_Aux_value = ac.App_Clients_Plaza INNER JOIN App_Credits ac1 ON ac1.App_Credits_DebtorId = ac.App_Clients_DebtorIdNumber WHERE aa.App_Aux_field = 'City' and ac1.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
 		?>
         <div class="modal-body">
             <div>
@@ -521,8 +529,8 @@ include_once("utils.php");
                   <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row['App_Phones_PhoneType'] ?></td>
-                  <td><?php echo $row['App_Phones_Confirmed'] ?></td>
-                  <td><?php echo $row['App_Phones_PhoneStatus'] ?></td>
+                  <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
+				  <td><?php echo $row['App_Phones_PhoneStatus'] ?></td>
                   <td><?php echo $row['App_Phones_CreatedBy'] ?></td>
                   <td><?php echo $row['App_Phones_CreatedOn'] ?></td>
                
@@ -556,6 +564,8 @@ include_once("utils.php");
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Addresses ap ON ac.App_Credits_DebtorId = ap.App_Addresses_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
+				$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
+				
 		?>
         <div class="modal-body">
             <div>
@@ -589,12 +599,11 @@ include_once("utils.php");
                 <tr>
                   <td><?php echo $row['App_Addresses_MainStreet'] ?></td>
                   <td><?php echo $row['App_Addresses_AddressType'] ?></td>
-                  <td><?php echo $row['App_Addresses_Confirmed'] ?></td>
+                  <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Addresses_Id']; ?>" /></td>
                   <td><?php echo $row['App_Addresses_Status'] ?></td>
 				  <td><?php echo $row['App_Addresses_CreatedBy'] ?></td>
 				  <td><?php echo $row['App_Addresses_CreatedOn'] ?></td>
                   
-				  
                
                 </tr>
 				  </tbody>
