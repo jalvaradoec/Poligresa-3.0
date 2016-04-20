@@ -169,8 +169,8 @@ include_once("utils.php");
                   <td style="text-align: right;">$ 500</td>
                   <td style="text-align: right;">$ <?php echo $debt; ?></td>
                   <td style="text-align: center;"><?php echo $row1['App_Aux_text'] ?></td>
-                  <td style="text-align: center;"><?php echo $row['App_Credits_BankDueDate'] ?></td>
-                  <td style="text-align: center;"><?php echo $row2['App_Aux_text'] ?></td>
+                  <td style="text-align: center;"><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_BankDueDate'])) ?>
+				  <td style="text-align: center;"><?php echo $row2['App_Aux_text'] ?></td>
                   
                 </tr>
 				<?php } ?>
