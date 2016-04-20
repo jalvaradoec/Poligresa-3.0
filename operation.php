@@ -598,7 +598,7 @@ include_once("utils.php");
         </div>
 		
         <div class="modal-footer">
-           <button type="button" class="btn btn-info pull-left" name="insert"><i class="fa fa-plus"></i> Insert</button>
+           <button type="submit" class="btn btn-info pull-left" name="insert"><i class="fa fa-plus"></i> Insert</button>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
 		</form>
