@@ -528,6 +528,11 @@ include_once("utils.php");
                 </tr>
                 </thead>
                 <tbody>
+				<?php
+			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				while($row=mysql_fetch_array($result)){
+					?>
                 <tr>
                   <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
@@ -538,6 +543,7 @@ include_once("utils.php");
                   <td><?php echo $row['App_Phones_CreatedOn'] ?></td>
                
                 </tr>
+				<?php } ?>
 				</tbody>
                
               </table>
