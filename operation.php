@@ -492,9 +492,12 @@ include_once("utils.php");
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Aux aa INNER JOIN App_Clients ac ON aa.App_Aux_value = ac.App_Clients_Plaza INNER JOIN App_Credits ac1 ON ac1.App_Credits_DebtorId = ac.App_Clients_DebtorIdNumber WHERE aa.App_Aux_field = 'City' and ac1.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$sql1="select * from App_Aux aa INNER JOIN App_Phones ac ON aa.App_Aux_value = ac.App_Phones_PhoneType WHERE aa.App_Aux_field = 'PhoneType' and ac.App_Phones_DebtorID =".$row['App_Phones_DebtorID'];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Credits_AssignedTo"];
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
 		?>
         <div class="modal-body">
             <div>
@@ -528,10 +531,10 @@ include_once("utils.php");
                 <tr>
                   <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
-                  <td><?php echo $row['App_Phones_PhoneType'] ?></td>
+                  <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
-				  <td><?php echo $row['App_Phones_PhoneStatus'] ?></td>
-                  <td><?php echo $row['App_Phones_CreatedBy'] ?></td>
+				  <td><?php if($row['App_Phones_PhoneStatus'] == 1){ echo "Active";}else{ echo "Deactive";} ?></td>
+                  <td><?php echo $row2['App_Users_fullname'] ?></td>
                   <td><?php echo $row['App_Phones_CreatedOn'] ?></td>
                
                 </tr>
