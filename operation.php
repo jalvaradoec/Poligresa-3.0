@@ -793,7 +793,7 @@ include_once("utils.php");
         </div>
 		<?php
 		echo $_POST["popupid"];
-		echo $_GET["operno"];
+		
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
@@ -812,7 +812,9 @@ include_once("utils.php");
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Operation:</td>
-				  <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'] ?></td>          
+				  <!-- <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'] ?></td>         -->
+				  <td class="deb_info_row1"><?php echo $_GET["operno"]; ?></td>          
+				  
                 </tr>
 				
 			 </tbody> 
