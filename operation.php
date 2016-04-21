@@ -960,14 +960,80 @@ include_once("utils.php");
 
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i> Add New Contacts</button>
-              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		<a href="#Cli_AddContact" class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_AddContact"><i class="fa fa-plus"></i> Add New Contacts</a>
+        <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </div>
       
     </div>
   </div>
-  
+  <div class="modal fade" id="Cli_AddContact" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add New Contact</h4>
+        </div>
+		   <form role="form" action="" method="post">
+		<div class="modal-body">
+            <div>
+			    <table class="deb_info_tbl">
+                <tbody>
+				<?php
+				$sql="select * from App_Credits where App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				?>
+				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
+				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
+				<tr>
+                  <td class="deb_info_row">Number:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="no" required/></td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Ext.:</td>
+				  <td class="deb_info_row1"><input type="text" name="ext" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Type:</td>
+				  <td class="deb_info_row1">
+				  <select class="form-control" name="type">
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'PhoneType'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
+				</td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Confirmed:</td>
+				  <td class="deb_info_row1"><input type="checkbox" value="1" name="confirmed" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Status:</td>
+				  <td class="deb_info_row1"><input type="checkbox" checked value="1" name="status" /></td>          
+                </tr>	
+				
+			 </tbody> 
+		     </table> 
+			 </div>
+			  
+        </div>
+		
+        <div class="modal-footer">
+           <button type="submit" class="btn btn-info pull-left" name="insert"><i class="fa fa-plus"></i> Insert</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		</div>
+		</form>
+      </div>
+      
+    </div>
+  </div>  
   
     <div class="modal fade" id="Oper_Transactions" role="dialog">
 	 <div class="modal-dialog">
