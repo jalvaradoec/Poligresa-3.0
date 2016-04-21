@@ -234,7 +234,7 @@ include_once("utils.php");
                 <tbody>
                 <tr>
                   <td class="tbl_row">Product:</td>
-                  <td class="tbl_row textalign"><a href="#Oper_Amrotization" data-toggle="modal" data-target="#Oper_Amrotization" ><?php echo $row1['App_Aux_text'] ?></a></td>
+                  <td class="tbl_row textalign"><a href="<?php echo $row['App_Credits_BankOperNumber'] ?>" data-toggle="modal" data-target="#Oper_Amrotization" ><?php echo $row1['App_Aux_text'] ?></a></td>
                 </tr>
 				<tr>
                   <td class="tbl_row">Due Date</td>
