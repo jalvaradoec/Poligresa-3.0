@@ -726,12 +726,22 @@ include_once("utils.php");
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
-                  <td class="deb_info_row">Address:</td>
-                  <td class="deb_info_row1"><input type="text" name="address" size="50"/></td>          
+                  <td class="deb_info_row">Address:<span color="red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="address" size="50" required/></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Type:</td>
-				  <td class="deb_info_row1"><input type="text" name="type" /></td>          
+				  <td class="deb_info_row1">
+				  <select class="form-control" name="type">
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AddressType'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
+				</td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">Date:</td>
@@ -743,7 +753,7 @@ include_once("utils.php");
                 </tr>
 				<tr>
                   <td class="deb_info_row">Status:</td>
-				  <td class="deb_info_row1"><input type="checkbox" value="1" name="status" /></td>          
+				  <td class="deb_info_row1"><input type="checkbox" checked value="1" name="status" /></td>          
                 </tr>	
 				
 			 </tbody> 
