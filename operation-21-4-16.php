@@ -810,7 +810,7 @@ include_once("utils.php");
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Operation:</td>
-				  <td class="deb_info_row1"><?php echo $_GET['operno'] ?></td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'] ?></td>          
                 </tr>
 				
 			 </tbody> 
