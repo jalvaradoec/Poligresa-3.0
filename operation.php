@@ -45,7 +45,7 @@ include_once("utils.php");
                   <td></td>
                 </tr>
 				<?php
-			   $sql="select * from App_Phones WHERE App_Phones_DebtorID ='".$row["App_Phones_DebtorID"]."' limit 3";
+			   $sql="select * from App_Phones WHERE App_Phones_DebtorID ='".$row["App_Credits_DebtorId"]."' limit 3";
 				$result=mysql_query($sql);
 				?>
 				<tr>
