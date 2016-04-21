@@ -155,7 +155,7 @@ include_once("utils.php");
 				while($row=mysql_fetch_array($result)){ 
 				$interst=$row['App_Credits_BankTotalCredit']*0.18;
 				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
-				$totalcapital.=$totalcapital+$row['App_Credits_BankTotalCredit'];
+				$totalcapital+=$totalcapital+$row['App_Credits_BankTotalCredit'];
 				$totalinterst.=$totalinterst+$interst;
 				$totalpayment.=$totalpayment+500;
 				$totaldebt.=$totaldebt+$debt;
