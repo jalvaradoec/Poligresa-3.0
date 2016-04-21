@@ -523,12 +523,12 @@ include_once("utils.php");
                 </thead>
                 <tbody>
 				<?php
-			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$sql="select * from App_Phones WHERE App_Phones_DebtorID=".$row['App_Phones_DebtorID'];
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
 					
-				$sql1="select * from App_Aux aa INNER JOIN App_Phones ac ON aa.App_Aux_value = ac.App_Phones_PhoneType WHERE aa.App_Aux_field = 'PhoneType' and ac.App_Phones_DebtorID =".$row['App_Phones_DebtorID'];
+				$sql1="select * from App_Aux aa INNER JOIN App_Phones ac ON aa.App_Aux_value = ac.App_Phones_PhoneType WHERE aa.App_Aux_field = 'PhoneType' and ac.App_Phones_PhoneType =".$row['App_Phones_PhoneType'];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Phones_CreatedBy"];
@@ -582,8 +582,8 @@ include_once("utils.php");
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
-                  <td class="deb_info_row">Number:</td>
-                  <td class="deb_info_row1"><input type="text" name="no" /></td>          
+                  <td class="deb_info_row">Number:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="no" required/></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Ext.:</td>
@@ -591,7 +591,17 @@ include_once("utils.php");
                 </tr>
 				<tr>
                   <td class="deb_info_row">Type:</td>
-				  <td class="deb_info_row1"><input type="text" name="type" /></td>          
+				  <td class="deb_info_row1">
+				  <select class="form-control" name="type">
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'PhoneType'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
+				</td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">Date:</td>
@@ -603,7 +613,7 @@ include_once("utils.php");
                 </tr>
 				<tr>
                   <td class="deb_info_row">Status:</td>
-				  <td class="deb_info_row1"><input type="checkbox" value="1" name="status" /></td>          
+				  <td class="deb_info_row1"><input type="checkbox" checked value="1" name="status" /></td>          
                 </tr>	
 				
 			 </tbody> 
