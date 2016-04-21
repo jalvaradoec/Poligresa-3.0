@@ -667,7 +667,7 @@ include_once("utils.php");
                 </thead>
                 <tbody>
 				<?php 
-				$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Addresses ap ON ac.App_Credits_DebtorId = ap.App_Addresses_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$sql="SELECT * FROM App_Addresses WHERE App_Addresses_DebtorID=".$row['App_Addresses_DebtorID'];
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
