@@ -1537,9 +1537,9 @@ $(document).on('change', '.chk_active', function () {
     });
 	$(document).on('click', 'a#popupbyid', function(){
     // get month
-	alert('hello');
+	
     var val = $(this).attr('data-id');
-
+	alert(val);
     $.post('operation.php', {popupid: val}, function(data){
         console.log(data);
     });
