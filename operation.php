@@ -45,7 +45,7 @@ include_once("utils.php");
                   <td></td>
                 </tr>
 				<?php
-			   $sql="select * from App_Credits ac INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE ap.App_Phones_PhoneStatus = 1 and ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' limit 3";
+			   $sql="select * from App_Phones WHERE App_Phones_DebtorID ='".$row["App_Phones_DebtorID"]."' limit 3";
 				$result=mysql_query($sql);
 				?>
 				<tr>
@@ -989,26 +989,34 @@ include_once("utils.php");
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
-                  <td class="deb_info_row">Number:<span style="color:red">*</span></td>
-                  <td class="deb_info_row1"><input type="text" name="no" required/></td>          
+                  <td class="deb_info_row">ID:</td>
+                  <td class="deb_info_row1"><input type="text" name="refid"/></td>          
                 </tr>
-			     <tr>
-                  <td class="deb_info_row">Ext.:</td>
-				  <td class="deb_info_row1"><input type="text" name="ext" /></td>          
+			    <tr>
+                  <td class="deb_info_row">Full Name:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="refid" required/></td>          
                 </tr>
-				<tr>
-                  <td class="deb_info_row">Type:</td>
+			    <tr>
+                  <td class="deb_info_row">Relation:</td>
 				  <td class="deb_info_row1">
 				  <select class="form-control" name="type">
-                    <option value=""> -----------Select Type-----------</option>
+                    <option value=""> -----------Select Relation-----------</option>
                     <?php
-					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'PhoneType'");
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'RefferenceType'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
                            echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
                     }
                     ?>
                 </select>
 				</td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Number:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="no" required/></td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Ext.:</td>
+				  <td class="deb_info_row1"><input type="text" name="ext" /></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">Confirmed:</td>
