@@ -159,7 +159,7 @@ include_once("utils.php");
 				$totalinterst+=number_format($interst, 2, '.', '');
 				$totalpayment+=500;
 				$totaldebt+=number_format($debt, 2, '.', '');
-				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_BankCreditType']."' and App_Aux_field = 'TypeID'";
+				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_BankCreditType']."' and App_Aux_field = 'BankProduct'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_Status']."' and App_Aux_field = 'OperationStatus'";
