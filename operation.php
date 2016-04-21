@@ -1,7 +1,7 @@
 <?php 
 include("header.php");
 include_once("utils.php");
-echo "hello".$_POST["popupid"];
+
 ?>
 <style>
 .textalign{
@@ -792,7 +792,7 @@ echo "hello".$_POST["popupid"];
           <h4 class="modal-title">Tabla de amortizacion</h4>
         </div>
 		<?php
-		echo "hello".$_POST["popupid"];
+		
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
@@ -1540,7 +1540,7 @@ $(document).on('change', '.chk_active', function () {
     // get month
 	
     var val = $(this).attr('data-id');
-	$.ajax({
+	$.post({
             type: "POST",
             url: "operation.php",
             data: {
