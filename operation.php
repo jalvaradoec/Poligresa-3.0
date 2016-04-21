@@ -1543,8 +1543,6 @@ $(document).on('change', '.chk_active', function () {
 	$.ajax({
             type: "POST",
             url: "operation.php",
-            dataType: "json",
-            async: true,
             data: {
                 popupid: val
                 
