@@ -805,7 +805,7 @@ include_once("utils.php");
                 </tr>
 				<tr>
                   <td class="deb_info_row">Cedula/RUC:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Amortization_DebtorID'] ?></td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Operation:</td>
