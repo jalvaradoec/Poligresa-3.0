@@ -202,7 +202,13 @@ include_once("utils.php");
           </div>
 		</section>
 		<?php
+		if(isset($_GET['operno'])){
 				$sql="select * from App_Credits WHERE App_Credits_BankOperNumber =".$_GET['operno'];
+		}
+		else
+		{
+			$sql="select * from App_Credits WHERE App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		}
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				$interst=$row['App_Credits_BankTotalCredit']*0.18;
