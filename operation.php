@@ -153,12 +153,12 @@ include_once("utils.php");
 			   $sql="select * from App_Credits WHERE App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){ 
-				$interst=$row['App_Credits_BankTotalCredit']*0.18;
-				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
-				$totalcapital+=$row['App_Credits_BankTotalCredit'];
-				$totalinterst+=$interst;
+				$interst=number_format($row['App_Credits_BankTotalCredit'], 2, '.', '')*0.18;
+				$debt=number_format($row['App_Credits_BankTotalCredit'], 2, '.', '')+number_format($interst, 2, '.', '')-500;
+				$totalcapital+=number_format($row['App_Credits_BankTotalCredit'], 2, '.', '');
+				$totalinterst+=number_format($interst, 2, '.', '');
 				$totalpayment+=500;
-				$totaldebt+=$debt;
+				$totaldebt+=number_format($debt, 2, '.', '');
 				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row['App_Credits_BankCreditType']."' and App_Aux_field = 'TypeID'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
