@@ -167,7 +167,7 @@ include_once("utils.php");
 				$row2=mysql_fetch_array($result2);
 			   ?>
                 <tr>
-                  <td style="text-align: center;"><a href="#operno<?php echo $row['App_Credits_BankOperNumber'] ?>"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
+                  <td style="text-align: center;"><a href="?operno=<?php echo $row['App_Credits_BankOperNumber'] ?>"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
                   <td style="text-align: right;">$ <?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>
                   <td style="text-align: right;">$ <?php echo number_format($interst, 2, '.', '') ?></td>
                   <td style="text-align: right;">$ 500.00</td>
@@ -201,13 +201,8 @@ include_once("utils.php");
           </div>
           </div>
 		</section>
-		<section class="col-lg-6">
-		   <div class="box box-primary"> 
-			   <div class="box-header">
-			   <h3><u>Operation Details</u></h3>
-			   </div>
-			   <?php
-				$sql="select * from App_Credits WHERE App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		<?php
+				$sql="select * from App_Credits WHERE App_Credits_BankOperNumber =".$_GET['operno'];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				$interst=$row['App_Credits_BankTotalCredit']*0.18;
@@ -222,7 +217,13 @@ include_once("utils.php");
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
 			   ?>
-            <div class="box-body no-padding" id="operno<?php echo $row['App_Credits_BankOperNumber'] ?>">
+		<section class="col-lg-6" id="operno<?php echo $row['App_Credits_BankOperNumber'] ?>">
+		   <div class="box box-primary"> 
+			   <div class="box-header">
+			   <h3><u>Operation Details</u></h3>
+			   </div>
+			   
+            <div class="box-body no-padding">
                <table class="tbl_product">
                 <tbody>
                 <tr>
