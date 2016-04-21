@@ -726,7 +726,7 @@ include_once("utils.php");
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
-                  <td class="deb_info_row">Address:<span color="red">*</span></td>
+                  <td class="deb_info_row">Address:<span style="color:red">*</span></td>
                   <td class="deb_info_row1"><input type="text" name="address" size="50" required/></td>          
                 </tr>
 			     <tr>
