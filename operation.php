@@ -672,7 +672,7 @@ include_once("utils.php");
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
 					
-				$sql1="select * from App_Aux aa INNER JOIN App_Addresses ac ON aa.App_Aux_value = ac.App_Addresses_AddressType WHERE aa.App_Aux_field = 'AddressType' and ac.App_Addresses_DebtorID =".$row['App_Addresses_DebtorID'];
+				$sql1="select * from App_Aux aa INNER JOIN App_Addresses ac ON aa.App_Aux_value = ac.App_Addresses_AddressType WHERE aa.App_Aux_field = 'AddressType' and ac.App_Addresses_AddressType =".$row['App_Addresses_AddressType'];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Addresses_CreatedBy"];
