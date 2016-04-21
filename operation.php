@@ -167,7 +167,7 @@ include_once("utils.php");
 				$row2=mysql_fetch_array($result2);
 			   ?>
                 <tr>
-                  <td style="text-align: center;"><a href="?operno=<?php echo $row['App_Credits_BankOperNumber'] ?>"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
+                  <td style="text-align: center;"><a href="#operno<?php echo $row['App_Credits_BankOperNumber'] ?>"><?php echo $row['App_Credits_BankOperNumber'] ?></a></td>
                   <td style="text-align: right;">$ <?php echo number_format($row['App_Credits_BankTotalCredit'], 2, '.', '') ?></td>
                   <td style="text-align: right;">$ <?php echo number_format($interst, 2, '.', '') ?></td>
                   <td style="text-align: right;">$ 500.00</td>
@@ -222,7 +222,7 @@ include_once("utils.php");
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
 			   ?>
-            <div class="box-body no-padding">
+            <div class="box-body no-padding" id="operno<?php echo $row['App_Credits_BankOperNumber'] ?>">
                <table class="tbl_product">
                 <tbody>
                 <tr>
