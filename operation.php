@@ -791,7 +791,7 @@ include_once("utils.php");
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Tabla de amortizacion</h4>
         </div>
-		<?php  $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Amortization_BankOperation =".$_GET["operno"];
+		<?php  $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ap.App_Amortization_BankOperation =".$_GET["operno"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 		?>
@@ -810,8 +810,8 @@ include_once("utils.php");
 			     <tr>
                   <td class="deb_info_row">Operation:</td>
 
-				  <!-- <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'] ?></td>         -->
-				  <td class="deb_info_row1"><?php echo $_GET["operno"]; ?></td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'] ?></td>   
+				  
                 </tr>
 				
 			 </tbody> 
