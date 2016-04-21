@@ -604,10 +604,6 @@ include_once("utils.php");
 				</td>          
                 </tr>
 				<tr>
-                  <td class="deb_info_row">Date:</td>
-				  <td class="deb_info_row1"><input type="date" name="date"><i class="fa fa-calendar"></i></td>          
-                </tr>				
-				<tr>
                   <td class="deb_info_row">Confirmed:</td>
 				  <td class="deb_info_row1"><input type="checkbox" value="1" name="confirmed" /></td>          
                 </tr>
@@ -753,10 +749,6 @@ include_once("utils.php");
                 </select>
 				</td>          
                 </tr>
-				<tr>
-                  <td class="deb_info_row">Date:</td>
-				  <td class="deb_info_row1"><input type="date" name="date"><i class="fa fa-calendar"></i></td>          
-                </tr>				
 				<tr>
                   <td class="deb_info_row">Confirmed:</td>
 				  <td class="deb_info_row1"><input type="checkbox" value="1" name="confirmed" /></td>          
@@ -1466,12 +1458,12 @@ $(document).on('change', '.chk_active', function () {
 </html>
 <?php
 if (isset($_POST['insert'])) {
-        $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_Ext,App_Phones_PhoneType,App_Phones_Confirmed,App_Phones_PhoneStatus,App_Phones_CreatedBy,App_Phones_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['ext'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . $_POST['date'] . "')";
+        $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_Ext,App_Phones_PhoneType,App_Phones_Confirmed,App_Phones_PhoneStatus,App_Phones_CreatedBy,App_Phones_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['ext'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['insert1'])) {
-        $sql = "insert into App_Addresses(App_Addresses_DebtorID,App_Addresses_MainStreet,App_Addresses_AddressType,App_Addresses_Confirmed,App_Addresses_Status,App_Addresses_CreatedBy,App_Addresses_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['address'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . $_POST['date'] . "')";
+        $sql = "insert into App_Addresses(App_Addresses_DebtorID,App_Addresses_MainStreet,App_Addresses_AddressType,App_Addresses_Confirmed,App_Addresses_Status,App_Addresses_CreatedBy,App_Addresses_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['address'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
