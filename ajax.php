@@ -71,7 +71,7 @@ if ($action == "retrieveOperators") {
     $condition = " WHERE App_Tasks_AssignedTo = ".$_SESSION["logged_in_user"]["App_Users_ID"]."";
 
     if(!empty($date))
-        $condition .= " AND DATE(App_Task_CreationDateTime) = '".$date."'";
+        $condition .= " AND DATE(App_Task_CreatedOn) = '".$date."'";
 
     $appTasks = getAppTasks($condition);
     $html = "";
@@ -88,7 +88,7 @@ if ($action == "retrieveOperators") {
             $html .= "<td><input id='".$value["App_Task_ID"]."' class='clsTaskStaus' type='checkbox' ".$checked." /> </td>";
             $html .= "<td>" . $value['App_Task_Description'] . "</td>";
             $html .= "<td>" . $value['App_Task_Operation'] . "</td>";
-            $html .= "<td>" . date(DEFAULT_DATE_FORMAT, strtotime($value['App_Task_CreationDateTime'])) . "</td>";
+            $html .= "<td>" . date(DEFAULT_DATE_FORMAT, strtotime($value['App_Task_CreatedOn'])) . "</td>";
             $html .= "</tr>";
         endforeach;
     }
