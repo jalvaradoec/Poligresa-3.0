@@ -791,7 +791,7 @@ include_once("utils.php");
           <h4 class="modal-title">Tabla de amortizacion</h4>
         </div>
 		<?php
-		echo $row['App_Credits_BankOperNumber']."hello";
+		echo $_POST['popupid']."hello";
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
