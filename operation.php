@@ -1,6 +1,7 @@
 <?php 
 include("header.php");
 include_once("utils.php");
+echo "hello".$_POST['popupid'];
 ?>
 <style>
 .textalign{
