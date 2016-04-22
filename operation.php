@@ -544,7 +544,7 @@ include_once("utils.php");
 				$row2=mysql_fetch_array($result2);
 					?>
                 <tr>
-                  <td><a href="#Cli_AddPhones" data-toggle="modal" data-target="#Cli_AddPhones"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
+                  <td><a href="#Cli_AddPhones" class="editphone" data-id="1" data-toggle="modal" data-target="#Cli_AddPhones"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
@@ -1544,21 +1544,9 @@ $(document).on('change', '.chk_active', function () {
             }
         });
     });
-	$(document).on('click', 'a#popupbyid', function(){
-    // get month
-	
-    var val = $(this).attr('data-id');
-	$.post({
-            type: "POST",
-            url: "operation.php",
-            data: {
-                popupid: val
-                
-            },
-            success: function (msg) {
-                //alert(msg.message);
-            }
-        });
+	$(document).on("click", ".editphone", function () {
+     var PhoneId = $(this).data('id');
+     alert(PhoneId);
 });
 </script>
 </body>
