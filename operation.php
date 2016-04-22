@@ -1749,7 +1749,7 @@ var month1 = month[d.getMonth()];
 var month2 = month1.substr(0, 3);
 var year=d.getFullYear();
 var date1=date2 + '-' + month2 + '-' + year;
-document.getElementById('dateselector').value = date1;
+// $('#dateselector').val(date1);
 var d1=d.getHours();
 var d2=(d.getMinutes()<10?'0':'') + d.getMinutes();
 var d3=d1+ ':' +d2;
@@ -1788,7 +1788,8 @@ if (isset($_POST['update1'])) {
 }
 if (isset($_POST['save'])) {
         $sql = "insert into App_Task(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
-        mysql_query($sql);
-        echo "<script>window.location.href='operation.php';</script>";
+        echo $sql;
+		mysql_query($sql);
+        //echo "<script>window.location.href='operation.php';</script>";
 }
 ?>
