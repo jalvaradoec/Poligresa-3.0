@@ -1427,12 +1427,7 @@ $(document).ready(function(){
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
-				 <div class="col-sm-6">
-				 <input type="time" class="form-control"> 
-                 </div >	
-				 <div class="col-sm-6">
 				 <input type="time" class="form-control">
-                 </div>
                  </div>
                 </div>
                  <div class="form-group">
