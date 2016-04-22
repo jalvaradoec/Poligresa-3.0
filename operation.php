@@ -892,7 +892,7 @@ $(document).ready(function(){
 				?>
 				<tr>
                   <td class="deb_info_row">Address:<span style="color:red">*</span></td>
-                  <td class="deb_info_row1"><input type="text" name="address" size="50" value="<?php echo row1['App_Addresses_MainStreet'] ?>" required /></td>          
+                  <td class="deb_info_row1"><input type="text" name="address" size="50" value="<?php echo $row1['App_Addresses_MainStreet'] ?>" required /></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Type:</td>
