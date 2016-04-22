@@ -1368,15 +1368,12 @@ $(document).ready(function(){
 				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
-				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
-				$result2=mysql_query($sql2);
-				$row2=mysql_fetch_array($result2);
 				
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:65%">  
-			    <table class="activity_tbl">
+			    <table class="activity_tbl" style="margin-top:0px">
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
@@ -1400,22 +1397,26 @@ $(document).ready(function(){
           </div>
 		<div class="box-body">
 		  <div class="col-lg-6">
-		     <form class="form-horizontal">
+		     <form class="form-horizontal" method="post" action="">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
                   <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                  </select>
+				  <select class="form-control" name="type" required>
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
                 </div>
                 </div>
 				<div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="datepicker" class="form-control" style="width: 120px;">
+                    <input type="date" id="datepicker" name="date" class="form-control" style="width: 120px;">
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1425,12 +1426,7 @@ $(document).ready(function(){
                  <div class="form-group">
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
-				
-				 <div class="col-sm-6">
-				 <input type="time" class="form-control"> 
-                 </div >	
-				 <div class="col-sm-6">
-				 <input type="time" class="form-control">
+				<input type="time" class="form-control">
                  </div>
                  </div>
                 </div>
