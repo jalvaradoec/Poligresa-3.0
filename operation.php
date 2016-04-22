@@ -1448,11 +1448,11 @@ $(document).ready(function(){
 		
 		  <div class="col-lg-6" style="margin-left:41px">    
 			   <h4>Task</h4>
-              <form class="form-horizontal">
+       
 			    <div class="form-group">
                   <textarea class="form-control" rows="5" name="task"></textarea>
                 </div>
-			  </form>	   
+		
 		  </div>
 		   
 		  </div>  
