@@ -20,6 +20,9 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 9) == "addressid") {
 				$('#Cli_EditAddress').modal('show');	
         }
+		else if (pathname.substr(1, 7) == "task_id") {
+				$('#Oper_EditACtivities').modal('show');	
+        }
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
@@ -472,7 +475,7 @@ $(document).ready(function(){
                   <td><?php echo $row['App_Task_DueDateTime'] ?></td>
                   <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row['App_Task_Description'] ?> </td>
-                  <td><a href="#">Details</a></td>
+                  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Task_ID'] ?>" class="editactivity">Details</a></td>
                 </tr>
 				<?php } ?>
 		   </tbody>
@@ -1369,10 +1372,138 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				
+				$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result3=mysql_query($sql3);
+				$row3=mysql_fetch_array($result3);
+				  
 		?>
 		<form class="form-horizontal" method="post" action="">
 		<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 		<input type="hidden" name="debtorid" value="<?php echo $row['App_Task_DebtorID'] ?>"/>
+		<div class="modal-body">   
+		 <div class="box-body  no-padding md_box">
+		   <div class="col-lg-7 actv" style="width:65%">  
+			    <table class="activity_tbl" style="margin-top:0px">
+                <tbody>
+				<tr>
+                  <td class="deb_info_row">ID:</td>
+                  <td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Name:</td>
+				  <td class="deb_info_row1"><?php echo $row3['App_Clients_FullName'] ?></td>          
+                </tr>
+				
+			 </tbody> 
+		     </table>
+			 </div>
+			 <div class="col-lg-4">
+			 <div class="activity_head1" style="margin-left:0px;color:gray">
+			 <h5><?php echo $row1['App_Users_fullname'] ?></h5>
+			 <h5><?php echo $row['App_Task_CreatedOn'] ?></h5>
+			 
+			 </div>
+			 </div>
+          </div>
+		  
+		<div class="box-body">
+		  <div class="col-lg-6" style="margin-left:-41px">
+		     
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+                  <div class="col-sm-8">
+				  <select class="form-control" name="type" style="width:122%" required>
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
+                </div>
+                </div>
+				<div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                    <input type="date" id="dateselector" name="date" class="form-control" style="width: 150px;" required>
+				   <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+					</div>
+                  </div>
+                </div>
+                 <div class="form-group">
+                 <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
+				 <div class="col-sm-8">
+				
+				 <input type="time" class="form-control" id="timeselector" name="time" required>
+                 </div>
+                </div>
+                 <div class="form-group">
+			  <label for="inputPassword3" class="col-sm-4 control-label">Status</label>
+			  <div class="col-sm-8">
+			   <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="status" value="1">
+                       Done
+                    </label>
+                  </div>
+              </div>
+              </div>
+            
+		  </div>
+		
+		  <div class="col-lg-6" style="margin-left:41px">    
+			   <h4>Task</h4>
+       
+			    <div class="form-group">
+                  <textarea class="form-control" rows="5" name="task" required ></textarea>
+                </div>
+		
+		  </div>
+		   <div class="col-lg-12">    
+			   <h4>Outcome</h4>
+       
+			    <div class="form-group">
+                  <textarea class="form-control" rows="3" name="outcome" ></textarea>
+                </div>
+		
+		  </div>
+		  </div>  
+		  
+     
+         </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+        </div>
+      </form>
+	  </div>
+      
+    </div>
+  </div>
+   <div class="modal fade" id="Oper_EditACtivities" role="dialog">
+	 <div class="modal-dialog">
+		 
+     <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Activity</h4>
+        </div>
+		<?php
+			    $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
+				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				
+		?>
+		<form class="form-horizontal" method="post" action="">
 		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:65%">  
@@ -1469,7 +1600,7 @@ $(document).ready(function(){
      
          </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
+        <button type="submit" class="btn btn-info pull-left" name="updateactivity"><i class="fa fa-plus"></i>Update</button>
               <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </form>
@@ -1477,7 +1608,6 @@ $(document).ready(function(){
       
     </div>
   </div>
-  
   
   
   
@@ -1727,6 +1857,12 @@ $(document).on('change', '.chk_active', function () {
 $(document).on("click", ".editaddress", function () {
      var AddressId = $(this).data('id');
      window.location.href='operation.php?addressid='+AddressId;
+	 
+});
+$(document).on("click", ".editactivity", function () {
+     var TaskId = $(this).data('id');
+     //ChangeUrl('Poligresa3.0', 'operation.php?phoneid='+PhoneId);
+	 window.location.href='operation.php?task_id='+TaskId;
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
