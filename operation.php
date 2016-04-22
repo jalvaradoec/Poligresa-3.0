@@ -1370,6 +1370,7 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				
 		?>
+		<form class="form-horizontal" method="post" action="">
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:65%">  
@@ -1395,9 +1396,10 @@ $(document).ready(function(){
 			 </div>
 			 </div>
           </div>
+		  
 		<div class="box-body">
 		  <div class="col-lg-6" style="margin-left:-41px">
-		     <form class="form-horizontal" method="post" action="">
+		     
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
                   <div class="col-sm-8">
@@ -1416,7 +1418,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="datepicker" name="date" class="form-control dateselector" style="width: 150px;" required>
+                    <input type="date" id="datepicker" name="date" class="form-control" style="width: 150px;" required>
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1427,7 +1429,7 @@ $(document).ready(function(){
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
-				 <input type="time" class="form-control timeselector" name="time" required>
+				 <input type="time" class="form-control" name="time" required>
                  </div>
                 </div>
                  <div class="form-group">
@@ -1441,7 +1443,7 @@ $(document).ready(function(){
                   </div>
               </div>
               </div>
-            </form>
+            
 		  </div>
 		
 		  <div class="col-lg-6" style="margin-left:41px">    
@@ -1461,7 +1463,8 @@ $(document).ready(function(){
         <button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
               <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
-      </div>
+      </form>
+	  </div>
       
     </div>
   </div>
