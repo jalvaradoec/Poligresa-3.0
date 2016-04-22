@@ -17,13 +17,13 @@ $(document).ready(function(){
 	 var pathname = window.location.search;
 	if (pathname == "") {
         } else if (pathname.substr(1, 7) == "phoneid") {
-				$('#Cli_EditPhones').modal('show');	
+				
 				$('#updateclass').click(function () {
     if (this.id == 'updateclass') {
-        alert('Print the Form First!');
+        $('#Cli_EditPhones').modal('hide');					
     }
-    else if (this.id == 'Print') {
-        //Continue Form action.
+    else {
+        $('#Cli_EditPhones').modal('show');	
     }
 });
         }
