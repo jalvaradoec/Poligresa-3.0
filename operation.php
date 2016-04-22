@@ -1365,7 +1365,7 @@ $(document).ready(function(){
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Task_CreatedBy"];
+				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
@@ -1373,7 +1373,7 @@ $(document).ready(function(){
 				$row2=mysql_fetch_array($result2);
 				$timestamp = strtotime($row['App_Task_CreatedOn']);
 				$date = date('d-m-Y', $timestamp);
-				$time = date('Gi.s', $timestamp);
+				$time = date('H:i', $timestamp);
 				
 		?>
         <div class="modal-body">   
