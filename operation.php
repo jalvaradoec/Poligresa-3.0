@@ -555,7 +555,7 @@ $(document).ready(function(){
 				$row2=mysql_fetch_array($result2);
 					?>
                 <tr>
-                  <td><a href="#Cli_AddPhones" class="editphone" data-id="<?php echo $row['App_Phones_ID'] ?>" data-toggle="modal"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
+                  <td><a class="editphone" data-id="<?php echo $row['App_Phones_ID'] ?>" data-toggle="modal"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
