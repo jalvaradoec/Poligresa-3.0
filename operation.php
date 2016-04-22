@@ -8,10 +8,6 @@ include_once("utils.php");
 	text-align:right;
 }
 </style>
-<script>
-alert('hello');
-$('#Cli_AddPhones').show();
-</script>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
