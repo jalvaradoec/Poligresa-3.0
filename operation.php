@@ -1546,8 +1546,16 @@ $(document).on('change', '.chk_active', function () {
     });
 	$(document).on("click", ".editphone", function () {
      var PhoneId = $(this).data('id');
-     alert(PhoneId);
+     ChangeUrl('Page1', 'operation.php?id=1');
 });
+function ChangeUrl(title, url) {
+    if (typeof (history.pushState) != "undefined") {
+        var obj = { Title: title, Url: url };
+        history.pushState(obj, obj.Title, obj.Url);
+    } else {
+        alert("Browser does not support HTML5.");
+    }
+}
 </script>
 </body>
 </html>
