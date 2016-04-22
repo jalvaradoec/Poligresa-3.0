@@ -18,9 +18,11 @@ $(document).ready(function(){
 	if (pathname == "") {
         } else if (pathname.substr(1, 7) == "phoneid") {
 				$('#Cli_EditPhones').modal('show');	
-				document.getElementById('updateclass').onclick = function() {
-   alert("button was clicked");
-}​;​
+				$('#updateclass').click(function () {
+    
+        alert('Print the Form First!');
+   
+});
         }
 });
 </script>
