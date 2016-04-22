@@ -1364,7 +1364,6 @@ $(document).ready(function(){
 			    $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
-				while($row=mysql_fetch_array($result)){ 
 				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
 				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Task_CreatedBy"];
 				$result1=mysql_query($sql1);
@@ -1375,7 +1374,7 @@ $(document).ready(function(){
 				$timestamp = strtotime($row['App_Task_CreatedOn']);
 				$date = date('d-m-Y', $timestamp);
 				$time = date('Gi.s', $timestamp);
-				}
+				
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
