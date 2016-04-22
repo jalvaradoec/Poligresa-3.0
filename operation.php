@@ -12,7 +12,8 @@ include_once("utils.php");
 $(document).ready(function(){
 	//var phone_id = getParameterByName('phoneid'); 
 	//alert(phone_id);
-	alert('hello');
+	 var pathname = window.location.search;
+	alert(pathname);
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
