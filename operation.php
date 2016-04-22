@@ -1429,7 +1429,7 @@ $(document).ready(function(){
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
-				 <input type="time" class="form-control" name="time" required>
+				 <input type="time" class="form-control timeselector" name="time" required>
                  </div>
                 </div>
                  <div class="form-group">
@@ -1721,6 +1721,7 @@ $(document).on("click", ".editaddress", function () {
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
+document.getElementById("timeselector").defaultValue = new Date('H:i');
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
