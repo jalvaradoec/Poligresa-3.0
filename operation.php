@@ -1429,7 +1429,7 @@ $(document).ready(function(){
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
-				 <input type="time" class="form-control timeselector" name="time" required>
+				 <input type="time" class="form-control" id="timeselector" name="time" required>
                  </div>
                 </div>
                  <div class="form-group">
