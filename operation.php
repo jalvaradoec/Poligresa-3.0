@@ -544,7 +544,7 @@ include_once("utils.php");
 				$row2=mysql_fetch_array($result2);
 					?>
                 <tr>
-                  <td><a href="#Cli_AddPhones" class="editphone" data-id="2" data-toggle="modal" data-target="#Cli_AddPhones"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
+                  <td><a href="#Cli_AddPhones" class="editphone" data-id="<?php echo $row['App_Phones_ID'] ?>" data-toggle="modal" data-target="#Cli_AddPhones"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
@@ -583,6 +583,17 @@ include_once("utils.php");
 			    <table class="deb_info_tbl">
                 <tbody>
 				<?php
+				$sql1="select * from App_Phones where App_Phones_ID='".$_GET['phoneid']."'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$checked = ($row1['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
+				if(isset($_GET['phoneid'])){
+						$checked1 = ($row1['App_Phones_PhoneStatus'] == 1) ? 'checked="checked' : '';
+				}
+				else
+				{
+					$checked1 = 'checked="checked';
+				}
 				$sql="select * from App_Credits where App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
@@ -591,11 +602,11 @@ include_once("utils.php");
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
                   <td class="deb_info_row">Number:<span style="color:red">*</span></td>
-                  <td class="deb_info_row1"><input type="text" name="no" required/></td>          
+                  <td class="deb_info_row1"><input type="text" name="no" value="<?php echo $row1['App_Phones_PhoneNumber'] ?>" required /></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Ext.:</td>
-				  <td class="deb_info_row1"><input type="text" name="ext" /></td>          
+				  <td class="deb_info_row1"><input type="text" name="ext" value="<?php echo $row1['App_Phones_Ext'] ?>" /></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">Type:</td>
@@ -605,7 +616,14 @@ include_once("utils.php");
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'PhoneType'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
-                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+						if($row1['App_Phones_PhoneType']==$r['App_Aux_value']){
+							$selected1= 'selected="selected"';
+						}
+						else
+						{
+							$selected1='';
+						}
+                           echo "<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
                     }
                     ?>
                 </select>
@@ -613,11 +631,11 @@ include_once("utils.php");
                 </tr>
 				<tr>
                   <td class="deb_info_row">Confirmed:</td>
-				  <td class="deb_info_row1"><input type="checkbox" value="1" name="confirmed" /></td>          
+				  <td class="deb_info_row1"><input type="checkbox" <?php echo $checked; ?> value="1" name="confirmed" /></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">Status:</td>
-				  <td class="deb_info_row1"><input type="checkbox" checked value="1" name="status" /></td>          
+				  <td class="deb_info_row1"><input type="checkbox" <?php echo $checked1; ?> value="1" name="status" /></td>          
                 </tr>	
 				
 			 </tbody> 
@@ -1546,7 +1564,7 @@ $(document).on('change', '.chk_active', function () {
     });
 	$(document).on("click", ".editphone", function () {
      var PhoneId = $(this).data('id');
-     ChangeUrl('Poligresa3.0', 'operation.php?id='+PhoneId);
+     ChangeUrl('Poligresa3.0', 'operation.php?phoneid='+PhoneId);
 });
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
