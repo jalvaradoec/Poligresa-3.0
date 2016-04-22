@@ -1396,12 +1396,12 @@ $(document).ready(function(){
 			 </div>
           </div>
 		<div class="box-body">
-		  <div class="col-lg-6">
+		  <div class="col-lg-6" style="margin-left:-41px">
 		     <form class="form-horizontal" method="post" action="">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="type" required>
+				  <select class="form-control" name="type" style="width:122%" required>
                     <option value=""> -----------Select Type-----------</option>
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
@@ -1416,7 +1416,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="datepicker" name="date" class="form-control" style="width: 120px;">
+                    <input type="date" id="datepicker" name="date" class="form-control" style="width: 150px;">
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1444,7 +1444,7 @@ $(document).ready(function(){
             </form>
 		  </div>
 		
-		  <div class="col-lg-6">    
+		  <div class="col-lg-6" style="margin-left:41px">    
 			   <h4>Task</h4>
               <form class="form-horizontal">
 			    <div class="form-group">
