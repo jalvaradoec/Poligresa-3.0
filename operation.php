@@ -544,7 +544,7 @@ include_once("utils.php");
 				$row2=mysql_fetch_array($result2);
 					?>
                 <tr>
-                  <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
+                  <td><a href="#Cli_AddPhones" class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_AddPhones"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
