@@ -15,7 +15,7 @@ $(document).ready(function(){
 	 var pathname = window.location.search;
 	if (pathname == "") {
         } else if (pathname.substr(1, 7) == "phoneid") {
-			alert(pathname.substr(1, 7));
+				$('#Cli_AddPhones').modal('show');	
         }
 });
 </script>
@@ -1577,7 +1577,7 @@ $(document).on('change', '.chk_active', function () {
      var PhoneId = $(this).data('id');
      //ChangeUrl('Poligresa3.0', 'operation.php?phoneid='+PhoneId);
 	 window.location.href='operation.php?phoneid='+PhoneId;
-	 //$('#Cli_AddPhones').modal('show');
+	 
 });
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
