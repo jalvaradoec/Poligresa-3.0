@@ -12,6 +12,10 @@ include_once("utils.php");
 $(document).ready(function(){
 	//var phone_id = getParameterByName('phoneid'); 
 	//alert(phone_id);
+	document.getElementById('updateclass').onclick = function() {
+   alert("button was clicked");
+}​;​
+
 	 var pathname = window.location.search;
 	if (pathname == "") {
         } else if (pathname.substr(1, 7) == "phoneid") {
@@ -712,7 +716,7 @@ $(document).ready(function(){
         </div>
 		
         <div class="modal-footer">
-		   <button type="submit" class="btn btn-info pull-left" name="update"><i class="fa fa-plus"></i> Update</button>
+		   <button type="submit" class="btn btn-info pull-left" name="update" id="updateclass"><i class="fa fa-plus"></i> Update</button>
 		    <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
 		</form>
