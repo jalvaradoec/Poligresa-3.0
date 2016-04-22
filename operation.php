@@ -9,6 +9,7 @@ include_once("utils.php");
 }
 </style>
 <script>
+alert('hello');
 $('#Cli_AddPhones').show();
 </script>
   <!-- Content Wrapper. Contains page content -->
