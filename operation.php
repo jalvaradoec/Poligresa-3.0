@@ -15,7 +15,7 @@ $(document).ready(function(){
 	 var pathname = window.location.search;
 	if (pathname == "") {
         } else if (pathname.substr(1, 7) == "phoneid") {
-				$('#Cli_EditPhones').modal('show');	
+				$('#Cli_AddPhones').modal('show');	
         }
 });
 </script>
