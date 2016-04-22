@@ -1731,10 +1731,15 @@ $(document).on("click", ".editaddress", function () {
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
 var d = new Date(); 
+var date2=d.getDate();
+var month = d.toLocaleString(locale, { month: "short" });
+var year=d.getFullYear();
+var date1=date2 + '-' + month + '-' + year;
+alert(date1);
+ $('#dateselector').val(date1);
 var d1=d.getHours();
 var d2=(d.getMinutes()<10?'0':'') + d.getMinutes();
 var d3=d1+ ':' +d2;
-alert(d3);
 document.getElementById("timeselector").defaultValue = d3;
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
