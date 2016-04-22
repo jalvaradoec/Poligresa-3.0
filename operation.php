@@ -13,7 +13,10 @@ $(document).ready(function(){
 	//var phone_id = getParameterByName('phoneid'); 
 	//alert(phone_id);
 	 var pathname = window.location.search;
-	alert(pathname);
+	if (pathname == "") {
+        } else if (pathname.substr(1, 7) == "phoneid") {
+			alert(pathname.substr(1, 7));
+        }
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
