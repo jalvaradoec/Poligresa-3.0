@@ -19,10 +19,8 @@ $(document).ready(function(){
         } else if (pathname.substr(1, 7) == "phoneid") {
 				$('#Cli_EditPhones').modal('show');	
 				$('#updateclass').click(function () {
-    
-        alert('Print the Form First!');
-   
-});
+					$('#Cli_EditPhones').modal('hide');					
+				});
         }
 });
 </script>
