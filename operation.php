@@ -1371,7 +1371,9 @@ $(document).ready(function(){
 				
 		?>
 		<form class="form-horizontal" method="post" action="">
-        <div class="modal-body">   
+		<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
+		<input type="hidden" name="debtorid" value="<?php echo $row['App_Task_DebtorID'] ?>"/>
+		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:65%">  
 			    <table class="activity_tbl" style="margin-top:0px">
@@ -1458,7 +1460,7 @@ $(document).ready(function(){
 			   <h4>Outcome</h4>
        
 			    <div class="form-group">
-                  <textarea class="form-control" rows="5" name="outcome" ></textarea>
+                  <textarea class="form-control" rows="3" name="outcome" ></textarea>
                 </div>
 		
 		  </div>
@@ -1760,6 +1762,11 @@ if (isset($_POST['insert1'])) {
 }
 if (isset($_POST['update1'])) {
         $sql = "update App_Addresses set App_Addresses_MainStreet='" . $_POST['address'] . "',App_Addresses_AddressType='" . $_POST['type'] . "',App_Addresses_Confirmed='" . $_POST['confirmed'] . "',App_Addresses_Status='" . $_POST['status'] . "' where App_Addresses_Id='" . $_GET['addressid'] . "'";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['save'])) {
+        $sql = "insert into App_Task(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
