@@ -583,7 +583,7 @@ include_once("utils.php");
 			    <table class="deb_info_tbl">
                 <tbody>
 				<?php
-				echo "hello".$_GET['phoneid'];
+				echo "hello".$_REQUEST['phoneid'];
 				$sql1="select * from App_Phones where App_Phones_ID='".$_GET['phoneid']."'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
