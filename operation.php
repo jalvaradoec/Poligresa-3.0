@@ -1375,7 +1375,7 @@ $(document).ready(function(){
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv">  
+		   <div class="col-lg-7 actv" style="width:65%">  
 			    <table class="activity_tbl">
                 <tbody>
 				<tr>
@@ -1391,7 +1391,7 @@ $(document).ready(function(){
 		     </table>
 			 </div>
 			 <div class="col-lg-4">
-			 <div class="activity_head1">
+			 <div class="activity_head1" style="margin-left:0px;color:gray">
 			 <h4><?php echo $row1['App_Users_fullname'] ?></h4>
 			 <h4><?php echo $row['App_Task_CreatedOn'] ?></h4>
 			 
