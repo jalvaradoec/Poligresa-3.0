@@ -8,6 +8,12 @@ include_once("utils.php");
 	text-align:right;
 }
 </style>
+<script>
+$(document).ready(function(){
+	var phone_id = getParameterByName('phoneid'); 
+	alert(phone_id);
+});
+</script>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -1564,7 +1570,9 @@ $(document).on('change', '.chk_active', function () {
     });
 	$(document).on("click", ".editphone", function () {
      var PhoneId = $(this).data('id');
-     ChangeUrl('Poligresa3.0', 'operation.php?phoneid='+PhoneId);
+     //ChangeUrl('Poligresa3.0', 'operation.php?phoneid='+PhoneId);
+	 window.location.href='operation.php?phoneid='+PhoneId;
+	 //$('#Cli_AddPhones').modal('show');
 });
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
