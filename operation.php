@@ -1360,15 +1360,28 @@ $(document).ready(function(){
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Activity</h4>
         </div>
+		<?php
+			    $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result=mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				while($row=mysql_fetch_array($result)){ 
+				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
+				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Task_CreatedBy"];
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
+				$timestamp = strtotime($row['App_Task_CreatedOn']);
+				$date = date('d-m-Y', $timestamp);
+				$time = date('Gi.s', $timestamp);
+
+		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv">  
 			    <table class="activity_tbl">
                 <tbody>
-				<tr>
-                  <td class="deb_info_row">Operation:</td>
-                  <td class="deb_info_row1">23654599</td>          
-                </tr>
 				<tr>
                   <td class="deb_info_row">ID:</td>
                   <td class="deb_info_row1">09123654599</td>          
@@ -1383,9 +1396,9 @@ $(document).ready(function(){
 			 </div>
 			 <div class="col-lg-4">
 			 <div class="activity_head1">
-			 <h4>Vgeruva</h4>
-			 <h4>04/04/2016</h4>
-			 <h4>14:30</h4>
+			 <h4><?php echo $row1['App_Users_fullname'] ?></h4>
+			 <h4><?php echo $date; ?></h4>
+			 <h4><?php echo $time; ?></h4>
 			 
 			 </div>
 			 </div>
