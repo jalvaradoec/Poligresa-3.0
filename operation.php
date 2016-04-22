@@ -1717,7 +1717,7 @@ $(document).on("click", ".editaddress", function () {
      window.location.href='operation.php?addressid='+AddressId;
 	 
 });
-$( ".dateselector" ).datepicker( "setDate", new Date());
+//$( ".dateselector" ).datepicker( "setDate", new Date());
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
