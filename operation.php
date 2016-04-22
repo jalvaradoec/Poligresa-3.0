@@ -1392,8 +1392,8 @@ $(document).ready(function(){
 			 </div>
 			 <div class="col-lg-4">
 			 <div class="activity_head1" style="margin-left:0px;color:gray">
-			 <h4><?php echo $row1['App_Users_fullname'] ?></h4>
-			 <h4><?php echo $row['App_Task_CreatedOn'] ?></h4>
+			 <h5><?php echo $row1['App_Users_fullname'] ?></h5>
+			 <h5><?php echo $row['App_Task_CreatedOn'] ?></h5>
 			 
 			 </div>
 			 </div>
