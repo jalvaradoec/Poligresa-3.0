@@ -1734,7 +1734,7 @@ var d = new Date();
 var d1=d.getHours();
 var d2=(d.getMinutes()<10?'0':'') + d.getMinutes();
 var d3=d1+ ':' +d2;
-alert(d1);
+alert(d3);
 document.getElementById("timeselector").defaultValue = d3;
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
