@@ -8,11 +8,6 @@ include_once("utils.php");
 	text-align:right;
 }
 </style>
-<script type="text/javascript">
-    $(window).load(function(){
-        $('#Cli_AddPhones').modal('show');
-    });
-</script>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
