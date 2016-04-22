@@ -1731,9 +1731,11 @@ $(document).on("click", ".editaddress", function () {
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
 var d = new Date(); 
-var d1=d.getHours()+ ':' +d.getMinutes();
+var d1=d.getHours();
+var d2=(d.getMinutes()<10?'0':'') + d.getMinutes();
+var d3=d1+ ':' +d2;
 alert(d1);
-document.getElementById("timeselector").defaultValue = d1;
+document.getElementById("timeselector").defaultValue = d3;
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
