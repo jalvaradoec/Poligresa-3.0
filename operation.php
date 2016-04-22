@@ -1371,9 +1371,6 @@ $(document).ready(function(){
 				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
-				$timestamp = strtotime($row['App_Task_CreatedOn']);
-				$date = date('d/m/Y', $timestamp);
-				$time = date('H:i', $timestamp);
 				
 		?>
         <div class="modal-body">   
@@ -1396,8 +1393,7 @@ $(document).ready(function(){
 			 <div class="col-lg-4">
 			 <div class="activity_head1">
 			 <h4><?php echo $row1['App_Users_fullname'] ?></h4>
-			 <h4><?php echo $date; ?></h4>
-			 <h4><?php echo $time; ?></h4>
+			 <h4><?php echo $row['App_Task_CreatedOn'] ?></h4>
 			 
 			 </div>
 			 </div>
