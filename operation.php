@@ -1454,11 +1454,11 @@ $(document).ready(function(){
                 </div>
 		
 		  </div>
-		   <div class="col-lg-25">    
-			   <h4>Task</h4>
+		   <div class="col-lg-12">    
+			   <h4>Outcome</h4>
        
 			    <div class="form-group">
-                  <textarea class="form-control" rows="5" name="task" required ></textarea>
+                  <textarea class="form-control" rows="5" name="outcome" ></textarea>
                 </div>
 		
 		  </div>
