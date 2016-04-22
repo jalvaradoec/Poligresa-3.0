@@ -1732,6 +1732,7 @@ $(document).on("click", ".editaddress", function () {
 //$( ".dateselector" ).datepicker( "setDate", new Date());
 var d = new Date(); 
 var d1=d.getHours()+ ':' +d.getMinutes();
+alert(d1);
 document.getElementById("timeselector").defaultValue = d1;
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
