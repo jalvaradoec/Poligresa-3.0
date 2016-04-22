@@ -588,7 +588,7 @@ $(document).ready(function(){
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title"><?php if(isset($_GET['phoneid'])){ ?>Update Number<?php } else { ?> Add New Number<?php } ?></h4>
         </div>
-		   <form role="form" action="" method="post">
+		   <form role="form" action="operation.php" method="post">
 		<div class="modal-body">
             <div>
 			    <table class="deb_info_tbl">
