@@ -1722,7 +1722,9 @@ $(document).on("click", ".editaddress", function () {
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
 var d = new Date(); 
-document.getElementById("timeselector").defaultValue = d.getHours():d.getMinutes();
+var d1=d.getHours():d.getMinutes();
+alert(d1);
+document.getElementById("timeselector").defaultValue = d1;
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
