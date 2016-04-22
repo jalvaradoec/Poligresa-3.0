@@ -10,8 +10,8 @@ include_once("utils.php");
 </style>
 <script>
 $(document).ready(function(){
-	var phone_id = getParameterByName('phoneid'); 
-	alert(phone_id);
+	//var phone_id = getParameterByName('phoneid'); 
+	//alert(phone_id);
 	alert('hello');
 });
 </script>
