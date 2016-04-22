@@ -1722,9 +1722,7 @@ $(document).on("click", ".editaddress", function () {
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
 var d = new Date(); 
-alert(d.getHours());
-d.getMinutes();
-document.getElementById("timeselector").defaultValue = "18:00";
+document.getElementById("timeselector").defaultValue = d.getHours():d.getMinutes();
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
