@@ -1372,7 +1372,7 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				
-				$sql3="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result3=mysql_query($sql3);
 				$row3=mysql_fetch_array($result3);
 				  
