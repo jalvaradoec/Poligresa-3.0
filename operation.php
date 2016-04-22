@@ -586,7 +586,7 @@ $(document).ready(function(){
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add New Number</h4>
+          <h4 class="modal-title"><?php if(isset($_GET['phoneid'])){ ?>Update Number<?php } else { ?> Add New Number<?php } ?></h4>
         </div>
 		   <form role="form" action="" method="post">
 		<div class="modal-body">
@@ -656,7 +656,11 @@ $(document).ready(function(){
         </div>
 		
         <div class="modal-footer">
-           <button type="submit" class="btn btn-info pull-left" name="insert"><i class="fa fa-plus"></i> Insert</button>
+		<?php if(isset($_GET['phoneid'])){ ?>
+           <button type="submit" class="btn btn-info pull-left" name="update"><i class="fa fa-plus"></i> Update</button>
+		   <?php } else { ?>
+		   <button type="submit" class="btn btn-info pull-left" name="insert"><i class="fa fa-plus"></i> Insert</button>
+		   <?php } ?>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
 		</form>
@@ -1593,6 +1597,11 @@ function ChangeUrl(title, url) {
 <?php
 if (isset($_POST['insert'])) {
         $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_Ext,App_Phones_PhoneType,App_Phones_Confirmed,App_Phones_PhoneStatus,App_Phones_CreatedBy,App_Phones_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['ext'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['update'])) {
+        $sql = "update App_Phones set App_Phones_PhoneNumber='" . $_POST['no'] . "',App_Phones_Ext='" . $_POST['ext'] . "',App_Phones_PhoneType='" . $_POST['type'] . "',App_Phones_Confirmed='" . $_POST['confirmed'] . "',App_Phones_PhoneStatus='" . $_POST['status'] . "' where App_Phones_ID='" . $_GET['phoneid'] . "'";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
