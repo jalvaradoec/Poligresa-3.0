@@ -1375,7 +1375,7 @@ $(document).ready(function(){
 				$timestamp = strtotime($row['App_Task_CreatedOn']);
 				$date = date('d-m-Y', $timestamp);
 				$time = date('Gi.s', $timestamp);
-
+				}
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
