@@ -17,7 +17,7 @@ $(document).ready(function(){
         } else if (pathname.substr(1, 7) == "phoneid") {
 				$('#Cli_EditPhones').modal('show');	
         }
-		else if (pathname.substr(1, 7) == "addressid") {
+		else if (pathname.substr(1, 9) == "addressid") {
 				$('#Cli_EditAddress').modal('show');	
         }
 });
