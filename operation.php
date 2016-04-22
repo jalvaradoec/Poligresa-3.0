@@ -1372,7 +1372,7 @@ $(document).ready(function(){
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
 				$timestamp = strtotime($row['App_Task_CreatedOn']);
-				$date = date('d-m-Y', $timestamp);
+				$date = date('d/m/Y', $timestamp);
 				$time = date('H:i', $timestamp);
 				
 		?>
