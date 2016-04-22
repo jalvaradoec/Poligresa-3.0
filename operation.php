@@ -1416,7 +1416,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="datepicker" name="date" class="form-control" style="width: 150px;">
+                    <input type="date" id="datepicker" name="date" class="form-control dateselector" style="width: 150px;" required>
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1427,7 +1427,7 @@ $(document).ready(function(){
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
-				 <input type="time" class="form-control">
+				 <input type="time" class="form-control timeselector" name="time" required>
                  </div>
                 </div>
                  <div class="form-group">
@@ -1435,7 +1435,7 @@ $(document).ready(function(){
 			  <div class="col-sm-8">
 			   <div class="checkbox">
                     <label>
-                      <input type="checkbox">
+                      <input type="checkbox" name="status">
                        Done
                     </label>
                   </div>
@@ -1448,7 +1448,7 @@ $(document).ready(function(){
 			   <h4>Task</h4>
               <form class="form-horizontal">
 			    <div class="form-group">
-                  <textarea class="form-control" rows="5"></textarea>
+                  <textarea class="form-control" rows="5" name="task"></textarea>
                 </div>
 			  </form>	   
 		  </div>
@@ -1458,7 +1458,7 @@ $(document).ready(function(){
      
          </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i>Save</button>
+        <button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
               <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </div>
@@ -1717,6 +1717,7 @@ $(document).on("click", ".editaddress", function () {
      window.location.href='operation.php?addressid='+AddressId;
 	 
 });
+$( ".dateselector" ).datepicker( "setDate", new Date());
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
