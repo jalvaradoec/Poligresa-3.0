@@ -17,6 +17,9 @@ $(document).ready(function(){
         } else if (pathname.substr(1, 7) == "phoneid") {
 				$('#Cli_EditPhones').modal('show');	
         }
+		else if (pathname.substr(1, 7) == "addressid") {
+				$('#Cli_EditAddress').modal('show');	
+        }
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
@@ -778,7 +781,7 @@ $(document).ready(function(){
 				$row2=mysql_fetch_array($result2);
 				?>
                 <tr>
-                  <td><?php echo $row['App_Addresses_MainStreet'] ?></td>
+                  <td><a href="" class="editaddress" data-id="<?php echo $row['App_Addresses_Id'] ?>" data-toggle="modal"><?php echo $row['App_Addresses_MainStreet'] ?></a></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Addresses_Id']; ?>" /></td>
                   <td><?php if($row['App_Addresses_Status'] == 1){ echo "Active";}else{ echo "Inactive";} ?></td>
@@ -858,6 +861,77 @@ $(document).ready(function(){
 		
         <div class="modal-footer">
            <button type="submit" class="btn btn-info pull-left" name="insert1"><i class="fa fa-plus"></i> Insert</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		</div>
+		</form>
+      </div>
+      
+    </div>
+  </div>   
+  
+  <div class="modal fade" id="Cli_EditAddress" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Address</h4>
+        </div>
+		   <form role="form" action="" method="post">
+		<div class="modal-body">
+            <div>
+			    <table class="deb_info_tbl">
+                <tbody>
+				<?php
+				$sql1="select * from App_Addresses where App_Addresses_Id='".$_GET['addressid']."'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$checked = ($row1['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
+				$checked1 = ($row1['App_Addresses_Status'] == 1) ? 'checked="checked' : '';
+				?>
+				<tr>
+                  <td class="deb_info_row">Address:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="address" size="50" value="<?php echo row1['App_Addresses_MainStreet'] ?>" required /></td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Type:</td>
+				  <td class="deb_info_row1">
+				  <select class="form-control" name="type">
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AddressType'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           if($row1['App_Addresses_AddressType']==$r['App_Aux_value']){
+							$selected1= 'selected="selected"';
+						}
+						else
+						{
+							$selected1='';
+						}
+                           echo "<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
+				</td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Confirmed:</td>
+				  <td class="deb_info_row1"><input type="checkbox" <?php echo $checked; ?> value="1" name="confirmed" /></td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">Status:</td>
+				  <td class="deb_info_row1"><input type="checkbox" <?php echo $checked1; ?> value="1" name="status" /></td>          
+                </tr>	
+				
+			 </tbody> 
+		     </table> 
+			 </div>
+			  
+        </div>
+		
+        <div class="modal-footer">
+           <button type="submit" class="btn btn-info pull-left" name="update1"><i class="fa fa-plus"></i> Update</button>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
 		</form>
@@ -1634,6 +1708,11 @@ $(document).on('change', '.chk_active', function () {
 	 window.location.href='operation.php?phoneid='+PhoneId;
 	 
 });
+$(document).on("click", ".editaddress", function () {
+     var AddressId = $(this).data('id');
+     window.location.href='operation.php?addressid='+AddressId;
+	 
+});
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
@@ -1658,6 +1737,11 @@ if (isset($_POST['update'])) {
 }
 if (isset($_POST['insert1'])) {
         $sql = "insert into App_Addresses(App_Addresses_DebtorID,App_Addresses_MainStreet,App_Addresses_AddressType,App_Addresses_Confirmed,App_Addresses_Status,App_Addresses_CreatedBy,App_Addresses_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['address'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['update1'])) {
+        $sql = "update App_Addresses set App_Addresses_MainStreet='" . $_POST['address'] . "',App_Addresses_AddressType='" . $_POST['type'] . "',App_Addresses_Confirmed='" . $_POST['confirmed'] . "',App_Addresses_Status='" . $_POST['status'] . "' where App_Addresses_Id='" . $_GET['addressid'] . "'";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
