@@ -12,14 +12,15 @@ include_once("utils.php");
 $(document).ready(function(){
 	//var phone_id = getParameterByName('phoneid'); 
 	//alert(phone_id);
-	document.getElementById('updateclass').onclick = function() {
-   alert("button was clicked");
-}​;​
+	
 
 	 var pathname = window.location.search;
 	if (pathname == "") {
         } else if (pathname.substr(1, 7) == "phoneid") {
 				$('#Cli_EditPhones').modal('show');	
+				document.getElementById('updateclass').onclick = function() {
+   alert("button was clicked");
+}​;​
         }
 });
 </script>
