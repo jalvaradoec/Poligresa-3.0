@@ -12,6 +12,7 @@ include_once("utils.php");
 $(document).ready(function(){
 	var phone_id = getParameterByName('phoneid'); 
 	alert(phone_id);
+	alert('hello');
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
