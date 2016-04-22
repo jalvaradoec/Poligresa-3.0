@@ -1721,7 +1721,7 @@ $(document).on("click", ".editaddress", function () {
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
-document.getElementById("timeselector").defaultValue = new Date('H:i');
+document.getElementById("timeselector").defaultValue = "18:00";
 function ChangeUrl(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
