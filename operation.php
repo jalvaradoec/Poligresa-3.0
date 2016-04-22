@@ -1420,7 +1420,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="datepicker" name="date" class="form-control" style="width: 150px;" required>
+                    <input type="date" id="dateselector" name="date" class="form-control" style="width: 150px;" required>
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
