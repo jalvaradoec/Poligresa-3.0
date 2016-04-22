@@ -1732,9 +1732,9 @@ $(document).on("click", ".editaddress", function () {
 //$( ".dateselector" ).datepicker( "setDate", new Date());
 var d = new Date(); 
 var date2=d.getDate();
-var month = d.toLocaleString(locale, { month: "short" });
+//var month = d.toLocaleString(locale, { month: "short" });
 var year=d.getFullYear();
-var date1=date2 + '-' + month + '-' + year;
+//var date1=date2 + '-' + month + '-' + year;
 alert(date2);
  //$('#dateselector').val(date1);
 var d1=d.getHours();
