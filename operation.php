@@ -1925,4 +1925,9 @@ if (isset($_POST['save'])) {
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
+if (isset($_POST['updateactivity'])) {
+        $sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
 ?>
