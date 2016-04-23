@@ -1949,7 +1949,7 @@ function ChangeUrl(title, url) {
 alert($('.balance2').val());
 alert($('.interest').val());
 alert($('.shares').val());
-var monthpayment1=($('.balance2').val() + $('.interest').val()) / $('.shares').val();
+//var monthpayment1=($('.balance2').val() + $('.interest').val()) / $('.shares').val();
 var Alerter = {
 		Wait : 1, 
 		Timer : null,
