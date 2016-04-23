@@ -456,7 +456,7 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php
-			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 31";
+			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 30";
 				$result=mysql_query($sql);
 				//$row=mysql_fetch_array($result);
 				while($row=mysql_fetch_array($result)){ 
