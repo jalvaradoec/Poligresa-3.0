@@ -1305,7 +1305,7 @@ $(document).ready(function(){
                 <div class="form-group">
                  <label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
+                  <input type="text" class="form-control curdebt" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
                 </div>
                 </div>
                 <div class="form-group">
@@ -1322,13 +1322,13 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" >
+                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" >
                 </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control" name="balance2" readonly="">
+                   <input type="text" class="form-control balance2" name="balance2" readonly="">
 				   </div>
                 </div>
                 
@@ -1339,14 +1339,14 @@ $(document).ready(function(){
 			    <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control" name="balance1" readonly >
+                  <input type="text" class="form-control balance1" name="balance1" readonly >
                 </div>
                 </div>
 				 <div class="form-group">
 				 	
                   <label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control" name="interest" readonly="">
+                   <input type="text" class="form-control interest" name="interest" readonly="">
                   </div>
                 </div>
 				 
@@ -1365,7 +1365,7 @@ $(document).ready(function(){
                 </div>
 				<div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
-                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control" name="monthpayment1" readonly="">
+                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control monthpayment1" name="monthpayment1" readonly="">
                   </div>
 				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
 				  <div class="col-sm-4">
@@ -1375,7 +1375,7 @@ $(document).ready(function(){
 				<div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
                   <div class="col-sm-2" style="margin-left: -19px;">
-                    <input type="text" class="form-control" name="lastpayment" readonly="">
+                    <input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
                   </div>
 				  <label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
 				  <div class="col-sm-4">
@@ -1943,6 +1943,22 @@ function ChangeUrl(title, url) {
         alert("Browser does not support HTML5.");
     }
 }
+var Alerter = {
+		Wait : 1, 
+		Timer : null,
+		Init : function(){
+			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
+		},
+		Alert : function(){
+			var curdebt=$('.curdebt').val();
+			var discount=$('.discount').val();
+			var balance1=curdebt-discount;
+			$('.balance1').val(balance1);
+			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
+		}
+	};
+	
+	Alerter.Init();
 </script>
 </body>
 </html>
