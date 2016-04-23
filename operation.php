@@ -1545,7 +1545,7 @@ $(document).ready(function(){
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
-                           if($row1['App_Task_TaskType']==$r['App_Aux_value']){
+                           if($row['App_Task_TaskType']==$r['App_Aux_value']){
 							$selected1= 'selected="selected"';
 						}
 						else
