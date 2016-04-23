@@ -1255,7 +1255,10 @@ $(document).ready(function(){
 				$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
 		?>
 		<form class="form-horizontal" method="post" action="">
-        <div class="modal-body">   
+		<input type="hidden" name="hiddebt" class="hiddebt" value="<?php echo $debt ?>" />
+		<input type="hidden" name="operationid" value="<?php echo $row['App_Amortization_BankOperation'];?>" />
+		<input type="hidden" name="debtid" value="<?php echo $row['App_Credits_DebtorId'] ?>" />
+		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:82%">  
 		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
@@ -1273,7 +1276,7 @@ $(document).ready(function(){
 				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
 				  <td class="deb_info_row"></td>
 				  <td class="deb_info_row">
-				  <select class="form-control" name="type" style="width:228%">
+				  <select class="form-control" name="status" style="width:228%">
                     <option value="">Select Agreement Status</option>
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
@@ -1311,7 +1314,7 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" name="dpayment" >
+                    <input type="text" class="form-control dpayment" name="dpayment" >
                   </div>
                 </div>
                 
@@ -1360,7 +1363,7 @@ $(document).ready(function(){
                 <div class="form-group" style="margin-top: 16px;">
                  <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
                   <div class="col-sm-4">
-                  <input type="text" class="form-control" value="" name="shares">
+                  <input type="text" class="form-control shares" value="" name="shares">
                 </div>
                 </div>
 				<div class="form-group">
@@ -1954,6 +1957,15 @@ var Alerter = {
 			var discount=$('.discount').val();
 			var balance1=curdebt-discount;
 			$('.balance1').val(balance1.toFixed(2));
+			var hiddebt=$('.hiddebt').val();
+			var dpayment=$('.dpayment').val();
+			var balance2=hiddebt-dpayment;
+			$('.balance2').val(balance2.toFixed(2));
+			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
+			$('.interest').val(interest.toFixed(2));
+			var monthpayment1=($('.balance2').val() + interest) / $('.shares').val();
+			$('.monthpayment1').val(monthpayment1.toFixed(2));
+			//var lastpayment=($('.balance2').val() + interest) - $('.shares').val();
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
@@ -1994,7 +2006,11 @@ if (isset($_POST['updateactivity'])) {
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['create'])) {
-        $sql = "insert into App_Agreement(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
+		$dpayment=$_POST['dpayment'];
+		$balance2=$_POST['balance2'];
+		$interest=$_POST['interest'];
+		$agreementtotal=$dpayment+$balance2+$interest;
+        $sql = "insert into App_Agreement(App_Agreement_DebtorID,App_Agreement_OpearationID,App_Agreement_InitialDebt,App_Agreement_Discounts,App_Agreement_DownPayment,App_Agreement_Balance,App_Agreement_Interest,App_Agreement_Total,App_Agreement_Shares,App_Agreement_ShareAmount,App_Agreement_LastShareAmmount,App_Agreement_StartingOn,App_Agreement_Status,App_Agreement_CreatedBy,App_Agreement_CreatedOn) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['curdebt'] . "','" . $_POST['discount'] . "','" . $_POST['dpayment'] . "','" . $_POST['balance2']." ".$_POST['interest'] . "','" . $agreementtotal . "','" . $_POST['shares'] . "','" . $_POST['monthpayment2'] . "','" . $_POST['lastpayment'] . "','" . $_POST['startdate'] . "','" . $_POST['status'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
