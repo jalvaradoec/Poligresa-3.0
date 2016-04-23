@@ -1374,19 +1374,23 @@ $(document).ready(function(){
                 </div>
 				<div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
-                  <div class="col-sm-2">
+                  <div class="col-sm-2" style="margin-left: -19px;">
                     <input type="text" class="form-control" name="lastpayment" readonly="">
                   </div>
-				  <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -217px;">starting on</label>
+				  <label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
 				  <div class="col-sm-4">
+				  <div class="input-group">
                     <input type="date" name="startdate" class="form-control">
-				   <i class="fa fa-calendar"></i>
-                  
+				   <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  </div>
                   </div>
                 </div>
 		  </div>
          </div>
          </div>
+		 
         <div class="modal-footer">
 			<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>
 			<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
