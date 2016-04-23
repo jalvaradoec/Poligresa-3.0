@@ -1328,7 +1328,7 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
                   <div class="col-sm-8">
-                   $123
+                   <input type="text" class="form-control" name="balance2" readonly="">
 				   </div>
                 </div>
                 
@@ -1346,7 +1346,7 @@ $(document).ready(function(){
 				 	
                   <label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
                   <div class="col-sm-8">
-                   $123
+                   <input type="text" class="form-control" name="interest" readonly="">
                   </div>
                 </div>
 				 
