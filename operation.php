@@ -1494,9 +1494,11 @@ $(document).ready(function(){
           <h4 class="modal-title">Activity</h4>
         </div>
 		<?php
-			    $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				//$sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+			    $sql="select * from App_Tasks WHERE App_Task_ID =".$_GET['task_id'];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
+				$datetime=explode(" ",$row['App_Task_DueDateTime']);
 				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
 				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
@@ -1543,7 +1545,14 @@ $(document).ready(function(){
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
-                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                           if($row1['App_Task_TaskType']==$r['App_Aux_value']){
+							$selected1= 'selected="selected"';
+						}
+						else
+						{
+							$selected1='';
+						}
+                           echo "<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
                     }
                     ?>
                 </select>
@@ -1553,7 +1562,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="dateselector" name="date" class="form-control" style="width: 150px;" required>
+                    <input type="date" id="dateselector" name="date" class="form-control" style="width: 150px;" value="<?php echo $datetime[0] ?>" required>
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1564,7 +1573,7 @@ $(document).ready(function(){
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
-				 <input type="time" class="form-control" id="timeselector" name="time" required>
+				 <input type="time" class="form-control" id="timeselector" name="time" value="<?php echo $datetime[1] ?>" required>
                  </div>
                 </div>
                  <div class="form-group">
@@ -1572,7 +1581,7 @@ $(document).ready(function(){
 			  <div class="col-sm-8">
 			   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="status" value="1">
+                      <input type="checkbox" name="status" <?php echo $checked; ?> value="1">
                        Done
                     </label>
                   </div>
@@ -1585,7 +1594,7 @@ $(document).ready(function(){
 			   <h4>Task</h4>
        
 			    <div class="form-group">
-                  <textarea class="form-control" rows="5" name="task" required ></textarea>
+                  <textarea class="form-control" rows="5" name="task" required ><?php echo $row['App_Task_Description'] ?></textarea>
                 </div>
 		
 		  </div>
@@ -1593,7 +1602,7 @@ $(document).ready(function(){
 			   <h4>Outcome</h4>
        
 			    <div class="form-group">
-                  <textarea class="form-control" rows="3" name="outcome" ></textarea>
+                  <textarea class="form-control" rows="3" name="outcome" ><?php echo $row['App_Task_Outcome'] ?></textarea>
                 </div>
 		
 		  </div>
