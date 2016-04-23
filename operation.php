@@ -1501,7 +1501,9 @@ $(document).ready(function(){
 				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
-				
+				$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result3=mysql_query($sql3);
+				$row3=mysql_fetch_array($result3);
 		?>
 		<form class="form-horizontal" method="post" action="">
 		<div class="modal-body">   
@@ -1511,11 +1513,11 @@ $(document).ready(function(){
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
+				  <td class="deb_info_row1"><?php echo $row3['App_Clients_FullName'] ?></td>          
                 </tr>
 				
 			 </tbody> 
