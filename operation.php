@@ -1230,26 +1230,14 @@ $(document).ready(function(){
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Transaction</h4>
         </div>
-		<?php 
-		if(isset($_GET['operno'])){
-			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ap.App_Amortization_BankOperation =".$_GET["operno"];
-		}
-		else
-		{
-			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-		}
-		$result=mysql_query($sql);
-		$row=mysql_fetch_array($result);
-		echo $row['App_Amortization_BankOperation'];
-		?>
-        <div class="modal-body">   
+		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv">  
 			    <table class="activity_tbl">
                 <tbody>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
-                  <td class="deb_info_row1"><?php $row['App_Amortization_BankOperation'];?></td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'];?></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">ID:</td>
