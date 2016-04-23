@@ -1238,7 +1238,7 @@ $(document).ready(function(){
 		{
 			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 		}
-
+		echo $sql;
 		$result=mysql_query($sql);
 		$row=mysql_fetch_array($result);
 		?>
