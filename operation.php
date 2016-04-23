@@ -1,7 +1,7 @@
 <?php 
 include("header.php");
 include_once("utils.php");
-
+echo date('Y-m-d H:i:s');
 ?>
 <style>
 .textalign{
