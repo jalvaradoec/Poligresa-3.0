@@ -1225,10 +1225,10 @@ $(document).ready(function(){
 	 <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="width: 150%;margin-left: -24%;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Transaction</h4>
+          <h4 class="modal-title">New Agreement</h4>
         </div>
 		<?php 
 		if(isset($_GET['operno'])){
@@ -1246,6 +1246,9 @@ $(document).ready(function(){
 		   <div class="col-lg-7 actv">  
 			    <table class="activity_tbl">
                 <tbody>
+				<tr>
+                  <td class="deb_info_row">New Agreement Setup:</td>
+                </tr>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
                   <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'];?></td>          
