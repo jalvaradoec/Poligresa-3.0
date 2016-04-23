@@ -458,7 +458,7 @@ $(document).ready(function(){
 				<?php
 			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 31";
 				$result=mysql_query($sql);
-				$row=mysql_fetch_array($result);
+				//$row=mysql_fetch_array($result);
 				while($row=mysql_fetch_array($result)){ 
 				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
 				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
