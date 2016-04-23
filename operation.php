@@ -1240,7 +1240,7 @@ $(document).ready(function(){
 		}
 		$result=mysql_query($sql);
 		$row=mysql_fetch_array($result);
-		echo $row[0];
+		echo $row['App_Amortization_BankOperation'];
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
