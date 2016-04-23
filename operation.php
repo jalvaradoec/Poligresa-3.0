@@ -1254,6 +1254,7 @@ $(document).ready(function(){
 				$row2=mysql_fetch_array($result1);
 				$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
 		?>
+		<form class="form-horizontal" method="post" action="">
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:82%">  
@@ -1300,7 +1301,7 @@ $(document).ready(function(){
           </div>
 		<div class="box-body">
 		  <div class="col-lg-4">
-		     <form class="form-horizontal">
+		     
                 <div class="form-group">
                  <label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
                   <div class="col-sm-8">
@@ -1314,10 +1315,10 @@ $(document).ready(function(){
                   </div>
                 </div>
                 
-            </form>
+           
 		  </div>
 			<div class="col-lg-4">
-		     <form class="form-horizontal">
+		   
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
                   <div class="col-sm-8">
@@ -1327,14 +1328,14 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control" name="balance2" >
+                   $123
 				   </div>
                 </div>
                 
-            </form>
+           
 		  </div>
 		  <div class="col-lg-4">
-              <form class="form-horizontal">
+             
 			    <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
                   <div class="col-sm-8">
@@ -1345,39 +1346,56 @@ $(document).ready(function(){
 				 	
                   <label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control" name="interest" >
+                   $123
                   </div>
                 </div>
 				 
-			  </form>
+			  
 		   
 		  </div>  
 		  </div>  
       <div class="box-body">
-	  <div class="col-lg-12">
-		     <form class="form-horizontal">
-                <div class="form-group">
-                 <label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
-                  <div class="col-sm-8">
-                  <input type="text" class="form-control" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
+	  <div class="col-lg-10" style="border:1px solid;margin-left: 70px;">
+		     
+                <div class="form-group" style="margin-top: 16px;">
+                 <label for="inputPassword3" class="col-sm-4 control-label">The agreement is a downpayment of</label>
+                  <div class="col-sm-4">
+                  <input type="text" class="form-control" value="" name="shares" >
                 </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" name="dpayment" >
+                  <label for="inputPassword3" class="col-sm-4 control-label">then</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="monthpayment1" readonly >
+                  </div>
+				  <label for="inputPassword3" class="col-sm-4 control-label">monthly payments of</label>
+				  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="monthpayment2" >
                   </div>
                 </div>
-                
-            </form>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">and a last payments of</label>
+                  <div class="col-sm-4">
+                    $123
+                  </div>
+				  <label for="inputPassword3" class="col-sm-4 control-label">starting on</label>
+				  <div class="col-sm-4">
+                    <input type="date" name="startdate" class="form-control" >
+				   <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  </div>
+                </div>
+            
 		  </div>
          </div>
          </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i>Save</button>
-              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+			<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>
+			<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
-      </div>
+     </form>
+	 </div>
       
     </div>
   </div>
@@ -1955,6 +1973,11 @@ if (isset($_POST['save'])) {
 }
 if (isset($_POST['updateactivity'])) {
         $sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['create'])) {
+        $sql = "insert into App_Agreement(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
