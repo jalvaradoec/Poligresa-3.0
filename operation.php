@@ -1354,13 +1354,23 @@ $(document).ready(function(){
 		  </div>  
 		  </div>  
       <div class="box-body">
-	  <h4>Notes</h4>
-	    <form role="form">
-			    <div class="form-group">
-                 
-                  <textarea class="form-control" rows="5"></textarea>
+	  <div class="col-lg-12">
+		     <form class="form-horizontal">
+                <div class="form-group">
+                 <label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
+                  <div class="col-sm-8">
+                  <input type="text" class="form-control" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
                 </div>
-	     </form>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="dpayment" >
+                  </div>
+                </div>
+                
+            </form>
+		  </div>
          </div>
          </div>
         <div class="modal-footer">
