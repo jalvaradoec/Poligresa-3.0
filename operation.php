@@ -1251,17 +1251,25 @@ $(document).ready(function(){
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv" style="width:88%">  
+		   <div class="col-lg-7 actv" style="width:82%">  
 		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
 			    <table class="activity_tbl" style="margin-top:0px">
 				<tbody>
 				<tr>
                   <td class="deb_info_row">Cedula/RUC:</td>
                   <td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
+				  <td class="deb_info_row"></td>
+				  <td class="deb_info_row">Agreement Status</td>
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Number:</td>
 				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
+				  <td class="deb_info_row"></td>
+				  <td class="deb_info_row"><select class="form-control">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                  </select></td>
                 </tr>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
