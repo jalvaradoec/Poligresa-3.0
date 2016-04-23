@@ -1237,7 +1237,7 @@ $(document).ready(function(){
                 <tbody>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
-                  <td class="deb_info_row1">23654599</td>          
+                  <td class="deb_info_row1"><?php $row['App_Amortization_BankOperation'];?></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">ID:</td>
