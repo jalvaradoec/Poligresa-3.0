@@ -1299,7 +1299,7 @@ $(document).ready(function(){
 			 </div>
           </div>
 		<div class="box-body">
-		  <div class="col-lg-3">
+		  <div class="col-lg-4">
 		     <form class="form-horizontal">
                 <div class="form-group">
                  <label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
@@ -1316,7 +1316,7 @@ $(document).ready(function(){
                 
             </form>
 		  </div>
-			<div class="col-lg-3">
+			<div class="col-lg-4">
 		     <form class="form-horizontal">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
@@ -1333,7 +1333,7 @@ $(document).ready(function(){
                 
             </form>
 		  </div>
-		  <div class="col-lg-3">
+		  <div class="col-lg-4">
               <form class="form-horizontal">
 			    <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
@@ -1343,8 +1343,8 @@ $(document).ready(function(){
                 </div>
 				 <div class="form-group">
 				 	
-                  <label for="inputPassword3" class="col-sm-6 control-label">Interest:</label>
-                  <div class="col-sm-6">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
+                  <div class="col-sm-8">
                    <input type="text" class="form-control" name="interest" >
                   </div>
                 </div>
