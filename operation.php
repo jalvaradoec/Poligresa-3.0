@@ -1240,6 +1240,11 @@ $(document).ready(function(){
 		}
 		$result=mysql_query($sql);
 		$row=mysql_fetch_array($result);
+		$interst=$row['App_Credits_BankTotalCredit']*0.18;
+				$initialdebt=$row['App_Credits_BankTotalCredit']+$interst;
+				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
+				$collectionfee=$initialdebt*0.2;
+				$currdebt=$debt+$collectionfee-150;
 		$sql2="select * from App_Agreement WHERE App_Agreement_DebtorID =".$row['App_Credits_DebtorId'];
 				$result2=mysql_query($sql2);
 				$row1=mysql_fetch_array($result2);
@@ -1267,8 +1272,8 @@ $(document).ready(function(){
 				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
 				  <td class="deb_info_row"></td>
 				  <td class="deb_info_row">
-				  <select class="form-control" name="type" style="width:160%">
-                    <option value=""> -----------Select Type-----------</option>
+				  <select class="form-control" name="type" style="width:228%">
+                    <option value="">Select Agreement Status</option>
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
@@ -1294,76 +1299,56 @@ $(document).ready(function(){
 			 </div>
           </div>
 		<div class="box-body">
-		  <div class="col-lg-6">
+		  <div class="col-lg-3">
 		     <form class="form-horizontal">
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+                 <label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
                   <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                  </select>
+                  <input type="text" class="form-control" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
                 </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Collection Date</label>
+                  <label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
                   <div class="col-sm-8">
-                    <div class="input-group">
-                   <input type="date" class="form-control" style="width: 120px;" >
-				   <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
+                    <input type="text" class="form-control" name="dpayment" >
                   </div>
                 </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                 <label for="inputPassword3" class="col-sm-4 control-label">Amount</label>
-				 <div class="col-sm-8">
-				 <input type="number" class="form-control"> 
-                </div>
-                </div>
+                
             </form>
 		  </div>
-		
-		  <div class="col-lg-6">
+			<div class="col-lg-3">
+		     <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
+                  <div class="col-sm-8">
+                  <input type="text" class="form-control" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" >
+                </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
+                  <div class="col-sm-8">
+                   <input type="text" class="form-control" name="balance2" >
+				   </div>
+                </div>
+                
+            </form>
+		  </div>
+		  <div class="col-lg-3">
               <form class="form-horizontal">
 			    <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label ">Status</label>
+                  <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
                   <div class="col-sm-8">
-                  <select class="form-control">
-                    <option>Paid</option>
-                    <option>UnPaid</option>
-                    <option>Pending</option>
-                  </select>
+                  <input type="text" class="form-control" name="balance1" readonly >
                 </div>
                 </div>
 				 <div class="form-group">
 				 	
-                  <label for="inputPassword3" class="col-sm-6 control-label">Deposit Date</label>
+                  <label for="inputPassword3" class="col-sm-6 control-label">Interest:</label>
                   <div class="col-sm-6">
-                   <input type="date" class="form-control" style="width: 120px;">
+                   <input type="text" class="form-control" name="interest" >
                   </div>
                 </div>
-				 <div class="form-group">
 				 
-                  <label for="inputPassword3" class="col-sm-7 control-label ">Dep.Transaction #</label>
-                  <div class="col-sm-5">
-                  <input type="text" class="form-control">
-                  </div>
-                </div>
-			  
-			<div class="form-group">
-			  <label for="inputPassword3" class="col-sm-7 control-label ">Conciliation</label>
-			  <div class="col-sm-5">
-			   <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                       Done
-                    </label>
-                  </div>
-              </div>
-              </div>
 			  </form>
 		   
 		  </div>  
