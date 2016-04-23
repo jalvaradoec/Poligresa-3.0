@@ -1953,7 +1953,7 @@ var Alerter = {
 			var curdebt=$('.curdebt').val();
 			var discount=$('.discount').val();
 			var balance1=curdebt-discount;
-			$('.balance1').val(balance1.toPrecision(4));
+			$('.balance1').val(balance1.toFixed(2));
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
