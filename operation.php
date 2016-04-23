@@ -1358,35 +1358,32 @@ $(document).ready(function(){
 	  <div class="col-lg-10" style="border:1px solid;margin-left: 70px;">
 		     
                 <div class="form-group" style="margin-top: 16px;">
-                 <label for="inputPassword3" class="col-sm-4 control-label">The agreement is a downpayment of</label>
+                 <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
                   <div class="col-sm-4">
-                  <input type="text" class="form-control" value="" name="shares" >
+                  <input type="text" class="form-control" value="" name="shares">
                 </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">then</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control" name="monthpayment1" readonly >
+				<div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
+                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control" name="monthpayment1" readonly="">
                   </div>
-				  <label for="inputPassword3" class="col-sm-4 control-label">monthly payments of</label>
+				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
 				  <div class="col-sm-4">
-                    <input type="text" class="form-control" name="monthpayment2" >
+                    <input type="text" class="form-control" name="monthpayment2">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">and a last payments of</label>
-                  <div class="col-sm-4">
-                    $123
+				<div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" name="lastpayment" readonly="">
                   </div>
-				  <label for="inputPassword3" class="col-sm-4 control-label">starting on</label>
+				  <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -217px;">starting on</label>
 				  <div class="col-sm-4">
-                    <input type="date" name="startdate" class="form-control" >
-				   <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
+                    <input type="date" name="startdate" class="form-control">
+				   <i class="fa fa-calendar"></i>
+                  
                   </div>
                 </div>
-            
 		  </div>
          </div>
          </div>
