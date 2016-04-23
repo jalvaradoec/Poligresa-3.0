@@ -1259,17 +1259,24 @@ $(document).ready(function(){
                   <td class="deb_info_row">Cedula/RUC:</td>
                   <td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
 				  <td class="deb_info_row"></td>
-				  <td class="deb_info_row">Agreement Status</td>
+				  <td class="deb_info_row">Agreement</td>&nbsp;
+				  <td class="deb_info_row">Status</td>
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Number:</td>
 				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
 				  <td class="deb_info_row"></td>
-				  <td class="deb_info_row"><select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                  </select></td>
+				  <td class="deb_info_row">
+				  <select class="form-control" name="type" style="width:160%">
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
+				</td>
                 </tr>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
