@@ -1966,7 +1966,7 @@ var Alerter = {
 			$('.interest').val(interest.toFixed(2));
 			var monthpayment1=(balance2 + interest) / $('.shares').val();
 			if($('.shares').val()==''){
-			$('.monthpayment1').val();	
+			$('.monthpayment1').val('');	
 			}
 			else
 			{
