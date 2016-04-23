@@ -1355,7 +1355,7 @@ $(document).ready(function(){
 		  </div>  
 		  </div>  
       <div class="box-body">
-	  <div class="col-lg-10" style="border:1px solid;margin-left: 70px;background-color: lightyellow;">
+	  <div class="col-lg-10" style="border:1px solid;margin-left: 70px;">
 		     
                 <div class="form-group" style="margin-top: 16px;">
                  <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
