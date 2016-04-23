@@ -1965,7 +1965,13 @@ var Alerter = {
 			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
 			$('.interest').val(interest.toFixed(2));
 			var monthpayment1=(balance2 + interest) / $('.shares').val();
+			if($('.shares').val()==''){
+			$('.monthpayment1').val();	
+			}
+			else
+			{
 			$('.monthpayment1').val(monthpayment1.toFixed(2));
+			}
 			//var lastpayment=($('.balance2').val() + interest) - $('.shares').val();
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
