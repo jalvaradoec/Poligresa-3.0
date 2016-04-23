@@ -1384,7 +1384,7 @@ $(document).ready(function(){
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  
+                  </div>
                   </div>
                 </div>
 		  </div>
