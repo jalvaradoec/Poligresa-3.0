@@ -1946,10 +1946,7 @@ function ChangeUrl(title, url) {
         alert("Browser does not support HTML5.");
     }
 }
-alert($('.curdebt').val());
-alert($('.interest').val());
-alert($('.shares').val());
-//var monthpayment1=($('.balance2').val() + $('.interest').val()) / $('.shares').val();
+
 var Alerter = {
 		Wait : 1, 
 		Timer : null,
@@ -1967,7 +1964,7 @@ var Alerter = {
 			$('.balance2').val(balance2.toFixed(2));
 			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
 			$('.interest').val(interest.toFixed(2));
-			var monthpayment1=($('.balance2').val() + $('.interest').val()) / $('.shares').val();
+			var monthpayment1=(balance2 + interest) / $('.shares').val();
 			$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//var lastpayment=($('.balance2').val() + interest) - $('.shares').val();
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
