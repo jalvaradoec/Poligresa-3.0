@@ -1240,12 +1240,20 @@ $(document).ready(function(){
 		}
 		$result=mysql_query($sql);
 		$row=mysql_fetch_array($result);
+		$sql2="select * from App_Agreement WHERE App_Agreement_DebtorID =".$row['App_Credits_DebtorId'];
+				$result2=mysql_query($sql2);
+				$row1=mysql_fetch_array($result2);
+				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
+				$sql1="select * from App_Users WHERE App_Users_ID =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$result1=mysql_query($sql1);
+				$row2=mysql_fetch_array($result1);
+				$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv">  
+		   <div class="col-lg-7 actv" style="width:88%">  
 		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
-			    <table class="activity_tbl">
+			    <table class="activity_tbl" style="margin-top:0px">
 				<tbody>
 				<tr>
                   <td class="deb_info_row">Cedula/RUC:</td>
@@ -1262,12 +1270,11 @@ $(document).ready(function(){
 			</tbody> 
 		     </table>
 			 </div>
-			 <div class="col-lg-4">
-			 <div class="activity_head1">
-			 <h4>Vgeruva</h4>
-			 <h4>04/04/2016</h4>
-			 <h4>14:30</h4>
-			 
+			 <div class="col-lg-4" style="float: right;width: 18%;">
+			 <div class="activity_head1" style="margin-left:0px">
+			 <h4><?php echo $row2['App_Users_fullname'] ?></h4>
+			 <h4><?php echo $CreatedOn[0] ?></h4>
+			 <h4><?php echo $CreatedOn[1] ?></h4>
 			 </div>
 			 </div>
           </div>
