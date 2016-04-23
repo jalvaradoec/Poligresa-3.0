@@ -1244,25 +1244,22 @@ $(document).ready(function(){
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv">  
+		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
 			    <table class="activity_tbl">
-                <tbody>
+				<tbody>
 				<tr>
-                  <td class="deb_info_row">New Agreement Setup:</td>
+                  <td class="deb_info_row">Cedula/RUC:</td>
+                  <td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Number:</td>
+				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
                   <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'];?></td>          
                 </tr>
-				<tr>
-                  <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
-                </tr>
-			     <tr>
-                  <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
-                </tr>
-				
-			 </tbody> 
+			</tbody> 
 		     </table>
 			 </div>
 			 <div class="col-lg-4">
