@@ -1044,7 +1044,7 @@ $(document).ready(function(){
           <h4 class="modal-title">Registered Contacts</h4>
         </div>
 		<?php
-		$sql="select * from App_Credits ac INNER JOIN App_Contacts ap ON ac.App_Credits_DebtorId = ap.App_Contacts_DebtorId WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
 		$result=mysql_query($sql);
 		?>
         <div class="modal-body">
