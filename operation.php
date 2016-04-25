@@ -23,6 +23,12 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 7) == "task_id") {
 				$('#Oper_EditACtivities').modal('show');	
         }
+		else if (pathname.substr(1, 9) == "contactid") {
+				$('#Cli_MoreNumber').modal('show');	
+        }
+		else if (pathname.substr(1, 10) == "contactid1") {
+				$('#Cli_MoreAddress').modal('show');	
+        }
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
@@ -1088,12 +1094,12 @@ $(document).ready(function(){
 				  echo $row['App_Contacts_PhoneNumber'];
 				  ?>
 				  </td> 
-				  <td><a href="">more..</a></td>
+				  <td><a href="" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal" class="small-box-footer addphone">more..</a></td>
                 </tr>
 				 <tr>
                   <td class="deb_info_row">Address:</td>
 				  <td class="deb_info_row1"><?php echo $row['App_Contacts_Address'] ?></td>   
-				  <td><a href="">more..</a></td>
+				  <td><a href="" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal" class="small-box-footer addaddress">more..</a></td>
                 </tr>
 				
 			 </tbody> 
@@ -1181,7 +1187,86 @@ $(document).ready(function(){
       
     </div>
   </div>  
-  
+  <div class="modal fade" id="Cli_MoreNumber" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add More Number</h4>
+        </div>
+		<?php
+				$sql1="select * from App_Contacts where App_Contacts_Id='".$_GET['contactid']."'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+		?>
+		   <form role="form" action="" method="post">
+		<div class="modal-body">
+            <div>
+			    <table class="deb_info_tbl">
+                <tbody>
+				<input type="hidden" name="hidrefid" value="<?php echo $row1['App_Contacts_RefId'] ?>"/>
+				<tr>
+                  <td class="deb_info_row">Number:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="no" required/></td>          
+                </tr>
+			    
+			 </tbody> 
+		     </table> 
+			 </div>
+			  
+        </div>
+		
+        <div class="modal-footer">
+           <button type="submit" class="btn btn-info pull-left" name="insert3"><i class="fa fa-plus"></i> Insert</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		</div>
+		</form>
+      </div>
+      
+    </div>
+  </div>  
+  <div class="modal fade" id="Cli_MoreAddress" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add More Address</h4>
+        </div>
+		<?php
+				$sql1="select * from App_Contacts where App_Contacts_Id='".$_GET['contactid1']."'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+		?>
+		   <form role="form" action="" method="post">
+		<div class="modal-body">
+            <div>
+			    <table class="deb_info_tbl">
+                <tbody>
+				<input type="hidden" name="hidrefid1" value="<?php echo $row1['App_Contacts_RefId'] ?>" />
+				<tr>
+                  <td class="deb_info_row">Address:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="address" size="50" required/></td>          
+                </tr>
+				
+			 </tbody> 
+		     </table> 
+			 </div>
+			  
+        </div>
+		
+        <div class="modal-footer">
+           <button type="submit" class="btn btn-info pull-left" name="insert4"><i class="fa fa-plus"></i> Insert</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+		</div>
+		</form>
+      </div>
+      
+    </div>
+  </div>  
     <div class="modal fade" id="Oper_Transactions" role="dialog">
 	 <div class="modal-dialog">
     
@@ -1883,8 +1968,17 @@ $(document).on("click", ".editaddress", function () {
 });
 $(document).on("click", ".editactivity", function () {
      var TaskId = $(this).data('id');
-     //ChangeUrl('Poligresa3.0', 'operation.php?phoneid='+PhoneId);
-	 window.location.href='operation.php?task_id='+TaskId;
+     window.location.href='operation.php?task_id='+TaskId;
+	 
+});
+$(document).on("click", ".addphone", function () {
+     var ContactId = $(this).data('id');
+     window.location.href='operation.php?contactid='+ContactId;
+	 
+});
+$(document).on("click", ".addaddress", function () {
+     var ContactId1 = $(this).data('id');
+     window.location.href='operation.php?contactid1='+ContactId1;
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
@@ -1989,6 +2083,16 @@ if (isset($_POST['create'])) {
 }
 if (isset($_POST['insert2'])) {
         $sql = "insert into App_Contacts(App_Contacts_DebtorId,App_Contacts_RefId,App_Contacts_FullName,App_Contacts_Relation,App_Contacts_PhoneNumber,App_Contacts_Address,App_Contacts_CreatedBy,App_Contacts_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['refid'] . "','" . $_POST['fname'] . "','" . $_POST['type'] . "','" . $_POST['no'] . "','" . $_POST['address'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['insert3'])) {
+        $sql = "insert into App_Contacts(App_Contacts_RefId,App_Contacts_PhoneNumber) values('" . $_POST['hidrefid'] . "','" . $_POST['no'] . "')";
+        mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['insert4'])) {
+        $sql = "insert into App_Contacts(App_Contacts_RefId,App_Contacts_Address) values('" . $_POST['hidrefid1'] . "','" . $_POST['address'] . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
