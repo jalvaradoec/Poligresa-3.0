@@ -1955,6 +1955,29 @@ var Alerter = {
 		},
 		Alert : function(){
 			alert("hello");
+			var curdebt=$('.curdebt').val();
+			var discount=$('.discount').val();
+			var balance1=curdebt-discount;
+			$('.balance1').val(balance1.toFixed(2));
+			//var hiddebt=$('.hiddebt').val();
+			var dpayment=$('.dpayment').val();
+			var balance2=$('.balance1').val()-dpayment;
+			$('.balance2').val(balance2.toFixed(2));
+			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.monthpayment1').val();
+			$('.interest').val(interest.toFixed(2));
+			//var monthpayment1=(balance2 + interest) / $('.shares').val();
+			//if($('.shares').val()==''){
+			//$('.monthpayment1').val('');	
+			//}
+			//else
+			//{
+			//$('.monthpayment1').val(monthpayment1.toFixed(2));
+			//}
+			var total=$('.balance2').val()+$('.interest').val();
+			var monthpayment2=$5(total/($('.monthpayment1').val()-1));
+			var monthpayment2=$('.monthpayment2').val();
+			var lastpayment=total-($('.monthpayment2').val()*($('.monthpayment1').val()-1));
+			var lastpayment=$('.lastpayment').val();
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
