@@ -1960,6 +1960,9 @@ var Alerter = {
 			var balance1=curdebt-discount;
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
+			var dpayment=$('.dpayment').val();
+			var balance2=$('.balance1').val()-$('.dpayment').val();
+			$('.balance2').val(balance2.toFixed(2));
 			
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
