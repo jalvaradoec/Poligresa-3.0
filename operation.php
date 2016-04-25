@@ -1043,22 +1043,33 @@ $(document).ready(function(){
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Registered Contacts</h4>
         </div>
+		<?php
+		$sql="select * from App_Credits ac INNER JOIN App_Contacts ap ON ac.App_Credits_DebtorId = ap.App_Contacts_DebtorId WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		$result=mysql_query($sql);
+		?>
         <div class="modal-body">
             <div class="box-body table-responsive no-padding">
             <div>
+			<?php
+			$i=1; 	
+			while($row=mysql_fetch_array($result)){ 
+			$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Contacts_Relation']."' and App_Aux_field = 'RefferenceType'";
+			$result2=mysql_query($sql2);
+			$row2=mysql_fetch_array($result2);
+			?>
 			    <table class="deb_info_tbl">
                 <tbody>
 				<tr>
                   <td class="deb_info_row">Relation:</td>
-                  <td class="deb_info_row1">Wife</td>          
+                  <td class="deb_info_row1"><?php echo $row2['App_Aux_text'] ?></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Contacts_RefId'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Contacts_RefId'] ?></td>          
                 </tr>
 				 <tr>
                   <td class="deb_info_row">Phones:</td>
@@ -1073,66 +1084,12 @@ $(document).ready(function(){
 				
 			 </tbody> 
 		     </table>
-			 <hr />
-			 <table class="deb_info_tbl">
-                <tbody>
-				<tr>
-                  <td class="deb_info_row">Relation:</td>
-                  <td class="deb_info_row1">Father</td>          
-                </tr>
-				<tr>
-                  <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
-                </tr>
-			     <tr>
-                  <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>  
-                </tr>
-				 <tr>
-                  <td class="deb_info_row">Phones:</td>
-				  <td class="deb_info_row1">(04) 1234564 -(09)65412396</td>  
-				  <td><a href="">more..</a></td>
-                </tr>
-				 <tr>
-                  <td class="deb_info_row">Address:</td>
-				  <td class="deb_info_row1">Calba Sacio viviendra Mz 14k Solar 18</td> 
-				  <td><a href="">more..</a></td>
-                </tr>
-				
-			 </tbody> 
-		     </table>
-			 <hr />
-			 <table class="deb_info_tbl">
-                <tbody>
-				<tr>
-                  <td class="deb_info_row">Relation:</td>
-                  <td class="deb_info_row1">Hermano</td>          
-                </tr>
-				<tr>
-                  <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
-                </tr>
-			     <tr>
-                  <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
-                </tr>
-				 <tr>
-                  <td class="deb_info_row">Phones:</td>
-				  <td class="deb_info_row1">(04) 1234564 -(09)65412396</td>  
-				  <td><a href="">more..</a></td>
-                </tr>
-				 <tr>
-                  <td class="deb_info_row">Address:</td>
-				  <td class="deb_info_row1">Calba Sacio viviendra Mz 14k Solar 18</td>  
-				   <td><a href="">more..</a></td>
-                </tr>
-				
-			 </tbody> 
-		     </table>
 			 
-			 
-			 
-			 </div>
+			<?php 
+			if($i>1){ $hr="<hr />"; }else { $hr=""; }
+			echo $hr;
+			$i++; } ?>
+			</div>
              
             </div>
 
@@ -1172,7 +1129,7 @@ $(document).ready(function(){
                 </tr>
 			    <tr>
                   <td class="deb_info_row">Full Name:<span style="color:red">*</span></td>
-                  <td class="deb_info_row1"><input type="text" name="refid" required/></td>          
+                  <td class="deb_info_row1"><input type="text" name="fname" required /></td>          
                 </tr>
 			    <tr>
                   <td class="deb_info_row">Relation:</td>
@@ -1192,18 +1149,7 @@ $(document).ready(function(){
                   <td class="deb_info_row">Number:<span style="color:red">*</span></td>
                   <td class="deb_info_row1"><input type="text" name="no" required/></td>          
                 </tr>
-			     <tr>
-                  <td class="deb_info_row">Ext.:</td>
-				  <td class="deb_info_row1"><input type="text" name="ext" /></td>          
-                </tr>
-				<tr>
-                  <td class="deb_info_row">Confirmed:</td>
-				  <td class="deb_info_row1"><input type="checkbox" value="1" name="confirmed" /></td>          
-                </tr>
-				<tr>
-                  <td class="deb_info_row">Status:</td>
-				  <td class="deb_info_row1"><input type="checkbox" checked value="1" name="status" /></td>          
-                </tr>	
+			    
 				
 			 </tbody> 
 		     </table> 
@@ -1212,7 +1158,7 @@ $(document).ready(function(){
         </div>
 		
         <div class="modal-footer">
-           <button type="submit" class="btn btn-info pull-left" name="insert"><i class="fa fa-plus"></i> Insert</button>
+           <button type="submit" class="btn btn-info pull-left" name="insert2"><i class="fa fa-plus"></i> Insert</button>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
 		</form>
@@ -2024,6 +1970,11 @@ if (isset($_POST['create'])) {
 		$agreementtotal=$dpayment+$balance2+$interest;
         $sql = "insert into App_Agreement(App_Agreement_DebtorID,App_Agreement_OpearationID,App_Agreement_InitialDebt,App_Agreement_Discounts,App_Agreement_DownPayment,App_Agreement_Balance,App_Agreement_Interest,App_Agreement_Total,App_Agreement_Shares,App_Agreement_ShareAmount,App_Agreement_LastShareAmmount,App_Agreement_StartingOn,App_Agreement_Status,App_Agreement_CreatedBy,App_Agreement_CreatedOn) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['curdebt'] . "','" . $_POST['discount'] . "','" . $_POST['dpayment'] . "','" . $_POST['balance2']."','".$_POST['interest'] . "','" . $agreementtotal . "','" . $_POST['shares'] . "','" . $_POST['monthpayment2'] . "','" . $_POST['lastpayment'] . "','" . $_POST['startdate'] . "','" . $_POST['status'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
 		mysql_query($sql);
+        echo "<script>window.location.href='operation.php';</script>";
+}
+if (isset($_POST['insert2'])) {
+        $sql = "insert into App_Contacts(App_Contacts_DebtorId,App_Contacts_RefId,App_Contacts_FullName,App_Contacts_Relation,App_Contacts_CreatedBy,App_Contacts_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['refid'] . "','" . $_POST['fname'] . "','" . $_POST['type'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
+        mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
 ?>
