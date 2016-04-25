@@ -1207,6 +1207,29 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 		?>
+		<div class="box-body table-responsive no-padding">
+          <table id="example2" class="table table-bordered table-responsive table-hover">
+                <thead>
+                <tr>
+                 <th>Number</th>
+                </tr>
+                </thead>
+                <tbody>
+				<?php
+				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
+				$result=mysql_query($sql);
+				while($row=mysql_fetch_array($result)){
+				?>
+                <tr>
+                  <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
+                </tr>
+				<?php } ?>
+				</tbody>
+               
+              </table>
+             
+            </div>
+			
 		   <form role="form" action="" method="post">
 		<div class="modal-body">
             <div>
