@@ -24,7 +24,7 @@ $(document).ready(function(){
 				$('#Oper_EditACtivities').modal('show');	
         }
 		else if (pathname.substr(1, 9) == "contactid") {
-				$('#Cli_MoreNumber').modal('show');	
+				$('#Cli_AddPhones').modal('show');	
         }
 		else if (pathname.substr(1, 10) == "contact_id") {
 				$('#Cli_MoreAddress').modal('show');	
