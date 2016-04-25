@@ -656,6 +656,7 @@ $(document).ready(function(){
 				$row=mysql_fetch_array($result);
 				?>
 				<input type="hidden" name="hidrefid" value="<?php echo $row['App_Contacts_RefId'] ?>"/>
+				<input type="hidden" name="regby1" value="<?php echo $row['App_Contacts_CreatedBy'] ?>"/>
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
@@ -2149,7 +2150,7 @@ var Alerter = {
 <?php
 if (isset($_POST['insert'])) {
 	if(isset($_GET['contactid'])){
-		$sql = "insert into App_Contacts(App_Contacts_RefId,App_Contacts_PhoneNumber) values('" . $_POST['hidrefid'] . "','" . $_POST['no'] . "')";
+		$sql = "insert into App_Contacts(App_Contacts_RefId,App_Contacts_PhoneNumber,App_Contacts_CreatedBy) values('" . $_POST['hidrefid'] . "','" . $_POST['no'] . "','" . $_POST['regby1'] . "')";
 	}
 	else
     {
