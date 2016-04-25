@@ -1141,8 +1141,8 @@ $(document).ready(function(){
 			    <tr>
                   <td class="deb_info_row">Relation:</td>
 				  <td class="deb_info_row1">
-				  <select class="form-control" name="type">
-                    <option value=""> -----------Select Relation-----------</option>
+				  <select class="form-control" name="type" style="width:43%">
+                    <option value="">Select Relation</option>
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'RefferenceType'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
