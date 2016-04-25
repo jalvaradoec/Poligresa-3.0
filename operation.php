@@ -1053,6 +1053,8 @@ $(document).ready(function(){
 			<?php
 			$i=1; 	
 			while($row=mysql_fetch_array($result)){ 
+			if($i>1){ $hr="<hr />"; }else { $hr=""; }
+			echo $hr;
 			$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Contacts_Relation']."' and App_Aux_field = 'RefferenceType'";
 			$result2=mysql_query($sql2);
 			$row2=mysql_fetch_array($result2);
@@ -1086,8 +1088,6 @@ $(document).ready(function(){
 		     </table>
 			 
 			<?php 
-			if($i>1){ $hr="<hr />"; }else { $hr=""; }
-			echo $hr;
 			$i++; } ?>
 			</div>
              
