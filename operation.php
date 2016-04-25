@@ -2154,13 +2154,13 @@ var Alerter = {
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-            var DwnPymt=dpayment;
-            $('.DwnPymt').val(DwnPymt.toFixed(2));
             //var RenderDwnPymt=dpayment;
 			var balance2=$('.balance1').val()-$('.dpayment').val();
 			$('.balance2').val(balance2.toFixed(2));
 			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
 			$('.interest').val(interest.toFixed(2));
+            var DwnPymt=dpayment;
+            $('.DwnPymt').val();
 			//var monthpayment1=(balance2 + interest) / $('.shares').val();
 			//if($('.shares').val()==''){
 			//$('.monthpayment1').val('');	
