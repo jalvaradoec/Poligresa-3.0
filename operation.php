@@ -1976,8 +1976,8 @@ var Alerter = {
 			var total=balance2 + interest;
 			var monthpayment2=5* ((total)/($('.monthpayment1').val()-1));
 			$('.monthpayment2').val(monthpayment2.toFixed(2));
-			//var lastpayment=total-($('.monthpayment2').val()*($('.monthpayment1').val()-1));
-			//$('.lastpayment').val(lastpayment.toFixed(2));
+			var lastpayment=total-($('.monthpayment2').val()*($('.monthpayment1').val()-1));
+			$('.lastpayment').val(lastpayment.toFixed(2));
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
