@@ -29,6 +29,12 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 10) == "contact_id") {
 				$('#Cli_Address').modal('show');	
         }
+		else if (pathname.substr(1, 9) == "debtphone") {
+				$('#Cli_Phones').modal('show');	
+        }
+		else if (pathname.substr(1, 11) == "debtaddress") {
+				$('#Cli_Address').modal('show');	
+        }
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
@@ -81,7 +87,7 @@ $(document).ready(function(){
 				  echo $comma.$row['App_Phones_PhoneNumber'];
 				  $i++;
 				  } ?></td>
-                  <td><a href="#Cli_Phones" data-toggle="modal" data-target="#Cli_Phones">More</a></td>
+                  <td><a href="" data-toggle="modal" class="debtphone">More</a></td>
                 </tr>
 				<?php
 			   $sql="select * from App_Credits ac INNER JOIN App_Addresses aa ON ac.App_Credits_DebtorId = aa.App_Addresses_DebtorID WHERE aa.App_Addresses_Status = 1 and ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
@@ -91,7 +97,7 @@ $(document).ready(function(){
 				<tr>
                   <td><b>Address:</b></td>
                   <td><?php echo $row['App_Addresses_MainStreet']; ?></td>
-                  <td><a href="#Cli_Address" data-toggle="modal" data-target="#Cli_Address">More</a></td>
+                  <td><a href="" data-toggle="modal" class="debtaddress">More</a></td>
                
                 </tr>
 				<?php
@@ -2063,6 +2069,14 @@ $(document).on("click", ".addphone", function () {
 $(document).on("click", ".addaddress", function () {
      var ContactId1 = $(this).data('id');
      window.location.href='operation.php?contact_id='+ContactId1;
+	 
+});
+$(document).on("click", ".debtphone", function () {
+     window.location.href='operation.php?debtphone';
+	 
+});
+$(document).on("click", ".debtaddress", function () {
+     window.location.href='operation.php?debtaddress';
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
