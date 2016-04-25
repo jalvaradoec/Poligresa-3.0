@@ -602,7 +602,7 @@ $(document).ready(function(){
 					
                   <td><a href="" class="editphone" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Contacts_PhoneNumber'] ?></a></td>
                   <td><?php echo $row2['App_Users_fullname'] ?></td>
-                  <td><?php echo $row['App_Phones_CreatedOn'] ?><?php echo $row['App_Contacts_CreatedOn'] ?></td>
+                  <td><?php echo $row['App_Contacts_CreatedOn'] ?></td>
                
                 </tr>
 				<?php } } else { ?>
@@ -614,7 +614,7 @@ $(document).ready(function(){
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
 				  <td><?php if($row['App_Phones_PhoneStatus'] == 1){ echo "Active";}else{ echo "Inactive";} ?></td>
                   <td><?php echo $row2['App_Users_fullname'] ?></td>
-                  <td><?php echo $row['App_Phones_CreatedOn'] ?><?php echo $row['App_Contacts_CreatedOn'] ?></td>
+                  <td><?php echo $row['App_Phones_CreatedOn'] ?></td>
                
                 </tr>
 				<?php } }?>
@@ -790,7 +790,14 @@ $(document).ready(function(){
           <h4 class="modal-title">Addresses</h4>
         </div>
 		<?php
+		if(isset($_GET['contact_id'])){
+				$sql1="select * from App_Contacts where App_Contacts_Id='".$_GET['contact_id']."'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
+		}else{
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Addresses ap ON ac.App_Credits_DebtorId = ap.App_Addresses_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		}
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				
@@ -801,11 +808,11 @@ $(document).ready(function(){
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Addresses_DebtorID'] ?></td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Addresses_DebtorID'] ?><?php echo $row['App_Contacts_RefId'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?><?php echo $row['App_Contacts_FullName'] ?></td>          
                 </tr>	
 			 </tbody> 
 		     </table> 
@@ -815,17 +822,24 @@ $(document).ready(function(){
                 <thead>
                 <tr>
                   <th>Address</th>
+				  <?php if(isset($_GET['contact_id'])){ } else { ?>
                   <th>Type</th>
                   <th>Confirmed</th>
                   <th>Status</th>
+				  <?php } ?>
                   <th>Reg. By</th>
                   <th>Date</th>
                   
                 </tr>
                 </thead>
                 <tbody>
-				<?php 
+				<?php
+				if(isset($_GET['contact_id'])){
+				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
+				}
+				else{				
 				$sql="SELECT * FROM App_Addresses WHERE App_Addresses_DebtorID=".$row['App_Addresses_DebtorID'];
+				}
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Addresses_Confirmed'] == 1) ? 'checked="checked' : '';
@@ -833,11 +847,23 @@ $(document).ready(function(){
 				$sql1="select * from App_Aux aa INNER JOIN App_Addresses ac ON aa.App_Aux_value = ac.App_Addresses_AddressType WHERE aa.App_Aux_field = 'AddressType' and ac.App_Addresses_AddressType =".$row['App_Addresses_AddressType'];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
+				if(isset($_GET['contact_id'])){
+					$sql2="select * from App_Users WHERE App_Users_ID =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				}
+				else{
 				$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Addresses_CreatedBy"];
+				}
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
-				?>
+				if(isset($_GET['contact_id'])){	if($row['App_Contacts_Address']==""){}else { ?>
                 <tr>
+                  <td><a href="" class="editaddress" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Contacts_Address'] ?></a></td>
+                  <td><?php echo $row2['App_Users_fullname'] ?></td>
+				  <td><?php echo $row['App_Contacts_CreatedOn'] ?></td>
+                  
+                </tr>
+				<?php } } else { ?>
+				<tr>
                   <td><a href="" class="editaddress" data-id="<?php echo $row['App_Addresses_Id'] ?>" data-toggle="modal"><?php echo $row['App_Addresses_MainStreet'] ?></a></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Addresses_Id']; ?>" /></td>
@@ -846,7 +872,7 @@ $(document).ready(function(){
 				  <td><?php echo $row['App_Addresses_CreatedOn'] ?></td>
                   
                 </tr>
-				<?php } ?>
+				<?php } } ?>
 				  </tbody>
                
               </table>
@@ -877,16 +903,23 @@ $(document).ready(function(){
 			    <table class="deb_info_tbl">
                 <tbody>
 				<?php
+				if(isset($_GET['contact_id'])){
+				$sql="select * from App_Contacts where App_Contacts_Id='".$_GET['contact_id']."'";
+				}else {
 				$sql="select * from App_Credits where App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				}
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				?>
+				<input type="hidden" name="hidrefid1" value="<?php echo $row['App_Contacts_RefId'] ?>"/>
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
                   <td class="deb_info_row">Address:<span style="color:red">*</span></td>
                   <td class="deb_info_row1"><input type="text" name="address" size="50" required/></td>          
                 </tr>
+				<?php 
+				if(isset($_GET['contact_id'])){ } else { ?>
 			     <tr>
                   <td class="deb_info_row">Type:</td>
 				  <td class="deb_info_row1">
@@ -909,7 +942,7 @@ $(document).ready(function(){
                   <td class="deb_info_row">Status:</td>
 				  <td class="deb_info_row1"><input type="checkbox" checked value="1" name="status" /></td>          
                 </tr>	
-				
+				<?php } ?>
 			 </tbody> 
 		     </table> 
 			 </div>
@@ -2164,7 +2197,13 @@ if (isset($_POST['update'])) {
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['insert1'])) {
+	if(isset($_GET['contact_id'])){
+		$sql = "insert into App_Contacts(App_Contacts_RefId,App_Contacts_Address) values('" . $_POST['hidrefid1'] . "','" . $_POST['address'] . "')";
+	}
+	else
+    {
         $sql = "insert into App_Addresses(App_Addresses_DebtorID,App_Addresses_MainStreet,App_Addresses_AddressType,App_Addresses_Confirmed,App_Addresses_Status,App_Addresses_CreatedBy,App_Addresses_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['address'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
+	}
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
