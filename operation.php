@@ -527,7 +527,7 @@ $(document).ready(function(){
         </div>
 		<?php
 		if(isset($_GET['contactid'])){
-				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
+				$sql="select * from App_Contacts where App_Contacts_Id='".$_GET['contactid']."'";
 		}else{
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 		}
@@ -566,7 +566,7 @@ $(document).ready(function(){
                 <tbody>
 				<?php
 				if(isset($_GET['contactid'])){
-					$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
+					$sql="select * from App_Contacts where App_Contacts_Id='".$_GET['contactid']."'";
 				}
 				else{
 				$sql="select * from App_Phones WHERE App_Phones_DebtorID=".$row['App_Phones_DebtorID'];
