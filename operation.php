@@ -1518,7 +1518,7 @@ $(document).ready(function(){
 			    <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control balance1" name="balance1" readonly >
+                  <input type="text" class="form-control balance1" name="balance1" readonly="">
                 </div>
                 </div>
 				 <div class="form-group">
@@ -1539,7 +1539,7 @@ $(document).ready(function(){
                 <div class="form-group" style="margin-top: 16px;">
                  <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
                   <div class="col-sm-4">
-                  <input type="text" class="form-control RenderDwnPymt" value="" name="RenderDwnPymt" readonly="">
+                  <input type="text" class="form-control RenderDwnPymt" name="RenderDwnPymt" readonly="">
                 </div>
                 </div>
 				<div class="form-group">
@@ -2154,7 +2154,7 @@ var Alerter = {
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-            var RenderDwnPymt=$('.dpayment').val(dpayment.toFixed(2);
+            var RenderDwnPymt=$('.dpayment').val();
             //var RenderDwnPymt=dpayment;
 			var balance2=$('.balance1').val()-$('.dpayment').val();
 			$('.balance2').val(balance2.toFixed(2));
