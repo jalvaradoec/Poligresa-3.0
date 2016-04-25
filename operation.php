@@ -1973,10 +1973,10 @@ var Alerter = {
 			//{
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
-			var total=$('.balance2').val()+$('.interest').val();
-			alert(total.toFixed(2));
-			var monthpayment2=5* ((total.toFixed(2))/($('.monthpayment1').val()-1));
-			$('.monthpayment2').val(monthpayment2.toFixed(2));
+			//var total=$('.balance2').val()+$('.interest').val();
+			//alert(total.toFixed(2));
+			//var monthpayment2=5* ((total)/($('.monthpayment1').val()-1));
+			//$('.monthpayment2').val(monthpayment2.toFixed(2));
 			//var lastpayment=$('.balance2').val()+$('.interest').val()-($('.monthpayment2').val()*($('.monthpayment1').val()-1));
 			//$('.lastpayment').val(lastpayment.toFixed(2));
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
