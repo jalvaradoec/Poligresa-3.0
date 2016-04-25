@@ -1973,7 +1973,7 @@ var Alerter = {
 			//{
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
-			var monthpayment2=5* ($('.balance2').val()+$('.interest').val()/($('.monthpayment1').val()-1));
+			var monthpayment2=5* (($('.balance2').val()+$('.interest').val())/($('.monthpayment1').val()-1));
 			$('.monthpayment2').val(monthpayment2.toFixed(2));
 			//var lastpayment=$('.balance2').val()+$('.interest').val()-($('.monthpayment2').val()*($('.monthpayment1').val()-1));
 			//$('.lastpayment').val(lastpayment.toFixed(2));
