@@ -1960,7 +1960,7 @@ var Alerter = {
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-			var balance2=balance1-dpayment;
+			var balance2=$('.balance1').val()-dpayment;
 			$('.balance2').val(balance2.toFixed(2));
 			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.monthpayment1').val();
 			$('.interest').val(interest.toFixed(2));
@@ -1972,10 +1972,10 @@ var Alerter = {
 			//{
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
-			var total=balance2+interest;
+			var total=$('.balance2').val()+$('.interest').val();
 			var monthpayment2=$5(total/($('.monthpayment1').val()-1));
 			var monthpayment2=$('.monthpayment2').val();
-			var lastpayment=total-(monthpayment2*($('.monthpayment1').val()-1));
+			var lastpayment=total-($('.monthpayment2').val()*($('.monthpayment1').val()-1));
 			var lastpayment=$('.lastpayment').val();
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
