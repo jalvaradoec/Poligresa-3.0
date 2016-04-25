@@ -570,9 +570,6 @@ $(document).ready(function(){
 				<?php
 				if(isset($_GET['contactid'])){
 				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
-				$sql1="select * from App_Contacts WHERE App_Contacts_RefId =".$row['App_Contacts_RefId'];
-				echo $sql."hello";
-				echo $sql1."hello1";
 				}
 				else{
 				$sql="select * from App_Phones WHERE App_Phones_DebtorID=".$row['App_Phones_DebtorID'];
