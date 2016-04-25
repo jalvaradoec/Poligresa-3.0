@@ -1539,7 +1539,7 @@ $(document).ready(function(){
                 <div class="form-group" style="margin-top: 16px;">
                  <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
                   <div class="col-sm-4">
-                  <input type="text" class="form-control RenderDwnPymt" value="" name="RenderDwnPymt" readonly>
+                  <input type="text" class="form-control RenderDwnPymt" value="" name="RenderDwnPymt" readonly="">
                 </div>
                 </div>
 				<div class="form-group">
