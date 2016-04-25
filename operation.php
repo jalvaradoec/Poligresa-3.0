@@ -26,7 +26,7 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 9) == "contactid") {
 				$('#Cli_MoreNumber').modal('show');	
         }
-		else if (pathname.substr(1, 10) == "contactid1") {
+		else if (pathname.substr(1, 10) == "contact_id") {
 				$('#Cli_MoreAddress').modal('show');	
         }
 });
@@ -1237,7 +1237,7 @@ $(document).ready(function(){
           <h4 class="modal-title">Add More Address</h4>
         </div>
 		<?php
-				$sql1="select * from App_Contacts where App_Contacts_Id='".$_GET['contactid1']."'";
+				$sql1="select * from App_Contacts where App_Contacts_Id='".$_GET['contact_id']."'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 		?>
@@ -1978,7 +1978,7 @@ $(document).on("click", ".addphone", function () {
 });
 $(document).on("click", ".addaddress", function () {
      var ContactId1 = $(this).data('id');
-     window.location.href='operation.php?contactid1='+ContactId1;
+     window.location.href='operation.php?contact_id='+ContactId1;
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
