@@ -2154,7 +2154,7 @@ var Alerter = {
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-            var RenderDwnPymt=$('.dpayment').val();
+            var RenderDwnPymt=dpayment;
             //var RenderDwnPymt=dpayment;
 			var balance2=$('.balance1').val()-$('.dpayment').val();
 			$('.balance2').val(balance2.toFixed(2));
