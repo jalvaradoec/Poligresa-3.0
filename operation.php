@@ -1372,7 +1372,7 @@ $(document).ready(function(){
                   </div>
 				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
 				  <div class="col-sm-4">
-                    <input type="text" class="form-control" name="monthpayment2" readonly="">
+                    <input type="text" class="form-control monthpayment2" name="monthpayment2" readonly="">
                   </div>
                 </div>
 				<div class="form-group">
