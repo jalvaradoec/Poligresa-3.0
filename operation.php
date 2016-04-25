@@ -1220,11 +1220,12 @@ $(document).ready(function(){
 				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
+					if($row['App_Contacts_PhoneNumber']==""){}else{
 				?>
                 <tr>
                   <td><?php echo $row['App_Contacts_PhoneNumber'] ?></td>
                 </tr>
-				<?php } ?>
+					<?php } } ?>
 				</tbody>
                
               </table>
