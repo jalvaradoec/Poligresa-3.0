@@ -1090,8 +1090,14 @@ $(document).ready(function(){
                   <td class="deb_info_row">Phones:</td>
 				  <td class="deb_info_row1">
 				  <?php
-				  //if($i>1){ $dash=" -"; }else { $dash=""; }
-				  echo $row['App_Contacts_PhoneNumber'];
+				  $sql3="select * from App_Contacts WHERE App_Contacts_RefId ='".$row['App_Contacts_RefId']."' limit 2";
+				  $result3=mysql_query($sql3);
+				  $i1=1;
+				  while($row3=mysql_fetch_array($result3)){ 
+				  if($i1>1){ $dash=" -"; }else { $dash=""; }
+				  echo $dash.$row['App_Contacts_PhoneNumber'];
+				  $i1++;
+				  }
 				  ?>
 				  </td> 
 				  <td><a href="" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal" class="small-box-footer addphone">more..</a></td>
