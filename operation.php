@@ -558,10 +558,12 @@ $(document).ready(function(){
                 <thead>
                 <tr>
                  <th>Number</th>
+				 <?php if(isset($_GET['contactid'])){ } else { ?>
                  <th>Ext.</th>
                  <th>Type</th>
                  <th>Confirmed</th>
                  <th>Status</th>
+				 <?php } ?>
 				 <th>Reg. By</th>
 				 <th>Date</th>
                 </tr>
