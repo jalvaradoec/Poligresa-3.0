@@ -647,16 +647,23 @@ $(document).ready(function(){
 			    <table class="deb_info_tbl">
                 <tbody>
 				<?php
+				if(isset($_GET['contactid'])){
+				$sql="select * from App_Contacts where App_Contacts_Id='".$_GET['contactid']."'";
+				}else {
 				$sql="select * from App_Credits where App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				}
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				?>
+				<input type="hidden" name="hidrefid" value="<?php echo $row['App_Contacts_RefId'] ?>"/>
 				<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 				<input type="hidden" name="debtorid" value="<?php echo $row['App_Credits_DebtorId'] ?>"/>
 				<tr>
                   <td class="deb_info_row">Number:<span style="color:red">*</span></td>
                   <td class="deb_info_row1"><input type="text" name="no" required /></td>          
                 </tr>
+				<?php 
+				if(isset($_GET['contactid'])){ } else { ?>
 			     <tr>
                   <td class="deb_info_row">Ext.:</td>
 				  <td class="deb_info_row1"><input type="text" name="ext" /></td>          
@@ -683,7 +690,7 @@ $(document).ready(function(){
                   <td class="deb_info_row">Status:</td>
 				  <td class="deb_info_row1"><input type="checkbox" checked value="1" name="status" /></td>          
                 </tr>	
-				
+				<?php } ?>
 			 </tbody> 
 		     </table> 
 			 </div>
@@ -2141,8 +2148,14 @@ var Alerter = {
 </html>
 <?php
 if (isset($_POST['insert'])) {
-        $sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_Ext,App_Phones_PhoneType,App_Phones_Confirmed,App_Phones_PhoneStatus,App_Phones_CreatedBy,App_Phones_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['ext'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
-        mysql_query($sql);
+	if(isset($_GET['contactid'])){
+		$sql = "insert into App_Contacts(App_Contacts_RefId,App_Contacts_PhoneNumber) values('" . $_POST['hidrefid'] . "','" . $_POST['no'] . "')";
+	}
+	else
+    {
+		$sql = "insert into App_Phones(App_Phones_DebtorID,App_Phones_PhoneNumber,App_Phones_Ext,App_Phones_PhoneType,App_Phones_Confirmed,App_Phones_PhoneStatus,App_Phones_CreatedBy,App_Phones_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['no'] . "','" . $_POST['ext'] . "','" . $_POST['type'] . "','" . $_POST['confirmed'] . "','" . $_POST['status'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
+    }
+    mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['update'])) {
