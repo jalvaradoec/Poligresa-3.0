@@ -565,7 +565,12 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php
+				if(isset($_GET['contactid'])){
+					$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				}
+				else{
 				$sql="select * from App_Phones WHERE App_Phones_DebtorID=".$row['App_Phones_DebtorID'];
+				}
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
