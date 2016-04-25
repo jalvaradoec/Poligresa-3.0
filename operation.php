@@ -1207,7 +1207,7 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 		?>
-		<div class="modal-body">
+		<div class="modal-body" style="width:25%">
 		<div class="box-body table-responsive no-padding">
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
@@ -1222,7 +1222,7 @@ $(document).ready(function(){
 				while($row=mysql_fetch_array($result)){
 				?>
                 <tr>
-                  <td><?php echo $row['App_Phones_PhoneNumber'] ?></td>
+                  <td><?php echo $row['App_Contacts_PhoneNumber'] ?></td>
                 </tr>
 				<?php } ?>
 				</tbody>
