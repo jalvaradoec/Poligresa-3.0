@@ -526,7 +526,11 @@ $(document).ready(function(){
           <h4 class="modal-title">Phone numbers</h4>
         </div>
 		<?php
+		if(isset($_GET['contactid'])){
+				$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		}else{
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		}
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				
@@ -537,11 +541,11 @@ $(document).ready(function(){
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Phones_DebtorID'] ?></td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Phones_DebtorID'] ?><?php echo $row['App_Contacts_RefId'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?><?php echo $row['App_Contacts_FullName'] ?></td>          
                 </tr>	
 			 </tbody> 
 		     </table> 
