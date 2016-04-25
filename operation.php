@@ -475,7 +475,7 @@ $(document).ready(function(){
                   <td><?php echo $row['App_Task_DueDateTime'] ?></td>
                   <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row['App_Task_Description'] ?> </td>
-                  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Task_ID'] ?>" class="editactivity">Details</a></td>
+                  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
                 </tr>
 				<?php } ?>
 		   </tbody>
@@ -1149,7 +1149,10 @@ $(document).ready(function(){
                   <td class="deb_info_row">Number:<span style="color:red">*</span></td>
                   <td class="deb_info_row1"><input type="text" name="no" required/></td>          
                 </tr>
-			    
+			    <tr>
+                  <td class="deb_info_row">Address:<span style="color:red">*</span></td>
+                  <td class="deb_info_row1"><input type="text" name="address" size="50" required/></td>          
+                </tr>
 				
 			 </tbody> 
 		     </table> 
@@ -1973,7 +1976,7 @@ if (isset($_POST['create'])) {
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['insert2'])) {
-        $sql = "insert into App_Contacts(App_Contacts_DebtorId,App_Contacts_RefId,App_Contacts_FullName,App_Contacts_Relation,App_Contacts_CreatedBy,App_Contacts_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['refid'] . "','" . $_POST['fname'] . "','" . $_POST['type'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
+        $sql = "insert into App_Contacts(App_Contacts_DebtorId,App_Contacts_RefId,App_Contacts_FullName,App_Contacts_Relation,App_Contacts_PhoneNumber,App_Contacts_Address,App_Contacts_CreatedBy,App_Contacts_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['refid'] . "','" . $_POST['fname'] . "','" . $_POST['type'] . "','" . $_POST['no'] . "','" . $_POST['address'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
         mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
