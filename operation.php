@@ -1078,16 +1078,21 @@ $(document).ready(function(){
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1"><?php echo $row['App_Contacts_RefId'] ?></td>          
+				  <td class="deb_info_row1"><?php echo $row['App_Contacts_FullName'] ?></td>          
                 </tr>
 				 <tr>
                   <td class="deb_info_row">Phones:</td>
-				  <td class="deb_info_row1">(04) 1234564 -(09)65412396</td> 
+				  <td class="deb_info_row1">
+				  <?php
+				  if($i>1){ $dash=" -"; }else { $dash=""; }
+				  echo $dash.$row['App_Contacts_PhoneNumber'];
+				  ?>
+				  </td> 
 				  <td><a href="">more..</a></td>
                 </tr>
 				 <tr>
                   <td class="deb_info_row">Address:</td>
-				  <td class="deb_info_row1">Calba Sacio viviendra Mz 14k Solar 18</td>   
+				  <td class="deb_info_row1"><?php echo $row['App_Contacts_Address'] ?></td>   
 				  <td><a href="">more..</a></td>
                 </tr>
 				
