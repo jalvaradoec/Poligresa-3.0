@@ -24,10 +24,10 @@ $(document).ready(function(){
 				$('#Oper_EditACtivities').modal('show');	
         }
 		else if (pathname.substr(1, 9) == "contactid") {
-				$('#Cli_AddPhones').modal('show');	
+				$('#Cli_Phones').modal('show');	
         }
 		else if (pathname.substr(1, 10) == "contact_id") {
-				$('#Cli_MoreAddress').modal('show');	
+				$('#Cli_Address').modal('show');	
         }
 });
 </script>
