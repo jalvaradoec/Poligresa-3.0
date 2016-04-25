@@ -568,7 +568,15 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php
+				if(isset($_GET['contactid'])){
+				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
+				$sql1="select * from App_Contacts WHERE App_Contacts_RefId =".$row['App_Contacts_RefId'];
+				echo $sql."hello";
+				echo $sql1."hello1";
+				}
+				else{
 				$sql="select * from App_Phones WHERE App_Phones_DebtorID=".$row['App_Phones_DebtorID'];
+				}
 				$result=mysql_query($sql);
 				while($row=mysql_fetch_array($result)){
 					$checked = ($row['App_Phones_Confirmed'] == 1) ? 'checked="checked' : '';
