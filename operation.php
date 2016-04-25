@@ -1095,7 +1095,7 @@ $(document).ready(function(){
 				  $i1=1;
 				  while($row3=mysql_fetch_array($result3)){ 
 				  if($i1>1){ $dash=" -"; }else { $dash=""; }
-				  echo $dash.$row['App_Contacts_PhoneNumber'];
+				  echo $dash.$row3['App_Contacts_PhoneNumber'];
 				  $i1++;
 				  }
 				  ?>
