@@ -1973,7 +1973,7 @@ var Alerter = {
 			//{
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
-			var total=($('.balance2').val())+($('.interest').val());
+			var total=balance2 + interest;
 			alert(total);
 			var monthpayment2=5* ((total)/($('.monthpayment1').val()-1));
 			$('.monthpayment2').val(monthpayment2.toFixed(2));
