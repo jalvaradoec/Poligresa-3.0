@@ -1207,6 +1207,7 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 		?>
+		<div class="modal-body">
 		<div class="box-body table-responsive no-padding">
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
@@ -1229,7 +1230,7 @@ $(document).ready(function(){
               </table>
              
             </div>
-			
+			</div>
 		   <form role="form" action="" method="post">
 		<div class="modal-body">
             <div>
