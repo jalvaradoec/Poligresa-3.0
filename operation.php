@@ -1539,7 +1539,7 @@ $(document).ready(function(){
                 <div class="form-group" style="margin-top: 16px;">
                  <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
                   <div class="col-sm-4">
-                  <input type="text" class="form-control DwnPymt" name="DwnPymt" readonly="">
+                  <input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
                 </div>
                 </div>
 				<div class="form-group">
@@ -2154,13 +2154,13 @@ var Alerter = {
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-            //var RenderDwnPymt=dpayment;
+            //var Renderdwnpymt=dpayment;
 			var balance2=$('.balance1').val()-$('.dpayment').val();
 			$('.balance2').val(balance2.toFixed(2));
 			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
 			$('.interest').val(interest.toFixed(2));
-            var DwnPymt=$('.dpayment').val();
-            //$('.DwnPymt').val();
+            var dwnpymt=$('.dpayment').val();
+            //$('.dwnpymt').val();
 			//var monthpayment1=(balance2 + interest) / $('.shares').val();
 			//if($('.shares').val()==''){
 			//$('.monthpayment1').val('');	
