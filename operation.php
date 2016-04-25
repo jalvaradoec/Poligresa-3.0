@@ -1084,8 +1084,8 @@ $(document).ready(function(){
                   <td class="deb_info_row">Phones:</td>
 				  <td class="deb_info_row1">
 				  <?php
-				  if($i>1){ $dash=" -"; }else { $dash=""; }
-				  echo $dash.$row['App_Contacts_PhoneNumber'];
+				  //if($i>1){ $dash=" -"; }else { $dash=""; }
+				  echo $row['App_Contacts_PhoneNumber'];
 				  ?>
 				  </td> 
 				  <td><a href="">more..</a></td>
