@@ -131,7 +131,14 @@ $(document).ready(function(){
 			 <div class="small-box">
 			
             <div class="inner">
-              <h1 class="reg_contact_no">3</h1>
+              <h1 class="reg_contact_no">
+			  <?php
+		$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		$result=mysql_query($sql);
+		$num_row=mysql_num_rows($result);
+		echo $num_row;
+			?>
+			</h1>
             </div>
              <a href="#Cli_Contacts" data-toggle="modal" data-target="#Cli_Contacts" class="small-box-footer">Show Register Contacts <i class="fa fa-arrow-circle-right"></i></a>
             </div>
