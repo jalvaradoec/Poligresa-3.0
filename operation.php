@@ -1368,11 +1368,11 @@ $(document).ready(function(){
                 </div>
 				<div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
-                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control monthpayment1" name="monthpayment1" readonly="">
+                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control monthpayment1" name="monthpayment1">
                   </div>
 				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
 				  <div class="col-sm-4">
-                    <input type="text" class="form-control" name="monthpayment2">
+                    <input type="text" class="form-control" name="monthpayment2" readonly="">
                   </div>
                 </div>
 				<div class="form-group">
@@ -1958,21 +1958,25 @@ var Alerter = {
 			var discount=$('.discount').val();
 			var balance1=curdebt-discount;
 			$('.balance1').val(balance1.toFixed(2));
-			var hiddebt=$('.hiddebt').val();
+			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-			var balance2=hiddebt-dpayment;
+			var balance2=balance1-dpayment;
 			$('.balance2').val(balance2.toFixed(2));
-			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
+			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.monthpayment1').val();
 			$('.interest').val(interest.toFixed(2));
-			var monthpayment1=(balance2 + interest) / $('.shares').val();
-			if($('.shares').val()==''){
-			$('.monthpayment1').val('');	
-			}
-			else
-			{
-			$('.monthpayment1').val(monthpayment1.toFixed(2));
-			}
-			//var lastpayment=($('.balance2').val() + interest) - $('.shares').val();
+			//var monthpayment1=(balance2 + interest) / $('.shares').val();
+			//if($('.shares').val()==''){
+			//$('.monthpayment1').val('');	
+			//}
+			//else
+			//{
+			//$('.monthpayment1').val(monthpayment1.toFixed(2));
+			//}
+			var total=balance2+interest;
+			var monthpayment2=$5(total/($('.monthpayment1').val()-1));
+			var monthpayment2=$('.monthpayment2').val();
+			var lastpayment=total-(monthpayment2*($('.monthpayment1').val()-1));
+			var lastpayment=$('.lastpayment').val();
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
