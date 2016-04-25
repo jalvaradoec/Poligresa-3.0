@@ -589,9 +589,18 @@ $(document).ready(function(){
 				}
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
-					?>
+				if(isset($_GET['contactid'])){	if($row['App_Contacts_PhoneNumber']==""){}else { ?>
                 <tr>
-                  <td><a href="" class="editphone" data-id="<?php echo $row['App_Phones_ID'] ?><?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Phones_PhoneNumber'] ?><?php echo $row['App_Contacts_PhoneNumber'] ?></a></td>
+					
+                  <td><a href="" class="editphone" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Contacts_PhoneNumber'] ?></a></td>
+                  <td><?php echo $row2['App_Users_fullname'] ?></td>
+                  <td><?php echo $row['App_Phones_CreatedOn'] ?><?php echo $row['App_Contacts_CreatedOn'] ?></td>
+               
+                </tr>
+				<?php } } else { ?>
+					<tr>
+					
+                  <td><a href="" class="editphone" data-id="<?php echo $row['App_Phones_ID'] ?>" data-toggle="modal"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
@@ -600,7 +609,7 @@ $(document).ready(function(){
                   <td><?php echo $row['App_Phones_CreatedOn'] ?><?php echo $row['App_Contacts_CreatedOn'] ?></td>
                
                 </tr>
-				<?php } ?>
+				<?php } }?>
 				</tbody>
                
               </table>
