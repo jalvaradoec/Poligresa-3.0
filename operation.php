@@ -1544,7 +1544,7 @@ $(document).ready(function(){
                 </div>
 				<div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
-                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control monthpayment1" name="monthpayment1">
+                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control shares" name="shares">
                   </div>
 				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
 				  <div class="col-sm-4">
@@ -2154,11 +2154,11 @@ var Alerter = {
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-            var RenderDwnPymt=0;
-            var RenderDwnPymt=dpayment;
+            var RenderDwnPymt=$('.dpayment').val(dpayment.toFixed(2);
+            //var RenderDwnPymt=dpayment;
 			var balance2=$('.balance1').val()-$('.dpayment').val();
 			$('.balance2').val(balance2.toFixed(2));
-			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.monthpayment1').val();
+			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
 			$('.interest').val(interest.toFixed(2));
 			//var monthpayment1=(balance2 + interest) / $('.shares').val();
 			//if($('.shares').val()==''){
@@ -2169,9 +2169,9 @@ var Alerter = {
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
 			var total=balance2 + interest;
-			var monthpayment2=5* ((total)/($('.monthpayment1').val()-1));
+			var monthpayment2=5* ((total)/($('.shares').val()-1));
 			$('.monthpayment2').val(monthpayment2.toFixed(2));
-			var lastpayment=total-($('.monthpayment2').val()*($('.monthpayment1').val()-1));
+			var lastpayment=total-($('.monthpayment2').val()*($('.shares').val()-1));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
