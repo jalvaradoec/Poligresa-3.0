@@ -1539,7 +1539,7 @@ $(document).ready(function(){
                 <div class="form-group" style="margin-top: 16px;">
                  <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
                   <div class="col-sm-4">
-                  <input type="text" class="form-control RenderDwnPymt" name="RenderDwnPymt" readonly="">
+                  <input type="text" class="form-control DwnPymt" name="DwnPymt" readonly="">
                 </div>
                 </div>
 				<div class="form-group">
@@ -1548,7 +1548,7 @@ $(document).ready(function(){
                   </div>
 				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
 				  <div class="col-sm-4">
-                    <input type="text" class="form-control monthpayment2" name="monthpayment2" readonly="">
+                    <input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
                   </div>
                 </div>
 				<div class="form-group">
@@ -2154,7 +2154,8 @@ var Alerter = {
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
 			var dpayment=$('.dpayment').val();
-            var RenderDwnPymt=dpayment;
+            var DwnPymt=dpayment;
+            $('.DwnPymt').val(DwnPymt.toFixed(2));
             //var RenderDwnPymt=dpayment;
 			var balance2=$('.balance1').val()-$('.dpayment').val();
 			$('.balance2').val(balance2.toFixed(2));
@@ -2169,9 +2170,9 @@ var Alerter = {
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
 			var total=balance2 + interest;
-			var monthpayment2=5* ((total)/($('.shares').val()-1));
-			$('.monthpayment2').val(monthpayment2.toFixed(2));
-			var lastpayment=total-($('.monthpayment2').val()*($('.shares').val()-1));
+			var monthpayment= ((total)/($('.shares').val()));
+			$('.monthpayment').val(monthpayment.toFixed(2));
+			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
@@ -2229,7 +2230,7 @@ if (isset($_POST['create'])) {
 		$balance2=$_POST['balance2'];
 		$interest=$_POST['interest'];
 		$agreementtotal=$dpayment+$balance2+$interest;
-        $sql = "insert into App_Agreement(App_Agreement_DebtorID,App_Agreement_OpearationID,App_Agreement_InitialDebt,App_Agreement_Discounts,App_Agreement_DownPayment,App_Agreement_Balance,App_Agreement_Interest,App_Agreement_Total,App_Agreement_Shares,App_Agreement_ShareAmount,App_Agreement_LastShareAmmount,App_Agreement_StartingOn,App_Agreement_Status,App_Agreement_CreatedBy,App_Agreement_CreatedOn) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['curdebt'] . "','" . $_POST['discount'] . "','" . $_POST['dpayment'] . "','" . $_POST['balance2']."','".$_POST['interest'] . "','" . $agreementtotal . "','" . $_POST['shares'] . "','" . $_POST['monthpayment2'] . "','" . $_POST['lastpayment'] . "','" . $_POST['startdate'] . "','" . $_POST['status'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
+        $sql = "insert into App_Agreement(App_Agreement_DebtorID,App_Agreement_OpearationID,App_Agreement_InitialDebt,App_Agreement_Discounts,App_Agreement_DownPayment,App_Agreement_Balance,App_Agreement_Interest,App_Agreement_Total,App_Agreement_Shares,App_Agreement_ShareAmount,App_Agreement_LastShareAmmount,App_Agreement_StartingOn,App_Agreement_Status,App_Agreement_CreatedBy,App_Agreement_CreatedOn) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['curdebt'] . "','" . $_POST['discount'] . "','" . $_POST['dpayment'] . "','" . $_POST['balance2']."','".$_POST['interest'] . "','" . $agreementtotal . "','" . $_POST['shares'] . "','" . $_POST['monthpayment'] . "','" . $_POST['lastpayment'] . "','" . $_POST['startdate'] . "','" . $_POST['status'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
 		mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
