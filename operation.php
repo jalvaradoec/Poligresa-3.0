@@ -2142,7 +2142,7 @@ function ChangeUrl(title, url) {
 function setTwoNumberDecimal() {
 	alert('hello');
 	var dis1=$('.discount').val();
-	//alert(dis1);
+	alert(dis1);
     var dis2=parseFloat(dis1).toFixed(2);
 	$('.discount').val(dis2);
 }
