@@ -2161,7 +2161,7 @@ var Alerter = {
 			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
 			$('.interest').val(interest.toFixed(2));
             var dwnpymt=$('.dpayment').val();
-            $('.dwnpymt').val();
+            $('.dwnpymt').val(dwnpymt);
             //$('.dwnpymt').val();
 			//var monthpayment1=(balance2 + interest) / $('.shares').val();
 			//if($('.shares').val()==''){
