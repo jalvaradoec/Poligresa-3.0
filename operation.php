@@ -475,7 +475,7 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php
-			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 30";
+			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 15";
 				$result=mysql_query($sql);
 				//$row=mysql_fetch_array($result);
 				while($row=mysql_fetch_array($result)){ 
@@ -509,6 +509,7 @@ $(document).ready(function(){
                 </tr>
                 </tfoot>
               </table>
+            <br>
             </div>
          
             <!-- /.box-body -->
@@ -2170,7 +2171,7 @@ var Alerter = {
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
 			var total=balance2 + interest;
-			var monthpayment= ((total)/($('.shares').val()));
+			var monthpayment= floor((total)/($('.shares').val()+1));
 			$('.monthpayment').val(monthpayment.toFixed(2));
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
