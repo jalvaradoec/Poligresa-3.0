@@ -2238,14 +2238,15 @@ if (isset($_POST['create'])) {
         $sql = "insert into App_Agreement(App_Agreement_DebtorID,App_Agreement_OpearationID,App_Agreement_InitialDebt,App_Agreement_Discounts,App_Agreement_DownPayment,App_Agreement_Balance,App_Agreement_Interest,App_Agreement_Total,App_Agreement_Shares,App_Agreement_ShareAmount,App_Agreement_LastShareAmmount,App_Agreement_StartingOn,App_Agreement_Status,App_Agreement_CreatedBy,App_Agreement_CreatedOn) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['curdebt'] . "','" . $_POST['discount'] . "','" . $_POST['dpayment'] . "','" . $_POST['balance2']."','".$_POST['interest'] . "','" . $agreementtotal . "','" . $_POST['shares'] . "','" . $_POST['monthpayment'] . "','" . $_POST['lastpayment'] . "','" . $_POST['startdate'] . "','" . $_POST['status'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
 		mysql_query($sql);
 		$entry=$_POST['shares']+2;
-		echo $entry;
+		$totalshares=$_POST['shares']+1;
+		echo "abc".$totalshares."abc";
 		for($i=1;$i<=$entry;$i++){
 			if($i==1)
 			{
 				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='DownPayment'";
 				$result=mysql_query($sql2);
 				$row=mysql_fetch_array($result);
-				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','0','" . $_POST['dwnpymt']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','0','" . $_POST['dwnpymt']."','".$totalshares . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
 				echo $sql1."hello";
 				mysql_query($sql1);
 			}
@@ -2254,7 +2255,7 @@ if (isset($_POST['create'])) {
 				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
 				$result=mysql_query($sql2);
 				$row=mysql_fetch_array($result);
-				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i ."','" . $_POST['lastpayment']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i ."','" . $_POST['lastpayment']."','".$totalshares . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
 				echo $sql1."hello1";
 				mysql_query($sql1);
 			}
@@ -2263,7 +2264,7 @@ if (isset($_POST['create'])) {
 				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
 				$result=mysql_query($sql2);
 				$row=mysql_fetch_array($result);
-				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i-1 ."','" . $_POST['monthpayment']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i-1 ."','" . $_POST['monthpayment']."','".$totalshares . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
 				echo $sql1."hello2";
 				mysql_query($sql1);
 			}
