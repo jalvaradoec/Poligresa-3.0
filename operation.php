@@ -1,11 +1,6 @@
 <?php 
 include("header.php");
 include_once("utils.php");
-$today = date("Y-m-d");// current date
-echo "Today: ".$today;
-//Add one month date from today date
-$datemonth = strtotime(date("Y-m-d", strtotime($today)) . "+1 month");
-echo "After adding one month: ".date('l dS \o\f F Y', $datemonth);
 ?>
 <style>
 .textalign{
@@ -2264,7 +2259,11 @@ if (isset($_POST['create'])) {
 			else
 			{
 				$i1=$i-1;
-				$duedate=$_POST['startdate'];
+				$date1 = $_POST['startdate'];
+				$datemonth = strtotime(date("Y-m-d", strtotime($date1)) . "+1 month");
+				echo "After adding one month: ".date('l dS \o\f F Y', $datemonth);
+				echo "one month: ".$datemonth;
+				$duedate=;
 				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
 				$result=mysql_query($sql2);
 				$row=mysql_fetch_array($result);
