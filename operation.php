@@ -1581,6 +1581,14 @@ $(document).ready(function(){
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Transaction</h4>
         </div>
+		<?php
+		$sql="select * from App_Transactions WHERE App_Transactions_Id =".$_GET["trans_id"];
+		$result=mysql_query($sql);
+		$row=mysql_fetch_array($result);
+		$sql1="select * from App_Clients WHERE App_Clients_DebtorIdNumber =".$row['App_Transactions_ClientID'];
+		$result1=mysql_query($sql1);
+		$row1=mysql_fetch_array($result1);
+		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv">  
@@ -1588,15 +1596,15 @@ $(document).ready(function(){
                 <tbody>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
-                  <td class="deb_info_row1">23654599</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Transactions_OperationID'] ?></td>          
                 </tr>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1">09123654599</td>          
+                  <td class="deb_info_row1"><?php echo $row['App_Transactions_ClientID'] ?></td>          
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
+				  <td class="deb_info_row1"><?php echo $row1['App_Clients_FullName'] ?></td>          
                 </tr>
 				
 			 </tbody> 
@@ -2244,7 +2252,8 @@ $(document).on("click", ".debtaddress", function () {
 	 
 });
 $(document).on("click", ".Edittransaction", function () {
-     window.location.href='operation.php?trans_id';
+	var trans_id = $(this).data('id');
+     window.location.href='operation.php?trans_id='+trans_id;
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
