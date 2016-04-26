@@ -2173,9 +2173,10 @@ var Alerter = {
 			//}
 			var total=balance2 + interest;
 			var sharesval=$('.shares').val();
+			var one=1;
 			if($('.shares').val()==""){}else {
-			alert(sharesval + 1);}
-			var monthpayment=total/(sharesval + 1);
+			alert(sharesval + one);}
+			var monthpayment=total/(sharesval + one);
 			$('.monthpayment').val(monthpayment.toFixed(2));
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
