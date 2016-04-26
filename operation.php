@@ -2147,7 +2147,7 @@ function setTwoNumberDecimal() {
 function setTwoNumberDecimal1() {
 	var dis1=$('.dpayment').val();
 	var dis2=parseFloat(dis1).toFixed(2);
-	$('.dpayment').val(dis2);
+	$('.discount').val(dis2);
 }
 var Alerter = {
 		Wait : 1, 
