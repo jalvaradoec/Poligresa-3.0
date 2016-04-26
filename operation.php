@@ -2245,6 +2245,8 @@ if (isset($_POST['create'])) {
 				$result=mysql_query($sql2);
 				$row=mysql_fetch_array($result);
 				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "',0,'" . $_POST['dwnpymt']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+				echo $sql1."hello";
+				mysql_query($sql1);
 			}
 			else if($i==12)
 			{
@@ -2252,6 +2254,8 @@ if (isset($_POST['create'])) {
 				$result=mysql_query($sql2);
 				$row=mysql_fetch_array($result);
 				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i ."','" . $_POST['lastpayment']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+				echo $sql1."hello1";
+				mysql_query($sql1);
 			}
 			else
 			{
@@ -2259,9 +2263,9 @@ if (isset($_POST['create'])) {
 				$result=mysql_query($sql2);
 				$row=mysql_fetch_array($result);
 				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i-1 ."','" . $_POST['monthpayment']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+				echo $sql1."hello2";
+				mysql_query($sql1);
 			}
-			mysql_query($sql1);
-			
 		}
 		echo "<script>window.location.href='operation.php';</script>";
 }
