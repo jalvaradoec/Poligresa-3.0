@@ -1501,7 +1501,7 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal" >
+                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
                 </div>
                 </div>
                 <div class="form-group">
