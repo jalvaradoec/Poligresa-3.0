@@ -1501,7 +1501,7 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" >
+                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal" >
                 </div>
                 </div>
                 <div class="form-group">
@@ -2139,7 +2139,9 @@ function ChangeUrl(title, url) {
         alert("Browser does not support HTML5.");
     }
 }
-
+function setTwoNumberDecimal(event) {
+    this.value = parseFloat(this.value).toFixed(2);
+}
 var Alerter = {
 		Wait : 1, 
 		Timer : null,
@@ -2150,7 +2152,6 @@ var Alerter = {
 			//alert("hello");
 			var curdebt=$('.curdebt').val();
 			var discount=$('.discount').val();
-			$('.discount').val(discount.toFixed(2));
 			var balance1=curdebt-discount;
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
