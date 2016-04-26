@@ -2242,7 +2242,7 @@ if (isset($_POST['create'])) {
 
 $d = new DateTime( '2010-01-31' );
 $d->modify( 'next month' );
-echo $d->format( 'F' ), "\n";
+echo $d;
 
 		for($i=1;$i<=$entry;$i++){
 			if($i==1)
