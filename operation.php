@@ -2260,7 +2260,7 @@ if (isset($_POST['create'])) {
 			{
 				$i1=$i-1;
 				$date1 = $_POST['startdate'];
-				$mon=+$i1;
+				$mon='+'.$i1;
 				echo $mon;
 				$datemonth = strtotime(date("Y-m-d", strtotime($date1)) . "'".$mon."' month");
 				echo "After adding one month: ".date('Y-m-d', $datemonth);
