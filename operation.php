@@ -2267,7 +2267,7 @@ if (isset($_POST['create'])) {
 				mysql_query($sql1);
 			}
 		}
-		echo "<script>window.location.href='operation.php';</script>";
+		//echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['insert2'])) {
         $sql = "insert into App_Contacts(App_Contacts_DebtorId,App_Contacts_RefId,App_Contacts_FullName,App_Contacts_Relation,App_Contacts_PhoneNumber,App_Contacts_Address,App_Contacts_CreatedBy,App_Contacts_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['refid'] . "','" . $_POST['fname'] . "','" . $_POST['type'] . "','" . $_POST['no'] . "','" . $_POST['address'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
