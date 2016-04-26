@@ -2150,6 +2150,7 @@ var Alerter = {
 			//alert("hello");
 			var curdebt=$('.curdebt').val();
 			var discount=$('.discount').val();
+			$('.discount').val(discount.toFixed(2));
 			var balance1=curdebt-discount;
 			$('.balance1').val(balance1.toFixed(2));
 			//var hiddebt=$('.hiddebt').val();
