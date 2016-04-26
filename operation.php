@@ -1501,7 +1501,7 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal(<?php echo number_format($collectionfee, 2, '.', ''); ?>)" >
+                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
                 </div>
                 </div>
                 <div class="form-group">
@@ -2139,8 +2139,9 @@ function ChangeUrl(title, url) {
         alert("Browser does not support HTML5.");
     }
 }
-function setTwoNumberDecimal(dis1) {
+function setTwoNumberDecimal() {
 	alert('hello');
+	var dis1=$('.discount').val();
 	alert(dis1);
     var dis2=parseFloat(dis1).toFixed(2);
 	$('.discount').val(dis2);
