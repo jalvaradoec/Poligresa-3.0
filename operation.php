@@ -2176,7 +2176,7 @@ var Alerter = {
 			var one=1;
 			var sharestotal=+sharesval + +one;
 			var monthpayment=total/sharestotal;
-			$('.monthpayment').val(monthpayment.toFixed(2));
+			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
