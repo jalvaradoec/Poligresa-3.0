@@ -150,7 +150,7 @@ $operStatus = getViewOperStatus();
                   <td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankDueDate"])); ?></td>
                   <td><?php echo getBankState($value["App_Credits_BankState"]);?></td>
                   <td><?php echo $value["StatusText"]; ?></td>
-                  <td>Links<a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $row['App_Credits_BankOperNumber'] ?>"></td>
+                  <td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $row['App_Credits_BankOperNumber'] ?>">Links</a></td>
                 </tr>
                 <?php endforeach ?>
 
