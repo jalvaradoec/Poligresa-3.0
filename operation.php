@@ -2140,6 +2140,7 @@ function ChangeUrl(title, url) {
     }
 }
 function setTwoNumberDecimal(event) {
+	alert('hello');
     this.value = parseFloat(this.value).toFixed(2);
 }
 var Alerter = {
