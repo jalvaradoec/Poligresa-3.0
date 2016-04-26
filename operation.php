@@ -2260,7 +2260,7 @@ if (isset($_POST['create'])) {
 			{
 				$i1=$i-1;
 				$date1 = $_POST['startdate'];
-				$datemonth = strtotime(date("Y-m-d", strtotime($date1)) . "+'".$i1."' month");
+				$datemonth = strtotime(date("Y-m-d", strtotime($date1)) . "+1 month");
 				$duedate=date('Y-m-d', strtotime($datemonth));
 				echo $datemonth;
 				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
