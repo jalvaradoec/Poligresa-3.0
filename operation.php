@@ -34,6 +34,9 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 11) == "debtaddress") {
 				$('#Cli_Address').modal('show');	
         }
+		else if (pathname.substr(1, 8) == "trans_id") {
+				$('#Edit_Transactions').modal('show');	
+        }
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
@@ -419,7 +422,7 @@ $(document).ready(function(){
                   <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td><?php echo $row1['App_Aux_text'] ?></td>
-                  <td><a href="#" >Edit</a></td>
+                  <td><a href="" data-id="<?php echo $row3['App_Transactions_Id'] ?>" data-toggle="modal" class="Edittransaction">Edit</a></td>
                 </tr>
 				  <?php } ?>
 				
@@ -1569,7 +1572,138 @@ $(document).ready(function(){
       
     </div>
   </div>
-  
+  <div class="modal fade" id="Edit_Transactions" role="dialog">
+	 <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Transaction</h4>
+        </div>
+        <div class="modal-body">   
+		 <div class="box-body  no-padding md_box">
+		   <div class="col-lg-7 actv">  
+			    <table class="activity_tbl">
+                <tbody>
+				<tr>
+                  <td class="deb_info_row">Operation:</td>
+                  <td class="deb_info_row1">23654599</td>          
+                </tr>
+				<tr>
+                  <td class="deb_info_row">ID:</td>
+                  <td class="deb_info_row1">09123654599</td>          
+                </tr>
+			     <tr>
+                  <td class="deb_info_row">Name:</td>
+				  <td class="deb_info_row1">Trancaso Ferrin Marcus Eusebio</td>          
+                </tr>
+				
+			 </tbody> 
+		     </table>
+			 </div>
+			 <div class="col-lg-4">
+			 <div class="activity_head1">
+			 <h4>Vgeruva</h4>
+			 <h4>04/04/2016</h4>
+			 <h4>14:30</h4>
+			 
+			 </div>
+			 </div>
+          </div>
+		<div class="box-body">
+		  <div class="col-lg-6">
+		     <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+                  <div class="col-sm-8">
+                  <select class="form-control">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Collection Date</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                   <input type="date" class="form-control" style="width: 120px;" >
+				   <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                 <label for="inputPassword3" class="col-sm-4 control-label">Amount</label>
+				 <div class="col-sm-8">
+				 <input type="number" class="form-control"> 
+                </div>
+                </div>
+            </form>
+		  </div>
+		
+		  <div class="col-lg-6">
+              <form class="form-horizontal">
+			    <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label ">Status</label>
+                  <div class="col-sm-8">
+                  <select class="form-control">
+                    <option>Paid</option>
+                    <option>UnPaid</option>
+                    <option>Pending</option>
+                  </select>
+                </div>
+                </div>
+				 <div class="form-group">
+				 	
+                  <label for="inputPassword3" class="col-sm-6 control-label">Deposit Date</label>
+                  <div class="col-sm-6">
+                   <input type="date" class="form-control" style="width: 120px;">
+                  </div>
+                </div>
+				 <div class="form-group">
+				 
+                  <label for="inputPassword3" class="col-sm-7 control-label ">Dep.Transaction #</label>
+                  <div class="col-sm-5">
+                  <input type="text" class="form-control">
+                  </div>
+                </div>
+			  
+			<div class="form-group">
+			  <label for="inputPassword3" class="col-sm-7 control-label ">Conciliation</label>
+			  <div class="col-sm-5">
+			   <div class="checkbox">
+                    <label>
+                      <input type="checkbox">
+                       Done
+                    </label>
+                  </div>
+              </div>
+              </div>
+			  </form>
+		   
+		  </div>  
+		  </div>  
+      <div class="box-body">
+	  <h4>Notes</h4>
+	    <form role="form">
+			    <div class="form-group">
+                 
+                  <textarea class="form-control" rows="5"></textarea>
+                </div>
+	     </form>
+         </div>
+         </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-info pull-left"><i class="fa fa-plus"></i>Save</button>
+              <button type="button" class="btn btn-info"><i class="fa fa-reply"></i> Go Back</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
       <div class="modal fade" id="Oper_ACtivities" role="dialog">
 	 <div class="modal-dialog">
 		 
@@ -2107,6 +2241,10 @@ $(document).on("click", ".debtphone", function () {
 });
 $(document).on("click", ".debtaddress", function () {
      window.location.href='operation.php?debtaddress';
+	 
+});
+$(document).on("click", ".Edittransaction", function () {
+     window.location.href='operation.php?trans_id';
 	 
 });
 //$( ".dateselector" ).datepicker( "setDate", new Date());
