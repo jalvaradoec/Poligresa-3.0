@@ -2174,7 +2174,7 @@ var Alerter = {
 			var total=balance2 + interest;
 			var sharesval=$('.shares').val();
 			var one=1;
-			var sharestotal=sharesval + one;
+			var sharestotal=+sharesval + +one;
 			if($('.shares').val()==""){}else {
 			alert(sharestotal);}
 			var monthpayment=total/sharestotal;
