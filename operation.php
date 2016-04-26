@@ -380,7 +380,7 @@ $(document).ready(function(){
 				 <div>
 				 <a>
 				 <i class="fa fa-credit-card fa-5x fa_pay"></i>
-				 <a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Register Payment</h5> </a>
+				 <a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Setup Agreement</h5> </a>
 				 </div>
 				 </div>
 			   </div>
@@ -397,41 +397,31 @@ $(document).ready(function(){
                 </tr>
                 </thead>
                 <tbody>
+				<?php
+				if(isset($_GET['operno'])){
+					$sql3="select * from App_Transactions WHERE App_Transactions_OperationID =".$_GET['operno'];
+				}
+				else
+				{
+					$sql3="select * from App_Transactions aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				}
+				  $result3=mysql_query($sql3);
+				  while($row3=mysql_fetch_array($result3)){ 
+				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
+				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_ShareStatus']."' and App_Aux_field = 'TransactionStatus'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
+				?>
                 <tr>
-                  <td>Down Payment</td>
-                  <td>16/08/2015</td>
-                  <td>$250</td>
-                  <td style="color:red">Missed</td>
-                  <td><a href="#" >Details</a></td>
+                  <td><?php echo $row2['App_Aux_text'] ?></td>
+                  <td><?php echo $row3['App_Transactions_ShareDueDate'] ?></td>
+                  <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
+				  <td><?php echo $row1['App_Aux_text'] ?></td>
+                  <td><a href="#" >Edit</a></td>
                 </tr>
-				  <tr>
-                  <td>Down Payment</td>
-                  <td>30/12/2015</td>
-                  <td>$250</td>
-                  <td style="color:#3C8DBC">Paid</td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-				  <tr>
-                  <td>Agreement</td>
-                  <td>16/08/2015</td>
-                  <td>$100</td>
-                  <td style="color:#3C8DBC">Paid</td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-				  <tr>
-                  <td>Agreement</td>
-                  <td>30/08/2015</td>
-                  <td>$250</td>
-                  <td style="color:#00A65A">Current</td>
-                  <td><a href="#">Details</a></td>
-                </tr>
-				  <tr>
-                  <td>Down Payment</td>
-                  <td>16/08/2016</td>
-                  <td>$100</td>
-                  <td style="color:#605CA8">Planned</td>
-                  <td><a href="#">Details</a></td>
-                </tr>
+				  <?php } ?>
 				
                 </tbody>
                 <tfoot>
