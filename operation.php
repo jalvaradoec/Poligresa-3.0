@@ -1488,7 +1488,7 @@ $(document).ready(function(){
                 </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
+                  <label for="inputPassword3" class="col-sm-4 control-label">Down Paymen:</label>
                   <div class="col-sm-8">
                     <input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
                   </div>
@@ -2147,7 +2147,7 @@ function setTwoNumberDecimal() {
 function setTwoNumberDecimal1() {
 	var dis1=$('.dpayment').val();
 	var dis2=parseFloat(dis1).toFixed(2);
-	//$('.dpayment').val(dis2);
+	$('.dpayment').val(dis2);
 }
 var Alerter = {
 		Wait : 1, 
