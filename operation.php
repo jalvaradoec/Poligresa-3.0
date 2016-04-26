@@ -2175,8 +2175,6 @@ var Alerter = {
 			var sharesval=$('.shares').val();
 			var one=1;
 			var sharestotal=+sharesval + +one;
-			if($('.shares').val()==""){}else {
-			alert(sharestotal);}
 			var monthpayment=total/sharestotal;
 			$('.monthpayment').val(monthpayment.toFixed(2));
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
