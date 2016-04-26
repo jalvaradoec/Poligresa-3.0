@@ -1488,7 +1488,7 @@ $(document).ready(function(){
                 </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Down Paymen:</label>
+                  <label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
                   <div class="col-sm-8">
                     <input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
                   </div>
