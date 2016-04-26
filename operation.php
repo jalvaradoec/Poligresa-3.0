@@ -442,6 +442,7 @@ $(document).ready(function(){
                   <th>Amount</th>
                   <th>Status</th>
                   <th>More</th>
+                    <br>
                 </tr>
                 </tfoot>
               </table>
