@@ -2139,10 +2139,11 @@ function ChangeUrl(title, url) {
         alert("Browser does not support HTML5.");
     }
 }
-function setTwoNumberDecimal() {
+function setTwoNumberDecimal(dis1) {
 	alert('hello');
-	alert(this.value);
-    this.value = parseFloat(this.value).toFixed(2);
+	alert(dis1);
+    var dis2=parseFloat(dis1).toFixed(2);
+	$('.discount').val(dis2);
 }
 var Alerter = {
 		Wait : 1, 
