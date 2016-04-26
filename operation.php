@@ -1,9 +1,11 @@
 <?php 
 include("header.php");
 include_once("utils.php");
-$d = new DateTime( '2010-01-31' );
-$d->modify( 'next month' );
-echo $d->format( 'F' ), "\n";
+$today = date("Y-m-d");// current date
+echo "Today: ".$today;
+//Add one month date from today date
+$datemonth = strtotime(date("Y-m-d", strtotime($today)) . "+1 month");
+echo "After adding one month: ".date('l dS \o\f F Y', $datemonth);
 ?>
 <style>
 .textalign{
