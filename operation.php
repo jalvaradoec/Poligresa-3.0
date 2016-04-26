@@ -2263,7 +2263,7 @@ if (isset($_POST['create'])) {
 				$mon='+'.$i1;
 				echo $mon;
 				$datemonth = strtotime(date("Y-m-d", strtotime($date1)) . "$mon month");
-				echo "After adding one month: ".date('Y-m-d', $datemonth);
+				//echo "After adding one month: ".date('Y-m-d', $datemonth);
 				$duedate=date('Y-m-d', $datemonth);
 				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
 				$result=mysql_query($sql2);
