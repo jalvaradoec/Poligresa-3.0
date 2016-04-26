@@ -2139,8 +2139,9 @@ function ChangeUrl(title, url) {
         alert("Browser does not support HTML5.");
     }
 }
-function setTwoNumberDecimal(event) {
+function setTwoNumberDecimal() {
 	alert('hello');
+	alert(this.value);
     this.value = parseFloat(this.value).toFixed(2);
 }
 var Alerter = {
