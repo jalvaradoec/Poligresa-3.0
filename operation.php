@@ -2160,7 +2160,7 @@ var Alerter = {
 			$('.balance2').val(balance2.toFixed(2));
 			var interest=((($('.balance2').val() * 0.18) / 360) *30) * $('.shares').val();
 			$('.interest').val(interest.toFixed(2));
-            var dwnpymt=dpayment;
+            var dwnpymt=$('.dpayment').val();
             $('.dwnpymt').val();
             //$('.dwnpymt').val();
 			//var monthpayment1=(balance2 + interest) / $('.shares').val();
@@ -2172,7 +2172,7 @@ var Alerter = {
 			//$('.monthpayment1').val(monthpayment1.toFixed(2));
 			//}
 			var total=balance2 + interest;
-			var monthpayment=((total)/($('.shares').val() + $"1"));
+			var monthpayment=((total)/($('.shares').val()));
 			$('.monthpayment').val(monthpayment.toFixed(2));
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
