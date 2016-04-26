@@ -2237,7 +2237,33 @@ if (isset($_POST['create'])) {
 		$agreementtotal=$dpayment+$balance2+$interest;
         $sql = "insert into App_Agreement(App_Agreement_DebtorID,App_Agreement_OpearationID,App_Agreement_InitialDebt,App_Agreement_Discounts,App_Agreement_DownPayment,App_Agreement_Balance,App_Agreement_Interest,App_Agreement_Total,App_Agreement_Shares,App_Agreement_ShareAmount,App_Agreement_LastShareAmmount,App_Agreement_StartingOn,App_Agreement_Status,App_Agreement_CreatedBy,App_Agreement_CreatedOn) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['curdebt'] . "','" . $_POST['discount'] . "','" . $_POST['dpayment'] . "','" . $_POST['balance2']."','".$_POST['interest'] . "','" . $agreementtotal . "','" . $_POST['shares'] . "','" . $_POST['monthpayment'] . "','" . $_POST['lastpayment'] . "','" . $_POST['startdate'] . "','" . $_POST['status'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
 		mysql_query($sql);
-        echo "<script>window.location.href='operation.php';</script>";
+		$entry=$_POST['shares']+2;
+		for($i=1;$i<=$entry;$i++){
+			if($i==1)
+			{
+				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='DownPayment'";
+				$result=mysql_query($sql2);
+				$row=mysql_fetch_array($result);
+				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "',0,'" . $_POST['dwnpymt']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+			}
+			else if($i==12)
+			{
+				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
+				$result=mysql_query($sql2);
+				$row=mysql_fetch_array($result);
+				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i ."','" . $_POST['lastpayment']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+			}
+			else
+			{
+				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
+				$result=mysql_query($sql2);
+				$row=mysql_fetch_array($result);
+				$sql1 = "insert into App_Transactions(App_Transactions_ClientID,App_Transactions_OperationID,App_Transactions_AgreementID,App_Transactions_TransactionType,App_Transactions_ShareNumber,App_Transactions_ShareAmount,App_Transactions_TotalShares,App_Transactions_ShareDueDate,App_Transactions_ShareStatus,App_Transactions_CreatedBy) values('" . $_POST['debtid'] . "','" . $_POST['operationid'] . "','" . $_POST['status'] . "','" . $row['App_Aux_value'] . "','". $i-1 ."','" . $_POST['monthpayment']."','".$_POST['shares']+1 . "','" . $_POST['startdate'] . "',6,'" . $_SESSION["logged_in_user"]["App_Users_ID"] . "')";
+			}
+			mysql_query($sql1);
+			
+		}
+		echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['insert2'])) {
         $sql = "insert into App_Contacts(App_Contacts_DebtorId,App_Contacts_RefId,App_Contacts_FullName,App_Contacts_Relation,App_Contacts_PhoneNumber,App_Contacts_Address,App_Contacts_CreatedBy,App_Contacts_CreatedOn) values('" . $_POST['debtorid'] . "','" . $_POST['refid'] . "','" . $_POST['fname'] . "','" . $_POST['type'] . "','" . $_POST['no'] . "','" . $_POST['address'] . "','" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "')";
