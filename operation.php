@@ -2261,7 +2261,7 @@ if (isset($_POST['create'])) {
 				$i1=$i-1;
 				$date1 = $_POST['startdate'];
 				$datemonth = strtotime(date("Y-m-d", strtotime($date1)) . "+1 month");
-				echo "After adding one month: ".date('l dS \o\f F Y', $datemonth);
+				echo "After adding one month: ".date('l dS \o\f m Y', $datemonth);
 				$duedate=date('l dS \o\f F Y', $datemonth);
 				$sql2="select * from App_Aux where App_Aux_field='TransactionType' and App_Aux_text='Regular Payment'";
 				$result=mysql_query($sql2);
