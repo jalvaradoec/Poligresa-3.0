@@ -416,7 +416,7 @@ $(document).ready(function(){
 				?>
                 <tr>
                   <td><?php echo $row2['App_Aux_text'] ?></td>
-                  <td><?php echo $row3['App_Transactions_ShareDueDate'] ?></td>
+                  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><a href="#" >Edit</a></td>
