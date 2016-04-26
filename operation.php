@@ -2173,6 +2173,7 @@ var Alerter = {
 			//}
 			var total=balance2 + interest;
 			var sharesval=$('.shares').val() + 1;
+			alert(sharesval);
 			var monthpayment=total/sharesval;
 			$('.monthpayment').val(monthpayment.toFixed(2));
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
