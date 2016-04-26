@@ -1,7 +1,9 @@
 <?php 
 include("header.php");
 include_once("utils.php");
-
+$d = new DateTime( '2010-01-31' );
+$d->modify( 'next month' );
+echo $d->format( 'F' ), "\n";
 ?>
 <style>
 .textalign{
@@ -2239,10 +2241,6 @@ if (isset($_POST['create'])) {
 		mysql_query($sql);
 		$entry=$_POST['shares']+2;
 		$totalshares=$_POST['shares']+1;
-
-$d = new DateTime( '2010-01-31' );
-$d->modify( 'next month' );
-echo $d;
 
 		for($i=1;$i<=$entry;$i++){
 			if($i==1)
