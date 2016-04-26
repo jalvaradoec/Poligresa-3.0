@@ -2139,16 +2139,7 @@ function ChangeUrl(title, url) {
         alert("Browser does not support HTML5.");
     }
 }
-function setTwoNumberDecimal() {
-	var dis1=$('.discount').val();
-	var dis2=parseFloat(dis1).toFixed(2);
-	$('.discount').val(dis2);
-}
-function setTwoNumberDecimal1() {
-	var dis3=$('.dpayment').val();
-	var dis4=parseFloat(dis3).toFixed(2);
-	$('.dpayment').val(dis4);
-}
+
 var Alerter = {
 		Wait : 1, 
 		Timer : null,
@@ -2187,6 +2178,16 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
+			function setTwoNumberDecimal() {
+	var dis1=$('.discount').val();
+	var dis2=parseFloat(dis1).toFixed(2);
+	$('.discount').val(dis2);
+}
+function setTwoNumberDecimal1() {
+	var dis3=$('.dpayment').val();
+	var dis4=parseFloat(dis3).toFixed(2);
+	$('.dpayment').val(dis4);
+}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
