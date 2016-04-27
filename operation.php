@@ -1597,7 +1597,7 @@ $(document).ready(function(){
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv">  
 		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">Payment</span>
-			    <table class="activity_tbl">
+			    <table class="activity_tbl" style="margin-top:0px">
                 <tbody>
 				<tr>
                   <td class="deb_info_row">Operation:</td>
@@ -1625,10 +1625,11 @@ $(document).ready(function(){
 			 </div>
           </div>
 		<div class="box-body">
-		  <div class="col-lg-6">
+		  <div class="col-lg-6 actv">
+		  <span style="font-size: 30px;font-style: normal;font-weight: bold;margin-left: 23%;">Planned</span>
 		     <form class="form-horizontal">
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+                  <label for="inputEmail3" class="col-sm-4 control-label">Type:</label>
                   <div class="col-sm-8">
                   <select class="form-control">
                     <option>option 1</option>
@@ -1637,7 +1638,23 @@ $(document).ready(function(){
                   </select>
                 </div>
                 </div>
+				<div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label">Share #:</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                   <input type="text" class="form-control">
+				   
+                </div>
+                  </div>
+                </div>
+                
                 <div class="form-group">
+                 <label for="inputPassword3" class="col-sm-4 control-label">Amount</label>
+				 <div class="col-sm-8">
+				 <input type="number" class="form-control"> 
+                </div>
+                </div>
+				<div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Collection Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
@@ -1648,17 +1665,12 @@ $(document).ready(function(){
                 </div>
                   </div>
                 </div>
-                <div class="form-group">
-                 <label for="inputPassword3" class="col-sm-4 control-label">Amount</label>
-				 <div class="col-sm-8">
-				 <input type="number" class="form-control"> 
-                </div>
-                </div>
-            </form>
+            
 		  </div>
 		
 		  <div class="col-lg-6">
-              <form class="form-horizontal">
+		  <span style="font-size: 30px;font-style: normal;font-weight: bold;margin-left: 42%;">Real</span>
+            
 			    <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label ">Status</label>
                   <div class="col-sm-8">
@@ -1683,7 +1695,12 @@ $(document).ready(function(){
                   <input type="text" class="form-control">
                   </div>
                 </div>
-			  
+			  <div class="form-group">
+                 <label for="inputPassword3" class="col-sm-4 control-label">Amount</label>
+				 <div class="col-sm-8">
+				 <input type="number" class="form-control"> 
+                </div>
+                </div>
 			<div class="form-group">
 			  <label for="inputPassword3" class="col-sm-7 control-label ">Conciliation</label>
 			  <div class="col-sm-5">
