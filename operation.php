@@ -1588,10 +1588,15 @@ $(document).ready(function(){
 		$sql1="select * from App_Clients WHERE App_Clients_DebtorIdNumber =".$row['App_Transactions_ClientID'];
 		$result1=mysql_query($sql1);
 		$row1=mysql_fetch_array($result1);
+		$sql2="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
+		$result2=mysql_query($sql2);
+		$row2=mysql_fetch_array($result2);
+		$CreatedOn=explode(" ",$row['App_Transactions_CreatedOn']);
 		?>
         <div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv">  
+		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">Payment</span>
 			    <table class="activity_tbl">
                 <tbody>
 				<tr>
@@ -1612,9 +1617,9 @@ $(document).ready(function(){
 			 </div>
 			 <div class="col-lg-4">
 			 <div class="activity_head1">
-			 <h4>Vgeruva</h4>
-			 <h4>04/04/2016</h4>
-			 <h4>14:30</h4>
+			 <h4><?php echo $row2['App_Users_fullname'] ?></h4>
+			 <h4><?php echo $CreatedOn[0] ?></h4>
+			 <h4><?php echo $CreatedOn[0] ?></h4>
 			 
 			 </div>
 			 </div>
