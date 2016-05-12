@@ -1915,19 +1915,15 @@ $(document).ready(function(){
                   <th></th>
 				  <th>Date</th>
                   <th>Type</th>
-                  <th>Respuesta</th>
-                  <th>Contacto</th>
-                  <th>Telefono</th>
                   <th>Orig. Amt.</th>
 				  <th>Status</th>
-                  <th>F. Comp.</th>
                   <th>Amt. Due</th>
                   <th>Payment</th> 
                 </tr>
 				</thead>
                 <tbody>
 				<?php
-			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4'";
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_TransactionType!='6'";
 				 $result3=mysql_query($sql3);
 				  while($row3=mysql_fetch_array($result3)){ 
 				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
@@ -1942,12 +1938,8 @@ $(document).ready(function(){
 				<td><input type="checkbox" name="pay" value="1"></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
-                <td></td>
-				<td></td>
-				<td></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td><?php echo $row1['App_Aux_text'] ?></td>
-				  <td></td>
 				  <td></td>
 				  <td></td>
 				  
