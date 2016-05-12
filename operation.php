@@ -1908,7 +1908,45 @@ $(document).ready(function(){
 			  
 			  
 		  </div>  
-		  
+		  <div class="box-body table-responsive no-padding">
+          <table id="example2" class="table table-bordered table-responsive table-hover">
+                <thead>
+				<tr>
+                  <th>Cuata</th>
+                  <th>Capital</th>
+                  <th>Interest</th>
+                  <th>Cuata</th>
+                  <th>I Fine</th>
+                  <th>Mara</th>
+                  <th>Gastas</th>
+                  <th>Total</th>
+                  <th>F.vata</th> 
+                </tr>
+				</thead>
+                <tbody>
+				<?php
+			   $sql="select * from App_Amortization WHERE App_Amortization_BankOperation =".$row['App_Amortization_BankOperation'];
+				$result=mysql_query($sql);
+				while($row=mysql_fetch_array($result)){
+				?>
+                
+                <tr>
+                  <td><?php echo $row['App_Amortization_Share'] ?></td>
+				  <td>$<?php echo number_format($row['App_Amortization_Capital'], 2, '.', '') ?></td>
+                  <td>$<?php echo number_format($row['App_Amortization_Interest'], 2, '.', '') ?></td>
+                  <td class="red">$<?php echo number_format($row['App_Amortization_Fee'], 2, '.', '') ?></td>
+                  <td>$<?php echo number_format($row['App_Amortization_FinInterest'], 2, '.', '') ?></td>
+                  <td>$<?php echo number_format($row['App_Amortization_DefaultFee'], 2, '.', '') ?></td>
+                  <td>$<?php echo number_format($row['App_Amortization_CollectExpenses'], 2, '.', '') ?></td>
+                  <td class="red">$<?php echo number_format($row['App_Amortization_ShareTotal'], 2, '.', '') ?></td>
+                  <td><?php echo $row['App_Amortization_DueDate'] ?></td>
+                </tr>
+				<?php } ?>
+                </tbody>
+               
+              </table>
+             
+            </div>
      
          </div>
         <div class="modal-footer">
