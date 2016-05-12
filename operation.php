@@ -1919,6 +1919,7 @@ $(document).ready(function(){
                   <th>Contacto</th>
                   <th>Telefono</th>
                   <th>Orig. Amt.</th>
+				  <th>Status</th>
                   <th>F. Comp.</th>
                   <th>Amt. Due</th>
                   <th>Payment</th> 
@@ -1932,7 +1933,9 @@ $(document).ready(function(){
 				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
-				 
+				 $sql1="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_ShareStatus']."' and App_Aux_field = 'TransactionStatus'";
+				$result1=mysql_query($sql1);
+				$row1=mysql_fetch_array($result1);
 				?>
                 
                 <tr>
@@ -1943,6 +1946,7 @@ $(document).ready(function(){
 				<td></td>
 				<td></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
+				  <td><?php echo $row1['App_Aux_text'] ?></td>
 				  <td></td>
 				  <td></td>
 				  <td></td>
