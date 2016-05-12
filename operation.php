@@ -1923,7 +1923,16 @@ $(document).ready(function(){
 				</thead>
                 <tbody>
 				<?php
-			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6'";
+			if(isset($_GET['operno'])){
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID=".$_GET["operno"];
+			}
+			else
+			{
+			  $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
+			  $result=mysql_query($sql);
+			  $row=mysql_fetch_array($result);
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and App_Transactions_OperationID='".$row['App_Transactions_OperationID']."'";	
+			}
 				 $result3=mysql_query($sql3);
 				  while($row3=mysql_fetch_array($result3)){ 
 				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
