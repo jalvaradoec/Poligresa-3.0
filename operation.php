@@ -1931,8 +1931,8 @@ $(document).ready(function(){
 				<?php
 			if(isset($_GET['operno'])){
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID=".$_GET["operno"];
-			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and aa.App_Transactions_ShareDueDate<=".Date("Y-m-d");
-			  echo $sql4;
+			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and aa.App_Transactions_ShareDueDate<='".Date("Y-m-d")."'";
+			  
 			}
 			else
 			{
@@ -1940,9 +1940,16 @@ $(document).ready(function(){
 			  $result=mysql_query($sql);
 			  $row=mysql_fetch_array($result);
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and App_Transactions_OperationID='".$row['App_Transactions_OperationID']."'";	
+			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and aa.App_Transactions_ShareDueDate<='".Date("Y-m-d")."'";
 			  
 			}
 				 $result3=mysql_query($sql3);
+				  $result4=mysql_query($sql4);
+				  while($row4=mysql_fetch_array($result4)){ 
+				  ?>
+				  <input type="hidden" name="transdate" class="transdate" value="<?php echo $row4['App_Transactions_ShareDueDate'] ?>"/>
+		          <?php
+				  }
 				  while($row3=mysql_fetch_array($result3)){ 
 				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
 				$result2=mysql_query($sql2);
@@ -1951,8 +1958,7 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				?>
-                <input type="hidden" name="date" class="transdate" value="<?php echo $row3['App_Transactions_ShareDueDate'] ?>"/>
-		        <tr>
+                <tr>
 				<td><input type="checkbox" name="pay" value="1"></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
