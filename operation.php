@@ -403,7 +403,7 @@ $(document).ready(function(){
 				<?php
 				if(isset($_GET['operno'])){
 					//$sql3="select * from View_AgremTable WHERE App_Transactions_OperationID =".$_GET['operno'];
-					$sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID=".$_GET["operno"];
+					$sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and aa.App_Credits_BankOperNumber='".$_GET["operno"]."'";
 					
 				}
 				else
@@ -411,7 +411,7 @@ $(document).ready(function(){
 					$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
 				    $result=mysql_query($sql);
 				    $row=mysql_fetch_array($result);
-			        $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."'";
+			        $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and aa.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";	
 					
 				}
 				  $result3=mysql_query($sql3);
@@ -1930,8 +1930,8 @@ $(document).ready(function(){
                 <tbody>
 				<?php
 			if(isset($_GET['operno'])){
-			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID=".$_GET["operno"];
-			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and aa.App_Transactions_ShareDueDate<='".Date("Y-m-d")."'";
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and aa.App_Credits_BankOperNumber='".$_GET["operno"]."'";
+			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and aa.App_Credits_BankOperNumber='".$_GET["operno"]."' and aa.App_Transactions_ShareDueDate<='".Date("Y-m-d")."'";
 			  
 			}
 			else
@@ -1939,9 +1939,8 @@ $(document).ready(function(){
 			  $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
 			  $result=mysql_query($sql);
 			  $row=mysql_fetch_array($result);
-			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and App_Transactions_OperationID='".$row['App_Transactions_OperationID']."'";	
-			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and aa.App_Transactions_ShareDueDate<='".Date("Y-m-d")."'";
-			  
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and aa.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";	
+			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and aa.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."' and aa.App_Transactions_ShareDueDate<='".Date("Y-m-d")."'";
 			}
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
