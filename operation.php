@@ -1792,21 +1792,7 @@ $(document).ready(function(){
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="type" style="width:122%" required>
-                    <option value=""> -----------Select Type-----------</option>
-                    <?php
-					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
-                    while ($r = mysql_fetch_assoc($ddl_secl)) {
-                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
-                    }
-                    ?>
-                </select>
-                </div>
-                </div>
-				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
-                  <div class="col-sm-8">
-				  <select class="form-control" name="type" style="width:122%" required>
+				  <select class="form-control" name="type" required>
                     <option value=""> -----------Select Type-----------</option>
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
@@ -1820,13 +1806,18 @@ $(document).ready(function(){
 				<div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="respuesta" style="width:122%">
+				  <select class="form-control" name="respuesta" >
                     <option value=""> -----------Select Respuesta-----------</option>
                    
                 </select>
                 </div>
                 </div>
-				
+				 <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
+                  <div class="col-sm-8">
+                   <input type="text" class="form-control" name="comp" >
+				   </div>
+                </div>
             
 		  </div>
 		<div class="col-lg-4">
@@ -1846,11 +1837,22 @@ $(document).ready(function(){
             <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="contacto" style="width:122%">
+				  <select class="form-control" name="contacto" >
                     <option value=""> -----------Select Contacto-----------</option>
                    
                 </select>
                 </div>
+                </div>
+				<div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                    <input type="date" id="dateselector" name="fecha" class="form-control" >
+				   <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+					</div>
+                  </div>
                 </div>
 		  </div>
 		  <div class="col-lg-4">
@@ -1865,11 +1867,17 @@ $(document).ready(function(){
                  <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="tipo" style="width:122%">
+				  <select class="form-control" name="tipo" >
                     <option value=""> -----------Select Tipo-----------</option>
                    
                 </select>
                 </div>
+                </div>
+				 <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Hora:</label>
+                  <div class="col-sm-8">
+                   <input type="text" class="form-control" name="hora">
+				   </div>
                 </div>
 		  </div>
 		  <div class="col-lg-6" style="margin-left:41px">    
