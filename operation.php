@@ -1912,34 +1912,38 @@ $(document).ready(function(){
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
 				<tr>
-                  <th>Cuata</th>
-                  <th>Capital</th>
-                  <th>Interest</th>
-                  <th>Cuata</th>
-                  <th>I Fine</th>
-                  <th>Mara</th>
-                  <th>Gastas</th>
-                  <th>Total</th>
-                  <th>F.vata</th> 
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Respuesta</th>
+                  <th>Contacto</th>
+                  <th>Telefono</th>
+                  <th>Orig. Amt.</th>
+                  <th>F. Comp.</th>
+                  <th>Amt. Due</th>
+                  <th>Payment</th> 
                 </tr>
 				</thead>
                 <tbody>
 				<?php
-			   $sql="select * from App_Amortization WHERE App_Amortization_BankOperation =".$row['App_Amortization_BankOperation'];
-				$result=mysql_query($sql);
-				while($row=mysql_fetch_array($result)){
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				 $result3=mysql_query($sql3);
+				  while($row3=mysql_fetch_array($result3)){ 
+				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
+				$result2=mysql_query($sql2);
+				$row2=mysql_fetch_array($result2);
 				?>
                 
                 <tr>
-                  <td><?php echo $row['App_Amortization_Share'] ?></td>
-				  <td>$<?php echo number_format($row['App_Amortization_Capital'], 2, '.', '') ?></td>
-                  <td>$<?php echo number_format($row['App_Amortization_Interest'], 2, '.', '') ?></td>
-                  <td class="red">$<?php echo number_format($row['App_Amortization_Fee'], 2, '.', '') ?></td>
-                  <td>$<?php echo number_format($row['App_Amortization_FinInterest'], 2, '.', '') ?></td>
-                  <td>$<?php echo number_format($row['App_Amortization_DefaultFee'], 2, '.', '') ?></td>
-                  <td>$<?php echo number_format($row['App_Amortization_CollectExpenses'], 2, '.', '') ?></td>
-                  <td class="red">$<?php echo number_format($row['App_Amortization_ShareTotal'], 2, '.', '') ?></td>
-                  <td><?php echo $row['App_Amortization_DueDate'] ?></td>
+				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
+				  <td><?php echo $row2['App_Aux_text'] ?></td>
+                <td></td>
+				<td></td>
+				<td></td>
+                  <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  
                 </tr>
 				<?php } ?>
                 </tbody>
