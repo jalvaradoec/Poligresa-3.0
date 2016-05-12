@@ -1793,7 +1793,7 @@ $(document).ready(function(){
                   <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
                   <div class="col-sm-8">
 				  <select class="form-control" name="type" required>
-                    <option value=""> -----------Select Type-----------</option>
+                    <option value=""> Select Type </option>
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
@@ -1807,7 +1807,7 @@ $(document).ready(function(){
                   <label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
                   <div class="col-sm-8">
 				  <select class="form-control" name="respuesta" >
-                    <option value=""> -----------Select Respuesta-----------</option>
+                    <option value=""> Select Respuesta </option>
                    
                 </select>
                 </div>
@@ -1837,8 +1837,8 @@ $(document).ready(function(){
             <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="contacto" >
-                    <option value=""> -----------Select Contacto-----------</option>
+				  <select class="form-control" name="contacto" style="width: 188px;">
+                    <option value=""> Select Contacto </option>
                    
                 </select>
                 </div>
@@ -1847,7 +1847,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="dateselector" name="fecha" class="form-control" >
+                    <input type="date" id="dateselector" name="fecha" class="form-control" style="width: 150px;">
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1868,7 +1868,7 @@ $(document).ready(function(){
                   <label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
                   <div class="col-sm-8">
 				  <select class="form-control" name="tipo" >
-                    <option value=""> -----------Select Tipo-----------</option>
+                    <option value=""> Select Tipo </option>
                    
                 </select>
                 </div>
@@ -1880,26 +1880,20 @@ $(document).ready(function(){
 				   </div>
                 </div>
 		  </div>
-		  <div class="col-lg-6" style="margin-left:41px">    
+		  <div class="col-lg-5" style="margin-left:41px">    
 			   <h4>Task</h4>
        
 			    <div class="form-group">
                   <textarea class="form-control" rows="5" name="task" required ></textarea>
                 </div>
-		
-		  </div>
-		   <div class="col-lg-12">    
-			   <h4>Outcome</h4>
+		 <h4>Outcome</h4>
        
 			    <div class="form-group">
                   <textarea class="form-control" rows="3" name="outcome" ></textarea>
                 </div>
-		
 		  </div>
-		  
-		  
-		  <div class="form-group">
-			  <label for="inputPassword3" class="col-sm-4 control-label">Status</label>
+		    <div class="form-group">
+			  <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
 			  <div class="col-sm-8">
 			   <div class="checkbox">
                     <label>
