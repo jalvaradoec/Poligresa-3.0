@@ -1762,7 +1762,7 @@ $(document).ready(function(){
 		<input type="hidden" name="debtorid" value="<?php echo $row['App_Task_DebtorID'] ?>"/>
 		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv" style="width:65%">  
+		   <div class="col-lg-7 actv" style="width:82%">  
 			    <table class="activity_tbl" style="margin-top:0px">
                 <tbody>
 				<tr>
@@ -1777,7 +1777,7 @@ $(document).ready(function(){
 			 </tbody> 
 		     </table>
 			 </div>
-			 <div class="col-lg-4">
+			 <div class="col-lg-4" style="float: right;width: 18%;">
 			 <div class="activity_head1" style="margin-left:0px;color:gray">
 			 <h5><?php echo $row1['App_Users_fullname'] ?></h5>
 			 <h5><?php echo $row['App_Task_CreatedOn'] ?></h5>
@@ -1787,7 +1787,7 @@ $(document).ready(function(){
           </div>
 		  
 		<div class="box-body">
-		  <div class="col-lg-6" style="margin-left:-41px">
+		  <div class="col-lg-4">
 		     
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
@@ -1804,6 +1804,34 @@ $(document).ready(function(){
                 </div>
                 </div>
 				<div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+                  <div class="col-sm-8">
+				  <select class="form-control" name="type" style="width:122%" required>
+                    <option value=""> -----------Select Type-----------</option>
+                    <?php
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
+                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
+                </select>
+                </div>
+                </div>
+				<div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
+                  <div class="col-sm-8">
+				  <select class="form-control" name="respuesta" style="width:122%">
+                    <option value=""> -----------Select Respuesta-----------</option>
+                   
+                </select>
+                </div>
+                </div>
+				
+            
+		  </div>
+		<div class="col-lg-4">
+		     
+                <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
                     <div class="input-group">
@@ -1814,7 +1842,20 @@ $(document).ready(function(){
 					</div>
                   </div>
                 </div>
-                 <div class="form-group">
+                
+            <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
+                  <div class="col-sm-8">
+				  <select class="form-control" name="contacto" style="width:122%">
+                    <option value=""> -----------Select Contacto-----------</option>
+                   
+                </select>
+                </div>
+                </div>
+		  </div>
+		  <div class="col-lg-4">
+		     
+               <div class="form-group">
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
@@ -1822,19 +1863,15 @@ $(document).ready(function(){
                  </div>
                 </div>
                  <div class="form-group">
-			  <label for="inputPassword3" class="col-sm-4 control-label">Status</label>
-			  <div class="col-sm-8">
-			   <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="status" value="1">
-                       Done
-                    </label>
-                  </div>
-              </div>
-              </div>
-            
+                  <label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
+                  <div class="col-sm-8">
+				  <select class="form-control" name="tipo" style="width:122%">
+                    <option value=""> -----------Select Tipo-----------</option>
+                   
+                </select>
+                </div>
+                </div>
 		  </div>
-		
 		  <div class="col-lg-6" style="margin-left:41px">    
 			   <h4>Task</h4>
        
@@ -1851,6 +1888,21 @@ $(document).ready(function(){
                 </div>
 		
 		  </div>
+		  
+		  
+		  <div class="form-group">
+			  <label for="inputPassword3" class="col-sm-4 control-label">Status</label>
+			  <div class="col-sm-8">
+			   <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="status" value="1">
+                       Done
+                    </label>
+                  </div>
+              </div>
+              </div>
+			  
+			  
 		  </div>  
 		  
      
