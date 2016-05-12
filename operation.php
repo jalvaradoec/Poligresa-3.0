@@ -1912,7 +1912,8 @@ $(document).ready(function(){
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
 				<tr>
-                  <th>Date</th>
+                  <th></th>
+				  <th>Date</th>
                   <th>Type</th>
                   <th>Respuesta</th>
                   <th>Contacto</th>
@@ -1934,6 +1935,7 @@ $(document).ready(function(){
 				?>
                 
                 <tr>
+				<td><input type="checkbox" name="pay" value="1"></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                 <td></td>
