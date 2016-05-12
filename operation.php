@@ -402,7 +402,7 @@ $(document).ready(function(){
                 <tbody>
 				<?php
 				if(isset($_GET['operno'])){
-					//$sql3="select * from View_AgremTable WHERE App_Transactions_OperationID =".$_GET['operno'];
+					$sql3="select * from View_AgremTable WHERE App_Transactions_OperationID =".$_GET['operno'];
 					$sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' aa.App_Transactions_OperationID=".$_GET["operno"];
 				}
 				else
