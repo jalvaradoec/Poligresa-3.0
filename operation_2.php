@@ -1844,7 +1844,7 @@ $(document).ready(function(){
 		
 		  </div>
 		   <div class="col-lg-12">    
-			   <h4>Outcome1</h4>
+			   <h4>Outcome</h4>
        
 			    <div class="form-group">
                   <textarea class="form-control" rows="3" name="outcome" ></textarea>
