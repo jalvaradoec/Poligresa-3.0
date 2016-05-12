@@ -1738,7 +1738,7 @@ $(document).ready(function(){
 	 <div class="modal-dialog">
 		 
      <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="width: 150%;margin-left: -24%;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Activity</h4>
@@ -1844,7 +1844,7 @@ $(document).ready(function(){
 		
 		  </div>
 		   <div class="col-lg-12">    
-			   <h4>Outcome1</h4>
+			   <h4>Outcome</h4>
        
 			    <div class="form-group">
                   <textarea class="form-control" rows="3" name="outcome" ></textarea>
