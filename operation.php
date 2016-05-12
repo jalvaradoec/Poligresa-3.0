@@ -1818,7 +1818,13 @@ $(document).ready(function(){
                    <input type="text" class="form-control" name="comp" >
 				   </div>
                 </div>
-            
+            <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Task:</label>
+                  
+  <div class="col-sm-12" style="width: 150%;">
+                   <textarea class="form-control" rows="5" name="task" required=""></textarea>
+				   </div>
+                </div>
 		  </div>
 		<div class="col-lg-4">
 		     
@@ -1879,20 +1885,16 @@ $(document).ready(function(){
                    <input type="text" class="form-control" name="hora">
 				   </div>
                 </div>
-		  </div>
-		  <div class="col-lg-5" style="margin-left:41px">    
-			   <h4>Task</h4>
-       
-			    <div class="form-group">
-                  <textarea class="form-control" rows="5" name="task" required ></textarea>
-                </div>
-		 <h4>Outcome</h4>
-       
-			    <div class="form-group">
-                  <textarea class="form-control" rows="3" name="outcome" ></textarea>
+				<div class="form-group" style="margin-left: -65%;">
+                  <label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
+                  <div class="col-sm-12" style="width: 100%;">
+                   <textarea class="form-control" rows="5" name="outcome" required=""></textarea>
+				   </div>
                 </div>
 		  </div>
-		    <div class="form-group">
+		  
+		  
+		  <div class="form-group">
 			  <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
 			  <div class="col-sm-8">
 			   <div class="checkbox">
