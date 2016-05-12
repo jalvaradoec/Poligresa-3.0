@@ -1821,7 +1821,7 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control" name="comp" >
+                   <input type="text" class="form-control comp" name="comp" >
 				   </div>
                 </div>
             <div class="form-group">
@@ -1931,7 +1931,8 @@ $(document).ready(function(){
 				<?php
 			if(isset($_GET['operno'])){
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID=".$_GET["operno"];
-			  
+			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and aa.App_Transactions_ShareDueDate<=".Date("Y-m-d");
+			  echo $sql4;
 			}
 			else
 			{
@@ -1950,8 +1951,8 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				?>
-                
-                <tr>
+                <input type="hidden" name="date" class="transdate" value="<?php echo $row3['App_Transactions_ShareDueDate'] ?>"/>
+		        <tr>
 				<td><input type="checkbox" name="pay" value="1"></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
@@ -2460,6 +2461,7 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
+			var comp=$('.comp').val();
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
