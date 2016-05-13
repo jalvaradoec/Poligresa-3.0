@@ -1958,7 +1958,7 @@ $(document).ready(function(){
 		          <?php
 				  $i++;
 				  }
-				  $i1=1;
+				  $rowcnt=1;
 				  while($row3=mysql_fetch_array($result3)){ 
 				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
 				$result2=mysql_query($sql2);
@@ -1968,17 +1968,17 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				?>
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $i1 ?>" value="1"></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" value="1"></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
-				  <td class="trsstatus<?php echo $i1 ?>"><?php echo $row1['App_Aux_text'] ?></td>
+				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
 				  <td></td>
 				  <td></td>
 				  
                 </tr>
 				<?php
-				$i1++;
+				$rowcnt++;
 				} ?>
                 </tbody>
                
@@ -2353,7 +2353,7 @@ $(document).ready(function(){
 <script src="dist/js/app.min.js"></script>
 <script>
 function ChangeAmount(data) {
-	 var rowcount=<?php echo $i1 ?>;
+	 var rowcount=<?php echo $rowcnt ?>;
 	 alert("test"+rowcount);
 	 var totalamt=0;
 	 var numrow=$('.numrow').val();
