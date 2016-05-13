@@ -1945,11 +1945,16 @@ $(document).ready(function(){
 			}
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
+				  $num_row=mysql_num_rows($result4);
+				  $i=1;
 				  while($row4=mysql_fetch_array($result4)){ 
 				  ?>
-				  <input type="hidden" name="transdate" class="transdate" value="<?php echo $row4['App_Transactions_ShareDueDate'] ?>"/>
+				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
+				  <input type="hidden" name="transdate" class="transdate<?php echo $i ?>" value="<?php echo $row4['App_Transactions_ShareDueDate'] ?>"/>
 		          <?php
+				  $i++;
 				  }
+				  $i1=1;
 				  while($row3=mysql_fetch_array($result3)){ 
 				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
 				$result2=mysql_query($sql2);
@@ -1959,7 +1964,7 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				?>
                 <tr>
-				<td><input type="checkbox" name="pay" value="1"></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $i1 ?>" value="1"></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -1968,7 +1973,9 @@ $(document).ready(function(){
 				  <td></td>
 				  
                 </tr>
-				<?php } ?>
+				<?php
+				$i1++;
+				} ?>
                 </tbody>
                
               </table>
