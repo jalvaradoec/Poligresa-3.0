@@ -1945,9 +1945,11 @@ $(document).ready(function(){
 			}
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
+				  $num_row3=mysql_num_rows($result3);
 				  $num_row=mysql_num_rows($result4);
 				  ?>
 				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
+				  <input type="hidden" name="numrow3" class="numrow3" value="<?php echo $num_row3 ?>"/>
 				  <?php
 				  $i=1;
 				  while($row4=mysql_fetch_array($result4)){ 
@@ -2476,7 +2478,7 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
-			var comp=$('.comp').val();
+			/** var comp=$('.comp').val();
 			var numrow=$('.numrow').val();
 			var i='';
 			for(i=1;i<=numrow;i++){
@@ -2488,16 +2490,17 @@ var Alerter = {
 				{
 					$(".chktransdate"+i).prop("checked", false);
 				}
-			}
-			/** var comp=$('.comp').val();
+			}**/
+			 var comp=$('.comp').val();
 			var i='';
 			var i1='';
+			var numrow3=$('.numrow3').val();
 			if(comp!=''){
 				$(".chktransdate1").prop("checked", true);
 				}
 				else
 				{
-					for(i1=1;i1>0;i1++){
+					for(i1=1;i1<=numrow3;i1++){
 						$(".chktransdate"+i).prop("checked", false);
 					}
 				}
@@ -2512,7 +2515,7 @@ var Alerter = {
 					$(".chktransdate"+i).prop("checked", false);
 				}
 				
-			}**/
+			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
