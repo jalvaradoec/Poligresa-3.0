@@ -2481,8 +2481,7 @@ var Alerter = {
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate'+i).val();	
-				console.log(comp);
-				if(comp > transdate){
+				if(5 > 150.00){
 					$(".chktransdate"+i).prop("checked", true);
 				}
 				else
