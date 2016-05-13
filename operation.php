@@ -2483,22 +2483,19 @@ var Alerter = {
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate1').val();	
+				var x=1;
+				var y=2;
 				if(comp !='' || comp!=0){
-					console.log(comp);
-					console.log(transdate);
-					if(comp < transdate){
-						console.log(comp < transdate);
+					if(x < y){
 					$(".chktransdate1").prop("checked", true);
 				}
 				else
 				{
-					console.log('this');
 					$(".chktransdate1").prop("checked", false);
 				}
 				}
 				else
 				{
-					console.log('this1');
 					$(".chktransdate1").prop("checked", false);
 				}
 			}
