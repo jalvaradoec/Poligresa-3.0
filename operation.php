@@ -2478,11 +2478,16 @@ var Alerter = {
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			var comp=$('.comp').val();
 			var numrow=$('.numrow').val();
+			console.log('hello');
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate'+i).val();	
 				if(comp > transdate){
 					$(".chktransdate"+i).prop("checked", true);
+				}
+				else
+				{
+					$(".chktransdate"+i).prop("checked", false);
 				}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
