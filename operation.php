@@ -2482,7 +2482,7 @@ var Alerter = {
 			 var numrow=$('.numrow').val();
 			var i='';
 			for(i=1;i<=numrow;i++){
-				var transdate=$('.transdate1').val();	
+				var transdate1=$('.transdate1').val();	
 				
 			if(comp == ''){
 					$(".chktransdate1").prop("checked", false);
@@ -2490,6 +2490,13 @@ var Alerter = {
 				else
 				{
 					$(".chktransdate1").prop("checked", true);
+				}
+				if(comp > transdate1){
+					$(".chktransdate2").prop("checked", true);
+				}
+				else
+				{
+					$(".chktransdate2").prop("checked", false);
 				}
 			}
 			/** var comp=$('.comp').val();
