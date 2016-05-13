@@ -2388,7 +2388,7 @@ function ChangeAmount(data) {
 }
 function chkclick(data)
 {
-	alert(data);
+	alert(data.checked);
 }
 $(document).on('change', '.chk_active', function () {
 	
