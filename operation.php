@@ -2477,19 +2477,9 @@ var Alerter = {
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			var comp=$('.comp').val();
-			var i='';
-			var i1='';
-			if(comp!=''){
-				$(".chktransdate1").prop("checked", true);
-				}
-				else
-				{
-					for(i1=1;i1>0;i1++){
-						$(".chktransdate"+i).prop("checked", false);
-					}
-				}
 			var numrow=$('.numrow').val();
-			for(i=2;i<=numrow;i++){
+			var i='';
+			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate'+i).val();	
 				if(comp > transdate){
 					$(".chktransdate"+i).prop("checked", true);
@@ -2498,7 +2488,6 @@ var Alerter = {
 				{
 					$(".chktransdate"+i).prop("checked", false);
 				}
-				
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
