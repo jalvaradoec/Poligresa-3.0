@@ -2481,7 +2481,8 @@ var Alerter = {
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate'+i).val();	
-				if($('.comp').val() > $('.transdate'+i).val()){
+				alert(comp > transdate);
+				if(comp > transdate){
 					$(".chktransdate"+i).prop("checked", true);
 				}
 				else
