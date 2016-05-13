@@ -2353,8 +2353,7 @@ $(document).ready(function(){
 <script src="dist/js/app.min.js"></script>
 <script>
 function ChangeAmount(data) {
-     var comp=$('.comp').val();
-		 alert("test"+data);
+	 alert("test"+data);
 }
 
 $(document).on('change', '.chk_active', function () {
