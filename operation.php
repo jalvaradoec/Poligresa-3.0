@@ -2484,6 +2484,7 @@ var Alerter = {
 			for(i=1;i<=numrow;i++){
 				var transdate1=$('.transdate1').val();	
 				$(".chktransdate"+i).prop("checked", true);
+				console.log(i);
 			}
 			/** var comp=$('.comp').val();
 			var i='';
