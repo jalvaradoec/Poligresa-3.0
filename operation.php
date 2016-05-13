@@ -1821,7 +1821,7 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; >
+                   <input type="text" class="form-control comp" name="comp" onchange="ChangeAmount()"; >
 				   </div>
                 </div>
             <div class="form-group">
@@ -2354,18 +2354,9 @@ $(document).ready(function(){
 <script>
 function ChangeAmount() {
      var comp=$('.comp').val();
-		  var numrow=$('.numrow').val();
-			 var i=1;
-			 console.log("story "+numrow);
-			 for(i=1;i<=numrow;i++){
-				 var transdate1=$('.transdate1').val();	
-				 $(".chktransdate"+i).prop("checked", true);
-				 console.log("story story"+".chktransdate"+i);
-			 }
+		 alert("test");
 }
-$(document).on('change', '.comp', function () {
-			 console.log("story ");
-}
+
 $(document).on('change', '.chk_active', function () {
 	
         var value = ($(this).is(":checked")) ? 1 : 0;
