@@ -2357,23 +2357,26 @@ function ChangeAmount(data) {
 	 alert("test"+data);
 	 var totalamt=0;
 	 var i=1;
-	 console.log("story "+numrow);
+	 
 	 for(i=1;i<=rowcount;i++){
 		var transdate1=$('.transdate1').val();	
 		if ((data-totalamt)>0)
 		{
 			if ($('.trsstatus').val()!="In Range")
 			{
+				alert("first");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
 			}	
 			else if ($('.trsstatus').val()!="In Range")
 			{
+				alert("second");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
 			}
 			else
 			{
+				alert("other");
 				$(".chktransdate"+i).prop("checked", false);
 			}
 		}
