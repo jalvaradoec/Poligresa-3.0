@@ -2478,17 +2478,24 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
-			 var numrow=$('.numrow').val();
+			 var comp=$('.comp').val();
+			 var transdate1=$('.transdate1').val();	
+			var numrow=$('.numrow').val();
+			if(comp < transdate1){
+				console.log('hello');
+				}
+				else
+				{
+					console.log('hello1');
+				}
 			var i='';
 			for(i=1;i<=numrow;i++){
-				var x=$('.comp').val();
-				var y=$('.transdate1').val();	
+				var transdate=$('.transdate1').val();	
+				var x=comp;
+				var y=transdate;
 				if(comp !='' || comp!=0){
 					if(x < y){
 					$(".chktransdate1").prop("checked", true);
-				}
-				else if(x > y){
-					$(".chktransdate1").prop("checked", false);
 				}
 				else
 				{
