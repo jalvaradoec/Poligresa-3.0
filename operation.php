@@ -2501,7 +2501,7 @@ var Alerter = {
 				else
 				{
 					for(i1=1;i1<=numrow3;i1++){
-						$(".chktransdate"+i).prop("checked", false);
+						$(".chktransdate"+i1).prop("checked", false);
 					}
 				}
 			var numrow=$('.numrow').val();
