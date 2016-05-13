@@ -2483,6 +2483,7 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=numrow;i++){
 				var transdate1=$('.transdate1').val();	
+				$(".chktransdate"+i).prop("checked", true);
 			}
 			/** var comp=$('.comp').val();
 			var i='';
