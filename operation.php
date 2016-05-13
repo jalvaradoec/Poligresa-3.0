@@ -2354,7 +2354,7 @@ $(document).ready(function(){
 <script>
 function ChangeAmount() {
      var comp=$('.comp').val();
-		 alert("test");
+		 alert("test"+comp);
 }
 
 $(document).on('change', '.chk_active', function () {
