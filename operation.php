@@ -1821,7 +1821,7 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control comp" name="comp" >
+                   <input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; >
 				   </div>
                 </div>
             <div class="form-group">
@@ -2352,6 +2352,18 @@ $(document).ready(function(){
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script>
+function ChangeAmount() {
+     var comp=$('.comp').val();
+		  var numrow=$('.numrow').val();
+			 var i=1;
+			 console.log("story "+numrow);
+			 for(i=1;i<=numrow;i++){
+				 var transdate1=$('.transdate1').val();	
+				 $(".chktransdate"+i).prop("checked", true);
+				 console.log("story story"+".chktransdate"+i);
+			 }
+}
+	
 $(document).on('change', '.chk_active', function () {
 	
         var value = ($(this).is(":checked")) ? 1 : 0;
@@ -2478,15 +2490,15 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
-			 var comp=$('.comp').val();
-			 var numrow=$('.numrow').val();
-			var i=1;
-			console.log("story "+numrow);
-			for(i=1;i<=numrow;i++){
-				var transdate1=$('.transdate1').val();	
-				$(".chktransdate"+i).prop("checked", true);
-				console.log("story story"+".chktransdate"+i);
-			}
+			 // var comp=$('.comp').val();
+			 // var numrow=$('.numrow').val();
+			// var i=1;
+			// console.log("story "+numrow);
+			// for(i=1;i<=numrow;i++){
+				// var transdate1=$('.transdate1').val();	
+				// $(".chktransdate"+i).prop("checked", true);
+				// console.log("story story"+".chktransdate"+i);
+			// }
 			/** var comp=$('.comp').val();
 			var i='';
 			var i1='';
