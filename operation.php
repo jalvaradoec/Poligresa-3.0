@@ -2482,14 +2482,17 @@ var Alerter = {
 			var numrow=$('.numrow').val();
 			var i='';
 			for(i=1;i<=numrow;i++){
-				var transdate=$('.transdate'+i).val();	
-				if(comp > transdate){
-					$(".chktransdate"+i).prop("checked", true);
+				var transdate=$('.transdate1').val();	
+				if(comp !='' && comp!=0){
+					if(comp < transdate){
+					$(".chktransdate1").prop("checked", true);
 				}
 				else
 				{
-					$(".chktransdate"+i).prop("checked", false);
+					$(".chktransdate1").prop("checked", false);
 				}
+				}
+				
 			}
 			/** var comp=$('.comp').val();
 			var i='';
