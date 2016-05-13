@@ -1968,7 +1968,7 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				?>
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" onclick="chkclick(this.value)";></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="chkclick(this.value)"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
