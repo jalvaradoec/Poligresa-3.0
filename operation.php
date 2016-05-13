@@ -2486,7 +2486,7 @@ var Alerter = {
 				var x=comp;
 				var y=transdate;
 				if(comp !='' || comp!=0){
-					if(x < y){
+					if((x) < (y)){
 					$(".chktransdate1").prop("checked", true);
 				}
 				else
