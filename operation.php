@@ -2487,15 +2487,18 @@ var Alerter = {
 					console.log(comp);
 					console.log(transdate);
 					if(comp < transdate){
+						console.log(comp < transdate);
 					$(".chktransdate1").prop("checked", true);
 				}
 				else
 				{
+					console.log('this');
 					$(".chktransdate1").prop("checked", false);
 				}
 				}
 				else
 				{
+					console.log('this1');
 					$(".chktransdate1").prop("checked", false);
 				}
 			}
