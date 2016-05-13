@@ -2363,7 +2363,9 @@ function ChangeAmount() {
 				 console.log("story story"+".chktransdate"+i);
 			 }
 }
-	
+$(document).on('change', '.comp', function () {
+			 console.log("story ");
+}
 $(document).on('change', '.chk_active', function () {
 	
         var value = ($(this).is(":checked")) ? 1 : 0;
