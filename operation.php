@@ -2476,12 +2476,12 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
+			var comp=$('.comp').val();
 			var numrow=$('.numrow').val();
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate'+i).val();	
-				var comp=$('.comp').val();
-				if(comp > transdate){
+				if($('.comp').val() > $('.transdate'+i).val()){
 					$(".chktransdate"+i).prop("checked", true);
 				}
 				else
