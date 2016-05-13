@@ -2485,11 +2485,11 @@ var Alerter = {
 				var transdate=$('.transdate1').val();	
 				var myregex = /^[0-9][0-9]{0,3}$|^[0-9][0-9]{0,3}[\.][0-9]$/;
 			if(!myregex.test(comp) || comp == "0"){
-					$(".chktransdate1").prop("checked", true);
+					$(".chktransdate1").prop("checked", false);
 				}
 				else
 				{
-					$(".chktransdate1").prop("checked", false);
+					$(".chktransdate1").prop("checked", true);
 				}
 			}
 			/** var comp=$('.comp').val();
