@@ -2480,7 +2480,7 @@ var Alerter = {
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			 var comp=$('.comp').val();
 			 var numrow=$('.numrow').val();
-			var i=1;
+			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate1=$('.transdate1').val();	
 				
