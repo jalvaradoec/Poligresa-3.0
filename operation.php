@@ -2354,7 +2354,7 @@ $(document).ready(function(){
 <script>
 function ChangeAmount(data) {
 	 var rowcount=<?php echo $rowcnt ?>;
-	 alert(data+"test"+rowcount);
+	 alert("test"+data);
 	 var totalamt=0;
 	 var i=1;
 	 console.log("story "+numrow);
