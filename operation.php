@@ -2476,7 +2476,7 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
-			var comp=$('.comp').val();
+			/** var comp=$('.comp').val();
 			var numrow=$('.numrow').val();
 			var i='';
 			for(i=1;i<=numrow;i++){
@@ -2488,8 +2488,8 @@ var Alerter = {
 				{
 					$(".chktransdate"+i).prop("checked", false);
 				}
-			}
-			/** var comp=$('.comp').val();
+			}**/
+			 var comp=$('.comp').val();
 			var i='';
 			var i1='';
 			if(comp!=''){
@@ -2512,7 +2512,7 @@ var Alerter = {
 					$(".chktransdate"+i).prop("checked", false);
 				}
 				
-			}**/
+			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
