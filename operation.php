@@ -1821,7 +1821,7 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control comp" name="comp" onchange="ChangeAmount()"; >
+                   <input type="text" class="form-control comp" name="comp" onkeypress="ChangeAmount()"; >
 				   </div>
                 </div>
             <div class="form-group">
