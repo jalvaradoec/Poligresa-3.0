@@ -2492,7 +2492,10 @@ var Alerter = {
 					$(".chktransdate1").prop("checked", false);
 				}
 				}
-				
+				else
+				{
+					$(".chktransdate1").prop("checked", false);
+				}
 			}
 			/** var comp=$('.comp').val();
 			var i='';
