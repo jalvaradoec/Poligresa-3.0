@@ -2484,7 +2484,7 @@ var Alerter = {
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate1').val();	
 				var myregex = /^[0-9][0-9]{0,3}$|^[0-9][0-9]{0,3}[\.][0-9]$/;
-			if(!myregex.test(comp) || comp == "0"){
+			if(comp == null){
 					$(".chktransdate1").prop("checked", false);
 				}
 				else
