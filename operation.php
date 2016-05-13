@@ -1946,11 +1946,13 @@ $(document).ready(function(){
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
 				  $num_row=mysql_num_rows($result4);
+				  ?>
+				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
+				  <?php
 				  $i=1;
 				  while($row4=mysql_fetch_array($result4)){ 
 				  ?>
-				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
-				  <input type="hidden" name="transdate" class="transdate<?php echo $i ?>" value="<?php echo $row4['App_Transactions_ShareDueDate'] ?>"/>
+				  <input type="hidden" name="transdate" class="transdate<?php echo $i ?>" value="<?php echo $row4['App_Transactions_ShareAmount'] ?>"/>
 		          <?php
 				  $i++;
 				  }
@@ -2475,6 +2477,14 @@ var Alerter = {
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			var comp=$('.comp').val();
+			var numrow=$('.numrow').val();
+			var i='';
+			for(i=1;i<=numrow;i++){
+				var transdate=$('.transdate'+i).val();	
+				if(comp > transdate){
+					$(".chktransdate"+i).prop("checked", true);
+				}
+			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
