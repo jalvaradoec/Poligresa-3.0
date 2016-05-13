@@ -2479,32 +2479,12 @@ var Alerter = {
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			 var comp=$('.comp').val();
-			 var transdate1=$('.transdate1').val();	
-			var numrow=$('.numrow').val();
-			if(($('.comp').val()) < ($('.transdate1').val())){
-				console.log(comp);
-				console.log(transdate1);
-				console.log('hello');
-				}
-				else
-				{
-					console.log(comp);
-					console.log(transdate1);
-					console.log('hello1');
-				}
+			 var numrow=$('.numrow').val();
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate1').val();	
-				var x=comp;
-				var y=transdate;
-				if(comp !='' || comp!=0){
-					if(x < y){
+				if(comp !='' || comp != '0'){
 					$(".chktransdate1").prop("checked", true);
-				}
-				else
-				{
-					$(".chktransdate1").prop("checked", false);
-				}
 				}
 				else
 				{
