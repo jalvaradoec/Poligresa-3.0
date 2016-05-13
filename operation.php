@@ -2497,11 +2497,11 @@ var Alerter = {
 				// {
 					if(comp >= transdate1){
 						console.log(comp);
-						$(".chktransdate"+i).prop("checked", true);
+						// $(".chktransdate"+i).prop("checked", true);
 					}
 					else
 					{
-						$(".chktransdate"+i).prop("checked", false);
+						// $(".chktransdate"+i).prop("checked", false);
 					}
 				// }
 			}
