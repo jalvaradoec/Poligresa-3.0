@@ -2483,8 +2483,8 @@ var Alerter = {
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate1').val();	
-				var x=1;
-				var y=2;
+				var x=comp;
+				var y=transdate;
 				if(comp !='' || comp!=0){
 					if(x < y){
 					$(".chktransdate1").prop("checked", true);
