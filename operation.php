@@ -1821,7 +1821,7 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control comp" name="comp" onkeypress="ChangeAmount()"; >
+                   <input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; >
 				   </div>
                 </div>
             <div class="form-group">
@@ -2352,9 +2352,9 @@ $(document).ready(function(){
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script>
-function ChangeAmount() {
+function ChangeAmount(data) {
      var comp=$('.comp').val();
-		 alert("test"+comp);
+		 alert("test"+data);
 }
 
 $(document).on('change', '.chk_active', function () {
