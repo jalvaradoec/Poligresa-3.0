@@ -2478,10 +2478,10 @@ var Alerter = {
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			var comp=$('.comp').val();
 			var numrow=$('.numrow').val();
-			console.log('hello');
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate'+i).val();	
+				console.log(transdate);
 				if(comp > transdate){
 					$(".chktransdate"+i).prop("checked", true);
 				}
