@@ -2484,26 +2484,25 @@ var Alerter = {
 			for(i=1;i<=numrow;i++){
 				var transdate1=$('.transdate1').val();	
 				
-				if (i==1)
-				{
-					if(comp == 0){
-						$(".chktransdate1").prop("checked", false);
-					}
-					else
-					{
-						$(".chktransdate1").prop("checked", true);
-					}
-				}
-				else
-				{
+			
+					// if(comp == 0){
+						// $(".chktransdate1").prop("checked", false);
+					// }
+					// else
+					// {
+						// $(".chktransdate1").prop("checked", true);
+					// }
+				// }
+				// else
+				// {
 					if(comp > transdate1){
-						$(".chktransdate2").prop("checked", true);
+						$(".chktransdate"+i).prop("checked", true);
 					}
 					else
 					{
-						$(".chktransdate2").prop("checked", false);
+						$(".chktransdate"+i).prop("checked", false);
 					}
-				}
+				// }
 			}
 			/** var comp=$('.comp').val();
 			var i='';
