@@ -2483,8 +2483,8 @@ var Alerter = {
 			var i='';
 			for(i=1;i<=numrow;i++){
 				var transdate=$('.transdate1').val();	
-				var myregex = /^[0-9][0-9]{0,3}$|^[0-9][0-9]{0,3}[\.][0-9]$/;
-			if(comp == null){
+				
+			if(comp == ''){
 					$(".chktransdate1").prop("checked", false);
 				}
 				else
