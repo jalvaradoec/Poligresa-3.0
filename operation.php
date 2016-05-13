@@ -2516,15 +2516,7 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
-			 // var comp=$('.comp').val();
-			 // var numrow=$('.numrow').val();
-			// var i=1;
-			// console.log("story "+numrow);
-			// for(i=1;i<=numrow;i++){
-				// var transdate1=$('.transdate1').val();	
-				// $(".chktransdate"+i).prop("checked", true);
-				// console.log("story story"+".chktransdate"+i);
-			// }
+			
 			/** var comp=$('.comp').val();
 			var i='';
 			var i1='';
