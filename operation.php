@@ -2482,10 +2482,12 @@ var Alerter = {
 			 var transdate1=$('.transdate1').val();	
 			var numrow=$('.numrow').val();
 			if(comp < transdate1){
+				console.log(comp);
 				console.log('hello');
 				}
 				else
 				{
+					console.log(transdate1);
 					console.log('hello1');
 				}
 			var i='';
