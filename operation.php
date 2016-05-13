@@ -2480,7 +2480,7 @@ var Alerter = {
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			 var comp=$('.comp').val();
 			 var numrow=$('.numrow').val();
-			var i='';
+			var i=1;
 			for(i=1;i<=numrow;i++){
 				var transdate1=$('.transdate1').val();	
 				
@@ -2490,7 +2490,10 @@ var Alerter = {
 				else
 				{
 					$(".chktransdate1").prop("checked", true);
+
 				}
+				console.log(comp);
+				console.log(transdate1);
 				if(comp > transdate1){
 					$(".chktransdate2").prop("checked", true);
 				}
