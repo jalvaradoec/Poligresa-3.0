@@ -2483,27 +2483,6 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=numrow;i++){
 				var transdate1=$('.transdate1').val();	
-				
-			
-					// if(comp == 0){
-						// $(".chktransdate1").prop("checked", false);
-					// }
-					// else
-					// {
-						// $(".chktransdate1").prop("checked", true);
-					// }
-				// }
-				// else
-				// {
-					if(comp >= transdate1){
-						console.log(comp);
-						// $(".chktransdate"+i).prop("checked", true);
-					}
-					else
-					{
-						// $(".chktransdate"+i).prop("checked", false);
-					}
-				// }
 			}
 			/** var comp=$('.comp').val();
 			var i='';
