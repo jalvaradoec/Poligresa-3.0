@@ -2356,10 +2356,9 @@ function ChangeAmount(data) {
 	 var rowcount=<?php echo $rowcnt ?>;
 	 alert("test"+rowcount);
 	 var totalamt=0;
-	 var numrow=$('.numrow').val();
 	 var i=1;
 	 console.log("story "+numrow);
-	 for(i=1;i<=numrow;i++){
+	 for(i=1;i<=rowcount;i++){
 		var transdate1=$('.transdate1').val();	
 		if ((data-totalamt)>0)
 		{
