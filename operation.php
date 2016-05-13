@@ -2373,8 +2373,10 @@ function ChangeAmount(data) {
 				$(".chktransdate"+i).prop("checked", true);
 			}
 			
-		 
-		 
+		}
+		else
+		{
+			$(".chktransdate"+i).prop("checked", false);	
 		}
 	 }
 }
