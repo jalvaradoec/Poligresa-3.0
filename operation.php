@@ -2483,10 +2483,12 @@ var Alerter = {
 			var numrow=$('.numrow').val();
 			if(comp < transdate1){
 				console.log(comp);
+				console.log(transdate1);
 				console.log('hello');
 				}
 				else
 				{
+					console.log(comp);
 					console.log(transdate1);
 					console.log('hello1');
 				}
