@@ -2353,7 +2353,8 @@ $(document).ready(function(){
 <script src="dist/js/app.min.js"></script>
 <script>
 function ChangeAmount(data) {
-	 alert("test"+data);
+	 var rowcount=<?php echo $i1 ?>;
+	 alert("test"+rowcount);
 	 var totalamt=0;
 	 var numrow=$('.numrow').val();
 	 var i=1;
