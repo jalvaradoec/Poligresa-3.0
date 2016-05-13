@@ -2495,7 +2495,7 @@ var Alerter = {
 				// }
 				// else
 				// {
-					if(comp > transdate1){
+					if(comp >= transdate1){
 						alert(comp);
 						console.log(comp);
 						$(".chktransdate"+i).prop("checked", true);
