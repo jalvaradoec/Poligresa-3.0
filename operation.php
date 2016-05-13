@@ -1972,7 +1972,7 @@ $(document).ready(function(){
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
-				  <td><?php echo $row1['App_Aux_text'] ?></td>
+				  <td class="trsstatus<?php echo $i1 ?>"><?php echo $row1['App_Aux_text'] ?></td>
 				  <td></td>
 				  <td></td>
 				  
@@ -2354,6 +2354,29 @@ $(document).ready(function(){
 <script>
 function ChangeAmount(data) {
 	 alert("test"+data);
+	 var totalamt=0;
+	 var numrow=$('.numrow').val();
+	 var i=1;
+	 console.log("story "+numrow);
+	 for(i=1;i<=numrow;i++){
+		var transdate1=$('.transdate1').val();	
+		if ((data-totalamt)>0)
+		{
+			if ($('.trsstatus').val()!="In Range")
+			{
+				totalamt=totalamt+150;
+				$(".chktransdate"+i).prop("checked", true);
+			}	
+			else if ($('.trsstatus').val()!="In Range")
+			{
+				totalamt=totalamt+150;
+				$(".chktransdate"+i).prop("checked", true);
+			}
+			
+		 
+		 
+		}
+	 }
 }
 
 $(document).on('change', '.chk_active', function () {
