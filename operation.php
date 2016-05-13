@@ -1968,7 +1968,7 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				?>
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="chkclick(this.value)"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="chkclick(this)"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2354,7 +2354,7 @@ $(document).ready(function(){
 <script>
 function ChangeAmount(data) {
 	 var rowcount=<?php echo $rowcnt ?>;
-	 alert("test"+rowcount);
+	 alert(data+"test"+rowcount);
 	 var totalamt=0;
 	 var i=1;
 	 console.log("story "+numrow);
