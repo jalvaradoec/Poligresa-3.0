@@ -2381,11 +2381,15 @@ function ChangeAmount(data) {
 			{
 				//alert("other");
 				$(".chktransdate"+i).prop("checked", false);
+				$('.amtdue'+i).html('');
+				$('.amtpay'+i).html('');
 			}
 		}
 		else
 		{
 			$(".chktransdate"+i).prop("checked", false);	
+			$('.amtdue'+i).html('');
+			$('.amtpay'+i).html('');
 		}
 	 }
 }
