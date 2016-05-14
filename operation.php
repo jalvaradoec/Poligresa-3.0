@@ -2364,19 +2364,19 @@ function ChangeAmount(data) {
 		{
 			if ($('.trsstatus').val()!="In Range")
 			{
-				alert("first");
+				//alert("first");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
 			}	
 			else if ($('.trsstatus').val()!="In Range")
 			{
-				alert("second");
+				//alert("second");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
 			}
 			else
 			{
-				alert("other");
+				//alert("other");
 				$(".chktransdate"+i).prop("checked", false);
 			}
 		}
@@ -2388,7 +2388,7 @@ function ChangeAmount(data) {
 }
 function chkclick(data)
 {
-	alert(data.checked);
+	//alert(data.checked);
 }
 $(document).on('change', '.chk_active', function () {
 	
@@ -2405,7 +2405,7 @@ $(document).on('change', '.chk_active', function () {
                 status: value // as you are getting in php $_POST['action1']
             },
             success: function (msg) {
-                alert(msg.message);
+                //alert(msg.message);
             }
         });
     });
