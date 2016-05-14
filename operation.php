@@ -1967,9 +1967,9 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				?>
-				<input type="hidden" name="transids" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
-				<input type="hidden" name="transid" class="transid<?php echo $rowcnt ?>" />
-				<input type="hidden" name="amountpay" class="amountpay<?php echo $rowcnt ?>" />
+				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
+				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
+				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
 				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1"  ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
@@ -2582,7 +2582,6 @@ var Alerter = {
 				var transidval=$('.transids'+i).val();
 				$('.transid'+i).val(transidval);
 				var amtpayval=$('.amtpay'+i).html();
-				console.log(amtpayval);
 				$('.amountpay'+i).val(amtpayval);
 			} 
 			}
@@ -2630,8 +2629,10 @@ if (isset($_POST['update1'])) {
 if (isset($_POST['save'])) {
         $sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
         mysql_query($sql);
-        $sql1 = "insert into App_TransHistory(App_TransHistory_TransID,App_Transactions_ShareAmount,App_TransHistory_CreatedBy,App_TransHistory_CreatedOn) values('" . $_POST['transid'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
+		for($i=1;$i<=$rowcnt;$i++){
+        $sql1 = "insert into App_TransHistory(App_TransHistory_TransID,App_Transactions_ShareAmount,App_TransHistory_CreatedBy,App_TransHistory_CreatedOn) values('" . $_POST['transid'.$i] . "','" . $_POST['amountpay'.$i] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
         mysql_query($sql1);
+		}
 		echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['updateactivity'])) {
