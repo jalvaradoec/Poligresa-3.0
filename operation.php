@@ -2578,9 +2578,9 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=rowcount;i++){
 			if (document.getElementById("chktransdate"+i).checked) {
-				alert("chktransdate"+i);
+				console.log("chktransdate"+i);
 			} else {
-				alert("CheckBox"+i);
+				console.log("CheckBox"+i);
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
