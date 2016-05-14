@@ -2370,7 +2370,6 @@ function ChangeAmount(data) {
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				if(amtshare == totalamt){
-					alert('hello');
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+i).html('0');
@@ -2384,7 +2383,6 @@ function ChangeAmount(data) {
 				}
 				else
 				{
-					alert('hello1');
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+i).html('0');
@@ -2421,7 +2419,7 @@ function ChangeAmount(data) {
 }
 function chkclick(data)
 {
-	//alert(data.checked);
+	alert(data.checked);
 }
 $(document).on('change', '.chk_active', function () {
 	
