@@ -2369,7 +2369,7 @@ function ChangeAmount(data) {
 				var amtshare=$('.amtshare'+i).html();	
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
-				//if(totalamt > data){
+				if(totalamt > data){
 					if(i==1){
 						alert('hello');
 						$('.amtdue'+i).html(totalamt-data);
@@ -2380,12 +2380,22 @@ function ChangeAmount(data) {
 						$('.amtdue'+i).html(totalamt-data);
 						$('.amtpay'+i).html(data-amtshare);	
 					}
-				//}
-				//else
-				//{
+				}
+				else
+				{
 				//$('.amtdue'+i).html('0');
 				//$('.amtpay'+i).html(totalamt);	
-				//}
+				if(i==1){
+						alert('hello3');
+						$('.amtdue'+i).html(totalamt-data);
+						$('.amtpay'+i).html(data);	
+				    }
+					else{
+						alert('hello4');
+						$('.amtdue'+i).html(totalamt-data);
+						$('.amtpay'+i).html(data-amtshare);	
+					}
+				}
 				
 			}	
 			//else if ($('.trsstatus').val()!="In Range")
