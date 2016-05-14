@@ -1969,6 +1969,7 @@ $(document).ready(function(){
 				?>
 				<input type="hidden" name="transids" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid" class="transid<?php echo $rowcnt ?>" />
+				<input type="hidden" name="amountpay" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
 				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1"  ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
@@ -2578,8 +2579,10 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=rowcount;i++){
 			if($("#chktransdate"+i).is(":checked")) {
-				var transidval=$('transids'+i).val();
+				var transidval=$(.'transids'+i).val();
 				$('.transid'+i).val(transidval);
+				var amtpayval=$('.amtpay'+i).html();
+				$('.amountpay'+i).val(amtpayval);
 			} 
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
