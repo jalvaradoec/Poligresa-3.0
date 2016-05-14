@@ -2370,12 +2370,14 @@ function ChangeAmount(data) {
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				if(totalamt > data){
-				$('.amtdue'+i).html(totalamt-data);
-				$('.amtpay'+i).html(data);	
-				}
-				else if(totalamt < data){
-				$('.amtdue'+i).html(totalamt-data);
-				$('.amtpay'+i).html(data-amtshare);	
+					if($i==1){
+						$('.amtdue'+i).html(totalamt-data);
+						$('.amtpay'+i).html(data);	
+				    }
+					else{
+						$('.amtdue'+i).html(totalamt-data);
+						$('.amtpay'+i).html(data-amtshare);	
+					}
 				}
 				else
 				{
