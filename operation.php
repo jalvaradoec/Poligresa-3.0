@@ -1971,7 +1971,7 @@ $(document).ready(function(){
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
 				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1" onchange="ChangeAmount(this.value)"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1" onchange="ChangeAmount1()"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2356,6 +2356,71 @@ $(document).ready(function(){
 <script src="dist/js/app.min.js"></script>
 <script>
 function ChangeAmount(data) {
+	 var rowcount=<?php echo $rowcnt ?>;
+	 //alert("test"+data);
+	 var totalamt=0;
+	 var i=1;
+	 
+	 for(i=1;i<=rowcount;i++){
+		var transdate1=$('.transdate1').val();	
+		if ((data-totalamt)>0)
+		{
+			if ($('.trsstatus').val()!="In Range")
+			{
+				//alert("first");
+				var amtshare=$('.amtshare'+i).html();	
+				totalamt=+totalamt + +amtshare;
+				$(".chktransdate"+i).prop("checked", true);
+				if(amtshare == totalamt){
+					var due=totalamt-data;
+					if(due < 0){
+					$('.amtdue'+i).html('0');
+					$('.amtpay'+i).html(amtshare);		
+					}
+					else 
+					{
+					$('.amtdue'+i).html(due);
+					$('.amtpay'+i).html(data);	
+					}
+				}
+				else
+				{
+					var due=totalamt-data;
+					if(due < 0){
+					$('.amtdue'+i).html('0');
+					$('.amtpay'+i).html(amtshare);		
+					}
+					else 
+					{
+					$('.amtdue'+i).html(due);
+					$('.amtpay'+i).html(amtshare-due);	
+					}
+				}
+			}	
+			//else if ($('.trsstatus').val()!="In Range")
+			//{
+				//alert("second");
+			//	totalamt=totalamt+150;
+			//	$(".chktransdate"+i).prop("checked", true);
+			//}
+			else
+			{
+				//alert("other");
+				$(".chktransdate"+i).prop("checked", false);
+				$('.amtdue'+i).html('');
+				$('.amtpay'+i).html('');
+			}
+		}
+		else
+		{
+			$(".chktransdate"+i).prop("checked", false);	
+			$('.amtdue'+i).html('');
+			$('.amtpay'+i).html('');
+		}
+	 }
+}
+function ChangeAmount1() {
+	var data=$('.comp').val();
 	 var rowcount=<?php echo $rowcnt ?>;
 	 //alert("test"+data);
 	 var totalamt=0;
