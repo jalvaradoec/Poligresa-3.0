@@ -1974,8 +1974,8 @@ $(document).ready(function(){
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
-				  <td class="amtdue"></td>
-				  <td class="amtpay"></td>
+				  <td class="amtdue<?php echo $rowcnt ?>"></td>
+				  <td class="amtpay<?php echo $rowcnt ?>"></td>
 				  
                 </tr>
 				<?php
@@ -2368,8 +2368,8 @@ function ChangeAmount(data) {
 				//alert("first");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
-				$('.amtdue').html('0');
-				$('.amtpay').html('150.00');
+				$('.amtdue'+i).html('0');
+				$('.amtpay'+i).html('150.00');
 			}	
 			else if ($('.trsstatus').val()!="In Range")
 			{
