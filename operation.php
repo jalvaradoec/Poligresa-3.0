@@ -1972,7 +1972,7 @@ $(document).ready(function(){
 				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="chkclick(this)"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
-                  <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
+                  <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
 				  <td class="amtdue<?php echo $rowcnt ?>"></td>
 				  <td class="amtpay<?php echo $rowcnt ?>"></td>
@@ -2365,8 +2365,9 @@ function ChangeAmount(data) {
 		{
 			if ($('.trsstatus').val()!="In Range")
 			{
-				alert(totalamt);
-				totalamt=totalamt+150;
+				//alert("first");
+				var amtshare=$('.amtshare'+i).html();	
+				totalamt=totalamt+amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				if(totalamt > data){
 				$('.amtdue'+i).html(totalamt-data);
