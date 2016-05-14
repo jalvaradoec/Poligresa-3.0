@@ -1967,9 +1967,9 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				?>
-				<input type="hidden" name="transid" class="transid<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
+				<input type="hidden" name="transid" class="transid<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="chkclick(this)"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="chkclick(this)"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2371,32 +2371,27 @@ function ChangeAmount(data) {
 				$(".chktransdate"+i).prop("checked", true);
 				if(amtshare == totalamt){
 					var due=totalamt-data;
-					var due1=due.toFixed(2);
-					var data1=data.toFixed(2);
 					if(due < 0){
 					$('.amtdue'+i).html('0');
 					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
 					{
-					$('.amtdue'+i).html(due1);
-					$('.amtpay'+i).html(data1);	
+					$('.amtdue'+i).html(due);
+					$('.amtpay'+i).html(data);	
 					}
 				}
 				else
 				{
 					var due=totalamt-data;
-					var due1=due.toFixed(2);
 					if(due < 0){
 					$('.amtdue'+i).html('0');
 					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
 					{
-					var payamt1=amtshare-due;
-					var payamt2=payamt1.toFixed(2);
-					$('.amtdue'+i).html(due1);
-					$('.amtpay'+i).html(payamt2);
+					$('.amtdue'+i).html(due);
+					$('.amtpay'+i).html(amtshare-due);	
 					}
 				}
 			}	
@@ -2578,7 +2573,15 @@ var Alerter = {
 				}
 				
 			}**/
-			
+			var rowcount=<?php echo $rowcnt ?>;
+			console.log(rowcount);
+			for(i=1;i<=rowcount;i++){
+			if (document.getElementById("chktransdate"+i).checked) {
+				alert("chktransdate"+i);
+			} else {
+				alert("CheckBox"+i);
+			}
+			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
