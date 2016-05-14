@@ -2371,15 +2371,30 @@ function ChangeAmount(data) {
 				$(".chktransdate"+i).prop("checked", true);
 				if(amtshare == totalamt){
 					alert('hello');
-					$('.amtdue'+i).html(totalamt-data);
+					var due=totalamt-data;
+					if(due < 0){
+					$('.amtdue'+i).html('0');
+					$('.amtpay'+i).html('amtshare');		
+					}
+					else 
+					{
+					$('.amtdue'+i).html(due);
 					$('.amtpay'+i).html(data);	
+					}
 				}
 				else
 				{
 					alert('hello1');
 					var due=totalamt-data;
+					if(due < 0){
+					$('.amtdue'+i).html('0');
+					$('.amtpay'+i).html('amtshare');		
+					}
+					else 
+					{
 					$('.amtdue'+i).html(due);
 					$('.amtpay'+i).html(amtshare-due);	
+					}
 				}
 			}	
 			//else if ($('.trsstatus').val()!="In Range")
