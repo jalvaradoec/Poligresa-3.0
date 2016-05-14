@@ -2365,7 +2365,7 @@ function ChangeAmount(data) {
 		{
 			if ($('.trsstatus').val()!="In Range")
 			{
-				//alert("first");
+				alert("first");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
 				if(totalamt > data){
@@ -2381,13 +2381,13 @@ function ChangeAmount(data) {
 			}	
 			else if ($('.trsstatus').val()!="In Range")
 			{
-				//alert("second");
+				alert("second");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
 			}
 			else
 			{
-				//alert("other");
+				alert("other");
 				$(".chktransdate"+i).prop("checked", false);
 				$('.amtdue'+i).html('');
 				$('.amtpay'+i).html('');
