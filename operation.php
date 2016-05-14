@@ -2577,7 +2577,7 @@ var Alerter = {
 			console.log(rowcount);
 			var i=1;
 			for(i=1;i<=rowcount;i++){
-			if (document.getElementById("chktransdate"+i).checked) {
+			if($('#chktransdate'+i).attr('checked')) {
 				console.log("chktransdate"+i);
 			} else {
 				console.log("CheckBox"+i);
