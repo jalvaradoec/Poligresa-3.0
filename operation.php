@@ -2373,12 +2373,12 @@ function ChangeAmount(data) {
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare);		
+					$('.amtpay'+i).html(amtshare.toFixed(2));		
 					}
 					else 
 					{
-					$('.amtdue'+i).html(due);
-					$('.amtpay'+i).html(data);	
+					$('.amtdue'+i).html(due.toFixed(2));
+					$('.amtpay'+i).html(data.toFixed(2));	
 					}
 				}
 				else
@@ -2386,12 +2386,13 @@ function ChangeAmount(data) {
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare);		
+					$('.amtpay'+i).html(amtshare.toFixed(2));		
 					}
 					else 
 					{
-					$('.amtdue'+i).html(due);
-					$('.amtpay'+i).html(amtshare-due);	
+					var payamt1=amtshare-due;
+					$('.amtdue'+i).html(due.toFixed(2));
+					$('.amtpay'+i).html(payamt1.toFixed(2));
 					}
 				}
 			}	
@@ -2417,10 +2418,10 @@ function ChangeAmount(data) {
 		}
 	 }
 }
-function chkclick(data)
+/**function chkclick(data)
 {
 	alert(data.checked);
-}
+}**/
 $(document).on('change', '.chk_active', function () {
 	
         var value = ($(this).is(":checked")) ? 1 : 0;
@@ -2573,6 +2574,10 @@ var Alerter = {
 				}
 				
 			}**/
+			function chkclick(data)
+			{
+				alert(data.checked);
+			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
