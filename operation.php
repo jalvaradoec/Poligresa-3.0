@@ -2371,7 +2371,11 @@ function ChangeAmount(data) {
 				$(".chktransdate"+i).prop("checked", true);
 				if(totalamt > data){
 				$('.amtdue'+i).html(totalamt-data);
-				$('.amtpay'+i).html(data-totalamt);	
+				$('.amtpay'+i).html(data);	
+				}
+				if(totalamt < data){
+				$('.amtdue'+i).html(totalamt-data);
+				$('.amtpay'+i).html(data-amtshare);	
 				}
 				else
 				{
