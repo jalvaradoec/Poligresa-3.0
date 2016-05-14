@@ -2370,7 +2370,7 @@ function ChangeAmount(data) {
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				if(totalamt > data){
-					if($i==1){
+					if(i==1){
 						$('.amtdue'+i).html(totalamt-data);
 						$('.amtpay'+i).html(data);	
 				    }
