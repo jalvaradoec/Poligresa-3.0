@@ -2369,7 +2369,7 @@ function ChangeAmount(data) {
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
 				$('.amtdue'+i).html('0');
-				$('.amtpay'+i).html('150.00');
+				$('.amtpay'+i).html(data-totalamt);
 			}	
 			else if ($('.trsstatus').val()!="In Range")
 			{
