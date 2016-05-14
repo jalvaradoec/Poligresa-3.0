@@ -2580,6 +2580,7 @@ var Alerter = {
 			for(i=1;i<=rowcount;i++){
 			if($("#chktransdate"+i).is(":checked")) {
 				var transidval=$(.'transids'+i).val();
+				console.log(transidval);
 				$('.transid'+i).val(transidval);
 				var amtpayval=$('.amtpay'+i).html();
 				$('.amountpay'+i).val(amtpayval);
