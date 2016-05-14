@@ -2368,12 +2368,13 @@ function ChangeAmount(data) {
 				//alert("first");
 				totalamt=totalamt+150;
 				$(".chktransdate"+i).prop("checked", true);
-				$('.amtdue'+i).html('0');
 				if(totalamt > data){
+				$('.amtdue'+i).html(totalamt-data);
 				$('.amtpay'+i).html(data);	
 				}
 				else
 				{
+				$('.amtdue'+i).html('0');
 				$('.amtpay'+i).html(totalamt);	
 				}
 				
