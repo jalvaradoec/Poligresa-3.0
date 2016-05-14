@@ -2420,6 +2420,7 @@ function ChangeAmount(data) {
 	 }
 }
 function ChangeAmount1() {
+	alert('hello');
 	var data=$('.comp').val();
 	 var rowcount=<?php echo $rowcnt ?>;
 	 //alert("test"+data);
