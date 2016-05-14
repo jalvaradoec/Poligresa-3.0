@@ -1967,6 +1967,7 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				?>
+				<input type="hidden" name="transids" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid" class="transid<?php echo $rowcnt ?>" />
                 <tr>
 				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1"  ></td>
@@ -2577,8 +2578,10 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=rowcount;i++){
 			if($("#chktransdate"+i).is(":checked")) {
-				console.log("chktransdate"+i);
-			} }
+				var transidval=$('transids'+i).val();
+				$('.transid'+i).val(transidval);
+			} 
+			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
