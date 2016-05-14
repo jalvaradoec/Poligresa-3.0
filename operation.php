@@ -2374,7 +2374,7 @@ function ChangeAmount(data) {
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html('amtshare');		
+					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
 					{
@@ -2388,7 +2388,7 @@ function ChangeAmount(data) {
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html('amtshare');		
+					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
 					{
