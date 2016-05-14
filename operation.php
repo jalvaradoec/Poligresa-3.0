@@ -2574,15 +2574,11 @@ var Alerter = {
 				
 			}**/
 			var rowcount=<?php echo $rowcnt ?>;
-			console.log(rowcount);
 			var i=1;
 			for(i=1;i<=rowcount;i++){
-			if($('#chktransdate'+i).attr('checked')) {
+			if($("#chktransdate"+i).is(":checked")) {
 				console.log("chktransdate"+i);
-			} else {
-				console.log("CheckBox"+i);
-			}
-			}
+			} }
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
