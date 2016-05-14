@@ -2373,7 +2373,7 @@ function ChangeAmount(data) {
 				$('.amtdue'+i).html(totalamt-data);
 				$('.amtpay'+i).html(data);	
 				}
-				if(totalamt < data){
+				else if(totalamt < data){
 				$('.amtdue'+i).html(totalamt-data);
 				$('.amtpay'+i).html(data-amtshare);	
 				}
