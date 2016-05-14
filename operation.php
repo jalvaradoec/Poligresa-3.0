@@ -2371,10 +2371,12 @@ function ChangeAmount(data) {
 				$(".chktransdate"+i).prop("checked", true);
 				if(totalamt > data){
 					if(i==1){
+						alert('hello');
 						$('.amtdue'+i).html(totalamt-data);
 						$('.amtpay'+i).html(data);	
 				    }
 					else{
+						alert('hello1');
 						$('.amtdue'+i).html(totalamt-data);
 						$('.amtpay'+i).html(data-amtshare);	
 					}
