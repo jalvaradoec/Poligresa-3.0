@@ -2371,28 +2371,32 @@ function ChangeAmount(data) {
 				$(".chktransdate"+i).prop("checked", true);
 				if(amtshare == totalamt){
 					var due=totalamt-data;
+					var due1=due.toFixed(2);
+					var data1=data.toFixed(2);
 					if(due < 0){
 					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare.toFixed(2));		
+					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
 					{
-					$('.amtdue'+i).html(due.toFixed(2));
-					$('.amtpay'+i).html(data.toFixed(2));	
+					$('.amtdue'+i).html(due1);
+					$('.amtpay'+i).html(data1);	
 					}
 				}
 				else
 				{
 					var due=totalamt-data;
+					var due1=due.toFixed(2);
 					if(due < 0){
 					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare.toFixed(2));		
+					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
 					{
 					var payamt1=amtshare-due;
-					$('.amtdue'+i).html(due.toFixed(2));
-					$('.amtpay'+i).html(payamt1.toFixed(2));
+					var payamt2=payamt1.toFixed(2);
+					$('.amtdue'+i).html(due1);
+					$('.amtpay'+i).html(payamt2);
 					}
 				}
 			}	
@@ -2574,10 +2578,7 @@ var Alerter = {
 				}
 				
 			}**/
-			function chkclick(data)
-			{
-				alert(data.checked);
-			}
+			
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
