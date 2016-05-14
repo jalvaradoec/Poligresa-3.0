@@ -1969,7 +1969,7 @@ $(document).ready(function(){
 				?>
 				<input type="hidden" name="transid" class="transid<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="chkclick(this)"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1"  ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2575,6 +2575,7 @@ var Alerter = {
 			}**/
 			var rowcount=<?php echo $rowcnt ?>;
 			console.log(rowcount);
+			var i=1;
 			for(i=1;i<=rowcount;i++){
 			if (document.getElementById("chktransdate"+i).checked) {
 				alert("chktransdate"+i);
