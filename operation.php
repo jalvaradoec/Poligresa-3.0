@@ -2372,6 +2372,7 @@ function ChangeAmount(data) {
 				var amtshare=$('.amtshare'+i).html();	
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
+				$(".chktransdate"+i).attr("disabled", true);
 				if(amtshare == totalamt){
 					var due=totalamt-data;
 					if(due < 0){
@@ -2408,6 +2409,7 @@ function ChangeAmount(data) {
 			{
 				//alert("other");
 				$(".chktransdate"+i).prop("checked", false);
+				$(".chktransdate"+i).removeAttr("disabled");
 				$('.amtdue'+i).html('');
 				$('.amtpay'+i).html('');
 			}
@@ -2415,6 +2417,7 @@ function ChangeAmount(data) {
 		else
 		{
 			$(".chktransdate"+i).prop("checked", false);	
+			$(".chktransdate"+i).removeAttr("disabled");
 			$('.amtdue'+i).html('');
 			$('.amtpay'+i).html('');
 		}
