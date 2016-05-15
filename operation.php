@@ -2425,13 +2425,14 @@ function ChangeAmount(data) {
 }
 function ChangeAmount1() {
 	var num=$('.numrow').val();
-	var totalamt1=0;
+	var i=1;
+	var totalamt=0;
 	for(i=1;i<=num;i++){
-		var amtshare1=$('.amtshare'+i).html();
-		totalamt1=+totalamt1 + +amtshare1;
-		console.log("total"+totalamt1);
+		var amtshare=$('.amtshare'+i).html();
+		totalamt=+totalamt + +amtshare;
+		console.log("total"+totalamt);
 	}
-	console.log("abc"+totalamt1);
+	console.log("abc"+totalamt);
 }
 /**function chkclick(data)
 {
