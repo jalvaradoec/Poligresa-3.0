@@ -2423,12 +2423,11 @@ function ChangeAmount(data) {
 function ChangeAmount1() {
 	var data=$('.comp').val();
 	 var rowcount=<?php echo $rowcnt ?>;
-	 var start=$('.numrow').val();
 	 //alert("test"+data);
 	 var totalamt=0;
 	 var i=1;
 	 
-	 for(i=start;i<=rowcount;i++){
+	 for(i=1;i<=rowcount;i++){
 		var transdate1=$('.transdate1').val();	
 		if ((data-totalamt)>0)
 		{
