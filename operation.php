@@ -2421,69 +2421,7 @@ function ChangeAmount(data) {
 	 }
 }
 function ChangeAmount1() {
-	var data=$('.comp').val();
-	 var rowcount=<?php echo $rowcnt ?>;
-	 //alert("test"+data);
-	 var totalamt=0;
-	 var i=1;
-	 
-	 for(i=1;i<=rowcount;i++){
-		var transdate1=$('.transdate1').val();	
-		if ((data-totalamt)>0)
-		{
-			if ($('.trsstatus').val()!="In Range")
-			{
-				//alert("first");
-				var amtshare=$('.amtshare'+i).html();	
-				totalamt=+totalamt + +amtshare;
-				$(".chktransdate"+i).prop("checked", true);
-				if(amtshare == totalamt){
-					var due=totalamt-data;
-					if(due < 0){
-					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare);		
-					}
-					else 
-					{
-					$('.amtdue'+i).html(due);
-					$('.amtpay'+i).html(data);	
-					}
-				}
-				else
-				{
-					var due=totalamt-data;
-					if(due < 0){
-					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare);		
-					}
-					else 
-					{
-					$('.amtdue'+i).html(due);
-					$('.amtpay'+i).html(amtshare-due);	
-					}
-				}
-			}	
-			//else if ($('.trsstatus').val()!="In Range")
-			//{
-				//alert("second");
-			//	totalamt=totalamt+150;
-			//	$(".chktransdate"+i).prop("checked", true);
-			//}
-			else
-			{
-				//alert("other");
-				$(".chktransdate"+i).prop("checked", false);
-				$('.amtdue'+i).html('');
-				$('.amtpay'+i).html('');
-			}
-		}
-		else
-		{
-			$(".chktransdate"+i).prop("checked", false);	
-			$('.amtdue'+i).html('');
-			$('.amtpay'+i).html('');
-		}
-	 }
+	alert('hello');
 }
 /**function chkclick(data)
 {
