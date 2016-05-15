@@ -1971,7 +1971,7 @@ $(document).ready(function(){
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
 				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "1" onclick="ChangeAmount1(this)"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1(this)"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2424,7 +2424,12 @@ function ChangeAmount(data) {
 	 }
 }
 function ChangeAmount1() {
-	alert('hello');
+	var num=$('.numrow').val();
+	for(i=1;i<=num;i++){
+		var amtshare1=$('.amtshare'+i).html();
+		totalamt1=+totalamt1 + +amtshare1;
+	}
+	console.log(totalamt1);
 }
 /**function chkclick(data)
 {
