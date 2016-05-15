@@ -2356,7 +2356,8 @@ $(document).ready(function(){
 <script src="dist/js/app.min.js"></script>
 <script>
 function ChangeAmount(data) {
-	 var rowcount=<?php echo $rowcnt ?>;
+	 //var rowcount=<?php echo $rowcnt ?>;
+	 var rowcount=$('.numrow').val();
 	 //alert("test"+data);
 	 var totalamt=0;
 	 var i=1;
