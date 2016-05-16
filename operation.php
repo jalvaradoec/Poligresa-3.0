@@ -2440,7 +2440,7 @@ function ChangeAmount1() {
 		});
 		console.log('data'+data);
 		console.log('total'+totalamt);
-		console.log('chkval'+chkval);
+		console.log('chkval'+$(this).val());
 		if ((data-totalamt)>0)
 		{
 		var amtshare=$('.amtshare'+chkval).html();
