@@ -2436,10 +2436,11 @@ function ChangeAmount1() {
 		}
 	}
 	var j=+num + +1;
-	console.log(j);
 	for(j=+num + +1;j<=rowcount;j++){
 		if ((data-totalamt)>0)
 		{
+		var amtshare=$('.amtshare'+j).html();
+		totalamt=+totalamt + +amtshare;	
 		$(".chktransdate"+j).removeAttr("disabled");
 		}
 		else
