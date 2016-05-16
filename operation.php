@@ -2424,13 +2424,27 @@ function ChangeAmount(data) {
 	 }
 }
 function ChangeAmount1() {
+	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
 	var totalamt=0;
+	var data=$('.comp').val();
 	for(i=1;i<=num;i++){
-		if($("#chktransdate"+i).is(":checked")) {
+		if($(".chktransdate"+i).is(":checked")) {
 		var amtshare=$('.amtshare'+i).html();
 		totalamt=+totalamt + +amtshare;
+		}
+	}
+	for(i=num+1;i<=rowcount;i++){
+		if ((data-totalamt)>0)
+		{
+		$(".chktransdate"+i).prop("checked", true);
+		$(".chktransdate"+i).removeAttr("disabled");
+		}
+		else
+		{
+		$(".chktransdate"+i).prop("checked", false);	
+		$(".chktransdate"+i).attr("disabled", true);
 		}
 		console.log("total"+totalamt);
 	}
