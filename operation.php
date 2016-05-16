@@ -2435,9 +2435,9 @@ function ChangeAmount1() {
 		totalamt=+totalamt + +amtshare;
 		}
 	}
-	var j=num+1;
+	var j=+num + +1;
 	console.log(j);
-	for(j=num+1;j<=rowcount;j++){
+	for(j=+num + +1;j<=rowcount;j++){
 		if ((data-totalamt)>0)
 		{
 		$(".chktransdate"+j).prop("checked", true);
