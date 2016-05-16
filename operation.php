@@ -2437,6 +2437,7 @@ function ChangeAmount1() {
 	}
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
+		});
 		console.log('data'+data);
 		console.log('total'+totalamt);
 		console.log('chkval'+chkval);
@@ -2462,7 +2463,7 @@ function ChangeAmount1() {
 			$('.amtdue'+chkval).html('');
 			$('.amtpay'+chkval).html('');
 		}
-    });
+    
 	/**var j=+num + +1;
 	for(j=+num + +1;j<=rowcount;j++){
 		if ((data-totalamt)>0)
