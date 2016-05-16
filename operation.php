@@ -2440,12 +2440,10 @@ function ChangeAmount1() {
 	for(j=+num + +1;j<=rowcount;j++){
 		if ((data-totalamt)>0)
 		{
-		$(".chktransdate"+j).prop("checked", true);
 		$(".chktransdate"+j).removeAttr("disabled");
 		}
 		else
 		{
-		$(".chktransdate"+j).prop("checked", false);	
 		$(".chktransdate"+j).attr("disabled", true);
 		}
 	}
