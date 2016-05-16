@@ -2424,6 +2424,7 @@ function ChangeAmount(data) {
 	 }
 }
 function ChangeAmount1() {
+	alert('hello');
 	alert("Id: " + $(this).attr("id") + " Value: " + $(this).val());
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
