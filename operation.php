@@ -2437,7 +2437,6 @@ function ChangeAmount1() {
 	}
 	var j=+num + +1;
 	for(j=+num + +1;j<=rowcount;j++){
-		if($(".chktransdate"+j).is(":checked")) {
 		if ((data-totalamt)>0)
 		{
 		var amtshare=$('.amtshare'+j).html();
