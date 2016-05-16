@@ -2435,18 +2435,19 @@ function ChangeAmount1() {
 		totalamt=+totalamt + +amtshare;
 		}
 	}
-	for(i=num+1;i<=rowcount;i++){
+	var j=num+1;
+	console.log(j);
+	for(j=num+1;j<=rowcount;j++){
 		if ((data-totalamt)>0)
 		{
-		$(".chktransdate"+i).prop("checked", true);
-		$(".chktransdate"+i).removeAttr("disabled");
+		$(".chktransdate"+j).prop("checked", true);
+		$(".chktransdate"+j).removeAttr("disabled");
 		}
 		else
 		{
-		$(".chktransdate"+i).prop("checked", false);	
-		$(".chktransdate"+i).attr("disabled", true);
+		$(".chktransdate"+j).prop("checked", false);	
+		$(".chktransdate"+j).attr("disabled", true);
 		}
-		console.log("total"+totalamt);
 	}
 	console.log("abc"+totalamt);
 }
