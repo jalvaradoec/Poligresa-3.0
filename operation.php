@@ -2437,7 +2437,32 @@ function ChangeAmount1() {
 	}
 	var j=+num + +1;
 	for(j=+num + +1;j<=rowcount;j++){
+		if($(".chktransdate"+j).is(":checked")) {
 		if ((data-totalamt)>0)
+		{
+		var amtshare=$('.amtshare'+j).html();
+		totalamt=+totalamt + +amtshare;	
+					var due=totalamt-data;
+					if(due < 0){
+					$('.amtdue'+j).html('0');
+					$('.amtpay'+j).html(amtshare);		
+					}
+					else 
+					{
+					$('.amtdue'+j).html(due);
+					$('.amtpay'+j).html(amtshare-due);	
+					}
+		//$(".chktransdate"+j).removeAttr("disabled");
+		}
+		else
+		{
+			$(".chktransdate"+j).prop("checked", false);	
+			$(".chktransdate"+j).removeAttr("disabled");
+			$('.amtdue'+j).html('');
+			$('.amtpay'+j).html('');
+		//$(".chktransdate"+j).attr("disabled", true);
+		}
+		/**if ((data-totalamt)>0)
 		{
 		var amtshare=$('.amtshare'+j).html();
 		totalamt=+totalamt + +amtshare;	
@@ -2446,7 +2471,7 @@ function ChangeAmount1() {
 		else
 		{
 		$(".chktransdate"+j).attr("disabled", true);
-		}
+		}**/
 	}
 	console.log("abc"+totalamt);
 }
