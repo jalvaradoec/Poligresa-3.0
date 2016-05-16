@@ -2660,8 +2660,8 @@ var Alerter = {
 			} 
 			else
 			{
-				$('.amtdue'+chkval).html('');
-				$('.amtpay'+chkval).html('');
+				$('.amtdue'+i).html('');
+				$('.amtpay'+i).html('');
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
