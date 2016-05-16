@@ -2423,9 +2423,13 @@ function ChangeAmount(data) {
 		}
 	 }
 }
+$("input:checkbox[name=chktransdate]:checked").each(function () {
+            alert("Id1: " + $(this).attr("id") + " Value: " + $(this).val());
+        });
 function ChangeAmount1() {
-	alert('hello');
-	alert("Id: " + $(this).attr("id") + " Value: " + $(this).val());
+	$("input:checkbox[name=chktransdate]:checked").each(function () {
+            alert("Id: " + $(this).attr("id") + " Value: " + $(this).val());
+        });
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
