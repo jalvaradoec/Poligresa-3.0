@@ -2424,6 +2424,7 @@ function ChangeAmount(data) {
 	 }
 }
 function ChangeAmount1() {
+	alert("Id: " + $(this).attr("id") + " Value: " + $(this).val());
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
@@ -2456,7 +2457,6 @@ function ChangeAmount1() {
 		else
 		{
 			$(".chktransdate"+j).prop("checked", false);	
-			$(".chktransdate"+j).removeAttr("disabled");
 			$('.amtdue'+j).html('');
 			$('.amtpay'+j).html('');
 		//$(".chktransdate"+j).attr("disabled", true);
