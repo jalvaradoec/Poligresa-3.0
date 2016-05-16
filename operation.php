@@ -1971,7 +1971,7 @@ $(document).ready(function(){
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
 				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate" value= "<?php echo $rowcnt ?>" ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2423,11 +2423,6 @@ function ChangeAmount(data) {
 		}
 	 }
 }
- $('#chktransdate').click(function () {
-	 alert('hello');
-    var id=$(this).val();
-    alert(id);
-  });
 function ChangeAmount1() {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
@@ -2449,7 +2444,7 @@ function ChangeAmount1() {
 		{
 		var amtshare=$('.amtshare'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
-		$(".chktransdate"+chkval).prop("checked", true);
+		//$(".chktransdate"+chkval).prop("checked", true);
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+chkval).html('0');
