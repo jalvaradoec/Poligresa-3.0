@@ -2429,12 +2429,8 @@ function ChangeAmount1() {
 	var i=1;
 	var totalamt=0;
 	var data=$('.comp').val();
-	for(i=1;i<=num;i++){
-		if($(".chktransdate"+i).is(":checked")) {
-		var amtshare=$('.amtshare'+i).html();
-		totalamt=+totalamt + +amtshare;
-		}
-	}
+	
+	console.log('total1'+totalamt);
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
 		console.log('data'+data);
