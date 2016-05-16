@@ -2458,7 +2458,7 @@ function ChangeAmount1() {
 		}
 		else
 		{
-			$(".chktransdate"+chkval).prop("checked", false);	
+			//$(".chktransdate"+chkval).prop("checked", false);	
 			$('.amtdue'+chkval).html('');
 			$('.amtpay'+chkval).html('');
 		}
