@@ -2423,13 +2423,7 @@ function ChangeAmount(data) {
 		}
 	 }
 }
-$("input:checkbox[name=chktransdate]:checked").each(function () {
-            alert("Id1: " + $(this).attr("id") + " Value: " + $(this).val());
-        });
 function ChangeAmount1() {
-	$("input:checkbox[name=chktransdate]:checked").each(function () {
-            alert("Id: " + $(this).attr("id") + " Value: " + $(this).val());
-        });
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
@@ -2441,7 +2435,31 @@ function ChangeAmount1() {
 		totalamt=+totalamt + +amtshare;
 		}
 	}
-	var j=+num + +1;
+	$("input:checkbox[name=chktransdate]:checked").each(function () {
+		var chkval=$(this).val();
+		if ((data-totalamt)>0)
+		{
+		var amtshare=$('.amtshare'+chkval).html();
+		totalamt=+totalamt + +amtshare;	
+					var due=totalamt-data;
+					if(due < 0){
+					$('.amtdue'+chkval).html('0');
+					$('.amtpay'+chkval).html(amtshare);		
+					}
+					else 
+					{
+					$('.amtdue'+chkval).html(due);
+					$('.amtpay'+chkval).html(amtshare-due);	
+					}
+		}
+		else
+		{
+			$(".chktransdate"+chkval).prop("checked", false);	
+			$('.amtdue'+chkval).html('');
+			$('.amtpay'+chkval).html('');
+		}
+    });
+	/**var j=+num + +1;
 	for(j=+num + +1;j<=rowcount;j++){
 		if ((data-totalamt)>0)
 		{
@@ -2465,7 +2483,7 @@ function ChangeAmount1() {
 			$('.amtdue'+j).html('');
 			$('.amtpay'+j).html('');
 		//$(".chktransdate"+j).attr("disabled", true);
-		}
+		}**/
 		/**if ((data-totalamt)>0)
 		{
 		var amtshare=$('.amtshare'+j).html();
