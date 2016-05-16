@@ -2444,6 +2444,7 @@ function ChangeAmount1() {
 		{
 		var amtshare=$('.amtshare'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
+		$(".chktransdate"+chkval).prop("checked", true);
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+chkval).html('0');
