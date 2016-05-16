@@ -2430,12 +2430,8 @@ function ChangeAmount1() {
 	var totalamt=0;
 	var data=$('.comp').val();
 	
-	console.log('total1'+totalamt);
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
-		console.log('data'+data);
-		console.log('total'+totalamt);
-		console.log('chkval'+chkval);
 		if ((data-totalamt)>0)
 		{
 		var amtshare=$('.amtshare'+chkval).html();
@@ -2662,6 +2658,11 @@ var Alerter = {
 				var amtpayval=$('.amtpay'+i).html();
 				$('.amountpay'+i).val(amtpayval);
 			} 
+			else
+			{
+				$('.amtdue'+chkval).html('');
+				$('.amtpay'+chkval).html('');
+			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
