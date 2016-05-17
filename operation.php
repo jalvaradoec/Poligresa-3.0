@@ -2469,7 +2469,7 @@ function ChangeAmount1() {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
-		var amtshare=$('.amtshare'+chkval).html();
+		var amtshare=$('.amtdue'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
 					var due=totalamt-data;
 					if(due < 0){
