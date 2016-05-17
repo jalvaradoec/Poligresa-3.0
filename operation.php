@@ -1910,6 +1910,12 @@ $(document).ready(function(){
                     </label>
                   </div>
               </div>
+			  <label for="inputPassword3" class="col-sm-2 control-label">Remaining Balance:</label>
+			  <div class="col-sm-8">
+			   <div class="remainbalance">
+                    
+                  </div>
+              </div>
               </div>
 			  
 			  
@@ -1966,6 +1972,10 @@ $(document).ready(function(){
 				 $sql1="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_ShareStatus']."' and App_Aux_field = 'TransactionStatus'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
+				 $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
+				$result5=mysql_query($sql5);
+				$row5=mysql_fetch_array($result5);
+				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
@@ -1976,8 +1986,8 @@ $(document).ready(function(){
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
-				  <td class="amtdue<?php echo $rowcnt ?>"></td>
-				  <td class="amtpay<?php echo $rowcnt ?>"></td>
+				  <td class="amtdue<?php echo $rowcnt ?>"><?php echo $dueamount ?></td>
+				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo $row5['App_Transactions_ShareAmount'] ?></td>
 				  
                 </tr>
 				<?php
@@ -2361,7 +2371,7 @@ function ChangeAmount(data) {
 	 //alert("test"+data);
 	 var totalamt=0;
 	 var i=1;
-	 
+	 var data1=data;
 	 for(i=1;i<=rowcount;i++){
 		var transdate1=$('.transdate1').val();	
 		if ((data-totalamt)>0)
@@ -2384,6 +2394,8 @@ function ChangeAmount(data) {
 					$('.amtdue'+i).html(due);
 					$('.amtpay'+i).html(data);	
 					}
+					data1=data-totalamt;
+					$('.remainbalance').html(data1);		
 				}
 				else
 				{
@@ -2397,6 +2409,8 @@ function ChangeAmount(data) {
 					$('.amtdue'+i).html(due);
 					$('.amtpay'+i).html(amtshare-due);	
 					}
+					data1=data-totalamt;
+					$('.remainbalance').html(data1);
 				}
 			}	
 			//else if ($('.trsstatus').val()!="In Range")
@@ -2436,7 +2450,6 @@ function ChangeAmount1() {
 		{
 		var amtshare=$('.amtshare'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
-		//$(".chktransdate"+chkval).prop("checked", true);
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+chkval).html('0');
@@ -2447,56 +2460,17 @@ function ChangeAmount1() {
 					$('.amtdue'+chkval).html(due);
 					$('.amtpay'+chkval).html(amtshare-due);	
 					}
+					data1=data-totalamt;
+					$('.remainbalance').html(data1);
 		}
 		else
 		{
-			//$(".chktransdate"+chkval).prop("checked", false);	
 			$('.amtdue'+chkval).html('');
 			$('.amtpay'+chkval).html('');
 		}
     });
-	/**var j=+num + +1;
-	for(j=+num + +1;j<=rowcount;j++){
-		if ((data-totalamt)>0)
-		{
-		var amtshare=$('.amtshare'+j).html();
-		totalamt=+totalamt + +amtshare;	
-					var due=totalamt-data;
-					if(due < 0){
-					$('.amtdue'+j).html('0');
-					$('.amtpay'+j).html(amtshare);		
-					}
-					else 
-					{
-					$('.amtdue'+j).html(due);
-					$('.amtpay'+j).html(amtshare-due);	
-					}
-		//$(".chktransdate"+j).removeAttr("disabled");
-		}
-		else
-		{
-			$(".chktransdate"+j).prop("checked", false);	
-			$('.amtdue'+j).html('');
-			$('.amtpay'+j).html('');
-		//$(".chktransdate"+j).attr("disabled", true);
-		}
-		if ((data-totalamt)>0)
-		{
-		var amtshare=$('.amtshare'+j).html();
-		totalamt=+totalamt + +amtshare;	
-		$(".chktransdate"+j).removeAttr("disabled");
-		}
-		else
-		{
-		$(".chktransdate"+j).attr("disabled", true);
-		}
-	}**/
-	console.log("abc"+totalamt);
+	
 }
-/**function chkclick(data)
-{
-	alert(data.checked);
-}**/
 $(document).on('change', '.chk_active', function () {
 	
         var value = ($(this).is(":checked")) ? 1 : 0;
@@ -2606,15 +2580,7 @@ var Alerter = {
 			$('.interest').val(interest.toFixed(2));
             var dwnpymt=$('.dpayment').val();
             $('.dwnpymt').val(dwnpymt);
-            //$('.dwnpymt').val();
-			//var monthpayment1=(balance2 + interest) / $('.shares').val();
-			//if($('.shares').val()==''){
-			//$('.monthpayment1').val('');	
-			//}
-			//else
-			//{
-			//$('.monthpayment1').val(monthpayment1.toFixed(2));
-			//}
+            
 			var total=balance2 + interest;
 			var sharesval=$('.shares').val();
 			var one=1;
@@ -2624,31 +2590,7 @@ var Alerter = {
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			
-			/** var comp=$('.comp').val();
-			var i='';
-			var i1='';
-			var numrow3=$('.numrow3').val();
-			if(comp!=''){
-				$(".chktransdate1").prop("checked", true);
-				}
-				else
-				{
-					for(i1=1;i1<=numrow3;i1++){
-						$(".chktransdate"+i1).prop("checked", false);
-					}
-				}
-			var numrow=$('.numrow').val();
-			for(i=2;i<=numrow;i++){
-				var transdate=$('.transdate'+i).val();	
-				if(comp > transdate){
-					$(".chktransdate"+i).prop("checked", true);
-				}
-				else
-				{
-					$(".chktransdate"+i).prop("checked", false);
-				}
-				
-			}**/
+			
 			var rowcount=<?php echo $rowcnt ?>;
 			var i=1;
 			for(i=1;i<=rowcount;i++){
