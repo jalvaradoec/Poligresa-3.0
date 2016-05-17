@@ -1955,7 +1955,7 @@ $(document).ready(function(){
 				  $num_row6=mysql_num_rows($result4);
 				  while($row4=mysql_fetch_array($result4)){ 
 				  $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row4['App_Transactions_Id']."'";
-				  echo $sql5;
+				  
 				$result5=mysql_query($sql5);
 				$num_row5=mysql_num_rows($result5);
 				
@@ -1982,6 +1982,7 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				
 				$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
+				echo $sql5;
 				$result5=mysql_query($sql5);
 				$nrow=mysql_num_rows($result5);
 				if($nrow>1){
