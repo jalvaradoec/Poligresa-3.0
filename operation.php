@@ -1985,6 +1985,7 @@ $(document).ready(function(){
 				$payamt_amt=$payamt_amt+$row5['App_Transactions_ShareAmount'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
+				echo $payamt_amt." ";
 				}
 				if($row3['App_Transactions_ShareAmount']==$payamt_amt){}else{
 				?>
