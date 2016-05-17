@@ -1976,6 +1976,7 @@ $(document).ready(function(){
 				$result5=mysql_query($sql5);
 				$row5=mysql_fetch_array($result5);
 				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
+				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
@@ -1986,11 +1987,12 @@ $(document).ready(function(){
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
-				  <td class="amtdue<?php echo $rowcnt ?>"><?php echo $dueamount ?></td>
+				  <td class="amtdue<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
 				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo $row5['App_Transactions_ShareAmount'] ?></td>
 				  
                 </tr>
 				<?php
+				}
 				$rowcnt++;
 				} ?>
                 </tbody>
@@ -2379,7 +2381,7 @@ function ChangeAmount(data) {
 			if ($('.trsstatus').val()!="In Range")
 			{
 				//alert("first");
-				var amtshare=$('.amtshare'+i).html();	
+				var amtshare=$('.amtdue'+i).html();	
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				$(".chktransdate"+i).attr("disabled", true);
@@ -2460,7 +2462,7 @@ function ChangeAmount1() {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
-		var amtshare=$('.amtshare'+chkval).html();
+		var amtshare=$('.amtdue'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
 					var due=totalamt-data;
 					if(due < 0){
