@@ -1993,7 +1993,7 @@ $(document).ready(function(){
 				$nrow=mysql_num_rows($result5);
 				if($nrow>1){
 					while($row5=mysql_fetch_array($result5)){ 
-				$payamt_amt=+$row5['App_Transactions_ShareAmount'];
+				$payamt_amt+=$row5['App_Transactions_ShareAmount'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
 				echo $payamt_amt." ";
