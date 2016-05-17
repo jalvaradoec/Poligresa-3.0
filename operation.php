@@ -422,12 +422,26 @@ $(document).ready(function(){
 				$sql1="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_ShareStatus']."' and App_Aux_field = 'TransactionStatus'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
+				$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
+				$result5=mysql_query($sql5);
+				$row5=mysql_fetch_array($result5);
 				?>
                 <tr>
                   <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
-                  <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
-				  <td><?php echo $row1['App_Aux_text'] ?></td>
+				  <?php
+					if($row5['App_Transactions_ShareAmount']=='0.00'){
+					?>
+					<td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
+					<?php					
+					}
+					else{
+					?>
+					<td><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><?php echo $row3['App_Transactions_ShareAmount'] ?></a></td>
+					<?php					
+					}
+				  ?>
+                  <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><a href="" data-id="<?php echo $row3['App_Transactions_Id'] ?>" data-toggle="modal" class="Edittransaction">Edit</a></td>
                 </tr>
 				  <?php } ?>
