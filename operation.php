@@ -1991,9 +1991,9 @@ $(document).ready(function(){
 				$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
 				$result5=mysql_query($sql5);
 				$nrow=mysql_num_rows($result5);
-				echo $nrow." ";
 				if($nrow>1){
-					while($row5=mysql_fetch_array($result5)){ 
+				echo $nrow." ";
+				while($row5=mysql_fetch_array($result5)){ 
 				$payamt_amt += $row5['App_Transactions_ShareAmount'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
