@@ -2643,8 +2643,8 @@ var Alerter = {
 				//$('.amtpay'+i).html('');
 				var amt_due=$('.amt_due'+i).html();	
 			var amt_pay=$('.amt_pay'+i).html();
-			$('.amtdue'+i).html(amt_due.toFixed(2));
-			$('.amtpay'+i).html(amt_pay.toFixed(2));
+			$('.amtdue'+i).html(amt_due);
+			$('.amtpay'+i).html(amt_pay);
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
