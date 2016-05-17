@@ -1998,14 +1998,13 @@ $(document).ready(function(){
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
 				echo $payamt_amt." ";
 				}
-				if($row3['App_Transactions_ShareAmount']==$payamt_amt){}else{
 				}else{
 					$row5=mysql_fetch_array($result5);
 				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
 				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
-				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
+				$payamt_amt=$row5['App_Transactions_ShareAmount'];
 				}
-				
+				if($row3['App_Transactions_ShareAmount']==$payamt_amt){}else{
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
