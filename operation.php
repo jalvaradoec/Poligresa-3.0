@@ -2388,7 +2388,7 @@ function ChangeAmount(data) {
 			if ($('.trsstatus').val()!="In Range")
 			{
 				//alert("first");
-				var amtshare=$('.amtshare'+i).html();	
+				var amtshare=$('.amtdue'+i).html();	
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				$(".chktransdate"+i).attr("disabled", true);
