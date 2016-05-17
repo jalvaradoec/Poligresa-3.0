@@ -150,7 +150,6 @@ $(document).ready(function(){
 		$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
 		$result=mysql_query($sql);
 		$num_row=mysql_num_rows($result);
-		echo $num_row;
 			?>
 			</h1>
             </div>
@@ -2381,7 +2380,7 @@ function ChangeAmount(data) {
 			if ($('.trsstatus').val()!="In Range")
 			{
 				//alert("first");
-				var amtshare=$('.amtdue'+i).html();	
+				var amtshare=$('.amtshare'+i).html();	
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				$(".chktransdate"+i).attr("disabled", true);
@@ -2462,7 +2461,7 @@ function ChangeAmount1() {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
-		var amtshare=$('.amtdue'+chkval).html();
+		var amtshare=$('.amtshare'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
 					var due=totalamt-data;
 					if(due < 0){
