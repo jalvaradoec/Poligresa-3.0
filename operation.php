@@ -2496,7 +2496,7 @@ function ChangeAmount1() {
 			$('.amtpay'+chkval).html('');
 		}
     });
-	
+	consol.log(totalamt);
 }
 $(document).on('change', '.chk_active', function () {
 	
