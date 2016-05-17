@@ -1983,6 +1983,7 @@ $(document).ready(function(){
 				$result5=mysql_query($sql5);
 				$row5=mysql_fetch_array($result5);
 				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
+				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
 				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
@@ -1995,8 +1996,9 @@ $(document).ready(function(){
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
 				  <td class="amtdue<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
-				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo $row5['App_Transactions_ShareAmount'] ?></td>
+				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo $pay ?></td>
 				  <td style="display:none" class="amt_due<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
+				  <td style="display:none" class="amt_pay<?php echo $rowcnt ?>"><?php echo $pay ?></td>
                 </tr>
 				<?php
 				$rowcnt++;
@@ -2445,16 +2447,16 @@ function ChangeAmount(data) {
 				//alert("other");
 				$(".chktransdate"+i).prop("checked", false);
 				$(".chktransdate"+i).removeAttr("disabled");
-				$('.amtdue'+i).html('');
-				$('.amtpay'+i).html('');
+				$('.amtdue'+i).html($('.amt_due'+i).html());
+				$('.amtpay'+i).html($('.amt_pay'+i).html());
 			}
 		}
 		else
 		{
 			$(".chktransdate"+i).prop("checked", false);	
 			$(".chktransdate"+i).removeAttr("disabled");
-			$('.amtdue'+i).html('');
-			$('.amtpay'+i).html('');
+			$('.amtdue'+i).html($('.amt_due'+i).html());
+			$('.amtpay'+i).html($('.amt_pay'+i).html());
 		}
 	 }
 }
@@ -2492,11 +2494,11 @@ function ChangeAmount1() {
 		}
 		else
 		{
-			$('.amtdue'+chkval).html('');
-			$('.amtpay'+chkval).html('');
+			$('.amtdue'+chkval).html($('.amt_due'+i).html());
+			$('.amtpay'+chkval).html($('.amt_pay'+i).html());
 		}
     });
-	console.log(totalamt);
+	
 }
 $(document).on('change', '.chk_active', function () {
 	
