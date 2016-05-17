@@ -1996,9 +1996,9 @@ $(document).ready(function(){
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
 				  <td class="amtdue<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
-				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo $pay ?></td>
+				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo number_format($pay, 2, '.', ''); ?></td>
 				  <td style="display:none" class="amt_due<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
-				  <td style="display:none" class="amt_pay<?php echo $rowcnt ?>"><?php echo $pay ?></td>
+				  <td style="display:none" class="amt_pay<?php echo $rowcnt ?>"><?php echo number_format($pay, 2, '.', ''); ?></td>
                 </tr>
 				<?php
 				$rowcnt++;
@@ -2402,8 +2402,8 @@ function ChangeAmount(data) {
 					}
 					else 
 					{
-					$('.amtdue'+i).html(due);
-					$('.amtpay'+i).html(data);	
+					$('.amtdue'+i).html(due.toFixed(2));
+					$('.amtpay'+i).html(data.toFixed(2));	
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
@@ -2411,7 +2411,7 @@ function ChangeAmount(data) {
 					}
 					else
 					{
-					$('.remainbalance').html(data1);		
+					$('.remainbalance').html(data1.toFixed(2));		
 					}
 				}
 				else
@@ -2423,8 +2423,9 @@ function ChangeAmount(data) {
 					}
 					else 
 					{
-					$('.amtdue'+i).html(due);
-					$('.amtpay'+i).html(amtshare-due);	
+					var amtpay2 =amtshare-due;
+					$('.amtdue'+i).html(due.toFixed(2));
+					$('.amtpay'+i).html(amtpay2.toFixed(2));	
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
@@ -2432,7 +2433,7 @@ function ChangeAmount(data) {
 					}
 					else
 					{
-					$('.remainbalance').html(data1);		
+					$('.remainbalance').html(data1.toFixed(2));		
 					}
 				}
 			}	
@@ -2484,8 +2485,9 @@ function ChangeAmount1() {
 					}
 					else 
 					{
-					$('.amtdue'+chkval).html(due);
-					$('.amtpay'+chkval).html(amtshare-due);	
+					var amtpay2=amtshare-due;
+					$('.amtdue'+chkval).html(due.toFixed(2));
+					$('.amtpay'+chkval).html(amtpay2.toFixed(2));
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
@@ -2493,15 +2495,15 @@ function ChangeAmount1() {
 					}
 					else
 					{
-					$('.remainbalance').html(data1);		
+					$('.remainbalance').html(data1.toFixed(2));		
 					}
 		}
 		else
 		{
 			var amt_due=$('.amt_due'+chkval).html();	
 			var amt_pay=$('.amt_pay'+chkval).html();
-			$('.amtdue'+chkval).html(amt_due);
-			$('.amtpay'+chkval).html(amt_pay);
+			$('.amtdue'+chkval).html(amt_due.toFixed(2));
+			$('.amtpay'+chkval).html(amt_pay.toFixed(2));
 		}
     });
 	
@@ -2641,8 +2643,8 @@ var Alerter = {
 				//$('.amtpay'+i).html('');
 				var amt_due=$('.amt_due'+i).html();	
 			var amt_pay=$('.amt_pay'+i).html();
-			$('.amtdue'+i).html(amt_due);
-			$('.amtpay'+i).html(amt_pay);
+			$('.amtdue'+i).html(amt_due.toFixed(2));
+			$('.amtpay'+i).html(amt_pay.toFixed(2));
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
