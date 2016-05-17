@@ -1979,15 +1979,33 @@ $(document).ready(function(){
 				 $sql1="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_ShareStatus']."' and App_Aux_field = 'TransactionStatus'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
-				 $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
+				
+				/**$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
 				$result5=mysql_query($sql5);
-				while($row5=mysql_fetch_array($result5)){ 
+				$row5=mysql_fetch_array($result5);
+				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
+				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
+				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
+				**/	
+					
+				$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
+				$result5=mysql_query($sql5);
+				$nrow=mysql_num_rows($result5);
+				if($nrow>1){
+					while($row5=mysql_fetch_array($result5)){ 
 				$payamt_amt=$payamt_amt+$row5['App_Transactions_ShareAmount'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
 				echo $payamt_amt." ";
 				}
 				if($row3['App_Transactions_ShareAmount']==$payamt_amt){}else{
+				}else{
+					$row5=mysql_fetch_array($result5);
+				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
+				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
+				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
+				}
+				
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
