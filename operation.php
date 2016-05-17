@@ -1955,6 +1955,7 @@ $(document).ready(function(){
 				  $num_row6=mysql_num_rows($result4);
 				  while($row4=mysql_fetch_array($result4)){ 
 				  $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row4['App_Transactions_Id']."'";
+				  echo $sql5;
 				$result5=mysql_query($sql5);
 				$num_row5=mysql_num_rows($result5);
 				
@@ -2709,7 +2710,7 @@ if (isset($_POST['save'])) {
         mysql_query($sql1);
 			}
 		}
-		if(isset($_GET['operno'])){
+		/**if(isset($_GET['operno'])){
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."'";
 		}
 		else
@@ -2740,14 +2741,14 @@ if (isset($_POST['save'])) {
 				if($row3['App_Transactions_ShareAmount']==$payamt_amt){
 				$sql5="update View_AgremTable set App_Transactions_ShareStatus='4' WHERE App_Transactions_Id = '".$row3['App_Transactions_Id']."'";
 				mysql_query($sql5);
-				}else if($row3['App_Transactions_ShareAmount']=='0.00'){
+				}else if($row5['App_Transactions_ShareAmount']=='0.00'){
 				}
 				else{
 				$sql5="update View_AgremTable set App_Transactions_ShareStatus='7' WHERE App_Transactions_Id = '".$row3['App_Transactions_Id']."'";
 				mysql_query($sql5);
 				}
 				
-		}
+		}**/
 		echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['updateactivity'])) {
