@@ -1975,6 +1975,7 @@ $(document).ready(function(){
 				 $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
 				$result5=mysql_query($sql5);
 				$row5=mysql_fetch_array($result5);
+				echo $sql5;
 				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
