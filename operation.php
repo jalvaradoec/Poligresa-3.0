@@ -2382,6 +2382,7 @@ function ChangeAmount(data) {
 	 var i=1;
 	 var data1=data;
 	 for(i=1;i<=rowcount;i++){
+		 var due_amt=$('.amtdue'+i).html();	
 		var transdate1=$('.transdate1').val();	
 		if ((data-totalamt)>0)
 		{
@@ -2445,7 +2446,7 @@ function ChangeAmount(data) {
 				//alert("other");
 				$(".chktransdate"+i).prop("checked", false);
 				$(".chktransdate"+i).removeAttr("disabled");
-				$('.amtdue'+i).html('');
+				$('.amtdue'+i).html(due_amt);
 				$('.amtpay'+i).html('');
 			}
 		}
@@ -2453,7 +2454,7 @@ function ChangeAmount(data) {
 		{
 			$(".chktransdate"+i).prop("checked", false);	
 			$(".chktransdate"+i).removeAttr("disabled");
-			$('.amtdue'+i).html('');
+			$('.amtdue'+i).html(due_amt);
 			$('.amtpay'+i).html('');
 		}
 	 }
