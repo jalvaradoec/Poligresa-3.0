@@ -1981,8 +1981,7 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				 $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
 				$result5=mysql_query($sql5);
-				$row5=mysql_fetch_array($result5);
-				while($row3=mysql_fetch_array($result3)){ 
+				while($row5=mysql_fetch_array($result5)){ 
 				$payamt_amt=$payamt_amt+$row5['App_Transactions_ShareAmount'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
