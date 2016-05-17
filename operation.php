@@ -2402,8 +2402,8 @@ function ChangeAmount(data) {
 					}
 					else 
 					{
-					$('.amtdue'+i).html(due.toFixed(2));
-					$('.amtpay'+i).html(data.toFixed(2));	
+					$('.amtdue'+i).html(due);
+					$('.amtpay'+i).html(data);	
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
@@ -2411,7 +2411,7 @@ function ChangeAmount(data) {
 					}
 					else
 					{
-					$('.remainbalance').html(data1.toFixed(2));		
+					$('.remainbalance').html(data1);		
 					}
 				}
 				else
@@ -2423,9 +2423,8 @@ function ChangeAmount(data) {
 					}
 					else 
 					{
-					var amtpay2 =amtshare-due;
-					$('.amtdue'+i).html(due.toFixed(2));
-					$('.amtpay'+i).html(amtpay2.toFixed(2));	
+					$('.amtdue'+i).html(due);
+					$('.amtpay'+i).html(amtshare-due);	
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
@@ -2433,7 +2432,7 @@ function ChangeAmount(data) {
 					}
 					else
 					{
-					$('.remainbalance').html(data1.toFixed(2));		
+					$('.remainbalance').html(data1);		
 					}
 				}
 			}	
@@ -2485,9 +2484,8 @@ function ChangeAmount1() {
 					}
 					else 
 					{
-					var amtpay2=amtshare-due;
-					$('.amtdue'+chkval).html(due.toFixed(2));
-					$('.amtpay'+chkval).html(amtpay2.toFixed(2));
+					$('.amtdue'+chkval).html(due);
+					$('.amtpay'+chkval).html(amtshare-due);	
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
@@ -2495,15 +2493,15 @@ function ChangeAmount1() {
 					}
 					else
 					{
-					$('.remainbalance').html(data1.toFixed(2));		
+					$('.remainbalance').html(data1);		
 					}
 		}
 		else
 		{
 			var amt_due=$('.amt_due'+chkval).html();	
 			var amt_pay=$('.amt_pay'+chkval).html();
-			$('.amtdue'+chkval).html(amt_due.toFixed(2));
-			$('.amtpay'+chkval).html(amt_pay.toFixed(2));
+			$('.amtdue'+chkval).html(amt_due);
+			$('.amtpay'+chkval).html(amt_pay);
 		}
     });
 	
