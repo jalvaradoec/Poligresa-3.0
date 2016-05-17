@@ -1996,7 +1996,7 @@ $(document).ready(function(){
 				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
 				  <td class="amtdue<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
 				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo $row5['App_Transactions_ShareAmount'] ?></td>
-				  
+				  <td style="display:none" class="amt_due<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
                 </tr>
 				<?php
 				$rowcnt++;
@@ -2382,14 +2382,13 @@ function ChangeAmount(data) {
 	 var i=1;
 	 var data1=data;
 	 for(i=1;i<=rowcount;i++){
-		 var due_amt=$('.amtdue'+i).html();	
 		var transdate1=$('.transdate1').val();	
 		if ((data-totalamt)>0)
 		{
 			if ($('.trsstatus').val()!="In Range")
 			{
 				//alert("first");
-				var amtshare=$('.amtdue'+i).html();	
+				var amtshare=$('.amt_due'+i).html();	
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				$(".chktransdate"+i).attr("disabled", true);
@@ -2446,7 +2445,7 @@ function ChangeAmount(data) {
 				//alert("other");
 				$(".chktransdate"+i).prop("checked", false);
 				$(".chktransdate"+i).removeAttr("disabled");
-				$('.amtdue'+i).html(due_amt);
+				$('.amtdue'+i).html('');
 				$('.amtpay'+i).html('');
 			}
 		}
@@ -2454,7 +2453,7 @@ function ChangeAmount(data) {
 		{
 			$(".chktransdate"+i).prop("checked", false);	
 			$(".chktransdate"+i).removeAttr("disabled");
-			$('.amtdue'+i).html(due_amt);
+			$('.amtdue'+i).html('');
 			$('.amtpay'+i).html('');
 		}
 	 }
@@ -2470,7 +2469,7 @@ function ChangeAmount1() {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
-		var amtshare=$('.amtdue'+chkval).html();
+		var amtshare=$('.amt_due'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
 					var due=totalamt-data;
 					if(due < 0){
