@@ -2498,7 +2498,6 @@ function ChangeAmount1() {
 		}
 		else
 		{
-			alert('hello');
 			var amt_due=$('.amt_due'+chkval).html();	
 			var amt_pay=$('.amt_pay'+chkval).html();
 			$('.amtdue'+chkval).html(amt_due);
@@ -2640,6 +2639,10 @@ var Alerter = {
 			{
 				//$('.amtdue'+i).html('');
 				//$('.amtpay'+i).html('');
+				var amt_due=$('.amt_due'+i).html();	
+			var amt_pay=$('.amt_pay'+i).html();
+			$('.amtdue'+i).html(amt_due);
+			$('.amtpay'+i).html(amt_pay);
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
