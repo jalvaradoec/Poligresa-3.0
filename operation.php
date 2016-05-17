@@ -1976,9 +1976,7 @@ $(document).ready(function(){
 				$result5=mysql_query($sql5);
 				$row5=mysql_fetch_array($result5);
 				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
-				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){
-					$rowcnt--;
-				}else{
+				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
