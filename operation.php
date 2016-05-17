@@ -1980,14 +1980,6 @@ $(document).ready(function(){
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				
-				/**$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
-				$result5=mysql_query($sql5);
-				$row5=mysql_fetch_array($result5);
-				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
-				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
-				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
-				**/	
-					
 				$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
 				$result5=mysql_query($sql5);
 				$nrow=mysql_num_rows($result5);
@@ -2179,10 +2171,7 @@ $(document).ready(function(){
   
   
 <!-- /.content-wrapper -->
- <?php
-echo "hello";
-echo $row3['App_Transactions_ShareAmount'];
- include("footer.php"); ?>
+ <?php include("footer.php"); ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -2719,6 +2708,45 @@ if (isset($_POST['save'])) {
         $sql1 = "insert into App_TransHistory(App_TransHistory_TransID,App_Transactions_ShareAmount,App_TransHistory_CreatedBy,App_TransHistory_CreatedOn) values('" . $_POST['transid'.$i] . "','" . $_POST['amountpay'.$i] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
         mysql_query($sql1);
 			}
+		}
+		if(isset($_GET['operno'])){
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."'";
+		}
+		else
+		{
+			  $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
+			  $result=mysql_query($sql);
+			  $row=mysql_fetch_array($result);
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";	
+		}
+		$result3=mysql_query($sql3);
+		while($row3=mysql_fetch_array($result3)){ 
+		$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
+				$result5=mysql_query($sql5);
+				$nrow=mysql_num_rows($result5);
+				if($nrow>1){
+					$payamt_amt=0;
+				while($row5=mysql_fetch_array($result5)){ 
+				$payamt_amt =$payamt_amt + $row5['App_Transactions_ShareAmount'];
+				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
+				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
+				}
+				}else{
+					$row5=mysql_fetch_array($result5);
+				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
+				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
+				$payamt_amt=$row5['App_Transactions_ShareAmount'];
+				}
+				if($row3['App_Transactions_ShareAmount']==$payamt_amt){
+				$sql5="update View_AgremTable set App_Transactions_ShareStatus='4' WHERE App_Transactions_Id = '".$row3['App_Transactions_Id']."'";
+				mysql_query($sql5);
+				}else if($row3['App_Transactions_ShareAmount']=='0.00'){
+				}
+				else{
+				$sql5="update View_AgremTable set App_Transactions_ShareStatus='7' WHERE App_Transactions_Id = '".$row3['App_Transactions_Id']."'";
+				mysql_query($sql5);
+				}
+				
 		}
 		echo "<script>window.location.href='operation.php';</script>";
 }
