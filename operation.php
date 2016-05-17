@@ -1902,7 +1902,7 @@ $(document).ready(function(){
 		  
 		  <div class="form-group">
 			  <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
-			  <div class="col-sm-8">
+			  <div class="col-sm-3">
 			   <div class="checkbox">
                     <label>
                       <input type="checkbox" name="status" value="1">
@@ -1910,9 +1910,9 @@ $(document).ready(function(){
                     </label>
                   </div>
               </div>
-			  <label for="inputPassword3" class="col-sm-2 control-label">Remaining Balance:</label>
-			  <div class="col-sm-8">
-			   <div class="remainbalance">
+			  <label for="inputPassword3" class="col-sm-4 control-label">Remaining Balance:</label>
+			  <div class="col-sm-3">
+			   <div class="remainbalance" style="margin-top: 7px;">
                     
                   </div>
               </div>
@@ -2395,7 +2395,13 @@ function ChangeAmount(data) {
 					$('.amtpay'+i).html(data);	
 					}
 					data1=data-totalamt;
+					if(data1 < 0){
+					$('.remainbalance').html('0');
+					}
+					else
+					{
 					$('.remainbalance').html(data1);		
+					}
 				}
 				else
 				{
@@ -2410,7 +2416,13 @@ function ChangeAmount(data) {
 					$('.amtpay'+i).html(amtshare-due);	
 					}
 					data1=data-totalamt;
-					$('.remainbalance').html(data1);
+					if(data1 < 0){
+					$('.remainbalance').html('0');
+					}
+					else
+					{
+					$('.remainbalance').html(data1);		
+					}
 				}
 			}	
 			//else if ($('.trsstatus').val()!="In Range")
@@ -2461,7 +2473,13 @@ function ChangeAmount1() {
 					$('.amtpay'+chkval).html(amtshare-due);	
 					}
 					data1=data-totalamt;
-					$('.remainbalance').html(data1);
+					if(data1 < 0){
+					$('.remainbalance').html('0');
+					}
+					else
+					{
+					$('.remainbalance').html(data1);		
+					}
 		}
 		else
 		{
