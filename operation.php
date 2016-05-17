@@ -150,6 +150,7 @@ $(document).ready(function(){
 		$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
 		$result=mysql_query($sql);
 		$num_row=mysql_num_rows($result);
+		echo $num_row;
 			?>
 			</h1>
             </div>
@@ -1975,7 +1976,9 @@ $(document).ready(function(){
 				$result5=mysql_query($sql5);
 				$row5=mysql_fetch_array($result5);
 				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
-				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){}else{
+				if($row3['App_Transactions_ShareAmount']==$row5['App_Transactions_ShareAmount']){
+					$rowcnt--;
+				}else{
 				?>
 				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
@@ -1991,8 +1994,8 @@ $(document).ready(function(){
 				  
                 </tr>
 				<?php
-				}
 				$rowcnt++;
+				}
 				} ?>
                 </tbody>
                
