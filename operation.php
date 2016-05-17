@@ -1997,7 +1997,6 @@ $(document).ready(function(){
 				$payamt_amt =$payamt_amt + $row5['App_Transactions_ShareAmount'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
-				echo $payamt_amt." ";
 				}
 				}else{
 					$row5=mysql_fetch_array($result5);
@@ -2718,7 +2717,8 @@ if (isset($_POST['save'])) {
         mysql_query($sql1);
 			}
 		}
-		echo "<script>window.location.href='operation.php';</script>";
+		if($row3['App_Transactions_ShareAmount']==$payamt_amt){ echo $payamt_amt; }else{ echo $row3['App_Transactions_ShareAmount']; }
+		//echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['updateactivity'])) {
         $sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
