@@ -1952,7 +1952,14 @@ $(document).ready(function(){
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
 				  $num_row3=mysql_num_rows($result3);
-				  $num_row=mysql_num_rows($result4);
+				  $num_row6=mysql_num_rows($result4);
+				  while($row4=mysql_fetch_array($result4)){ 
+				  $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row4['App_Transactions_Id']."'";
+				$result5=mysql_query($sql5);
+				$num_row5=mysql_num_rows($result5);
+				
+				  }
+				  $num_row=$num_row6-$num_row5;
 				  ?>
 				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
 				  <input type="hidden" name="numrow3" class="numrow3" value="<?php echo $num_row3 ?>"/>
