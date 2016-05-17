@@ -2445,18 +2445,22 @@ function ChangeAmount(data) {
 			else
 			{
 				//alert("other");
+				var amt_due=$('.amt_due'+i).html();	
+				var amt_pay=$('.amt_pay'+i).html();
 				$(".chktransdate"+i).prop("checked", false);
 				$(".chktransdate"+i).removeAttr("disabled");
-				$('.amtdue'+i).html($('.amt_due'+i).html());
-				$('.amtpay'+i).html($('.amt_pay'+i).html());
+				$('.amtdue'+i).html(amt_due);
+				$('.amtpay'+i).html(amt_pay);
 			}
 		}
 		else
 		{
+			var amt_due=$('.amt_due'+i).html();	
+			var amt_pay=$('.amt_pay'+i).html();
 			$(".chktransdate"+i).prop("checked", false);	
 			$(".chktransdate"+i).removeAttr("disabled");
-			$('.amtdue'+i).html($('.amt_due'+i).html());
-			$('.amtpay'+i).html($('.amt_pay'+i).html());
+			$('.amtdue'+i).html(amt_due);
+			$('.amtpay'+i).html(amt_pay);
 		}
 	 }
 }
@@ -2494,8 +2498,10 @@ function ChangeAmount1() {
 		}
 		else
 		{
-			$('.amtdue'+chkval).html($('.amt_due'+i).html());
-			$('.amtpay'+chkval).html($('.amt_pay'+i).html());
+			var amt_due=$('.amt_due'+i).html();	
+			var amt_pay=$('.amt_pay'+i).html();
+			$('.amtdue'+chkval).html(amt_due);
+			$('.amtpay'+chkval).html(amt_pay);
 		}
     });
 	
