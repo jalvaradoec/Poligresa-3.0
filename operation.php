@@ -1947,7 +1947,7 @@ $(document).ready(function(){
 			  $row=mysql_fetch_array($result);
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";	
 			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."' and MONTH(aa.App_Transactions_ShareDueDate)<='".Date("m")."' and YEAR(aa.App_Transactions_ShareDueDate)<='".Date("Y")."'";
-			  echo $sql4;
+			  
 			}
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
@@ -1955,7 +1955,6 @@ $(document).ready(function(){
 				  $num_row6=mysql_num_rows($result4);
 				  while($row4=mysql_fetch_array($result4)){ 
 				  $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row4['App_Transactions_Id']."'";
-				  echo $sql5;
 				$result5=mysql_query($sql5);
 				$num_row5=mysql_num_rows($result5);
 				
@@ -2180,7 +2179,10 @@ $(document).ready(function(){
   
   
 <!-- /.content-wrapper -->
- <?php include("footer.php"); ?>
+ <?php
+echo "hello";
+echo $row3['App_Transactions_ShareAmount'];
+ include("footer.php"); ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -2718,8 +2720,7 @@ if (isset($_POST['save'])) {
         mysql_query($sql1);
 			}
 		}
-		if($row3['App_Transactions_ShareAmount']==$payamt_amt){ echo $payamt_amt; }else{ echo $row3['App_Transactions_ShareAmount']; }
-		//echo "<script>window.location.href='operation.php';</script>";
+		echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['updateactivity'])) {
         $sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
