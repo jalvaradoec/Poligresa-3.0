@@ -2758,23 +2758,6 @@ var Alerter = {
 			var amt_pay=$('.amt_pay'+i).html();
 			$('.amtdue'+i).html(amt_due);
 			$('.amtpay'+i).html(amt_pay);
-			
-			var totalamt=0;
-			var data=$('.comp').val();
-			if ((data-totalamt)>0)
-			{
-			var amtshare=$('.amt_due'+i).html();
-			totalamt=+totalamt + +amtshare;	
-					data1=data-totalamt;
-					if(data1 < 0){
-					$('.remainbalance').html('0.00');
-					}
-					else
-					{
-					$('.remainbalance').html(data1.toFixed(2));		
-					}
-			}
-			
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
