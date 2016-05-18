@@ -2773,6 +2773,7 @@ var Alerter = {
 					{
 					$('.remainbalance').html(data1.toFixed(2));		
 					}
+			}
 			
 			}
 			}
