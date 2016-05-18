@@ -2025,7 +2025,7 @@ $(document).ready(function(){
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
 				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2561,7 +2561,9 @@ function ChangeAmount1() {
 	var i=1;
 	var totalamt=0;
 	var data=$('.comp').val();
-	
+	$(".chktransdateclass :not(:checked)").each(function() {
+  alert($(this).val());
+}
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
@@ -2745,8 +2747,6 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=rowcount;i++){
 			if($("#chktransdate"+i).is(":checked")) {
-				var chkval=$(this).val();
-				console.log(chkval);
 				var transidval=$('.transids'+i).val();
 				$('.transid'+i).val(transidval);
 				var amtpayval=$('.amtpay'+i).html();
