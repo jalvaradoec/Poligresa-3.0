@@ -2725,6 +2725,7 @@ var Alerter = {
 			var rowcount=<?php echo $rowcnt ?>;
 			var i=1;
 			for(i=1;i<=rowcount;i++){
+			var remainbalance1=$('.remainbalance').html();
 			if(remainbalance1=='0.00'){
 			console.log('0');	
 			if($("#chktransdate"+i).is(":checked")) {
@@ -2758,7 +2759,6 @@ var Alerter = {
 			var amt_pay=$('.amt_pay'+i).html();
 			$('.amtdue'+i).html(amt_due);
 			$('.amtpay'+i).html(amt_pay);
-			var remainbalance1=$('.remainbalance').html();
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
