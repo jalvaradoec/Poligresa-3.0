@@ -2592,7 +2592,8 @@ function ChangeAmount1() {
 		{
 			var amt_due=$('.amt_due'+chkval).html();	
 			var amt_pay=$('.amt_pay'+chkval).html();
-			$('.amtdue'+chkval).html(amt_due.toFixed(2));
+			//$('.amtdue'+chkval).html(amt_due.toFixed(2));
+			$('.amtdue'+chkval).html(amt_due);
 			$('.amtpay'+chkval).html(amt_pay.toFixed(2));
 		}
     });
