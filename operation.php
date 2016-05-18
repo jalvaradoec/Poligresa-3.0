@@ -2025,7 +2025,7 @@ $(document).ready(function(){
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
 				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2759,6 +2759,12 @@ var Alerter = {
 			$('.amtdue'+i).html(amt_due);
 			$('.amtpay'+i).html(amt_pay);
 			}
+			}
+			if($(".chktransdateclass").is(":checked")) {}
+			else
+			{
+				var data=$('.comp').val();
+				$('.remainbalance').html(data);
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
