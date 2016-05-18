@@ -2209,79 +2209,19 @@ $(document).ready(function(){
 				</thead>
                 <tbody>
 				<?php
-			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
-			  $result=mysql_query($sql);
-			  $row=mysql_fetch_array($result);
-			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";	
-			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."' and MONTH(aa.App_Transactions_ShareDueDate)<='".Date("m")."' and YEAR(aa.App_Transactions_ShareDueDate)<='".Date("Y")."'";
-
-				 $result3=mysql_query($sql3);
-				  $result4=mysql_query($sql4);
-				  $num_row3=mysql_num_rows($result3);
-				  $num_row6=mysql_num_rows($result4);
-				  while($row4=mysql_fetch_array($result4)){ 
-				  $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row4['App_Transactions_Id']."'";
-				  
-				$result5=mysql_query($sql5);
-				$num_row5=mysql_num_rows($result5);
-				
-				  }
-				  $num_row=$num_row6-$num_row5;
-				  ?>
-				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
-				  <input type="hidden" name="numrow3" class="numrow3" value="<?php echo $num_row3 ?>"/>
-				  <?php
-				  $i=1;
-				  while($row4=mysql_fetch_array($result4)){ 
-				  ?>
-				  <input type="hidden" name="transdate" class="transdate<?php echo $i ?>" value="<?php echo $row4['App_Transactions_ShareAmount'] ?>"/>
-		          <?php
-				  $i++;
-				  }
-				  $rowcnt=1;
+			  $sql3="select * from View_AgremTable aa INNER JOIN App_TransHistory ac ON ac.App_TransHistory_TransID = aa.App_Transactions_Id INNER JOIN App_Tasks ap ON ac.App_Task_ID = ap.App_Task_ID WHERE aa.App_Transactions_Id =".$_GET['Trans1_id'];	
+			  $result3=mysql_query($sql3);
 				  while($row3=mysql_fetch_array($result3)){ 
-				  $sql2="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_TransactionType']."' and App_Aux_field = 'TransactionType'";
-				$result2=mysql_query($sql2);
-				$row2=mysql_fetch_array($result2);
-				 $sql1="select * from App_Aux WHERE App_Aux_value = '".$row3['App_Transactions_ShareStatus']."' and App_Aux_field = 'TransactionStatus'";
-				$result1=mysql_query($sql1);
-				$row1=mysql_fetch_array($result1);
-				
-				$sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row3['App_Transactions_Id']."'";
-				$result5=mysql_query($sql5);
-				$nrow=mysql_num_rows($result5);
-				if($nrow>1){
-					$payamt_amt=0;
-				while($row5=mysql_fetch_array($result5)){ 
-				$payamt_amt =$payamt_amt + $row5['App_Transactions_ShareAmount'];
-				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
-				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
-				}
-				}else{
-					$row5=mysql_fetch_array($result5);
-				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
-				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
-				$payamt_amt=$row5['App_Transactions_ShareAmount'];
-				}
-				if($row3['App_Transactions_ShareAmount']==$payamt_amt){}else{
-				?>
-				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
-				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
-				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
-                <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
-				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
-				  <td><?php echo $row2['App_Aux_text'] ?></td>
-                  <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
-				  <td class="trsstatus<?php echo $rowcnt ?>"><?php echo $row1['App_Aux_text'] ?></td>
-				  <td class="amtdue<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
-				  <td class="amtpay<?php echo $rowcnt ?>"><?php echo number_format($pay, 2, '.', ''); ?></td>
-				  <td style="display:none" class="amt_due<?php echo $rowcnt ?>"><?php echo number_format($dueamount, 2, '.', ''); ?></td>
-				  <td style="display:none" class="amt_pay<?php echo $rowcnt ?>"><?php echo number_format($pay, 2, '.', ''); ?></td>
-                </tr>
+				 ?>
+				<tr>
+				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_TransHistory_CreatedOn'])) ?></td>
+				  <td><?php echo $row3['App_Task_Outcome'] ?></td>
+                  <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
+				  <td><?php echo $row3['App_Task_Description'] ?></td>
+				  <td><?php echo $row3['App_Task_Outcome'] ?></td>
+				</tr>
 				<?php
-				$rowcnt++;
-				}
+				
 				} ?>
                 </tbody>
                
