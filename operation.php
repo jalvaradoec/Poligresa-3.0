@@ -2562,8 +2562,9 @@ function ChangeAmount1() {
 	var totalamt=0;
 	var data=$('.comp').val();
 	$(".chktransdateclass :not(:checked)").each(function() {
+		alert('hello');
   alert($(this).val());
-}
+});
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
