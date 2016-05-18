@@ -2722,6 +2722,19 @@ var Alerter = {
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			
+			if(remainbalance1=='0'){
+			if($("#chktransdate"+i).is(":checked")) {
+			}
+			else
+			{
+				$("#chktransdate"+i).attr("disabled", true);	
+			}				
+			}
+			else
+			{
+			$(".chktransdate"+i).removeAttr("disabled");
+			}
+			
 			
 			var rowcount=<?php echo $rowcnt ?>;
 			var i=1;
@@ -2740,6 +2753,7 @@ var Alerter = {
 			var amt_pay=$('.amt_pay'+i).html();
 			$('.amtdue'+i).html(amt_due);
 			$('.amtpay'+i).html(amt_pay);
+			var remainbalance1=$('.remainbalance').html();
 			}
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
