@@ -2726,8 +2726,7 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=rowcount;i++){
 			var remainbalance1=$('.remainbalance').html();
-			if(remainbalance1=='0.00'){
-			console.log('0');	
+			if(remainbalance1=='0.00' || remainbalance1=='0'){
 			if($("#chktransdate"+i).is(":checked")) {
 			}
 			else
@@ -2737,7 +2736,6 @@ var Alerter = {
 			}
 			else
 			{
-			console.log('not 0');		
 			$(".chktransdate"+i).removeAttr("disabled");
 			}
 			}
