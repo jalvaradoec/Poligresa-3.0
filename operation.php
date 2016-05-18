@@ -433,12 +433,12 @@ $(document).ready(function(){
                   <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <?php
-					if($row5['App_Transactions_ShareAmount']=='0.00'){
+					if($row5['App_Transactions_ShareAmt']=='0.00'){
 					?>
 					<td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 					<?php					
 					}
-					else if($row5['App_Transactions_ShareAmount']==''){
+					else if($row5['App_Transactions_ShareAmt']==''){
 					?>
 					<td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
 					<?php					
@@ -2009,15 +2009,15 @@ $(document).ready(function(){
 				if($nrow>1){
 					$payamt_amt=0;
 				while($row5=mysql_fetch_array($result5)){ 
-				$payamt_amt =$payamt_amt + $row5['App_Transactions_ShareAmount'];
+				$payamt_amt =$payamt_amt + $row5['App_Transactions_ShareAmt'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
 				}
 				}else{
 					$row5=mysql_fetch_array($result5);
-				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
-				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
-				$payamt_amt=$row5['App_Transactions_ShareAmount'];
+				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmt'];
+				if($row5['App_Transactions_ShareAmt']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmt']; }
+				$payamt_amt=$row5['App_Transactions_ShareAmt'];
 				}
 				if($row3['App_Transactions_ShareAmount']==$payamt_amt){}else{
 				?>
@@ -2194,7 +2194,11 @@ $(document).ready(function(){
 	 <div class="modal-dialog">
 		 
      <!-- Modal content-->
-      <div class="modal-content" style="width: 150%;margin-left: -24%;">
+      <div class="modal-content" style="width: 150%;margin-left: -24%;margin-top:30%">
+	  <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Payment Information</h4>
+        </div>
         <div class="modal-body">   
 		 <div class="box-body table-responsive no-padding">
           <table id="example2" class="table table-bordered table-responsive table-hover">
@@ -2212,11 +2216,12 @@ $(document).ready(function(){
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_TransHistory ac ON ac.App_TransHistory_TransID = aa.App_Transactions_Id INNER JOIN App_Tasks ap ON ac.App_Task_ID = ap.App_Task_ID WHERE aa.App_Transactions_Id =".$_GET['Trans1_id'];	
 			  $result3=mysql_query($sql3);
 				  while($row3=mysql_fetch_array($result3)){ 
+				  $dueamount2=$row3['App_Transactions_ShareAmount']-$row3['App_Transactions_ShareAmt'];
 				 ?>
 				<tr>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_TransHistory_CreatedOn'])) ?></td>
-				  <td><?php echo $row3['App_Task_Outcome'] ?></td>
-                  <td><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
+				  <td><?php echo $dueamount2 ?></td>
+                  <td><?php echo $row3['App_Transactions_ShareAmt'] ?></td>
 				  <td><?php echo $row3['App_Task_Description'] ?></td>
 				  <td><?php echo $row3['App_Task_Outcome'] ?></td>
 				</tr>
@@ -2780,7 +2785,7 @@ if (isset($_POST['save'])) {
 		$row10=mysql_fetch_array($result10);
 		for($i=1;$i<=$rowcnt;$i++){
 			if($_POST['transid'.$i] == ''){}else{
-        $sql1 = "insert into App_TransHistory(App_TransHistory_TransID,App_Transactions_ShareAmount,App_TransHistory_CreatedBy,App_TransHistory_CreatedOn,App_Task_ID) values('" . $_POST['transid'.$i] . "','" . $_POST['amountpay'.$i] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "','".$row10['App_Task_ID']."')";
+        $sql1 = "insert into App_TransHistory(App_TransHistory_TransID,App_Transactions_ShareAmt,App_TransHistory_CreatedBy,App_TransHistory_CreatedOn,App_Task_ID) values('" . $_POST['transid'.$i] . "','" . $_POST['amountpay'.$i] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "','".$row10['App_Task_ID']."')";
         mysql_query($sql1);
 			}
 		}
@@ -2802,20 +2807,20 @@ if (isset($_POST['save'])) {
 				if($nrow>1){
 					$payamt_amt=0;
 				while($row5=mysql_fetch_array($result5)){ 
-				$payamt_amt =$payamt_amt + $row5['App_Transactions_ShareAmount'];
+				$payamt_amt =$payamt_amt + $row5['App_Transactions_ShareAmt'];
 				$dueamount=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				if($payamt_amt==''){ $pay='0'; }else{ $pay=$payamt_amt; }
 				}
 				}else{
 					$row5=mysql_fetch_array($result5);
-				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmount'];
-				if($row5['App_Transactions_ShareAmount']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmount']; }
-				$payamt_amt=$row5['App_Transactions_ShareAmount'];
+				$dueamount=$row3['App_Transactions_ShareAmount']-$row5['App_Transactions_ShareAmt'];
+				if($row5['App_Transactions_ShareAmt']==''){ $pay='0'; }else{ $pay=$row5['App_Transactions_ShareAmt']; }
+				$payamt_amt=$row5['App_Transactions_ShareAmt'];
 				}
 				if($row3['App_Transactions_ShareAmount']==$payamt_amt){
 				$sql5="update View_AgremTable set App_Transactions_ShareStatus='4' WHERE App_Transactions_Id = '".$row3['App_Transactions_Id']."'";
 				mysql_query($sql5);
-				}else if($row5['App_Transactions_ShareAmount']=='0.00'){
+				}else if($row5['App_Transactions_ShareAmt']=='0.00'){
 				}
 				else if($payamt_amt==''){
 				}
