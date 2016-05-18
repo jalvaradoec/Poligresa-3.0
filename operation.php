@@ -2587,6 +2587,7 @@ function ChangeAmount1() {
 					{
 					$('.remainbalance').html(data1.toFixed(2));		
 					}
+					console.log("abc"+totalamt);
 		}
 		else
 		{
