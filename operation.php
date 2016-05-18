@@ -2745,6 +2745,8 @@ var Alerter = {
 			var i=1;
 			for(i=1;i<=rowcount;i++){
 			if($("#chktransdate"+i).is(":checked")) {
+				var chkval=$(this).val();
+				console.log(chkval);
 				var transidval=$('.transids'+i).val();
 				$('.transid'+i).val(transidval);
 				var amtpayval=$('.amtpay'+i).html();
