@@ -2722,7 +2722,11 @@ var Alerter = {
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			
+			var rowcount=<?php echo $rowcnt ?>;
+			var i=1;
+			for(i=1;i<=rowcount;i++){
 			if(remainbalance1=='0.00'){
+			console.log('0');	
 			if($("#chktransdate"+i).is(":checked")) {
 			}
 			else
@@ -2732,9 +2736,10 @@ var Alerter = {
 			}
 			else
 			{
+			console.log('not 0');		
 			$(".chktransdate"+i).removeAttr("disabled");
 			}
-			
+			}
 			
 			var rowcount=<?php echo $rowcnt ?>;
 			var i=1;
