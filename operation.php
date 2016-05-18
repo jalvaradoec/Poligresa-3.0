@@ -2587,11 +2587,9 @@ function ChangeAmount1() {
 					{
 					$('.remainbalance').html(data1.toFixed(2));		
 					}
-					console.log('hello1');
 		}
 		else
 		{
-			console.log('hello');
 			var amt_due=$('.amt_due'+chkval).html();	
 			var amt_pay=$('.amt_pay'+chkval).html();
 			//$('.amtdue'+chkval).html(amt_due.toFixed(2));
