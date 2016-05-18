@@ -2597,7 +2597,7 @@ function ChangeAmount1() {
 			$('.amtpay'+chkval).html(amt_pay);
 		}
     });
-	console.log(data-totalamt);
+	
 }
 $(document).on('change', '.chk_active', function () {
 	
