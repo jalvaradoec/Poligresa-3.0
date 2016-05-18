@@ -2560,8 +2560,7 @@ function ChangeAmount1() {
 	var num=$('.numrow').val();
 	var i=1;
 	var totalamt=0;
-	//var data=$('.comp').val();
-	var data=$('.remainbalance').html();
+	var data=$('.comp').val();
 	
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
