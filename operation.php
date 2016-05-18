@@ -37,6 +37,9 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 8) == "trans_id") {
 				$('#Edit_Transactions').modal('show');	
         }
+		else if (pathname.substr(1, 9) == "Trans1_id") {
+				$('#Oper_Aggrement').modal('show');	
+        }
 });
 </script>
   <!-- Content Wrapper. Contains page content -->
@@ -442,7 +445,7 @@ $(document).ready(function(){
 					}
 					else{
 					?>
-					<td><a href="#Oper_Aggrement" data-toggle="modal" data-target="#Oper_Aggrement"><?php echo $row3['App_Transactions_ShareAmount'] ?></a></td>
+					<td><a href="" data-toggle="modal" data-id="<?php echo $row5['App_TransHistory_TransID'] ?>" class="agreementactivity"><?php echo $row3['App_Transactions_ShareAmount'] ?></a></td>
 					<?php					
 					}
 				  ?>
@@ -2192,26 +2195,7 @@ $(document).ready(function(){
 		 
      <!-- Modal content-->
       <div class="modal-content" style="width: 150%;margin-left: -24%;">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Activity</h4>
-        </div>
-		<?php
-			    $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-				$result=mysql_query($sql);
-				$row=mysql_fetch_array($result);
-				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
-				$result1=mysql_query($sql1);
-				$row1=mysql_fetch_array($result1);
-				
-				$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-				$result3=mysql_query($sql3);
-				$row3=mysql_fetch_array($result3);
-				  
-		?>
-		<form class="form-horizontal" method="post" action="">
-		<div class="modal-body">   
+        <div class="modal-body">   
 		 <div class="box-body table-responsive no-padding">
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
@@ -2225,20 +2209,12 @@ $(document).ready(function(){
 				</thead>
                 <tbody>
 				<?php
-			if(isset($_GET['operno'])){
-			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."'";
-			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."' and MONTH(aa.App_Transactions_ShareDueDate)<='".Date("m")."' and YEAR(aa.App_Transactions_ShareDueDate)<='".Date("Y")."'";
-			  
-			}
-			else
-			{
-			  $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
+			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
 			  $result=mysql_query($sql);
 			  $row=mysql_fetch_array($result);
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";	
 			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."' and MONTH(aa.App_Transactions_ShareDueDate)<='".Date("m")."' and YEAR(aa.App_Transactions_ShareDueDate)<='".Date("Y")."'";
-			  
-			}
+
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
 				  $num_row3=mysql_num_rows($result3);
@@ -2315,8 +2291,7 @@ $(document).ready(function(){
      
          </div>
         
-      </form>
-	  </div>
+      </div>
       
     </div>
   </div>
@@ -2730,6 +2705,11 @@ $(document).on("click", ".Edittransaction", function () {
      window.location.href='operation.php?trans_id='+trans_id;
 	 
 });
+$(document).on("click", ".agreementactivity", function () {
+     var Trans1_id = $(this).data('id');
+     window.location.href='operation.php?Trans1_id='+Trans1_id;
+	 
+});
 //$( ".dateselector" ).datepicker( "setDate", new Date());
 var d = new Date(); 
 var date2=d.getDate();
@@ -2855,9 +2835,12 @@ if (isset($_POST['update1'])) {
 if (isset($_POST['save'])) {
         $sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
         mysql_query($sql);
+		$sql10="select * from App_Tasks order by App_Task_ID desc";
+		$result10=mysql_query($sql10);
+		$row10=mysql_fetch_array($result10);
 		for($i=1;$i<=$rowcnt;$i++){
 			if($_POST['transid'.$i] == ''){}else{
-        $sql1 = "insert into App_TransHistory(App_TransHistory_TransID,App_Transactions_ShareAmount,App_TransHistory_CreatedBy,App_TransHistory_CreatedOn) values('" . $_POST['transid'.$i] . "','" . $_POST['amountpay'.$i] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "')";
+        $sql1 = "insert into App_TransHistory(App_TransHistory_TransID,App_Transactions_ShareAmount,App_TransHistory_CreatedBy,App_TransHistory_CreatedOn,App_Task_ID) values('" . $_POST['transid'.$i] . "','" . $_POST['amountpay'.$i] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . date('Y-m-d H:i:s') . "','".$row10['App_Task_ID']."')";
         mysql_query($sql1);
 			}
 		}
