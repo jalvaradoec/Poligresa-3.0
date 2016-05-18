@@ -2722,7 +2722,7 @@ var Alerter = {
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
 			
-			if(remainbalance1=='0'){
+			if(remainbalance1=='0.00'){
 			if($("#chktransdate"+i).is(":checked")) {
 			}
 			else
