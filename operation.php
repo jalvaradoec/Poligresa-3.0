@@ -2215,8 +2215,14 @@ $(document).ready(function(){
 				<?php
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_TransHistory ac ON ac.App_TransHistory_TransID = aa.App_Transactions_Id INNER JOIN App_Tasks ap ON ac.App_Task_ID = ap.App_Task_ID WHERE aa.App_Transactions_Id =".$_GET['Trans1_id'];	
 			  $result3=mysql_query($sql3);
+			  $payamt_amt=0;
 				  while($row3=mysql_fetch_array($result3)){ 
+				  $payamt_amt =$payamt_amt + $row3['App_Transactions_ShareAmt'];
+				  if($row3['App_Transactions_ShareAmount']==$payamt_amt){
+				$dueamount2=0;	  
+				  }else{
 				  $dueamount2=$row3['App_Transactions_ShareAmount']-$row3['App_Transactions_ShareAmt'];
+				  }
 				 ?>
 				<tr>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_TransHistory_CreatedOn'])) ?></td>
