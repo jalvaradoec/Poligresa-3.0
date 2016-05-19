@@ -2587,7 +2587,7 @@ function ChangeAmount1() {
 					{
 					$('.remainbalance').html(data1.toFixed(2));		
 					}
-					console.log('hello');
+					console.log('hello'+totalamt);
 		}
 		else
 		{
@@ -2596,7 +2596,7 @@ function ChangeAmount1() {
 			//$('.amtdue'+chkval).html(amt_due.toFixed(2));
 			$('.amtdue'+chkval).html(amt_due);
 			$('.amtpay'+chkval).html(amt_pay);
-			console.log('hello1');
+			console.log('hello1'+totalamt);
 		}
     });
 	
