@@ -2571,6 +2571,7 @@ function ChangeAmount1() {
 			else{
 			alert('hello');
 			}
+		}
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
