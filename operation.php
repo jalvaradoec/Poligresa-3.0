@@ -2564,15 +2564,16 @@ function ChangeAmount1() {
 	var data=$('.comp').val();
 	
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
-		
+		var chkval=$(this).val();
 		for(i=1;i<=num;i++){
+			if(chkval==i){}else{
 			if($("#chktransdate"+i).is(":checked")) {
-				console.log('hello');
+				alert('hello');
 			}else{
-				console.log('hello1');
+				alert('hello1');
+			}
 			}
 		}
-		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
 			console.log(chkval);
