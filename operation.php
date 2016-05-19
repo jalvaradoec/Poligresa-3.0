@@ -2560,7 +2560,7 @@ function ChangeAmount1() {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
-	var j=+num + +i;
+	var num1=+num + +i;
 	var totalamt=0;
 	var data=$('.comp').val();
 	
@@ -2607,7 +2607,7 @@ function ChangeAmount1() {
     });
 	}
 	
-	for(i=1;i<=num;i++){
+	for(j=num1;j<=rowcount;j++){
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		for(i=1;i<=num;i++){
 			if($("#chktransdate"+i).is(":checked")) {
