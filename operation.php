@@ -2566,96 +2566,12 @@ $('.chktransdateclass').click(function () {
 				if($("#chktransdate"+i).is(":checked")) {
 				}else
 				{
+					var showAlert=true;
 					if(showAlert==true){
 				var r = confirm("There are Previous or current month payment is left.You want to pay of them!!!!");
     if (r == true) {
      console.log("ok");
-	 var rowcount=$('.numrow').val();
-	 //alert("test"+data);
-	 var totalamt=0;
-	 var i=1;
-	 var data1=data;
-	 for(i=1;i<=rowcount;i++){
-		var transdate1=$('.transdate1').val();	
-		if ((data-totalamt)>0)
-		{
-			if ($('.trsstatus').val()!="In Range")
-			{
-				//alert("first");
-				var amtshare=$('.amt_due'+i).html();	
-				totalamt=+totalamt + +amtshare;
-				$(".chktransdate"+i).prop("checked", true);
-				$(".chktransdate"+i).attr("disabled", true);
-				if(amtshare == totalamt){
-					var due=totalamt-data;
-					if(due < 0){
-					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare);		
-					}
-					else 
-					{
-					$('.amtdue'+i).html(due.toFixed(2));
-					$('.amtpay'+i).html(data.toFixed(2));	
-					}
-					data1=data-totalamt;
-					if(data1 < 0){
-					$('.remainbalance').html('0.00');
-					}
-					else
-					{
-					$('.remainbalance').html(data1.toFixed(2));		
-					}
-				}
-				else
-				{
-					var due=totalamt-data;
-					if(due < 0){
-					$('.amtdue'+i).html('0');
-					$('.amtpay'+i).html(amtshare);		
-					}
-					else 
-					{
-					var amtpay2 =amtshare-due;
-					$('.amtdue'+i).html(due.toFixed(2));
-					$('.amtpay'+i).html(amtpay2.toFixed(2));	
-					}
-					data1=data-totalamt;
-					if(data1 < 0){
-					$('.remainbalance').html('0.00');
-					}
-					else
-					{
-					$('.remainbalance').html(data1.toFixed(2));		
-					}
-				}
-			}	
-			//else if ($('.trsstatus').val()!="In Range")
-			//{
-				//alert("second");
-			//	totalamt=totalamt+150;
-			//	$(".chktransdate"+i).prop("checked", true);
-			//}
-			else
-			{
-				//alert("other");
-				var amt_due=$('.amt_due'+i).html();	
-				var amt_pay=$('.amt_pay'+i).html();
-				$(".chktransdate"+i).prop("checked", false);
-				$(".chktransdate"+i).removeAttr("disabled");
-				$('.amtdue'+i).html(amt_due);
-				$('.amtpay'+i).html(amt_pay);
-			}
-		}
-		else
-		{
-			var amt_due=$('.amt_due'+i).html();	
-			var amt_pay=$('.amt_pay'+i).html();
-			$(".chktransdate"+i).prop("checked", false);	
-			$(".chktransdate"+i).removeAttr("disabled");
-			$('.amtdue'+i).html(amt_due);
-			$('.amtpay'+i).html(amt_pay);
-		}
-	 }
+	 
     } else {
         console.log("Cancel");
     }
