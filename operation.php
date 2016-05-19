@@ -2560,12 +2560,21 @@ $('.chktransdateclass').click(function () {
 	   var rec=$('.rec'+chkval).val();
 		if(chkval==rec) {}
 			else{
-			var r = confirm("Press a button!");
+			var rowcount=$('.numrow').val();
+			var i=1;
+			for(i=1;i<=rowcount;i++){
+				if($("#chktransdate"+i).is(":checked")) {
+				}else
+				{
+				var r = confirm("There are Previous or current month payment is left.You want to pay of them!!!!");
     if (r == true) {
      console.log("ok");
     } else {
         console.log("Cancel");
     }
+				
+				}
+			}		 
 			}
 		
       });
