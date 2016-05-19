@@ -1843,7 +1843,8 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; >
+                   <input type="text" class="form-control comp" name="comp" >
+				   <!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
 				   </div>
                 </div>
             <div class="form-group">
@@ -2563,6 +2564,11 @@ function ChangeAmount1() {
 	var data=$('.comp').val();
 	
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
+		for(i=1;i<=num;i++){
+			if($("#chktransdate"+i).is(":checked")) {}
+			else{
+			alert('hello');
+			}
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
