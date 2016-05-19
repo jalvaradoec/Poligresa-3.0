@@ -2566,7 +2566,8 @@ function ChangeAmount1() {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
-			console.log("hello"+data-totalamt);
+			console.log(chkval);
+			console.log(data-totalamt);
 		var amtshare=$('.amt_due'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
 					var due=totalamt-data;
