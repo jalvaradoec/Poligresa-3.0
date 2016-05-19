@@ -2606,15 +2606,18 @@ function ChangeAmount1() {
 			console.log(totalamt);
     });
 	}
-	
+	var chk=0;
 	for(j=num1;j<=rowcount;j++){
 	$("input:checkbox[id=chktransdate"+j+"]:checked").each(function () {
+		if(chk==2){}else{
 		for(i=1;i<=num;i++){
 			if($("#chktransdate"+i).is(":checked")) {
 				alert('hello');
 			}else{
+				chk=2;
 				alert('hello1');
 			}
+		}
 		}
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
@@ -2655,6 +2658,7 @@ function ChangeAmount1() {
 		}
 			console.log(totalamt);
     });
+	console.log(chk);
 	}
 }
 $(document).on('change', '.chk_active', function () {
