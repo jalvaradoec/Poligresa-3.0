@@ -2566,13 +2566,15 @@ $('.chktransdateclass').click(function () {
 				if($("#chktransdate"+i).is(":checked")) {
 				}else
 				{
+					if(showAlert==true){
 				var r = confirm("There are Previous or current month payment is left.You want to pay of them!!!!");
     if (r == true) {
      console.log("ok");
     } else {
         console.log("Cancel");
     }
-				
+	showAlert = false;
+					}
 				}
 			}		 
 			}
