@@ -2606,10 +2606,10 @@ function ChangeAmount1() {
 			console.log(totalamt);
     });
 	}
+	console.log("num1"+num1);
 	var chk=0;
 	for(j=num1;j<=rowcount;j++){
 	$("input:checkbox[id=chktransdate"+j+"]:checked").each(function () {
-		console.log(chk);
 		if(chk=='2'){}else{
 		for(i=1;i<=num;i++){
 			if($("#chktransdate"+i).is(":checked")) {
