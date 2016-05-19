@@ -2562,11 +2562,11 @@ $('.chktransdateclass').click(function () {
 			else{
 			var rowcount=$('.numrow').val();
 			var i=1;
+			var showAlert=true;
 			for(i=1;i<=rowcount;i++){
 				if($("#chktransdate"+i).is(":checked")) {
 				}else
 				{
-					var showAlert=true;
 					if(showAlert==true){
 				var r = confirm("There are Previous or current month payment is left.You want to pay of them!!!!");
     if (r == true) {
