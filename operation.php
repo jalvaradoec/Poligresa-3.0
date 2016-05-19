@@ -2562,8 +2562,8 @@ function ChangeAmount1() {
 	var totalamt=0;
 	var data=$('.comp').val();
 	
-	$("input:checkbox[name=chktransdate]:checked").each(function () {
-		var chkval=$(this).val();
+	for(i=1;i<=rowcount;i++){
+		var chkval=i;
 		if ((data-totalamt)>0)
 		{
 			console.log(chkval);
@@ -2601,7 +2601,7 @@ function ChangeAmount1() {
 		
 		}
 			console.log(totalamt);
-    });
+    };
 	
 }
 $(document).on('change', '.chk_active', function () {
