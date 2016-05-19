@@ -2560,12 +2560,55 @@ function ChangeAmount1() {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
+	var j=+num + +i;
 	var totalamt=0;
 	var data=$('.comp').val();
 	
+	for(i=1;i<=num;i++){
+		$("input:checkbox[name=chktransdate]:checked").each(function () {
+		var chkval=$(this).val();
+		if ((data-totalamt)>0)
+		{
+			console.log(chkval);
+			console.log(data-totalamt);
+		var amtshare=$('.amt_due'+chkval).html();
+		totalamt=+totalamt + +amtshare;	
+					var due=totalamt-data;
+					if(due < 0){
+					$('.amtdue'+chkval).html('0');
+					$('.amtpay'+chkval).html(amtshare);		
+					}
+					else 
+					{
+					var amtpay2=amtshare-due;
+					$('.amtdue'+chkval).html(due.toFixed(2));
+					$('.amtpay'+chkval).html(amtpay2.toFixed(2));
+					}
+					data1=data-totalamt;
+					if(data1 < 0){
+					$('.remainbalance').html('0.00');
+					}
+					else
+					{
+					$('.remainbalance').html(data1.toFixed(2));		
+					}
+					
+		}
+		else
+		{
+			var amt_due=$('.amt_due'+chkval).html();	
+			var amt_pay=$('.amt_pay'+chkval).html();
+			//$('.amtdue'+chkval).html(amt_due.toFixed(2));
+			$('.amtdue'+chkval).html(amt_due);
+			$('.amtpay'+chkval).html(amt_pay);
+		
+		}
+			console.log(totalamt);
+    });
+	}
 	
-	$("input:checkbox[id=chktransdate5]:checked").each(function () {
-		alert('helloo');
+	for(i=1;i<=num;i++){
+	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		for(i=1;i<=num;i++){
 			if($("#chktransdate"+i).is(":checked")) {
 				alert('hello');
@@ -2612,7 +2655,7 @@ function ChangeAmount1() {
 		}
 			console.log(totalamt);
     });
-	
+	}
 }
 $(document).on('change', '.chk_active', function () {
 	
