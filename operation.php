@@ -1975,15 +1975,14 @@ $(document).ready(function(){
 				 $result3=mysql_query($sql3);
 				  $result4=mysql_query($sql4);
 				  $num_row3=mysql_num_rows($result3);
-				  $num_row6=mysql_num_rows($result4);
+				  $num_row=mysql_num_rows($result4);
+				  $i=1;
 				  while($row4=mysql_fetch_array($result4)){ 
-				  $sql5="select * from App_TransHistory WHERE App_TransHistory_TransID = '".$row4['App_Transactions_Id']."'";
-				  
-				$result5=mysql_query($sql5);
-				$num_row5=mysql_num_rows($result5);
-				
+				  ?>
+				 <input type="hidden" name="rec" class="rec<?php echo $i ?>" value="<?php echo $i ?>"/>
+				 <?php
+				 $i++;
 				  }
-				  $num_row=$num_row6-$num_row5;
 				  ?>
 				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
 				  <input type="hidden" name="numrow3" class="numrow3" value="<?php echo $num_row3 ?>"/>
@@ -2026,8 +2025,7 @@ $(document).ready(function(){
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
 				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" ></td>
-				<!--<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>-->
+				<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2557,74 +2555,21 @@ function ChangeAmount(data) {
 		}
 	 }
 }
-
-$('.chktransdateclass').click(function () {
-	var rowcount=<?php echo $rowcnt ?>;
-	var num=$('.numrow').val();
-	var i=1;
-	var num1=+num + +i;
-	var totalamt=0;
-	var data=$('.comp').val();
-    var chkval=$(this).val();
-		if ((data-totalamt)>0)
-		{
-			console.log(chkval);
-			console.log(data-totalamt);
-		var amtshare=$('.amt_due'+chkval).html();
-		totalamt=+totalamt + +amtshare;	
-					var due=totalamt-data;
-					if(due < 0){
-					$('.amtdue'+chkval).html('0');
-					$('.amtpay'+chkval).html(amtshare);		
-					}
-					else 
-					{
-					var amtpay2=amtshare-due;
-					$('.amtdue'+chkval).html(due.toFixed(2));
-					$('.amtpay'+chkval).html(amtpay2.toFixed(2));
-					}
-					data1=data-totalamt;
-					if(data1 < 0){
-					$('.remainbalance').html('0.00');
-					}
-					else
-					{
-					$('.remainbalance').html(data1.toFixed(2));		
-					}
-					
-		}
-		else
-		{
-			var amt_due=$('.amt_due'+chkval).html();	
-			var amt_pay=$('.amt_pay'+chkval).html();
-			//$('.amtdue'+chkval).html(amt_due.toFixed(2));
-			$('.amtdue'+chkval).html(amt_due);
-			$('.amtpay'+chkval).html(amt_pay);
-		
-		}   
-      });
-
 function ChangeAmount1() {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
-	var num1=+num + +i;
 	var totalamt=0;
 	var data=$('.comp').val();
 	
-	var chk=0;
-	$("input:checkbox[id=chktransdate"+j+"]:checked").each(function () {
-		if(chk=='2'){}else{
-		for(i=1;i<=num;i++){
-			if($("#chktransdate"+i).is(":checked")) {
-				alert('hello');
-			}else{
-				chk=2;
-				alert('hello1');
-			}
-		}
-		}
+	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
+		var rec=$('.rec'+chkval).val();
+		if(chkval==rec) {
+			alert('hello1');}
+			else{
+			alert('hello');
+			}
 		if ((data-totalamt)>0)
 		{
 			console.log(chkval);
@@ -2663,6 +2608,7 @@ function ChangeAmount1() {
 		}
 			console.log(totalamt);
     });
+	
 }
 $(document).on('change', '.chk_active', function () {
 	
