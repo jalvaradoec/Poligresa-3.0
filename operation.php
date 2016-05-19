@@ -2221,7 +2221,7 @@ $(document).ready(function(){
 				  if($row3['App_Transactions_ShareAmount']==$payamt_amt){
 				$dueamount2=0;	  
 				  }else{
-				  $dueamount2=$row3['App_Transactions_ShareAmount']-$row3['App_Transactions_ShareAmt'];
+				  $dueamount2=$row3['App_Transactions_ShareAmount']-$payamt_amt;
 				  }
 				 ?>
 				<tr>
