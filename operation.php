@@ -2562,7 +2562,7 @@ function ChangeAmount1() {
 	var totalamt=0;
 	var data=$('.comp').val();
 	
-	$('.chktransdateclass').click(function () {
+	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
 		var rec=$('.rec'+chkval).val();
 		if(chkval==rec) {
