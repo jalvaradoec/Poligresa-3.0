@@ -2566,6 +2566,7 @@ function ChangeAmount1() {
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
 		for(i=1;i<=num;i++){
+			console.log(chkval+"/"+i);
 			if(chkval==i){}else{
 			if($("#chktransdate"+i).is(":checked")) {
 				alert('hello');
