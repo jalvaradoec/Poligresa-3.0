@@ -2563,18 +2563,17 @@ function ChangeAmount1() {
 	var totalamt=0;
 	var data=$('.comp').val();
 	
-	$("input:checkbox[name=chktransdate]:checked").each(function () {
-		var chkval=$(this).val();
+	
+	$("input:checkbox[id=chktransdate5]:checked").each(function () {
+		alert('helloo');
 		for(i=1;i<=num;i++){
-			console.log(chkval+"/"+i);
-			if(chkval==i){}else{
 			if($("#chktransdate"+i).is(":checked")) {
 				alert('hello');
 			}else{
 				alert('hello1');
 			}
-			}
 		}
+		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
 			console.log(chkval);
