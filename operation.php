@@ -2558,10 +2558,14 @@ function ChangeAmount(data) {
 $('.chktransdateclass').click(function () {
        var chkval=$(this).val();
 	   var rec=$('.rec'+chkval).val();
-		if(chkval==rec) {
-			alert('hello1');}
+		if(chkval==rec) {}
 			else{
-			alert('hello');
+			var r = confirm("Press a button!");
+    if (r == true) {
+     console.log("ok");
+    } else {
+        console.log("Cancel");
+    }
 			}
 		
       });
