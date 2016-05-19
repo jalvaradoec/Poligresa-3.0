@@ -2555,6 +2555,17 @@ function ChangeAmount(data) {
 		}
 	 }
 }
+$('.chktransdateclass').click(function () {
+       var chkval=$(this).val();
+	   var rec=$('.rec'+chkval).val();
+		if(chkval==rec) {
+			alert('hello1');}
+			else{
+			alert('hello');
+			}
+		
+      });
+
 function ChangeAmount1() {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
@@ -2564,12 +2575,6 @@ function ChangeAmount1() {
 	
 	$("input:checkbox[name=chktransdate]:checked").each(function () {
 		var chkval=$(this).val();
-		var rec=$('.rec'+chkval).val();
-		if(chkval==rec) {
-			alert('hello1');}
-			else{
-			alert('hello');
-			}
 		if ((data-totalamt)>0)
 		{
 			console.log(chkval);
