@@ -2565,7 +2565,7 @@ function ChangeAmount1() {
 	var data=$('.comp').val();
 	
 	for(i=1;i<=num;i++){
-		$("input:checkbox[name=chktransdate]:checked").each(function () {
+		$("input:checkbox[id=chktransdate"+i"]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
@@ -2608,7 +2608,7 @@ function ChangeAmount1() {
 	}
 	
 	for(j=num1;j<=rowcount;j++){
-	$("input:checkbox[name=chktransdate]:checked").each(function () {
+	$("input:checkbox[id=chktransdate"+j"]:checked").each(function () {
 		for(i=1;i<=num;i++){
 			if($("#chktransdate"+i).is(":checked")) {
 				alert('hello');
