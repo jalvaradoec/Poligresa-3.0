@@ -2025,7 +2025,7 @@ $(document).ready(function(){
 				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
 				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
-				<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1()"; ></td>
+				<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php echo $rowcnt ?>" id="chktransdate<?php echo $rowcnt ?>" value= "<?php echo $rowcnt ?>" onclick="ChangeAmount1(this.value)"; ></td>
 				  <td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
 				  <td><?php echo $row2['App_Aux_text'] ?></td>
                   <td class="amtshare<?php echo $rowcnt ?>"><?php echo $row3['App_Transactions_ShareAmount'] ?></td>
@@ -2677,21 +2677,30 @@ $('.chktransdateclass').click(function () {
 			}
       });
 
-function ChangeAmount1() {
+function ChangeAmount1(val1) {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
 	var totalamt=0;
 	var data=$('.comp').val();
-	
-	$("input:checkbox[name=chktransdate]:checked").each(function () {
+	var tamt = [];
+	$("input:checkbox[id=chktransdate"+val1+"]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
 			console.log(chkval);
+			console.log(tamt.toString());
+			console.log("totalamt"+totalamt);
 			console.log(data-totalamt);
 		var amtshare=$('.amt_due'+chkval).html();
-		totalamt=+totalamt + +amtshare;	
+		//totalamt=+totalamt + +amtshare;	
+		if(tamt[0]==undefined){
+var totalamt = amtshare; 
+}else{
+var val2=val1-2;
+var totalamt = +tamt[val2] + +amtshare; 
+}
+tamt.push(totalamt);
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+chkval).html('0.00');
