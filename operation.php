@@ -2662,7 +2662,7 @@ $('.chktransdateclass').click(function () {
 	 $(".chktransdate"+chkval).prop("checked", false);
 				} else {
 					console.log("Cancel");
-					window.alert = function() { }; 
+					window.confirm = function() { }; 
 				}
 				showAlert = false;
 					}
