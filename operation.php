@@ -2696,9 +2696,9 @@ function ChangeAmount1(val1) {
 		if(tamt[0]==undefined){
 var totalamt = amtshare; 
 }else{
-var val2=val1-2;
-var totalamt = +tamt[val2] + +amtshare; 
+var totalamt = +tamt[0] + +amtshare; 
 }
+tamt.pop(totalamt);
 tamt.push(totalamt);
 					var due=totalamt-data;
 					if(due < 0){
