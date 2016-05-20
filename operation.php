@@ -2599,8 +2599,7 @@ $('.chktransdateclass').click(function () {
 					else 
 					{
 					$('.amtdue'+i).html(due.toFixed(2));
-					$('.amtpay'+i).html(data);
-					console.log('hello');	
+					$('.amtpay'+i).html(data.toFixed(2));
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
@@ -2623,7 +2622,6 @@ $('.chktransdateclass').click(function () {
 					var amtpay2 =amtshare-due;
 					$('.amtdue'+i).html(due.toFixed(2));
 					$('.amtpay'+i).html(amtpay2.toFixed(2));
-					console.log('hello1');	
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
