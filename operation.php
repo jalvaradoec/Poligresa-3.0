@@ -2686,7 +2686,7 @@ function ChangeAmount1(val1) {
 	var tamt = [];
 	$("input:checkbox[id=chktransdate"+val1+"]:checked").each(function () {
 		var chkval=$(this).val();
-		if ((data-totalamt)>0)
+		if ((data-0)>0)
 		{
 			console.log(chkval);
 			console.log(tamt.toString());
