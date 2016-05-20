@@ -2676,14 +2676,13 @@ $('.chktransdateclass').click(function () {
 			}
 			}
       });
-
+var tamt = [];
 function ChangeAmount1(val1) {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
 	//var totalamt=0;
 	var data=$('.comp').val();
-	var tamt = [];
 	$("input:checkbox[id=chktransdate"+val1+"]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-0)>0)
