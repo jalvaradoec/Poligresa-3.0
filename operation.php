@@ -2556,13 +2556,12 @@ function ChangeAmount(data) {
 	 }
 }
 $('.chktransdateclass').click(function () {
-	var showAlert1=true;
+	
        var chkval=$(this).val();
 	   var rec=$('.rec'+chkval).val();
 		if(chkval==rec) {}
 			else{
-				if(showAlert1==true){
-			var rowcount=$('.numrow').val();
+				var rowcount=$('.numrow').val();
 			var i=1;
 			var showAlert=true;
 			for(i=1;i<=rowcount;i++){
@@ -2663,12 +2662,11 @@ $('.chktransdateclass').click(function () {
 	 $(".chktransdate"+chkval).prop("checked", false);
 				} else {
 					console.log("Cancel");
+					window.alert = function() {};
 				}
 				showAlert = false;
 					}
 				}
-			}
-			showAlert1 = false;			
 			}
 			}
       });
