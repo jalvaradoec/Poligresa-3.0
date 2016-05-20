@@ -2683,8 +2683,8 @@ function ChangeAmount1() {
 	var i=1;
 	var totalamt=0;
 	var data=$('.comp').val();
-	
-	$("input:checkbox[name=chktransdate]:checked").each(function () {
+	for(i=1;i<=rowcount;i++){
+	$("input:checkbox[id=chktransdate"+i+"]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
@@ -2724,7 +2724,7 @@ function ChangeAmount1() {
 		}
 			console.log(totalamt);
     });
-	
+	}
 }
 $(document).on('change', '.chk_active', function () {
 	
