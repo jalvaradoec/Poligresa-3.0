@@ -2571,7 +2571,8 @@ $('.chktransdateclass').click(function () {
 					if(showAlert==true){
 				var r = confirm("There are Previous or current month payment is left.You want to pay of them!!!!");
 				if (r == true) {
-				 console.log("ok");
+				 //console.log("ok");
+				 $(".chktransdate"+chkval).prop("checked", false);
 				 var rowcount=$('.numrow').val();
 	 //alert("test"+data);
 	 var totalamt=0;
@@ -2659,9 +2660,9 @@ $('.chktransdateclass').click(function () {
 			$('.amtpay'+i).html(amt_pay);
 		}
 	 }
-	 $(".chktransdate"+chkval).prop("checked", false);
+	 
 				} else {
-					console.log("Cancel");
+					//console.log("Cancel");
 					window.confirm = function() { }; 
 				}
 				showAlert = false;
