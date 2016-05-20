@@ -2684,7 +2684,7 @@ function ChangeAmount1(val1) {
 	var totalamt=0;
 	var data=$('.comp').val();
 	console.log("val"+val1);
-	$("input:checkbox[name=chktransdate]:checked").each(function () {
+	$("input:checkbox[id=chktransdate"+val1+"]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
 		{
