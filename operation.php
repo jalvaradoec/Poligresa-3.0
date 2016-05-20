@@ -2686,22 +2686,22 @@ function ChangeAmount1(val1) {
 	var tamt = [];
 	$("input:checkbox[id=chktransdate"+val1+"]:checked").each(function () {
 		var chkval=$(this).val();
-		var val2=val1-2;
 		if ((data-0)>0)
 		{
 			console.log(chkval);
 			console.log(tamt.toString());
-			console.log("totalamt"+tamt[val2]);
-			console.log(data-tamt[val2]);
+			console.log("totalamt"+totalamt);
+			console.log(data-totalamt);
 		var amtshare=$('.amt_due'+chkval).html();
 		//totalamt=+totalamt + +amtshare;	
 		if(tamt[0]==undefined){
 var totalamt = amtshare; 
 }else{
+var val2=val1-2;
 var totalamt = +tamt[val2] + +amtshare; 
 }
 tamt.push(totalamt);
-					var due=tamt[val2]-data;
+					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+chkval).html('0.00');
 					$('.amtpay'+chkval).html(amtshare);		
@@ -2712,7 +2712,7 @@ tamt.push(totalamt);
 					$('.amtdue'+chkval).html(due.toFixed(2));
 					$('.amtpay'+chkval).html(amtpay2.toFixed(2));
 					}
-					data1=data-tamt[val2];
+					data1=data-totalamt;
 					if(data1 < 0){
 					$('.remainbalance').html('0.00');
 					}
@@ -2731,7 +2731,7 @@ tamt.push(totalamt);
 			$('.amtpay'+chkval).html(amt_pay);
 		
 		}
-			console.log(tamt[val2]);
+			console.log(totalamt);
     });
 	
 }
