@@ -2692,8 +2692,9 @@ function ChangeAmount1(val1) {
 			console.log(chkval);
 			console.log(data-totalamt);
 		var amtshare=$('.amt_due'+chkval).html();
-		totalamt=+totalamt + +amtshare;	
-		tamt.push(totalamt);
+		//totalamt=+totalamt + +amtshare;	
+		totalamt=favorite.join(+ +amtshare);
+		tamt.push(+totalamt);
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+chkval).html('0.00');
