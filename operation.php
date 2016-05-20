@@ -2556,10 +2556,12 @@ function ChangeAmount(data) {
 	 }
 }
 $('.chktransdateclass').click(function () {
+	var showAlert1=true;
        var chkval=$(this).val();
 	   var rec=$('.rec'+chkval).val();
 		if(chkval==rec) {}
 			else{
+				if(showAlert1==true){
 			var rowcount=$('.numrow').val();
 			var i=1;
 			var showAlert=true;
@@ -2665,9 +2667,10 @@ $('.chktransdateclass').click(function () {
 				showAlert = false;
 					}
 				}
-			}		 
 			}
-		
+			showAlert1 = false;			
+			}
+			}
       });
 
 function ChangeAmount1() {
