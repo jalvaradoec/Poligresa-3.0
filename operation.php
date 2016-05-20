@@ -2670,7 +2670,6 @@ $('.chktransdateclass').click(function () {
       });
 
 function ChangeAmount1() {
-	console.log(showAlert);
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
