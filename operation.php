@@ -2574,7 +2574,11 @@ $('.chktransdateclass').click(function () {
 				if (r == true) {
 				 //console.log("ok");
 				 $(".chktransdate"+chkval).prop("checked", false);
-				 console.log(tamt.toString());
+				 if(!$(".chktransdate"+chkval).is(":checked")) {
+				 {
+					tamt.pop(totalamt);
+				 }
+				 console.log("-"+tamt.toString());
 				 var rowcount=$('.numrow').val();
 	 //alert("test"+data);
 	 var totalamt=0;
