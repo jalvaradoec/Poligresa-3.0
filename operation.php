@@ -2695,10 +2695,10 @@ function ChangeAmount1(val1) {
 		var amtshare=$('.amt_due'+chkval).html();
 		//totalamt=+totalamt + +amtshare;	
 		if(tamt[0]==undefined){
-var totalamt = amtshare; 
+totalamt = amtshare; 
 }else{
 var val2=val1-2;
-var totalamt = +tamt[val2] + +amtshare; 
+totalamt = +tamt[val2] + +amtshare; 
 }
 tamt.push(totalamt);
 					var due=totalamt-data;
