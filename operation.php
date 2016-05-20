@@ -2599,7 +2599,12 @@ $('.chktransdateclass').click(function () {
 					else 
 					{
 					$('.amtdue'+i).html(due.toFixed(2));
+					if(data<=amtshare){
+					$('.amtpay'+i).html(data);
+					}
+					else{
 					$('.amtpay'+i).html(data.toFixed(2));
+					}
 					}
 					data1=data-totalamt;
 					if(data1 < 0){
