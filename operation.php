@@ -2574,7 +2574,7 @@ $('.chktransdateclass').click(function () {
 				if (r == true) {
 				 //console.log("ok");
 				 $(".chktransdate"+chkval).prop("checked", false);
-				 if(!$(".chktransdate"+chkval).is(":checked")) {
+				 if(!$(".chktransdate"+chkval).is(":checked")) 
 				 {
 					tamt.pop(totalamt);
 				 }
