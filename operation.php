@@ -2681,7 +2681,7 @@ function ChangeAmount1(val1) {
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
-	var totalamt=0;
+	//var totalamt=0;
 	var data=$('.comp').val();
 	var tamt = [];
 	$("input:checkbox[id=chktransdate"+val1+"]:checked").each(function () {
@@ -2695,10 +2695,10 @@ function ChangeAmount1(val1) {
 		var amtshare=$('.amt_due'+chkval).html();
 		//totalamt=+totalamt + +amtshare;	
 		if(tamt[0]==undefined){
-totalamt = amtshare; 
+var totalamt = amtshare; 
 }else{
 var val2=val1-2;
-totalamt = +tamt[val2] + +amtshare; 
+var totalamt = +tamt[val2] + +amtshare; 
 }
 tamt.push(totalamt);
 					var due=totalamt-data;
