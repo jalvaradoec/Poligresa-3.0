@@ -2487,7 +2487,7 @@ function ChangeAmount(data) {
 				if(amtshare == totalamt){
 					var due=totalamt-data;
 					if(due < 0){
-					$('.amtdue'+i).html('0');
+					$('.amtdue'+i).html('0.00');
 					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
@@ -2508,7 +2508,7 @@ function ChangeAmount(data) {
 				{
 					var due=totalamt-data;
 					if(due < 0){
-					$('.amtdue'+i).html('0');
+					$('.amtdue'+i).html('0.00');
 					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
@@ -2588,7 +2588,7 @@ $('.chktransdateclass').click(function () {
 				var amtshare=$('.amt_due'+i).html();	
 				totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
-				$(".chktransdate"+i).attr("disabled", true);
+				//$(".chktransdate"+i).attr("disabled", true);
 				if(amtshare == totalamt){
 					var due=totalamt-data;
 					if(due < 0){
@@ -2644,7 +2644,7 @@ $('.chktransdateclass').click(function () {
 				var amt_due=$('.amt_due'+i).html();	
 				var amt_pay=$('.amt_pay'+i).html();
 				$(".chktransdate"+i).prop("checked", false);
-				$(".chktransdate"+i).removeAttr("disabled");
+				//$(".chktransdate"+i).removeAttr("disabled");
 				$('.amtdue'+i).html(amt_due);
 				$('.amtpay'+i).html(amt_pay);
 			}
@@ -2654,7 +2654,7 @@ $('.chktransdateclass').click(function () {
 			var amt_due=$('.amt_due'+i).html();	
 			var amt_pay=$('.amt_pay'+i).html();
 			$(".chktransdate"+i).prop("checked", false);	
-			$(".chktransdate"+i).removeAttr("disabled");
+			//$(".chktransdate"+i).removeAttr("disabled");
 			$('.amtdue'+i).html(amt_due);
 			$('.amtpay'+i).html(amt_pay);
 		}
@@ -2688,7 +2688,7 @@ function ChangeAmount1() {
 		totalamt=+totalamt + +amtshare;	
 					var due=totalamt-data;
 					if(due < 0){
-					$('.amtdue'+chkval).html('0');
+					$('.amtdue'+chkval).html('0.00');
 					$('.amtpay'+chkval).html(amtshare);		
 					}
 					else 
