@@ -2732,7 +2732,14 @@ tamt.push(totalamt);
 		}
 			console.log(totalamt);
     });
-	
+	if (!$("#chktransdate"+val1).is(":checked")) {
+		alert('hello');
+		var amtshare=$('.amt_due'+val1).html();
+		var totalamt = tamt[0] - amtshare;
+		tamt.pop(totalamt);
+		tamt.push(totalamt);
+		console.log(totalamt);
+	}
 }
 $(document).on('change', '.chk_active', function () {
 	
