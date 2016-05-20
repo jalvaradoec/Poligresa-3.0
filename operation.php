@@ -2591,7 +2591,7 @@ $('.chktransdateclass').click(function () {
 				if(amtshare == totalamt){
 					var due=totalamt-data;
 					if(due < 0){
-					$('.amtdue'+i).html('0');
+					$('.amtdue'+i).html('0.00');
 					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
@@ -2612,7 +2612,7 @@ $('.chktransdateclass').click(function () {
 				{
 					var due=totalamt-data;
 					if(due < 0){
-					$('.amtdue'+i).html('0');
+					$('.amtdue'+i).html('0.00');
 					$('.amtpay'+i).html(amtshare);		
 					}
 					else 
@@ -2658,6 +2658,7 @@ $('.chktransdateclass').click(function () {
 			$('.amtpay'+i).html(amt_pay);
 		}
 	 }
+	 $(".chktransdate"+chkval).prop("checked", false);
 				} else {
 					console.log("Cancel");
 				}
