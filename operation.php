@@ -2738,7 +2738,16 @@ tamt.push(totalamt);
 		var totalamt = tamt[0] - amtshare;
 		tamt.pop(totalamt);
 		tamt.push(totalamt);
-		console.log(totalamt);
+		var data=$('.comp').val();
+		data1=data-totalamt;
+					if(data1 < 0){
+					$('.remainbalance').html('0.00');
+					}
+					else
+					{
+					$('.remainbalance').html(data1.toFixed(2));		
+					}
+		console.log("-"+totalamt);
 	}
 }
 $(document).on('change', '.chk_active', function () {
