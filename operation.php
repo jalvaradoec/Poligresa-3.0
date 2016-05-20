@@ -2684,6 +2684,7 @@ function ChangeAmount1(val1) {
 	var totalamt=0;
 	var data=$('.comp').val();
 	console.log("val"+val1);
+    var tamt = [];
 	$("input:checkbox[id=chktransdate"+val1+"]:checked").each(function () {
 		var chkval=$(this).val();
 		if ((data-totalamt)>0)
@@ -2692,6 +2693,7 @@ function ChangeAmount1(val1) {
 			console.log(data-totalamt);
 		var amtshare=$('.amt_due'+chkval).html();
 		totalamt=+totalamt + +amtshare;	
+		tamt.push(totalamt);
 					var due=totalamt-data;
 					if(due < 0){
 					$('.amtdue'+chkval).html('0.00');
