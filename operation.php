@@ -2587,7 +2587,7 @@ $('.chktransdateclass').click(function () {
 	 var data1=data;
 	 for(i=1;i<=rowcount;i++){
 		var transdate1=$('.transdate1').val();	
-		if ((data-0)>0)
+		if ((data-totalamt)>0)
 		{
 			if ($('.trsstatus').val()!="In Range")
 			{
