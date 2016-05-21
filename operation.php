@@ -2578,7 +2578,7 @@ $('.chktransdateclass').click(function () {
 				 {
 					tamt.pop(totalamt);
 				 }
-				 console.log("-"+tamt.toString());
+				 
 				 var rowcount=$('.numrow').val();
 	 //alert("test"+data);
 	 var totalamt=0;
@@ -2917,6 +2917,8 @@ var Alerter = {
 			var amt_pay=$('.amt_pay'+i).html();
 			$('.amtdue'+i).html(amt_due);
 			$('.amtpay'+i).html(amt_pay);
+			$('.transid'+i).val('');
+			$('.amountpay'+i).val('');
 			}
 			}
 			if($(".chktransdateclass").is(":checked")) {}
