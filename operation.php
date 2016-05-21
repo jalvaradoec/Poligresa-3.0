@@ -2592,8 +2592,15 @@ $('.chktransdateclass').click(function () {
 			if ($('.trsstatus').val()!="In Range")
 			{
 				//alert("first");
-				var amtshare=$('.amt_due'+i).html();	
-				totalamt=+totalamt + +amtshare;
+				var amtshare=$('.amt_due'+i).html();
+if(tamt[0]==undefined){
+var totalamt = amtshare; 
+}else{
+var totalamt = +tamt[0] + +amtshare; 
+}
+tamt.pop(totalamt);
+tamt.push(totalamt);				
+				//totalamt=+totalamt + +amtshare;
 				$(".chktransdate"+i).prop("checked", true);
 				//$(".chktransdate"+i).attr("disabled", true);
 				if(amtshare == totalamt){
