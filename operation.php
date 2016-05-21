@@ -2678,7 +2678,7 @@ tamt.push(totalamt);
 			$('.amtpay'+i).html(amt_pay);
 		}
 	 }
-	 
+	 window.confirm = function() { }; 
 				} else {
 					//console.log("Cancel");
 					window.confirm = function() { }; 
