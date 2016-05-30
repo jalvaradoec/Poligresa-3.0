@@ -9,8 +9,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-	  <h2>dhiren</h2>
-        Amortization
+	
+        Amortization  dhiren
         <small>Supervisor</small>
       </h1>
       <ol class="breadcrumb">
