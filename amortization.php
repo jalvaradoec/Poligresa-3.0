@@ -10,7 +10,7 @@
     <section class="content-header">
       <h1>
 	
-        Amortization  dhiren
+        Amortization
         <small>Supervisor</small>
       </h1>
       <ol class="breadcrumb">
