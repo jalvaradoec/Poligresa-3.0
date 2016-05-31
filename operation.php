@@ -151,7 +151,8 @@ $(document).ready(function(){
             <div class="inner">
               <h1 class="reg_contact_no">
 			  <?php
-		$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		//$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		$sql="select * from App_Contacts WHERE App_Contacts_DebtorId = '".$appcreditsdebid."'";
 		$result=mysql_query($sql);
 		$num_row=mysql_num_rows($result);
 		echo $num_row;
