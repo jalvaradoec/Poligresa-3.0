@@ -70,6 +70,7 @@ $(document).ready(function(){
 			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
+				$appcreditsdebid = $row['App_Credits_DebtorId'];
 			   ?>
             <div class="box-body no-padding">
                <table  class="table  table-hover">
