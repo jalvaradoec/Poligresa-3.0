@@ -1840,6 +1840,12 @@ $(document).ready(function(){
                   <div class="col-sm-8">
 				  <select class="form-control" name="respuesta" >
                     <option value=""> Select Respuesta </option>
+					<?php
+						$ddl_secl_res = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Answer'");
+						while ($r = mysql_fetch_assoc($ddl_secl_res)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+						}
+                    ?>
                    
                 </select>
                 </div>
@@ -1919,6 +1925,12 @@ $(document).ready(function(){
                   <div class="col-sm-8">
 				  <select class="form-control" name="tipo" >
                     <option value=""> Select Tipo </option>
+					<?php
+						$ddl_secl_tipo = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
+						while ($r = mysql_fetch_assoc($ddl_secl_tipo)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+						}
+                    ?>
                    
                 </select>
                 </div>
