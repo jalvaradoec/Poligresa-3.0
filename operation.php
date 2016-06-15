@@ -530,11 +530,9 @@ $(document).ready(function(){
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
 							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
-							where App_Logs_OperationID = '035866320130617000' and a.App_Aux_field = 'Answer' and a.App_Aux_field='Relation' and a.App_Aux_field='Tipo_Gestion' ";
-							
-					echo $sql; die();
+							where App_Logs_OperationID = '035866320130617000' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' ";												
 					
-					//$result=mysql_query($sql);
+					$result=mysql_query($sql);
 					
 					//while($row=mysql_fetch_array($result)){ 
 					
