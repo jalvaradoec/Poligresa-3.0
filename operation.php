@@ -1850,14 +1850,6 @@ $(document).ready(function(){
 				   <!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
 				   </div>
                 </div>
-				
-				<div class="form-group" style="margin-left: -65%;">
-					<label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
-					<div class="col-sm-12" style="width: 100%;">
-						<textarea class="form-control" rows="5" name="outcome" required=""></textarea>
-				   </div>
-                </div>
-				
 				<!--
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-4 control-label">Task:</label>
@@ -1930,14 +1922,13 @@ $(document).ready(function(){
                    <input type="text" class="form-control" name="hora">
 				   </div>
                 </div>
-				<!--
+				
 				<div class="form-group" style="margin-left: -65%;">
                   <label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
                   <div class="col-sm-12" style="width: 100%;">
                    <textarea class="form-control" rows="5" name="outcome" required=""></textarea>
 				   </div>
                 </div>
-				-->
 		  </div>
 		  
 		  
