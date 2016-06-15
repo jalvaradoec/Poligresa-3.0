@@ -3003,7 +3003,7 @@ if (isset($_POST['save'])) {
 		echo "<pre>";
 		print_r($_POST); 		
 		$sql = "insert into App_Logs(App_Logs_CreatedBy,App_Logs_CreatedOn,App_Logs_ClientID,App_Logs_OperationID,App_Logs_DateTime,App_Logs_Action,App_Logs_Answer,App_Logs_Contact,App_Logs_Type,App_Logs_TransAmmount,App_Logs_TransDateTime,App_Logs_Notes) 
-				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$_POST['fecha']."','".$_POST['outcome']."')";
+				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['respuesta']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$_POST['fecha']."','".$_POST['outcome']."')";
 		echo $sql;
 		die();
         //$sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
