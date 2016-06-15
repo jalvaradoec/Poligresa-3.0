@@ -528,8 +528,8 @@ $(document).ready(function(){
 					$sql="select l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,a.App_Aux_text as respuesta,aa.App_Aux_text as contactto,aaa.App_Aux_text as telefono
 							from App_Logs l 
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
-							inner join App_Aux aa ON l.App_Logs_Contact = a.App_Aux_value
-							inner join App_Aux a ON l.App_Logs_Type = a.App_Aux_value							
+							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
+							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
 							where App_Logs_OperationID = '035866320130617000' and a.App_Aux_field = 'Answer' and a.App_Aux_field='Relation' and a.App_Aux_field='Tipo_Gestion' ";
 							
 					echo $sql; die();
