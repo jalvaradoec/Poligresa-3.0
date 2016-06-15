@@ -488,19 +488,32 @@ $(document).ready(function(){
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+					<th>F.Ingreso</th>
+					<th>Respuesta</th>
+					<th>Contacto</th>
+					<th>Telefono</th>
+					<th>valro</th>
+					<th>F.Comp.</th>
+					<th>Comentarios</th>
+					<th></th>
+				<!--
                   <th>Done</th>
                   <th>User</th>
                   <th>Date/Time</th>
                   <th>Type</th>
                   <th>Obervations</th>
                   <th></th>
+				  -->
                 </tr>
                 </thead>
                 <tbody>
 				<?php					
 					$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
-					echo $sql;
-					die();
+					$result=mysql_query($sql);
+					
+					while($row=mysql_fetch_array($result)){ 
+					
+					
 					/*
 				
 			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 15";
@@ -517,6 +530,17 @@ $(document).ready(function(){
 				*/
 				
 				?>
+								
+                <tr>
+				  <td><?php echo $row['App_Logs_DateTime']; ?></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+				  <td></td>
+                </tr>
+				<!--
                 <tr>
 				  <td><input type="checkbox" <?php //echo $checked; ?> value="1" class="chk_active" id="<?php //echo $row['App_Task_ID']; ?>" /></td>
                   <td><?php //echo $row1['App_Users_fullname'] ?></td>
@@ -525,16 +549,18 @@ $(document).ready(function(){
                   <td><?php// echo $row['App_Task_Description'] ?> </td>
                   <td><a href="" data-toggle="modal" data-id="<?php //echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
                 </tr>
-				<?php //} ?>
+				-->
+				<?php } ?>
 		   </tbody>
                 <tfoot>
                 <tr>
-                  <th>Done</th>
-                  <th>User</th>
-                  <th>Date/Time</th>
-                  <th>Type</th>
-                  <th>Obervations</th>
-                  <th></th>
+					<th>F.Ingreso</th>
+					<th>Respuesta</th>
+					<th>Contacto</th>
+					<th>Telefono</th>
+					<th>valro</th>
+					<th>F.Comp.</th>
+					<th></th>
                 </tr>
                 </tfoot>
               </table>
