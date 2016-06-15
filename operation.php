@@ -525,7 +525,7 @@ $(document).ready(function(){
                   <td><?php// echo $row['App_Task_Description'] ?> </td>
                   <td><a href="" data-toggle="modal" data-id="<?php //echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
                 </tr>
-				<?php } ?>
+				<?php //} ?>
 		   </tbody>
                 <tfoot>
                 <tr>
