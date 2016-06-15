@@ -508,7 +508,13 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php					
-					$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					//$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					$sql = "select l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,App_Logs_Type,App_Logs_TransAmmount,App_Logs_TransDateTime
+							from App_Logs l
+							left join App_Aux  a ON l.App_Logs_Answer = a.App_Aux_value
+							where App_Logs_OperationID = '".$_GET['operno']."'";
+					echo $sql;
+					die();
 					$result=mysql_query($sql);
 					
 					while($row=mysql_fetch_array($result)){ 
@@ -560,6 +566,7 @@ $(document).ready(function(){
 					<th>Telefono</th>
 					<th>valro</th>
 					<th>F.Comp.</th>
+					<th>Comentarios</th>
 					<th></th>
                 </tr>
                 </tfoot>
