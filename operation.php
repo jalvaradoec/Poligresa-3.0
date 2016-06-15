@@ -509,6 +509,7 @@ $(document).ready(function(){
                 <tbody>
 				<?php					
 					//$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					/*
 					$sql = "select DISTINCT l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,a.App_Aux_text as respuesta
 							from App_Logs l
 							left join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value
@@ -519,7 +520,7 @@ $(document).ready(function(){
 					
 					while($row=mysql_fetch_array($result)){ 
 					
-					
+					*/
 					/*
 				
 			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 15";
@@ -538,7 +539,7 @@ $(document).ready(function(){
 				?>
 								
                 <tr>
-				  <td><?php echo $row['App_Logs_DateTime']; ?></td>
+				  <td><?php //echo $row['App_Logs_DateTime']; ?></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -556,7 +557,7 @@ $(document).ready(function(){
                   <td><a href="" data-toggle="modal" data-id="<?php //echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
                 </tr>
 				-->
-				<?php } ?>
+				<?php// } ?>
 		   </tbody>
                 <tfoot>
                 <tr>
