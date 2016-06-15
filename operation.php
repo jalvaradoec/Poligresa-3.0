@@ -508,8 +508,7 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php					
-					$sqldate = "select App_Logs_DateTime from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
-					echo sqldate;die();
+					$sqldate = "select App_Logs_DateTime from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";					
 					$resultdate=mysql_query($sqldate);
 					$rowdate=mysqli_fetch_array($resultdate);
 					
@@ -526,7 +525,7 @@ $(document).ready(function(){
 					
 					//$result=mysql_query($sql);
 					
-					while($row=mysql_fetch_array($result)){ 
+					//while($row=mysql_fetch_array($result)){ 
 					
 					
 					/*
@@ -565,7 +564,7 @@ $(document).ready(function(){
                   <td><a href="" data-toggle="modal" data-id="<?php //echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
                 </tr>
 				-->
-				<?php } ?>
+				<?php //} ?>
 		   </tbody>
                 <tfoot>
                 <tr>
