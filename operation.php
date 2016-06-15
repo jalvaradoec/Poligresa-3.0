@@ -497,8 +497,7 @@ $(document).ready(function(){
                 </tr>
                 </thead>
                 <tbody>
-				<?php
-					$_GET['operno'];
+				<?php					
 					$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno'];."'";
 					echo $sql;
 					die();
@@ -519,7 +518,7 @@ $(document).ready(function(){
 				
 				?>
                 <tr>
-				  <td><input type="checkbox" <?php echo $checked; ?> value="1" class="chk_active" id="<?php //echo $row['App_Task_ID']; ?>" /></td>
+				  <td><input type="checkbox" <?php //echo $checked; ?> value="1" class="chk_active" id="<?php //echo $row['App_Task_ID']; ?>" /></td>
                   <td><?php //echo $row1['App_Users_fullname'] ?></td>
                   <td><?php// echo $row['App_Task_DueDateTime'] ?></td>
                   <td><?php //echo $row2['App_Aux_text'] ?></td>
