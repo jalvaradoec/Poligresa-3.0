@@ -42,6 +42,7 @@ $(document).ready(function(){
         }
 });
 </script>
+<meta charset=utf-8>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -2460,6 +2461,7 @@ $(document).ready(function(){
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+
 
 
 
