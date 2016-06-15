@@ -1771,7 +1771,7 @@ $(document).ready(function(){
       <div class="modal-content" style="width: 150%;margin-left: -24%;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Activityaaa</h4>
+          <h4 class="modal-title">Activity</h4>
         </div>
 		<?php
 			    $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
@@ -1799,10 +1799,11 @@ $(document).ready(function(){
                   <td class="deb_info_row">ID:</td>
                   <td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td>          
                 </tr>
-			     <tr>
+			     <!--<tr>
                   <td class="deb_info_row">Name:</td>
 				  <td class="deb_info_row1"><?php echo $row3['App_Clients_FullName'] ?></td>          
                 </tr>
+				-->
 				
 			 </tbody> 
 		     </table>
@@ -1849,16 +1850,18 @@ $(document).ready(function(){
 				   <!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
 				   </div>
                 </div>
-            <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Task:</label>
+				<!--
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-4 control-label">Task:</label>
                   
-  <div class="col-sm-12" style="width: 150%;">
-                   <textarea class="form-control" rows="5" name="task" required=""></textarea>
-				   </div>
+					<div class="col-sm-12" style="width: 150%;">
+						<textarea class="form-control" rows="5" name="task" required=""></textarea>
+					</div>
                 </div>
+				-->
 		  </div>
 		<div class="col-lg-4">
-		     
+				<!--
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
@@ -1870,6 +1873,7 @@ $(document).ready(function(){
 					</div>
                   </div>
                 </div>
+				-->
                 
             <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
@@ -1893,14 +1897,16 @@ $(document).ready(function(){
                 </div>
 		  </div>
 		  <div class="col-lg-4">
-		     
+				<!--
                <div class="form-group">
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
+				
 				 <input type="time" class="form-control" id="timeselector" name="time" required>
                  </div>
                 </div>
+				-->
                  <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
                   <div class="col-sm-8">
