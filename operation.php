@@ -511,7 +511,7 @@ $(document).ready(function(){
 					//$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
 					$sql = "select DISTINCT l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,a.App_Aux_text as respuesta
 							from App_Logs l
-							left join App_Aux  a ON l.App_Logs_Answer = a.App_Aux_value
+							left join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value
 							where App_Logs_OperationID = '".$_GET['operno']."'";
 					echo $sql;
 					die();
