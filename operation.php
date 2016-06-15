@@ -479,7 +479,7 @@ $(document).ready(function(){
 		<section class="col-lg-12">
 		<div class="box">
             <div class="box-header">
-            <h3 class="box-title bx_title">Activity</h3>
+            <h3 class="box-title bx_title">Activityrrrr</h3>
 			<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a></h2>
             </div>
             <!-- /.box-header -->
