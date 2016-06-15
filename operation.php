@@ -498,7 +498,7 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php					
-					$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno'];."'";
+					$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
 					echo $sql;
 					die();
 					/*
