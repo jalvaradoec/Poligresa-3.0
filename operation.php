@@ -516,25 +516,17 @@ $(document).ready(function(){
 					$sqlrespu = "select App_Logs_Answer from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
 					$resultrespu=mysql_query($sqlrespu);
 					$resultrespu=mysqli_fetch_array($resultrespu);
-					*/
-					
-					/*
-					$sql = "select  l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,a.App_Aux_text as respuesta
-							from App_Logs l
-							left join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value
-							where App_Logs_OperationID = '".$_GET['operno']."'";
-							*/
+					*/										
 							
 					$sql="select l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,a.App_Aux_text as respuesta,aa.App_Aux_text as contactto,aaa.App_Aux_text as telefono
 							from App_Logs l 
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
 							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
-							where App_Logs_OperationID = '035866320130617000' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' ";												
-					echo $sql; die();
-					//$result=mysql_query($sql);
+							where App_Logs_OperationID = '035866320130617000' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' ";																	
+					$result=mysql_query($sql);
 					
-					//while($row=mysql_fetch_array($result)){ 
+					while($row=mysql_fetch_array($result)){ 
 					
 					
 					/*
@@ -555,12 +547,12 @@ $(document).ready(function(){
 				?>
 								
                 <tr>
-				  <td><?php echo $rowdate['App_Logs_DateTime']; ?></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+				  <td><?php echo $row['App_Logs_DateTime']; ?></td>
+                  <td><?php echo $row['respuesta']; ?>	</td>
+                  <td><?php echo $row['contactto']; ?></td>
+                  <td><?php echo $row['telefono']; ?></td>
+                  <td><?php echo $row['App_Logs_TransAmmount']; ?></td>
+                  <td><?php echo $row['App_Logs_TransDateTime']; ?></td>
 				  <td></td>
                 </tr>
 				<!--
@@ -573,7 +565,7 @@ $(document).ready(function(){
                   <td><a href="" data-toggle="modal" data-id="<?php //echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
                 </tr>
 				-->
-				<?php //} ?>
+				<?php } ?>
 		   </tbody>
                 <tfoot>
                 <tr>
