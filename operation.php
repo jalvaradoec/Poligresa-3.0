@@ -509,6 +509,7 @@ $(document).ready(function(){
                 <tbody>
 				<?php					
 					$sqldate = "select App_Logs_DateTime from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					echo sqldate;die();
 					$resultdate=mysql_query($sqldate);
 					$rowdate=mysqli_fetch_array($resultdate);
 					
