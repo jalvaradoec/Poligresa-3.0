@@ -2075,8 +2075,8 @@ $(document).ready(function(){
      
          </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
-              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+			<button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </form>
 	  </div>
@@ -2998,8 +2998,12 @@ if (isset($_POST['update1'])) {
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['save'])) {
-        $sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
-        mysql_query($sql);
+		
+		print_r($_POST); die();
+		
+        //$sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
+        //mysql_query($sql);
+		
 		$sql10="select * from App_Tasks order by App_Task_ID desc";
 		$result10=mysql_query($sql10);
 		$row10=mysql_fetch_array($result10);
