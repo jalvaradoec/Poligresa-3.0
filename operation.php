@@ -508,15 +508,22 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php					
-					//$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					$sqldate = "select App_Logs_DateTime from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					$resultdate=mysql_query($sqldate);
+					$rowdate=mysqli_fetch_array($resultdate);
 					
-					$sql = "select DISTINCT l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,a.App_Aux_text as respuesta
+					$sqlrespu = "select App_Logs_Answer from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					$resultrespu=mysql_query($sqlrespu);
+					$resultrespu=mysqli_fetch_array($resultrespu);
+					
+					
+					/*$sql = "select  l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,a.App_Aux_text as respuesta
 							from App_Logs l
 							left join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value
 							where App_Logs_OperationID = '".$_GET['operno']."'";
-					echo $sql;
-					die();
-					$result=mysql_query($sql);
+					*/
+					
+					//$result=mysql_query($sql);
 					
 					while($row=mysql_fetch_array($result)){ 
 					
@@ -539,7 +546,7 @@ $(document).ready(function(){
 				?>
 								
                 <tr>
-				  <td><?php echo $row['App_Logs_DateTime']; ?></td>
+				  <td><?php echo $rowdate['App_Logs_DateTime']; ?></td>
                   <td></td>
                   <td></td>
                   <td></td>
