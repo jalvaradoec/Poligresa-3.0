@@ -479,7 +479,7 @@ $(document).ready(function(){
 		<section class="col-lg-12">
 		<div class="box">
             <div class="box-header">
-            <h3 class="box-title bx_title">Activityrrrr</h3>
+            <h3 class="box-title bx_title">Activity</h3>
 			<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a></h2>
             </div>
             <!-- /.box-header -->
@@ -498,6 +498,12 @@ $(document).ready(function(){
                 </thead>
                 <tbody>
 				<?php
+					$_GET['operno'];
+					$sql = "select * from App_Logs where App_Logs_OperationID = '".$_GET['operno'];."'";
+					echo $sql;
+					die();
+					/*
+				
 			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 15";
 				$result=mysql_query($sql);
 				//$row=mysql_fetch_array($result);
@@ -509,15 +515,16 @@ $(document).ready(function(){
 				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
+				*/
 				
 				?>
                 <tr>
-				  <td><input type="checkbox" <?php echo $checked; ?> value="1" class="chk_active" id="<?php echo $row['App_Task_ID']; ?>" /></td>
-                  <td><?php echo $row1['App_Users_fullname'] ?></td>
-                  <td><?php echo $row['App_Task_DueDateTime'] ?></td>
-                  <td><?php echo $row2['App_Aux_text'] ?></td>
-                  <td><?php echo $row['App_Task_Description'] ?> </td>
-                  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
+				  <td><input type="checkbox" <?php echo $checked; ?> value="1" class="chk_active" id="<?php //echo $row['App_Task_ID']; ?>" /></td>
+                  <td><?php //echo $row1['App_Users_fullname'] ?></td>
+                  <td><?php// echo $row['App_Task_DueDateTime'] ?></td>
+                  <td><?php //echo $row2['App_Aux_text'] ?></td>
+                  <td><?php// echo $row['App_Task_Description'] ?> </td>
+                  <td><a href="" data-toggle="modal" data-id="<?php //echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
                 </tr>
 				<?php } ?>
 		   </tbody>
