@@ -1880,6 +1880,12 @@ $(document).ready(function(){
                   <div class="col-sm-8">
 				  <select class="form-control" name="contacto" style="width: 188px;">
                     <option value=""> Select Contacto </option>
+					<?php
+						$ddl_secl_contact = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Relation'");
+						while ($r = mysql_fetch_assoc($ddl_secl_contact)) {
+                        echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
                    
                 </select>
                 </div>
