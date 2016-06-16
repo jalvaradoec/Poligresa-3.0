@@ -2158,7 +2158,14 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				*/
 				
-				$sql = "select * from App_Logs where App_Logs_Id='".$_GET['task_id']."'";
+				//$sql = "select * from App_Logs where App_Logs_Id='".$_GET['task_id']."'";
+				//	inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
+				
+				$sql = "select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
+						from App_Logs l 
+						left join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_fullname
+						where l.App_Logs_Id='".$_GET['task_id']."' ";
+				
 				$result = mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				
@@ -2191,7 +2198,7 @@ $(document).ready(function(){
 			 <div class="col-lg-4">
 			 <div class="activity_head1" style="margin-left:0px;color:gray">
 			 <!--<h5><?php //echo $row1['App_Users_fullname'] ?></h5>-->	
-			 <h5><?php echo $row1['App_Logs_CreatedBy'] ?></h5>
+			 <h5><?php echo $row['App_Users_fullname'] ?></h5>
 			 <h5><?php echo $row['App_Logs_CreatedOn'] ?></h5>
 			 
 			 </div>
