@@ -2299,18 +2299,28 @@ $(document).ready(function(){
 					
 				</div>
 				
-				<div class="col-lg-4"> 
+							
+				<div class="col-lg-4" > 
 				
-				 <div class="col-lg-4" >    
-					   <h4>Task</h4>
-			   
-						<div class="form-group">
-						  <textarea class="form-control" rows="5" name="task" required ><?php echo $row['App_Task_Description'] ?></textarea>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
+						<div class="col-sm-8">
+							<select class="form-control" name="contacto" style="width: 188px;">
+								<?php
+									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Relation'");
+									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
+								?>	 
+									<option <?php if($row['App_Logs_Contact']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r_res[App_Aux_text]; ?></option>					
+								<?php
+									}							
+								?>
+							</select>
 						</div>
-				
-				  </div>
-				
+					</div>
+					
 				</div>
+				
+				
 				
 				
 				  <div class="col-lg-4" >    
