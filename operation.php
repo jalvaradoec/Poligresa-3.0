@@ -2245,7 +2245,7 @@ $(document).ready(function(){
 					
 					
 					<div class="form-group">
-					<label for="inputRespuesta" class="col-sm-4 control-label">Respuesta</label>
+						<label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
 						<div class="col-sm-8">
 							<select class="form-control" name="type" style="width:122%" required>
 								<option value=""> ----Select Respuesta---</option>
@@ -2261,6 +2261,14 @@ $(document).ready(function(){
 						</div>
 					</div>
 					
+					<div class="form-group">
+						<label for="inputComp" class="col-sm-4 control-label">Comp/Abono:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Logs_TransDateTime']?>" >
+							<!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
+						</div>
+					</div>
+					
 					
 					<!--
 					<div class="form-group">
@@ -2271,27 +2279,24 @@ $(document).ready(function(){
 								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>																					
 							</div>
 						</div>
-					</div>-->
+					</div>
 					
-                 <div class="form-group">
-                 <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
-				 <div class="col-sm-8">
-				
-				 <input type="time" class="form-control" id="timeselector" name="time" value="<?php echo $datetime[1] ?>" required>
-                 </div>
-                </div>
-                 <div class="form-group">
-			  <label for="inputPassword3" class="col-sm-4 control-label">Status</label>
-			  <div class="col-sm-8">
-			   <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="status" <?php echo $checked; ?> value="1">
-                       Done
-                    </label>
-                  </div>
-              </div>
-              </div>
-            
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-4 control-label">Time</label>
+						<div class="col-sm-8">			
+							<input type="time" class="form-control" id="timeselector" name="time" value="<?php echo $datetime[1] ?>" required>
+						</div>
+					</div>
+					-->
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-4 control-label">Status</label>
+						<div class="col-sm-8">
+							<div class="checkbox">
+								<label><input type="checkbox" name="status" <?php echo $checked; ?> value="1">Done</label>															                    
+							</div>
+						</div>
+					</div> 
+					
 		  </div>
 		
 		  <div class="col-lg-6" style="margin-left:41px">    
