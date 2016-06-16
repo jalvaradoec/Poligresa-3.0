@@ -2236,6 +2236,7 @@ $(document).ready(function(){
 						}
                            echo " <!--<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option> -->";
 						*/
+					<?php
                     }
 				
                     ?>
