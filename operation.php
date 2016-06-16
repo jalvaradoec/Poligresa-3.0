@@ -2190,8 +2190,9 @@ $(document).ready(function(){
 			 </div>
 			 <div class="col-lg-4">
 			 <div class="activity_head1" style="margin-left:0px;color:gray">
-			 <h5><?php echo $row1['App_Users_fullname'] ?></h5>
-			 <h5><?php echo $row['App_Task_CreatedOn'] ?></h5>
+			 <!--<h5><?php //echo $row1['App_Users_fullname'] ?></h5>-->	
+			 <h5><?php echo $row1['App_Logs_CreatedBy'] ?></h5>
+			 <h5><?php echo $row['App_Logs_CreatedOn'] ?></h5>
 			 
 			 </div>
 			 </div>
