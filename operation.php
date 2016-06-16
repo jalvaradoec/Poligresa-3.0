@@ -2158,13 +2158,13 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				*/
 				
-				//$sql = "select * from App_Logs where App_Logs_Id='".$_GET['task_id']."'";
-				//	inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
+				//$sql = "select * from App_Logs where App_Logs_Id='".$_GET['task_id']."'";				
 				
 				$sql = "select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
 						from App_Logs l 
 						inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_fullname
 						where l.App_Logs_Id='".$_GET['task_id']."' ";
+				echo $sql; die();
 				
 				$result = mysql_query($sql);
 				$row=mysql_fetch_array($result);
@@ -2184,7 +2184,7 @@ $(document).ready(function(){
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <!--<td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td> -->
+                  <!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
 				  <td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
                 </tr>
 			     <tr>
