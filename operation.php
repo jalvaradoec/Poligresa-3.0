@@ -2357,27 +2357,14 @@ $(document).ready(function(){
 						</div>
 					</div>
 					
-				</div>
-				
-								
-				<div class="col-lg-4" >    
-					   <h4>Task</h4>
-			   
-						<div class="form-group">
-						  <textarea class="form-control" rows="5" name="task" required ><?php echo $row['App_Task_Description'] ?></textarea>
+					<div class="form-group" style="margin-left: -65%;">
+						<label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
+						<div class="col-sm-12" style="width: 100%;">
+							<textarea class="form-control" value="<?php echo $row['App_Logs_Notes']; ?>" rows="5" name="outcome" required=""></textarea>
 						</div>
-				
-				  </div>
-				  
-				  
-				   <div class="col-lg-12">    
-					   <h4>Outcome</h4>
-			   
-						<div class="form-group">
-						  <textarea class="form-control" rows="3" name="outcome" ><?php echo $row['App_Task_Outcome'] ?></textarea>
-						</div>
-				
-				  </div>
+					</div>
+					
+				</div>							  				 
 			</div>  
 		  
      
