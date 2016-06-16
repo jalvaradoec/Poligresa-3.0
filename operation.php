@@ -2250,10 +2250,10 @@ $(document).ready(function(){
 							<select class="form-control" name="type" style="width:122%" required>
 								<option value=""> ----Select Respuesta---</option>
 								<?php
-									$ddl_secl = mysql_query("select  App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Answer'");
-									while ($r = mysql_fetch_assoc($ddl_secl)) {
+									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Answer'");
+									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
 								?>				
-										<option <?php if($row['App_Logs_Answer']==$r['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r[App_Aux_text]; ?></option>					
+										<option <?php if($row['App_Logs_Answer']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r_res[App_Aux_text]; ?></option>					
 								<?php
 									}							
 								?>
