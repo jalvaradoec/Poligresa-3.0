@@ -1900,7 +1900,7 @@ $(document).ready(function(){
 				<div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="respuesta" >
+				  <select class="form-control" name="respuesta" required >
                     <option value=""> Select Respuesta </option>
 					<?php
 						$ddl_secl_res = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Answer'");
@@ -1915,7 +1915,7 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control comp" name="comp" >
+                   <input type="text" class="form-control comp" name="comp" required >
 				   <!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
 				   </div>
                 </div>
@@ -1947,7 +1947,7 @@ $(document).ready(function(){
             <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="contacto" style="width: 188px;">
+				  <select class="form-control" name="contacto" style="width: 188px;" required>
                     <option value=""> Select Contacto </option>
 					<?php
 						$ddl_secl_contact = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Relation'");
@@ -1963,7 +1963,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="dateselector" name="fecha" class="form-control" style="width: 150px;">
+                    <input type="date" id="dateselector" name="fecha" class="form-control" style="width: 150px;" required>
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1985,7 +1985,7 @@ $(document).ready(function(){
                  <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="tipo" >
+				  <select class="form-control" name="tipo" required >
                     <option value=""> Select Tipo </option>
 					<?php
 						$ddl_secl_tipo = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
@@ -2007,7 +2007,7 @@ $(document).ready(function(){
 				<div class="form-group" style="margin-left: -65%;">
                   <label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
                   <div class="col-sm-12" style="width: 100%;">
-                   <textarea class="form-control" rows="5" name="outcome" required=""></textarea>
+                   <textarea class="form-control" rows="5" name="outcome" required ></textarea>
 				   </div>
                 </div>
 		  </div>
