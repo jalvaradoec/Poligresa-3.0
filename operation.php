@@ -2137,22 +2137,34 @@ $(document).ready(function(){
    <div class="modal fade" id="Oper_EditACtivities" role="dialog">
 	 <div class="modal-dialog">
 		 
-     <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Activity</h4>
-        </div>
+		<!-- Model popup for Update -->	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Activity</h4>
+			</div>
 		<?php
 				//$sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-			    $sql="select * from App_Tasks WHERE App_Task_ID =".$_GET['task_id'];
+			    /*
+				$sql="select * from App_Tasks WHERE App_Task_ID =".$_GET['task_id'];
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				$datetime=explode(" ",$row['App_Task_DueDateTime']);
 				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
+					
 				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
+				*/
+				
+				$sql = "select * from App_Logs where App_Logs_Id='".$_GET['task_id']."'";
+				$result = mysql_query($sql);
+				$row=mysql_fetch_array($result);
+				
+				
+				
+				//Client fullname display
 				$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$result3=mysql_query($sql3);
 				$row3=mysql_fetch_array($result3);
@@ -2165,7 +2177,8 @@ $(document).ready(function(){
                 <tbody>
 				<tr>
                   <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td>          
+                  <!--<td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td> -->
+				  <td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
                 </tr>
 			     <tr>
                   <td class="deb_info_row">Name:</td>
