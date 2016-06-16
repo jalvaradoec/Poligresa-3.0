@@ -2218,7 +2218,7 @@ $(document).ready(function(){
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="type" style="width:122%" required>
+							<select class="form-control" name="type" selected="selected" style="width:122%" required>
 								<option value=""> ----Select Type---</option>
 								<?php
 									$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
@@ -2248,7 +2248,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="respuesta" style="width:122%" required>
+							<select class="form-control" name="respuesta" selected="selected" style="width:122%" required>
 								<option value=""> ----Select Respuesta---</option>
 								<?php
 									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Answer'");
@@ -2306,7 +2306,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="contacto" style="width: 188px;">
+							<select class="form-control" name="contacto" selected="selected" style="width: 188px;">
 								<option value=""> ----Select Contacto---</option>
 								<?php
 									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Relation'");
@@ -2337,7 +2337,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="tipo" >
+							<select class="form-control" name="tipo" selected="selected" >
 								<option value=""> ----Select Tipo---</option>
 								<?php
 									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
