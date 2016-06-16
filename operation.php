@@ -10,6 +10,7 @@ include_once("utils.php");
 h5
 {
 	margin:0px;
+	    margin-bottom: 10px;
 }
 
 </style>
