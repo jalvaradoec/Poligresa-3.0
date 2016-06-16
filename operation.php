@@ -2187,6 +2187,9 @@ $(document).ready(function(){
                   <!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
 				  <td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
                 </tr>
+				<tr>
+					
+				</tr>
 				<!--
 			     <tr>
                   <td class="deb_info_row">Name:</td>
@@ -2215,11 +2218,11 @@ $(document).ready(function(){
                   <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
                   <div class="col-sm-8">
 				  <select class="form-control" name="type" style="width:122%" required>
-                    <option value=""> -----------Select Type-----------</option>
+                    <option value=""> ----Select Type---</option>
                     <?php
-					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType' and App_Aux_value='".$row['App_Logs_Action']."'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
-                           if($row['App_Task_TaskType']==$r['App_Aux_value']){
+                           if($row['App_Logs_Action']==$r['App_Aux_value']){
 							$selected1= 'selected="selected"';
 						}
 						else
