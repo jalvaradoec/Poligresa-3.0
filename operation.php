@@ -7,6 +7,11 @@ include_once("utils.php");
 	text-align:right;
 }
 .activity_head1{margin-top: 0px;}
+h5
+{
+	margin:0px;
+}
+
 </style>
 <script>
 $(document).ready(function(){
