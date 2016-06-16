@@ -2264,7 +2264,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputComp" class="col-sm-4 control-label">Comp/Abono:</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Logs_TransDateTime']?>" >
+							<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Logs_TransAmmount']?>" >
 							<!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
 						</div>
 					</div>
