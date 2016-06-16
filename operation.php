@@ -2243,21 +2243,25 @@ $(document).ready(function(){
 						</div>
 					</div>
 					
+					
 					<div class="form-group">
-						<label for="inputrespuesta" class="col-sm-4 control-label">Respuesta</label>
+					<label for="inputRespuesta" class="col-sm-4 control-label">Respuesta</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="respuesta"  style="width:122%" required>
-								<option value=""> Select Respuesta </option>
+							<select class="form-control" name="type" style="width:122%" required>
+								<option value=""> ----Select Respuesta---</option>
 								<?php
-									$ddl_secl_res = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Answer'");
-									while ($r = mysql_fetch_assoc($ddl_secl_res)) {
-										echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
-									}
+									$ddl_secl = mysql_query("select  App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Answer'");
+									while ($r = mysql_fetch_assoc($ddl_secl)) {
+								?>				
+										<option <?php if($row['App_Logs_Answer']==$r['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r[App_Aux_text]; ?></option>					
+								<?php
+									}							
 								?>
-			   
 							</select>
 						</div>
 					</div>
+					
+					
 					<!--
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-4 control-label">Date</label>
