@@ -2187,11 +2187,13 @@ $(document).ready(function(){
                   <!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
 				  <td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
                 </tr>
+				<!--
 			     <tr>
                   <td class="deb_info_row">Name:</td>
 				  <!-- <td class="deb_info_row1"><?php //echo $row3['App_Clients_FullName'] ?></td> -->
-				  <td class="deb_info_row1"><?php echo $row['App_Users_fullname'] ?></td>
+				 <!-- <td class="deb_info_row1"><?php //echo $row['App_Users_fullname'] ?></td>
                 </tr>
+				-->
 				
 			 </tbody> 
 		     </table>
