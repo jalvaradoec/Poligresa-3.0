@@ -2164,7 +2164,7 @@ $(document).ready(function(){
 						from App_Logs l 
 						inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_fullname
 						where l.App_Logs_Id='".$_GET['task_id']."' ";
-				echo $sql; die();
+				//echo $sql; die();
 				
 				$result = mysql_query($sql);
 				$row=mysql_fetch_array($result);
