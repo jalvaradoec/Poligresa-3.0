@@ -2323,7 +2323,7 @@ $(document).ready(function(){
 						<label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
 						<div class="col-sm-8">
 							<div class="input-group">
-								<input type="date" id="dateselector" value="<?php echo $row['App_Logs_TransDateTime'];?>" name="fecha" class="form-control" style="width: 150px;">
+								<input type="date" id="dateselector" value="<?php echo $row['App_Logs_TransDateTime']; ?>" name="fecha" class="form-control" style="width: 150px;">
 								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>								                  
 							</div>
 						</div>
@@ -2331,10 +2331,36 @@ $(document).ready(function(){
 					
 				</div>
 				
+				<div class="col-lg-4" >   
 				
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
+						<div class="col-sm-8">
+							<select class="form-control" name="tipo" >
+								<option value=""> ----Select Tipo---</option>
+								<?php
+									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
+									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
+								?>	 
+									<option <?php if($row['App_Logs_Type']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r_res[App_Aux_text]; ?></option>					
+								<?php
+									}							
+								?>               
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-4 control-label">Hora:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="hora">
+						</div>
+					</div>
+					
+				</div>
 				
-				
-				  <div class="col-lg-4" >    
+								
+				<div class="col-lg-4" >    
 					   <h4>Task</h4>
 			   
 						<div class="form-group">
