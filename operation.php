@@ -2163,7 +2163,7 @@ $(document).ready(function(){
 				
 				$sql = "select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
 						from App_Logs l 
-						left join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_fullname
+						inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_fullname
 						where l.App_Logs_Id='".$_GET['task_id']."' ";
 				
 				$result = mysql_query($sql);
