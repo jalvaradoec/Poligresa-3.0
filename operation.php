@@ -561,7 +561,9 @@ $(document).ready(function(){
                   <td><?php echo $row['App_Logs_TransAmmount']; ?></td>
                   <td><?php echo $row['App_Logs_TransDateTime']; ?></td>
 				  <td><?php echo $row['App_Logs_Notes']; ?></td>
+				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
 				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>
+				  <?php } ?>
                 </tr>
 				<!--
                 <tr>
@@ -2138,7 +2140,7 @@ $(document).ready(function(){
         </div>
       </form>
 	  </div>
-      test
+      
     </div>
   </div>
    <div class="modal fade" id="Oper_EditACtivities" role="dialog" style="width: 150%;margin-left: -24%;"> 
