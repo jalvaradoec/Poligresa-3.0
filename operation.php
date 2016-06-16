@@ -2158,13 +2158,15 @@ $(document).ready(function(){
 				$row1=mysql_fetch_array($result1);
 				*/
 				
-				//$sql = "select * from App_Logs where App_Logs_Id='".$_GET['task_id']."'";				
+				//$sql = "select * from App_Logs where App_Logs_Id='".$_GET['task_id']."'";	
+				
+				
 				
 				$sql = "select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
 						from App_Logs l 
 						inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_fullname
 						where l.App_Logs_Id='".$_GET['task_id']."' ";
-				//echo $sql; die();
+				echo $sql; die();
 				
 				$result = mysql_query($sql);
 				$row=mysql_fetch_array($result);
