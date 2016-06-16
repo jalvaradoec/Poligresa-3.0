@@ -2360,7 +2360,7 @@ $(document).ready(function(){
 					<div class="form-group" style="margin-left: -65%;">
 						<label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
 						<div class="col-sm-12" style="width: 100%;">
-							<textarea class="form-control" value="<?php echo $row['App_Logs_Notes']; ?>" rows="5" name="outcome" required=""></textarea>
+							<textarea class="form-control" rows="5" name="outcome" required=""> <?php echo $row['App_Logs_Notes']; ?></textarea>
 						</div>
 					</div>
 					
