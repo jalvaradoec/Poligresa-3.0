@@ -2254,7 +2254,7 @@ $(document).ready(function(){
 									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Answer'");
 									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
 								?>				
-										<option <?php if($row['App_Logs_Answer']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r_res[App_Aux_text]; ?></option>					
+										<option <?php if($row['App_Logs_Answer']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
 								<?php
 									}							
 								?>
@@ -2312,7 +2312,7 @@ $(document).ready(function(){
 									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Relation'");
 									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
 								?>	 
-									<option <?php if($row['App_Logs_Contact']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r_res[App_Aux_text]; ?></option>					
+									<option <?php if($row['App_Logs_Contact']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
 								<?php
 									}							
 								?>
@@ -2343,7 +2343,7 @@ $(document).ready(function(){
 									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
 									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
 								?>	 
-									<option <?php if($row['App_Logs_Type']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> > <?php echo $r_res[App_Aux_text]; ?></option>					
+									<option <?php if($row['App_Logs_Type']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
 								<?php
 									}							
 								?>               
