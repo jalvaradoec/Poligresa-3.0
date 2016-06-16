@@ -2177,6 +2177,7 @@ $(document).ready(function(){
 				$row3=mysql_fetch_array($result3);
 		?>
 		<form class="form-horizontal" method="post" action="">
+		<input type="hidden" name="applogsid" value="<?php echo $row['App_Logs_Id'] ?>" />
 		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:65%">  
@@ -2247,7 +2248,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
 						<div class="col-sm-8">
-							<select class="form-control" name="type" style="width:122%" required>
+							<select class="form-control" name="respuesta" style="width:122%" required>
 								<option value=""> ----Select Respuesta---</option>
 								<?php
 									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Answer'");
@@ -2323,7 +2324,7 @@ $(document).ready(function(){
 						<label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
 						<div class="col-sm-8">
 							<div class="input-group">
-								<input type="date" id="dateselector" value="<?php echo $row['App_Logs_TransDateTime']; ?>" name="fecha" class="form-control" style="width: 150px;">
+								<input type="date" id="dateselector" name="fecha" value="<?php echo $row['App_Logs_TransDateTime']; ?>" name="fecha" class="form-control" style="width: 150px;">
 								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>								                  
 							</div>
 						</div>
@@ -2365,13 +2366,11 @@ $(document).ready(function(){
 					</div>
 					
 				</div>							  				 
-			</div>  
-		  
-     
+			</div>  		      
          </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-info pull-left" name="updateactivity"><i class="fa fa-plus"></i>Update</button>
-              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+			<button type="submit" class="btn btn-info pull-left" name="updateactivity"><i class="fa fa-plus"></i>Update</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </form>
 	  </div>
@@ -3216,9 +3215,13 @@ if (isset($_POST['save'])) {
 		}
 		echo "<script>window.location.href='operation.php';</script>";
 }
-if (isset($_POST['updateactivity'])) {
-        $sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
-        mysql_query($sql);
+if (isset($_POST['updateactivity'])) {	
+        //$sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
+		
+		$sql = "update App_Logs set App_Logs_Action='".$_POST['type']."', App_Logs_Answer='".$_POST['respuesta']."', App_Logs_TransAmmount='".$_POST['comp']."',App_Logs_Contact='".$_POST['contacto']."',App_Logs_TransDateTime='".$_POST['fecha']."', App_Logs_Type='".$_POST['tipo']."',App_Logs_Notes='".$_POST['outcome']."'  where App_Logs_Id = '".$_POST['applogsid']."'";
+        echo $sql; die();
+		mysql_query($sql);
+		
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['create'])) {
