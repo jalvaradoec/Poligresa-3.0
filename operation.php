@@ -2222,15 +2222,22 @@ $(document).ready(function(){
                     <?php
 					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType' and App_Aux_value='".$row['App_Logs_Action']."'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
+					
+					?>
+					<option if($row['App_Logs_Action']==$r['App_Aux_value']){ 'selected="selected"'  }> <?php echo $r[App_Aux_text] ?></option>
+					/*
                            if($row['App_Logs_Action']==$r['App_Aux_value']){
 							$selected1= 'selected="selected"';
+							
 						}
 						else
 						{
 							$selected1='';
 						}
-                           echo "<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                           echo " <!--<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option> -->";
+						*/
                     }
+				
                     ?>
                 </select>
                 </div>
