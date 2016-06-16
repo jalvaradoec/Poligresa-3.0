@@ -2212,7 +2212,7 @@ $(document).ready(function(){
           </div>
 		  
 		<div class="box-body">
-			<div class="col-lg-6" style="margin-left:-41px">	
+			<div class="col-lg-4" >	
 			
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
@@ -2297,25 +2297,41 @@ $(document).ready(function(){
 						</div>
 					</div> 
 					
-		  </div>
-		
-		  <div class="col-lg-6" style="margin-left:41px">    
-			   <h4>Task</h4>
-       
-			    <div class="form-group">
-                  <textarea class="form-control" rows="5" name="task" required ><?php echo $row['App_Task_Description'] ?></textarea>
-                </div>
-		
-		  </div>
-		   <div class="col-lg-12">    
-			   <h4>Outcome</h4>
-       
-			    <div class="form-group">
-                  <textarea class="form-control" rows="3" name="outcome" ><?php echo $row['App_Task_Outcome'] ?></textarea>
-                </div>
-		
-		  </div>
-		  </div>  
+				</div>
+				
+				<div class="col-lg-4"> 
+				
+				 <div class="col-lg-4" >    
+					   <h4>Task</h4>
+			   
+						<div class="form-group">
+						  <textarea class="form-control" rows="5" name="task" required ><?php echo $row['App_Task_Description'] ?></textarea>
+						</div>
+				
+				  </div>
+				
+				</div>
+				
+				
+				  <div class="col-lg-4" >    
+					   <h4>Task</h4>
+			   
+						<div class="form-group">
+						  <textarea class="form-control" rows="5" name="task" required ><?php echo $row['App_Task_Description'] ?></textarea>
+						</div>
+				
+				  </div>
+				  
+				  
+				   <div class="col-lg-12">    
+					   <h4>Outcome</h4>
+			   
+						<div class="form-group">
+						  <textarea class="form-control" rows="3" name="outcome" ><?php echo $row['App_Task_Outcome'] ?></textarea>
+						</div>
+				
+				  </div>
+			</div>  
 		  
      
          </div>
