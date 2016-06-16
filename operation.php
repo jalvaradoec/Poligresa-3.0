@@ -2224,7 +2224,7 @@ $(document).ready(function(){
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
 					
 					?>
-					<option if($row['App_Logs_Action']==$r['App_Aux_value']){ 'selected="selected"'  }> <?php echo $r[App_Aux_text] ?></option>
+					<option <?php if($row['App_Logs_Action']==$r['App_Aux_value']){ 'selected="selected"'  } ?>> <?php echo $r[App_Aux_text] ?></option>
 					/*
                            if($row['App_Logs_Action']==$r['App_Aux_value']){
 							$selected1= 'selected="selected"';
