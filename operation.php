@@ -2220,11 +2220,11 @@ $(document).ready(function(){
 				  <select class="form-control" name="type" style="width:122%" required>
                     <option value=""> ----Select Type---</option>
                     <?php
-					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType' and App_Aux_value='".$row['App_Logs_Action']."'");
+					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
                     while ($r = mysql_fetch_assoc($ddl_secl)) {
 					
 					?>
-					<option <?php if($row['App_Logs_Action']==$r['App_Aux_value']){ 'selected="selected"'  } ?>> <?php echo $r[App_Aux_text] ?></option>
+					<option <?php if($row['App_Logs_Action']==$r['App_Aux_value']){ 'selected="selected"' } ?> > <?php echo $r[App_Aux_text] ?></option>
 					/*
                            if($row['App_Logs_Action']==$r['App_Aux_value']){
 							$selected1= 'selected="selected"';
