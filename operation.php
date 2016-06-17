@@ -2154,16 +2154,13 @@ $(document).ready(function(){
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">Activity Update</h4>													
-						<?php
-							echo $_GET['task_id']; 
+						<?php							
 							$sql = "select l.App_Logs_Id,l.App_Logs_CreatedOn,l.App_Logs_DateTime,l.App_Logs_ClientID,l.App_Logs_Answer,l.App_Logs_Action,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
 									from App_Logs l 
 									inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_ID
 									where l.App_Logs_Id='".$_GET['task_id']."' ";								
 							$result = mysql_query($sql);
 							$row=mysql_fetch_array($result);
-							
-							echo $row['App_Logs_Id'];
 							
 							
 							//Client fullname display
@@ -3311,6 +3308,7 @@ if (isset($_POST['save'])) {
 if (isset($_POST['updateactivity'])) {
         //$sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
         $sql = "update App_Logs set App_Logs_Action='".$_POST['type']."', App_Logs_Answer='".$_POST['respuesta']."', App_Logs_TransAmmount='".$_POST['comp']."',App_Logs_Contact='".$_POST['contacto']."',App_Logs_TransDateTime='".$_POST['fecha']."', App_Logs_Type='".$_POST['tipo']."',App_Logs_Notes='".$_POST['outcome']."' where App_Logs_Id = '".$_POST['applogsid']."'";        		
+		echo $sql; die();
 		mysql_query($sql);
         echo "<script>window.location.href='operation.php';</script>";
 }
