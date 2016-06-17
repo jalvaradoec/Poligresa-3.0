@@ -2336,7 +2336,7 @@ $(document).ready(function(){
 	  
 	  <!-- Rahul add calculate -->
 	  
-	  <div class="modal fade" id="Oper_Transactions" role="dialog">
+	  <div class="modal fade" id="Oper_Calculations" role="dialog">
 	 <div class="modal-dialog">
     
       <!-- Modal content-->
