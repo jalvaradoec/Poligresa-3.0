@@ -1699,94 +1699,95 @@ $(document).ready(function(){
 						$result1=mysql_query($sql1);
 						$row2=mysql_fetch_array($result1);
 						$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
-			?>											
-			<div class="modal-body">   					
-				<div class="box-body">
-					<div class="col-lg-4">
-					
-						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control curdebt" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
+			?>	
+			<form class="form-horizontal" method="post" action="">
+				<div class="modal-body">   					
+					<div class="box-body">
+						<div class="col-lg-4">
+						
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control curdebt" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
+								</div>
 							</div>
+						
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
+								</div>
+							</div>          
 						</div>
-					
-						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
+						<div class="col-lg-4">					   
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
+								</div>
 							</div>
-						</div>          
-					</div>
-					<div class="col-lg-4">					   
-						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
-							</div>
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control balance2" name="balance2" readonly="">
+								</div>
+							</div>												  
 						</div>
-						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control balance2" name="balance2" readonly="">
+						
+						<div class="col-lg-4">             
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control balance1" name="balance1" readonly="">
+								</div>
 							</div>
-						</div>												  
-					</div>
-					
-					<div class="col-lg-4">             
-						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control balance1" name="balance1" readonly="">
-							</div>
-						</div>
-						<div class="form-group">							
-							<label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control interest" name="interest" readonly="">
-							</div>
-						</div>		  
+							<div class="form-group">							
+								<label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control interest" name="interest" readonly="">
+								</div>
+							</div>		  
+						</div>  
 					</div>  
-				</div>  
-				<div class="box-body">
-					<div class="col-lg-10" style="border:1px solid;margin-left: 70px;background-color: lightyellow;">						 
-						<div class="form-group" style="margin-top: 16px;">
-							<label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
+					<div class="box-body">
+						<div class="col-lg-10" style="border:1px solid;margin-left: 70px;background-color: lightyellow;">						 
+							<div class="form-group" style="margin-top: 16px;">
+								<label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
+								</div>
 							</div>
-						</div>
-						
-						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
-							<div class="col-sm-2" style="margin-left: -21px;">
-								<input type="text" class="form-control shares" name="shares">
+							
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
+								<div class="col-sm-2" style="margin-left: -21px;">
+									<input type="text" class="form-control shares" name="shares">
+								</div>
+								<label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
+								</div>
 							</div>
-							<label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
-							<div class="col-sm-2" style="margin-left: -19px;">
-								<input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
-							</div>
-							<label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
-							<div class="col-sm-4">
-								<div class="input-group">
-									<input type="date" name="startdate" class="form-control">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
+							
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
+								<div class="col-sm-2" style="margin-left: -19px;">
+									<input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
+								</div>
+								<label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
+								<div class="col-sm-4">
+									<div class="input-group">
+										<input type="date" name="startdate" class="form-control">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>		 				
-			
+				</div>		 				
+			</form>
 		</div>      
 	</div>	
   <!-- end calculation -->
