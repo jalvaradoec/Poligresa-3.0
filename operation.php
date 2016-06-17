@@ -1489,7 +1489,7 @@ $(document).ready(function(){
 		
 		 <!-- Modal content-->
 			<div class="modal-content" style="width: 150%;margin-left: -24%;">
-			
+				<form class="form-horizontal" method="post" action="">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Calculations</h4>
@@ -1573,7 +1573,7 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>							
-				
+				</form>
 			</div>		
 		</div>	
 	</div>
