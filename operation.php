@@ -1488,13 +1488,56 @@ $(document).ready(function(){
 		<div class="modal-dialog">
 		
 		 <!-- Modal content-->
-		<div class="modal-content" style="width: 150%;margin-left: -24%;">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Calculations</h4>
-			</div>
-		</div>
-		
+			<div class="modal-content" style="width: 150%;margin-left: -24%;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Calculations</h4>
+				</div>
+				<div class="box-body">
+					<div class="col-lg-4">		     
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control curdebt" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
+							</div>
+						</div>                           
+					</div>
+					<div class="col-lg-4">			   
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control balance2" name="balance2" readonly="">
+							</div>
+						</div>								   
+					</div>
+					<div class="col-lg-4">             
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control balance1" name="balance1" readonly="">
+							</div>
+						</div>
+						<div class="form-group">					
+							<label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control interest" name="interest" readonly="">
+							</div>
+						</div>				 			  		 
+					</div>  
+				</div>
+			</div>		
 		</div>	
 	</div>
 	
