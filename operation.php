@@ -1795,7 +1795,7 @@ $(document).ready(function(){
 		</div>      
 	</div>	
   <!-- end calculation -->
-  
+  </div>
   
   
   
