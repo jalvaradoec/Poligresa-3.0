@@ -2429,7 +2429,7 @@ $(document).ready(function(){
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
+										<input type="text" class="form-control dpayment1" name="dpayment" onchange="setTwoNumberDecimal11()" >
 									</div>
 								</div>										  
 							</div>
@@ -3308,13 +3308,19 @@ function setTwoNumberDecimal() {
 	var dis2=parseFloat(dis1).toFixed(2);
 	$('.discount').val(dis2);
 }
-function setTwoNumberDecimal1() {
-	alert("Rahul")
-	var dis3=$('.dpayment').val();
-	alert(dis3);
+function setTwoNumberDecimal1() {	
+	var dis3=$('.dpayment').val();	
 	var dis4=parseFloat(dis3).toFixed(2);
 	$('.dpayment').val(dis4);
 }
+
+//rahul add
+function setTwoNumberDecimal11() {	
+	var dis3=$('.dpayment1').val();	
+	var dis4=parseFloat(dis3).toFixed(2);
+	$('.dpayment1').val(dis4);
+}
+
 var Alerter = {
 		Wait : 1, 
 		Timer : null,
