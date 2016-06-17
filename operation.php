@@ -6,6 +6,12 @@ include_once("utils.php");
 .textalign{
 	text-align:right;
 }
+.activity_head1{margin-top: 0px;}
+h5
+{
+	margin:0px;
+	    margin-bottom: 10px;
+}
 </style>
 <script>
 $(document).ready(function(){
@@ -487,16 +493,49 @@ $(document).ready(function(){
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+					<th>F.Ingreso</th>
+					<th>Respuesta</th>
+					<th>Contacto</th>
+					<th>Telefono</th>
+					<th>valro</th>
+					<th>F.Comp.</th>
+					<th>Comentarios</th>
+					<th></th>
+				<!--
                   <th>Done</th>
                   <th>User</th>
                   <th>Date/Time</th>
                   <th>Type</th>
                   <th>Obervations</th>
                   <th></th>
+				  -->
                 </tr>
                 </thead>
                 <tbody>
 				<?php
+				/*
+					$sqldate = "select App_Logs_DateTime from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";					
+					$resultdate=mysql_query($sqldate);
+					$rowdate=mysqli_fetch_array($resultdate);
+					
+					$sqlrespu = "select App_Logs_Answer from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";
+					$resultrespu=mysql_query($sqlrespu);
+					$resultrespu=mysqli_fetch_array($resultrespu);
+					*/										
+							
+					$sql="select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,a.App_Aux_text as respuesta,aa.App_Aux_text as contactto,aaa.App_Aux_text as telefono
+							from App_Logs l 
+							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
+							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
+							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
+							where App_Logs_OperationID = '035866320130617000' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' ";																	
+					$result=mysql_query($sql);
+					
+					while($row=mysql_fetch_array($result)){ 
+					
+					
+					/*
+				
 			   $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." order by App_Task_ID desc limit 15";
 				$result=mysql_query($sql);
 				//$row=mysql_fetch_array($result);
@@ -508,26 +547,44 @@ $(document).ready(function(){
 				$sql2="select * from App_Aux WHERE App_Aux_value = '".$row['App_Task_TaskType']."' and App_Aux_field = 'TaskType'";
 				$result2=mysql_query($sql2);
 				$row2=mysql_fetch_array($result2);
+				*/
 				
 				?>
+								
                 <tr>
-				  <td><input type="checkbox" <?php echo $checked; ?> value="1" class="chk_active" id="<?php echo $row['App_Task_ID']; ?>" /></td>
-                  <td><?php echo $row1['App_Users_fullname'] ?></td>
-                  <td><?php echo $row['App_Task_DueDateTime'] ?></td>
-                  <td><?php echo $row2['App_Aux_text'] ?></td>
-                  <td><?php echo $row['App_Task_Description'] ?> </td>
-                  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
+				  <td><?php echo $row['App_Logs_DateTime']; ?></td>
+                  <td><?php echo $row['respuesta']; ?>	</td>
+                  <td><?php echo $row['contactto']; ?></td>
+                  <td><?php echo $row['telefono']; ?></td>
+                  <td><?php echo $row['App_Logs_TransAmmount']; ?></td>
+                  <td><?php echo $row['App_Logs_TransDateTime']; ?></td>
+				  <td><?php echo $row['App_Logs_Notes']; ?></td>
+				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
+				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>
+				  <?php } ?>
                 </tr>
+				<!--
+                <tr>
+				  <td><input type="checkbox" <?php //echo $checked; ?> value="1" class="chk_active" id="<?php //echo $row['App_Task_ID']; ?>" /></td>
+                  <td><?php //echo $row1['App_Users_fullname'] ?></td>
+                  <td><?php// echo $row['App_Task_DueDateTime'] ?></td>
+                  <td><?php //echo $row2['App_Aux_text'] ?></td>
+                  <td><?php// echo $row['App_Task_Description'] ?> </td>
+                  <td><a href="" data-toggle="modal" data-id="<?php //echo $row['App_Task_ID'] ?>" class="editactivity">Edit</a></td>
+                </tr>
+				-->
 				<?php } ?>
 		   </tbody>
                 <tfoot>
                 <tr>
-                  <th>Done</th>
-                  <th>User</th>
-                  <th>Date/Time</th>
-                  <th>Type</th>
-                  <th>Obervations</th>
-                  <th></th>
+					<th>F.Ingreso</th>
+					<th>Respuesta</th>
+					<th>Contacto</th>
+					<th>Telefono</th>
+					<th>valro</th>
+					<th>F.Comp.</th>
+					<th>Comentarios</th>
+					<th></th>
                 </tr>
                 </tfoot>
               </table>
