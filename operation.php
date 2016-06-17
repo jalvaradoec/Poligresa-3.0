@@ -1847,6 +1847,8 @@ $(document).ready(function(){
 		<form class="form-horizontal" method="post" action="">
 		<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
 		<input type="hidden" name="debtorid" value="<?php echo $row['App_Task_DebtorID'] ?>"/>
+		<input type="hidden" name="createdon" value="<?php echo $row['App_Task_CreatedOn'] ?>" />
+		<input type="hidden" name="opertionid" value="<?php echo $_GET['operno'] ?>" />
 		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:82%">  
@@ -1856,10 +1858,11 @@ $(document).ready(function(){
                   <td class="deb_info_row">ID:</td>
                   <td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td>          
                 </tr>
-			     <tr>
+			     <!--<tr>
                   <td class="deb_info_row">Name:</td>
 				  <td class="deb_info_row1"><?php echo $row3['App_Clients_FullName'] ?></td>          
                 </tr>
+				-->
 				
 			 </tbody> 
 		     </table>
@@ -1893,8 +1896,14 @@ $(document).ready(function(){
 				<div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="respuesta" >
+				  <select class="form-control" name="respuesta" required >
                     <option value=""> Select Respuesta </option>
+					<?php
+						$ddl_secl_res = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Answer'");
+						while ($r = mysql_fetch_assoc($ddl_secl_res)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+						}
+                    ?>
                    
                 </select>
                 </div>
@@ -1902,20 +1911,22 @@ $(document).ready(function(){
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
-                   <input type="text" class="form-control comp" name="comp" >
+                   <input type="text" class="form-control comp" name="comp" required >
 				   <!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
 				   </div>
                 </div>
-            <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Task:</label>
+				<!--
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-4 control-label">Task:</label>
                   
-  <div class="col-sm-12" style="width: 150%;">
-                   <textarea class="form-control" rows="5" name="task" required=""></textarea>
-				   </div>
+					<div class="col-sm-12" style="width: 150%;">
+						<textarea class="form-control" rows="5" name="task" required=""></textarea>
+					</div>
                 </div>
+				-->
 		  </div>
 		<div class="col-lg-4">
-		     
+				<!--
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
                   <div class="col-sm-8">
@@ -1927,12 +1938,19 @@ $(document).ready(function(){
 					</div>
                   </div>
                 </div>
+				-->
                 
             <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="contacto" style="width: 188px;">
+				  <select class="form-control" name="contacto" style="width: 188px;" required>
                     <option value=""> Select Contacto </option>
+					<?php
+						$ddl_secl_contact = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Relation'");
+						while ($r = mysql_fetch_assoc($ddl_secl_contact)) {
+                        echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+                    }
+                    ?>
                    
                 </select>
                 </div>
@@ -1941,7 +1959,7 @@ $(document).ready(function(){
                   <label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
                   <div class="col-sm-8">
                     <div class="input-group">
-                    <input type="date" id="dateselector" name="fecha" class="form-control" style="width: 150px;">
+                    <input type="date" id="dateselector" name="fecha" class="form-control" style="width: 150px;" required>
 				   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
@@ -1950,19 +1968,27 @@ $(document).ready(function(){
                 </div>
 		  </div>
 		  <div class="col-lg-4">
-		     
+				<!--
                <div class="form-group">
                  <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
 				 <div class="col-sm-8">
 				
+				
 				 <input type="time" class="form-control" id="timeselector" name="time" required>
                  </div>
                 </div>
+				-->
                  <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
                   <div class="col-sm-8">
-				  <select class="form-control" name="tipo" >
+				  <select class="form-control" name="tipo" required >
                     <option value=""> Select Tipo </option>
+					<?php
+						$ddl_secl_tipo = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
+						while ($r = mysql_fetch_assoc($ddl_secl_tipo)) {
+                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+						}
+                    ?>
                    
                 </select>
                 </div>
@@ -1973,10 +1999,11 @@ $(document).ready(function(){
                    <input type="text" class="form-control" name="hora">
 				   </div>
                 </div>
+				
 				<div class="form-group" style="margin-left: -65%;">
                   <label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
                   <div class="col-sm-12" style="width: 100%;">
-                   <textarea class="form-control" rows="5" name="outcome" required=""></textarea>
+                   <textarea class="form-control" rows="5" name="outcome" required ></textarea>
 				   </div>
                 </div>
 		  </div>
@@ -2106,14 +2133,11 @@ $(document).ready(function(){
      
          </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
-              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+			<button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
         </div>
       </form>
 	  </div>
-      
-    </div>
-  </div>
    <div class="modal fade" id="Oper_EditACtivities" role="dialog">
 	 <div class="modal-dialog">
 		 
