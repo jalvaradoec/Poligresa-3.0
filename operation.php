@@ -2334,194 +2334,184 @@ $(document).ready(function(){
 	  
 	  <!--end Rahul update Add -->
 	  
-	  <!-- Rahul add calculate -->
+		<!-- Rahul add calculate -->
 	  
-	  <div class="modal fade" id="Oper_Calculations" role="dialog">
-	 <div class="modal-dialog">
+		<div class="modal fade" id="Oper_Calculations" role="dialog">
+			<div class="modal-dialog">
     
-      <!-- Modal content-->
-      <div class="modal-content" style="width: 150%;margin-left: -24%;">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">New Agreement</h4>
-        </div>
-		<?php 
-		if(isset($_GET['operno'])){
-			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ap.App_Amortization_BankOperation =".$_GET["operno"];
-		}
-		else
-		{
-			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-		}
-		$result=mysql_query($sql);
-		$row=mysql_fetch_array($result);
-		$interst=$row['App_Credits_BankTotalCredit']*0.18;
-				$initialdebt=$row['App_Credits_BankTotalCredit']+$interst;
-				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
-				$collectionfee=$initialdebt*0.2;
-				$currdebt=$debt+$collectionfee-150;
-		$sql2="select * from App_Agreement WHERE App_Agreement_DebtorID =".$row['App_Credits_DebtorId'];
-				$result2=mysql_query($sql2);
-				$row1=mysql_fetch_array($result2);
-				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Users WHERE App_Users_ID =".$_SESSION["logged_in_user"]["App_Users_ID"];
-				$result1=mysql_query($sql1);
-				$row2=mysql_fetch_array($result1);
-				$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
-		?>
-		<form class="form-horizontal" method="post" action="">
-		<input type="hidden" name="hiddebt" class="hiddebt" value="<?php echo $debt ?>" />
-		<input type="hidden" name="operationid" value="<?php echo $row['App_Amortization_BankOperation'];?>" />
-		<input type="hidden" name="debtid" value="<?php echo $row['App_Credits_DebtorId'] ?>" />
-		<div class="modal-body">   
-		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv" style="width:82%">  
-		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
-			    <table class="activity_tbl" style="margin-top:0px">
-				<tbody>
-				<tr>
-                  <td class="deb_info_row">Cedula/RUC:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
-				  <td class="deb_info_row"></td>
-				  <td class="deb_info_row">Agreement</td>&nbsp;
-				  <td class="deb_info_row">Status</td>
-                </tr>
-			     <tr>
-                  <td class="deb_info_row">Number:</td>
-				  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
-				  <td class="deb_info_row"></td>
-				  <td class="deb_info_row">
-				  <select class="form-control" name="status" style="width:228%">
-                    <option value="">Select Agreement Status</option>
-                    <?php
-					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
-                    while ($r = mysql_fetch_assoc($ddl_secl)) {
-                           echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
-                    }
-                    ?>
-                </select>
-				</td>
-                </tr>
-				<tr>
-                  <td class="deb_info_row">Operation:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'];?></td>          
-                </tr>
-			</tbody> 
-		     </table>
-			 </div>
-			 <div class="col-lg-4" style="float: right;width: 18%;">
-			 <div class="activity_head1" style="margin-left:0px">
-			 <h4><?php echo $row2['App_Users_fullname'] ?></h4>
-			 <h4><?php echo $CreatedOn[0] ?></h4>
-			 <h4><?php echo $CreatedOn[1] ?></h4>
-			 </div>
-			 </div>
-          </div>
-		<div class="box-body">
-		  <div class="col-lg-4">
-		     
-                <div class="form-group">
-                 <label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
-                  <div class="col-sm-8">
-                  <input type="text" class="form-control curdebt" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
-                </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
-                  </div>
-                </div>
-                
-           
-		  </div>
-			<div class="col-lg-4">
-		   
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
-                  <div class="col-sm-8">
-                  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
-                </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
-                  <div class="col-sm-8">
-                   <input type="text" class="form-control balance2" name="balance2" readonly="">
-				   </div>
-                </div>
-                
-           
-		  </div>
-		  <div class="col-lg-4">
-             
-			    <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
-                  <div class="col-sm-8">
-                  <input type="text" class="form-control balance1" name="balance1" readonly="">
-                </div>
-                </div>
-				 <div class="form-group">
-				 	
-                  <label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
-                  <div class="col-sm-8">
-                   <input type="text" class="form-control interest" name="interest" readonly="">
-                  </div>
-                </div>
+				<!-- Modal content-->
+				<div class="modal-content" style="width: 150%;margin-left: -24%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">New Agreement</h4>
+					</div>
+					<?php 
+					if(isset($_GET['operno'])){
+						$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ap.App_Amortization_BankOperation =".$_GET["operno"];
+					}
+					else
+					{
+						$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+					}
+					$result=mysql_query($sql);
+					$row=mysql_fetch_array($result);
+					$interst=$row['App_Credits_BankTotalCredit']*0.18;
+							$initialdebt=$row['App_Credits_BankTotalCredit']+$interst;
+							$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
+							$collectionfee=$initialdebt*0.2;
+							$currdebt=$debt+$collectionfee-150;
+					$sql2="select * from App_Agreement WHERE App_Agreement_DebtorID =".$row['App_Credits_DebtorId'];
+							$result2=mysql_query($sql2);
+							$row1=mysql_fetch_array($result2);
+							$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
+							$sql1="select * from App_Users WHERE App_Users_ID =".$_SESSION["logged_in_user"]["App_Users_ID"];
+							$result1=mysql_query($sql1);
+							$row2=mysql_fetch_array($result1);
+							$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
+					?>
+					<form class="form-horizontal" method="post" action="">
+					<input type="hidden" name="hiddebt" class="hiddebt" value="<?php echo $debt ?>" />
+					<input type="hidden" name="operationid" value="<?php echo $row['App_Amortization_BankOperation'];?>" />
+					<input type="hidden" name="debtid" value="<?php echo $row['App_Credits_DebtorId'] ?>" />
+					<div class="modal-body">   
+						<div class="box-body  no-padding md_box">
+							<div class="col-lg-7 actv" style="width:82%">  
+								<span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
+									<table class="activity_tbl" style="margin-top:0px">
+										<tbody>
+										<tr>
+											<td class="deb_info_row">Cedula/RUC:</td>
+											<td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
+											<td class="deb_info_row"></td>
+											<td class="deb_info_row">Agreement</td>&nbsp;
+											<td class="deb_info_row">Status</td>
+										</tr>
+										<tr>
+											<td class="deb_info_row">Number:</td>
+											<td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
+											<td class="deb_info_row"></td>
+											<td class="deb_info_row">
+												<select class="form-control" name="status" style="width:228%">
+													<option value="">Select Agreement Status</option>
+													<?php
+														$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
+														while ($r = mysql_fetch_assoc($ddl_secl)) {
+															echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+														}
+													?>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td class="deb_info_row">Operation:</td>
+											<td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'];?></td>          
+										</tr>
+									</tbody> 
+								</table>
+							</div>
+							<div class="col-lg-4" style="float: right;width: 18%;">
+								<div class="activity_head1" style="margin-left:0px">
+									<h4><?php echo $row2['App_Users_fullname'] ?></h4>
+									<h4><?php echo $CreatedOn[0] ?></h4>
+									<h4><?php echo $CreatedOn[1] ?></h4>
+								</div>
+							</div>
+						</div>
+						<div class="box-body">
+							<div class="col-lg-4">
+							 
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control curdebt" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal1()" >
+									</div>
+								</div>										  
+							</div>
+							<div class="col-lg-4">
+						   
+								<div class="form-group">
+								  <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
+								  <div class="col-sm-8">
+								  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
+								</div>
+								</div>
+								<div class="form-group">
+								  <label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
+								  <div class="col-sm-8">
+								   <input type="text" class="form-control balance2" name="balance2" readonly="">
+								   </div>
+								</div>
+								
+						   
+						  </div>
+							<div class="col-lg-4">					 
+								<div class="form-group">
+								  <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
+								  <div class="col-sm-8">
+								  <input type="text" class="form-control balance1" name="balance1" readonly="">
+								</div>
+								</div>
+								 <div class="form-group">
+									
+								  <label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
+								  <div class="col-sm-8">
+								   <input type="text" class="form-control interest" name="interest" readonly="">
+								  </div>
+								</div>						 					  				 
+							</div>  
+						</div>  
+						<div class="box-body">
+							<div class="col-lg-10" style="border:1px solid;margin-left: 70px;background-color: lightyellow;">
+							 
+								<div class="form-group" style="margin-top: 16px;">
+								 <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
+								  <div class="col-sm-4">
+								  <input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
+								</div>
+								</div>
+								<div class="form-group">
+								  <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
+								  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control shares" name="shares">
+								  </div>
+								  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
+								  <div class="col-sm-4">
+									<input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
+								  </div>
+								</div>
+								<div class="form-group">
+								  <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
+								  <div class="col-sm-2" style="margin-left: -19px;">
+									<input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
+								  </div>
+								  <label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
+								  <div class="col-sm-4">
+								  <div class="input-group">
+									<input type="date" name="startdate" class="form-control">
+								   <div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								  </div>
+								  </div>
+								  </div>
+								</div>
+						  </div>
+						</div>
+					</div>
 				 
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>
+						<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+					</div>
+				</form>
+			 </div>
 			  
-		   
-		  </div>  
-		  </div>  
-      <div class="box-body">
-	  <div class="col-lg-10" style="border:1px solid;margin-left: 70px;background-color: lightyellow;">
-		     
-                <div class="form-group" style="margin-top: 16px;">
-                 <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
-                  <div class="col-sm-4">
-                  <input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
-                </div>
-                </div>
-				<div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
-                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control shares" name="shares">
-                  </div>
-				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
-				  <div class="col-sm-4">
-                    <input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
-                  </div>
-                </div>
-				<div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
-                  <div class="col-sm-2" style="margin-left: -19px;">
-                    <input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
-                  </div>
-				  <label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
-				  <div class="col-sm-4">
-				  <div class="input-group">
-                    <input type="date" name="startdate" class="form-control">
-				   <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  </div>
-                  </div>
-                </div>
-		  </div>
-         </div>
-         </div>
-		 
-        <div class="modal-footer">
-			<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>
-			<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
-        </div>
-     </form>
-	 </div>
-      
-    </div>
-  </div>
-	  
-	  
-	  
-	  
+			</div>
+		  </div>	  	  	  	
 	   <!-- end  Rahul add calculate -->
 	  
 	<div class="modal fade" id="Oper_EditACtivities" role="dialog" style="width: 150%;margin-left: -24%;">
