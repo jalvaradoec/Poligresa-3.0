@@ -2141,30 +2141,7 @@ $(document).ready(function(){
 	  </div>
 	  </div>
 	  
-		<!-- Update popup -->
-		<div class="modal fade" id="Oper_EditACtivities" role="dialog" style="width: 150%;margin-left: -24%;">
-			<div class="modal-dialog">
-		 
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Activity</h4>
-					</div>
-				
-					<form class="form-horizontal" method="post" action="">
-						<div class="modal-body">   
-			
-						</div>
-						<div class="modal-footer">
-								<button type="submit" class="btn btn-info pull-left" name="updateactivity"><i class="fa fa-plus"></i>Update</button>
-							  <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
-						</div>
-					</form>
-				</div>
-      
-			</div>
-		</div>
+		
   
   
    <div class="modal fade" id="Oper_Aggrement" role="dialog">
@@ -2951,6 +2928,8 @@ if (isset($_POST['save'])) {
         
 		$sql = "insert into App_Logs(App_Logs_CreatedBy,App_Logs_CreatedOn,App_Logs_ClientID,App_Logs_OperationID,App_Logs_DateTime,App_Logs_Action,App_Logs_Answer,App_Logs_Contact,App_Logs_Type,App_Logs_TransAmmount,App_Logs_TransDateTime,App_Logs_Notes) 
 				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['respuesta']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$_POST['fecha']."','".$_POST['outcome']."')";
+		
+		
 		mysql_query($sql);
 		$sql10="select * from App_Tasks order by App_Task_ID desc";
 		$result10=mysql_query($sql10);
