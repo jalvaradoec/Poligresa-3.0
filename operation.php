@@ -2140,141 +2140,33 @@ $(document).ready(function(){
 	  </div>
 	  </div>
 	  </div>
-   <div class="modal fade" id="Oper_EditACtivities" role="dialog" style="width: 150%;margin-left: -24%;">
-	 <div class="modal-dialog">
+	  
+		<!-- Update popup -->
+		<div class="modal fade" id="Oper_EditACtivities" role="dialog" style="width: 150%;margin-left: -24%;">
+			<div class="modal-dialog">
 		 
-     <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Activity</h4>
-        </div>
-		<?php
-				//$sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-			    $sql="select * from App_Tasks WHERE App_Task_ID =".$_GET['task_id'];
-				$result=mysql_query($sql);
-				$row=mysql_fetch_array($result);
-				$datetime=explode(" ",$row['App_Task_DueDateTime']);
-				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
-				$sql1="select * from App_Users WHERE App_Users_ID =".$row["App_Tasks_AssignedTo"];
-				$result1=mysql_query($sql1);
-				$row1=mysql_fetch_array($result1);
-				$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-				$result3=mysql_query($sql3);
-				$row3=mysql_fetch_array($result3);
-		?>
-		<form class="form-horizontal" method="post" action="">
-		<div class="modal-body">   
-		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv" style="width:65%">  
-			    <table class="activity_tbl" style="margin-top:0px">
-                <tbody>
-				<tr>
-                  <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td>          
-                </tr>
-			     <tr>
-                  <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1"><?php echo $row3['App_Clients_FullName'] ?></td>          
-                </tr>
-				
-			 </tbody> 
-		     </table>
-			 </div>
-			 <div class="col-lg-4">
-			 <div class="activity_head1" style="margin-left:0px;color:gray">
-			 <h5><?php echo $row1['App_Users_fullname'] ?></h5>
-			 <h5><?php echo $row['App_Task_CreatedOn'] ?></h5>
-			 
-			 </div>
-			 </div>
-          </div>
-		  
-		<div class="box-body">
-		  <div class="col-lg-6" style="margin-left:-41px">
-		     
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
-                  <div class="col-sm-8">
-				  <select class="form-control" name="type" style="width:122%" required>
-                    <option value=""> -----------Select Type-----------</option>
-                    <?php
-					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
-                    while ($r = mysql_fetch_assoc($ddl_secl)) {
-                           if($row['App_Task_TaskType']==$r['App_Aux_value']){
-							$selected1= 'selected="selected"';
-						}
-						else
-						{
-							$selected1='';
-						}
-                           echo "<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
-                    }
-                    ?>
-                </select>
-                </div>
-                </div>
-				<div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
-                  <div class="col-sm-8">
-                    <div class="input-group">
-                    <input type="date" id="dateselector" name="date" class="form-control" style="width: 150px;" value="<?php echo $datetime[0] ?>" required>
-				   <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Activity</h4>
 					</div>
-                  </div>
-                </div>
-                 <div class="form-group">
-                 <label for="inputPassword3" class="col-sm-4 control-label">Time</label>
-				 <div class="col-sm-8">
 				
-				 <input type="time" class="form-control" id="timeselector" name="time" value="<?php echo $datetime[1] ?>" required>
-                 </div>
-                </div>
-                 <div class="form-group">
-			  <label for="inputPassword3" class="col-sm-4 control-label">Status</label>
-			  <div class="col-sm-8">
-			   <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="status" <?php echo $checked; ?> value="1">
-                       Done
-                    </label>
-                  </div>
-              </div>
-              </div>
-            
-		  </div>
-		
-		  <div class="col-lg-6" style="margin-left:41px">    
-			   <h4>Task</h4>
-       
-			    <div class="form-group">
-                  <textarea class="form-control" rows="5" name="task" required ><?php echo $row['App_Task_Description'] ?></textarea>
-                </div>
-		
-		  </div>
-		   <div class="col-lg-12">    
-			   <h4>Outcome</h4>
-       
-			    <div class="form-group">
-                  <textarea class="form-control" rows="3" name="outcome" ><?php echo $row['App_Task_Outcome'] ?></textarea>
-                </div>
-		
-		  </div>
-		  </div>  
-		  
-     
-         </div>
-        <div class="modal-footer">
-        <button type="submit" class="btn btn-info pull-left" name="updateactivity"><i class="fa fa-plus"></i>Update</button>
-              <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
-        </div>
-      </form>
-	  </div>
+					<form class="form-horizontal" method="post" action="">
+						<div class="modal-body">   
+			
+						</div>
+						<div class="modal-footer">
+								<button type="submit" class="btn btn-info pull-left" name="updateactivity"><i class="fa fa-plus"></i>Update</button>
+							  <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+						</div>
+					</form>
+				</div>
       
-    </div>
-  </div>
+			</div>
+		</div>
+  
+  
    <div class="modal fade" id="Oper_Aggrement" role="dialog">
 	 <div class="modal-dialog">
 		 
@@ -3054,8 +2946,12 @@ if (isset($_POST['update1'])) {
         echo "<script>window.location.href='operation.php';</script>";
 }
 if (isset($_POST['save'])) {
-        $sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
-        mysql_query($sql);
+	
+		//$sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
+        
+		$sql = "insert into App_Logs(App_Logs_CreatedBy,App_Logs_CreatedOn,App_Logs_ClientID,App_Logs_OperationID,App_Logs_DateTime,App_Logs_Action,App_Logs_Answer,App_Logs_Contact,App_Logs_Type,App_Logs_TransAmmount,App_Logs_TransDateTime,App_Logs_Notes) 
+				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['respuesta']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$_POST['fecha']."','".$_POST['outcome']."')";
+		mysql_query($sql);
 		$sql10="select * from App_Tasks order by App_Task_ID desc";
 		$result10=mysql_query($sql10);
 		$row10=mysql_fetch_array($result10);
