@@ -2321,7 +2321,7 @@ $(document).ready(function(){
 							</div>
 			
 							<div class="modal-footer">
-								<button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
+								<button type="submit" class="btn btn-info pull-left" name="update"><i class="fa fa-plus"></i> Update</button>
 								<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 							</div>
 						</form>
