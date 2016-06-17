@@ -1489,7 +1489,7 @@ $(document).ready(function(){
 		
 		 <!-- Modal content-->
 			<div class="modal-content" style="width: 150%;margin-left: -24%;">
-				<form class="form-horizontal" method="post" action="">
+			
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Calculations</h4>
@@ -1538,46 +1538,42 @@ $(document).ready(function(){
 						</div>				 			  		 
 					</div>  
 				</div>
-				
-				
+								
 				<div class="box-body">
-	  <div class="col-lg-10" style="border:1px solid;margin-left: 70px;background-color: lightyellow;">
-		  
-                <div class="form-group" style="margin-top: 16px;">
-                 <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
-                  <div class="col-sm-4">
-                  <input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
-                </div>
-                </div>
-				<div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
-                  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control shares" name="shares">
-                  </div>
-				  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
-				  <div class="col-sm-4">
-                    <input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
-                  </div>
-                </div>
-				<div class="form-group">
-                  <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
-                  <div class="col-sm-2" style="margin-left: -19px;">
-                    <input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
-                  </div>
-				  <label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
-				  <div class="col-sm-4">
-				  <div class="input-group">
-                    <input type="date" name="startdate" class="form-control">
-				   <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  </div>
-                  </div>
-                </div>
-		  </div>
-         </div>
+					<div class="col-lg-10" style="border:1px solid;margin-left: 70px;background-color: lightyellow;">		  
+						<div class="form-group" style="margin-top: 16px;">
+							<label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
+							<div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control shares" name="shares">
+							</div>
+							<label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
+							<div class="col-sm-2" style="margin-left: -19px;">
+								<input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
+							</div>
+							<label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<input type="date" name="startdate" class="form-control">
+									<div class="input-group-addon">
+										<i class="fa fa-calendar"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>							
 				
-				
-				</form>
 			</div>		
 		</div>	
 	</div>
