@@ -1494,6 +1494,15 @@ $(document).ready(function(){
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Calculations</h4>
 				</div>
+				<?php 
+					if(isset($_GET['operno'])){
+						$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ap.App_Amortization_BankOperation =".$_GET["operno"];
+					}
+					else
+					{
+						$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+					}
+				?>
 				<div class="box-body">
 					<div class="col-lg-4">		     
 						<div class="form-group">
