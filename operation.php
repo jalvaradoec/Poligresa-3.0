@@ -2163,7 +2163,7 @@ $(document).ready(function(){
 							$result = mysql_query($sql);
 							$row=mysql_fetch_array($result);
 							
-							echo $row['App_Logs_Id']
+							echo $row['App_Logs_Id'];
 							
 							
 							//Client fullname display
