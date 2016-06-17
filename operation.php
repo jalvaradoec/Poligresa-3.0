@@ -563,7 +563,7 @@ $(document).ready(function(){
 				  <td><?php echo $row['App_Logs_Notes']; ?></td>
 				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
 				  <!--<td><a href="Oper_EditACtivities" data-toggle="modal" data-id="<?php //echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>-->
-				  <td><a href="#Oper_ACtivitiesUpdate" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>
+				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>
 				  <?php } ?>
                 </tr>
 				<!--
@@ -2172,38 +2172,38 @@ $(document).ready(function(){
 							<input type="hidden" name="applogsid" value="<?php echo $row['App_Logs_Id'] ?>" />
 							
 							<div class="modal-body">   
-		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv" style="width:65%">  
-			    <table class="activity_tbl" style="margin-top:0px">
-                <tbody>
-				<tr>
-                  <td class="deb_info_row">ID:</td>
-                  <!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
-				  <td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
-                </tr>
-				<tr>
-					
-				</tr>
-				<!--
-			     <tr>
-                  <td class="deb_info_row">Name:</td>
-				  <!-- <td class="deb_info_row1"><?php //echo $row3['App_Clients_FullName'] ?></td> -->
-				 <!-- <td class="deb_info_row1"><?php //echo $row['App_Users_fullname'] ?></td>
-                </tr>
-				-->
-				
-			 </tbody> 
-		     </table>
-			 </div>
-			 <div class="col-lg-4">
-			 <div class="activity_head1" style="margin-left:0px;color:gray">
-			 <!--<h5><?php //echo $row1['App_Users_fullname'] ?></h5>-->	
-			 <h5><?php echo $row['App_Users_fullname'] ?></h5>
-			 <h5><?php echo $row['App_Logs_CreatedOn'] ?></h5>
-			 
-			 </div>
-			 </div>
-          </div>
+							 <div class="box-body  no-padding md_box">
+							   <div class="col-lg-7 actv" style="width:65%">  
+									<table class="activity_tbl" style="margin-top:0px">
+									<tbody>
+									<tr>
+									  <td class="deb_info_row">ID:</td>
+									  <!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
+									  <td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
+									</tr>
+									<tr>
+										
+									</tr>
+									<!--
+									 <tr>
+									  <td class="deb_info_row">Name:</td>
+									  <!-- <td class="deb_info_row1"><?php //echo $row3['App_Clients_FullName'] ?></td> -->
+									 <!-- <td class="deb_info_row1"><?php //echo $row['App_Users_fullname'] ?></td>
+									</tr>
+									-->
+									
+								 </tbody> 
+								 </table>
+								 </div>
+								 <div class="col-lg-4">
+								 <div class="activity_head1" style="margin-left:0px;color:gray">
+								 <!--<h5><?php //echo $row1['App_Users_fullname'] ?></h5>-->	
+								 <h5><?php echo $row['App_Users_fullname'] ?></h5>
+								 <h5><?php echo $row['App_Logs_CreatedOn'] ?></h5>
+								 
+								 </div>
+								 </div>
+							  </div>
 		  
 		<div class="box-body">
 			<div class="col-lg-4" >	
