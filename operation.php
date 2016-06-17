@@ -1482,6 +1482,25 @@ $(document).ready(function(){
       
     </div>
   </div>  
+  
+	<!-- model calculations -->
+    <div class="modal fade" id="Oper_Calculations" role="dialog">
+		<div class="modal-dialog">
+		
+		 <!-- Modal content-->
+		<div class="modal-content" style="width: 150%;margin-left: -24%;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Calculations</h4>
+			</div>
+		</div>
+		
+		</div>	
+	</div>
+	
+	<!-- end model calculations -->
+	
+	
     <div class="modal fade" id="Oper_Transactions" role="dialog">
 	 <div class="modal-dialog">
     
