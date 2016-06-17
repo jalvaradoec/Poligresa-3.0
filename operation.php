@@ -1485,7 +1485,8 @@ $(document).ready(function(){
   
 	
 	
-    <div class="modal fade" id="Oper_Transactions" role="dialog">
+   <div class="modal fade" id="Oper_Transactions" role="dialog">
+		 
 	 <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -1502,20 +1503,20 @@ $(document).ready(function(){
 		{
 			$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Amortization ap ON ac.App_Credits_BankOperNumber = ap.App_Amortization_BankOperation WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 		}
-		$result=mysql_query($sql);
-		$row=mysql_fetch_array($result);
+		$result=mysqli_query($con,$sql);
+		$row=mysqli_fetch_array($result);
 		$interst=$row['App_Credits_BankTotalCredit']*0.18;
 				$initialdebt=$row['App_Credits_BankTotalCredit']+$interst;
 				$debt=$row['App_Credits_BankTotalCredit']+$interst-500;
 				$collectionfee=$initialdebt*0.2;
 				$currdebt=$debt+$collectionfee-150;
 		$sql2="select * from App_Agreement WHERE App_Agreement_DebtorID =".$row['App_Credits_DebtorId'];
-				$result2=mysql_query($sql2);
-				$row1=mysql_fetch_array($result2);
+				$result2=mysqli_query($con,$sql2);
+				$row1=mysqli_fetch_array($result2);
 				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
 				$sql1="select * from App_Users WHERE App_Users_ID =".$_SESSION["logged_in_user"]["App_Users_ID"];
-				$result1=mysql_query($sql1);
-				$row2=mysql_fetch_array($result1);
+				$result1=mysqli_query($con,$sql1);
+				$row2=mysqli_fetch_array($result1);
 				$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
 		?>
 		<form class="form-horizontal" method="post" action="">
@@ -1543,8 +1544,8 @@ $(document).ready(function(){
 				  <select class="form-control" name="status" style="width:228%">
                     <option value="">Select Agreement Status</option>
                     <?php
-					$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
-                    while ($r = mysql_fetch_assoc($ddl_secl)) {
+					$ddl_secl = mysqli_query($con,"select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
+                    while ($r = mysqli_fetch_assoc($ddl_secl)) {
                            echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
                     }
                     ?>
@@ -1667,6 +1668,9 @@ $(document).ready(function(){
       
     </div>
   </div>
+  
+  
+  
   <div class="modal fade" id="Edit_Transactions" role="dialog">
 	 <div class="modal-dialog">
     
