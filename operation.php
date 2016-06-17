@@ -397,7 +397,7 @@ $(document).ready(function(){
 							<i class="fa fa-credit-card fa-5x fa_pay"></i>
 							<a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Setup Agreement</h5></a>				 				 
 							
-							<a data-toggle="modal" data-target="#Oper_Calculations"><h5 class="reg_pay">calculations</h5></a>
+							<a data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">calculations</h5></a>
 						</div>
 					</div>
 				</div>
@@ -1674,7 +1674,7 @@ $(document).ready(function(){
 		<div class="modal-content" style="width: 150%;margin-left: -24%;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Calculations</h4>
+				<h4 class="modal-title">New Agreement</h4>
 			</div>
 			<?php 
 				if(isset($_GET['operno'])){
@@ -1705,7 +1705,50 @@ $(document).ready(function(){
 				<input type="hidden" name="operationid" value="<?php echo $row['App_Amortization_BankOperation'];?>" />
 				<input type="hidden" name="debtid" value="<?php echo $row['App_Credits_DebtorId'] ?>" />
 				
-				<div class="modal-body">   					
+				<div class="modal-body">   
+					<div class="box-body  no-padding md_box">
+						<div class="col-lg-7 actv" style="width:82%">  
+							<span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
+							<table class="activity_tbl" style="margin-top:0px">
+								<tbody>
+									<tr>
+									  <td class="deb_info_row">Cedula/RUC:</td>
+									  <td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
+									  <td class="deb_info_row"></td>
+									  <td class="deb_info_row">Agreement</td>&nbsp;
+									  <td class="deb_info_row">Status</td>
+									</tr>
+									<tr>
+									  <td class="deb_info_row">Number:</td>
+									  <td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
+									  <td class="deb_info_row"></td>
+									  <td class="deb_info_row">
+										  <select class="form-control" name="status" style="width:228%">
+												<option value="">Select Agreement Status</option>
+												<?php
+												$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
+												while ($r = mysql_fetch_assoc($ddl_secl)) {
+													   echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+												}
+												?>
+											</select>
+										</td>
+									</tr>
+									<tr>
+									  <td class="deb_info_row">Operation:</td>
+									  <td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'];?></td>          
+									</tr>
+								</tbody> 
+							</table>
+						</div>
+						<div class="col-lg-4" style="float: right;width: 18%;">
+							<div class="activity_head1" style="margin-left:0px">
+								<h4><?php echo $row2['App_Users_fullname'] ?></h4>
+								<h4><?php echo $CreatedOn[0] ?></h4>
+								<h4><?php echo $CreatedOn[1] ?></h4>
+							</div>
+						</div>
+					</div>
 					<div class="box-body">
 						<div class="col-lg-4">
 						
@@ -1790,12 +1833,17 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-				</div>		 				
+				</div>
+		 
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>
+					<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+				</div>
 			</form>
 		</div>      
 	</div>	
   <!-- end calculation -->
-  </div>
+  
   
   
   
