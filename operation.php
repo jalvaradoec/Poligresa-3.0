@@ -560,7 +560,8 @@ $(document).ready(function(){
                   <td><?php echo $row['App_Logs_TransDateTime']; ?></td>
 				  <td><?php echo $row['App_Logs_Notes']; ?></td>
 				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
-				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>
+				  <!--<td><a href="Oper_EditACtivities" data-toggle="modal" data-id="<?php //echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>-->
+				  <td><a href="Oper_ACtivitiesUpdate" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id'] ?>" class="Oper_ACtivitiesUpdate">Edit</a></td>
 				  <?php } ?>
                 </tr>
 				<!--
@@ -2140,6 +2141,31 @@ $(document).ready(function(){
 	  </div>
 	  </div>
 	  </div>
+	  
+	  <!-- Rahul update Add -->
+	  
+		<div class="modal fade" id="Oper_ACtivitiesUpdate" role="dialog">
+			<div class="modal-dialog">
+		 
+				<!-- Modal content-->
+				<div class="modal-content" style="width: 150%;margin-left: -24%;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Activity Update</h4>
+				
+						<form class="form-horizontal" method="post" action="">
+		
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
+							<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
+						</div>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	  
+	  <!--end Rahul update Add -->
 	  
 	<div class="modal fade" id="Oper_EditACtivities" role="dialog" style="width: 150%;margin-left: -24%;">
 		<div class="modal-dialog">
