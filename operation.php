@@ -397,7 +397,7 @@ $(document).ready(function(){
 							<i class="fa fa-credit-card fa-5x fa_pay"></i>
 							<a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Setup Agreement</h5></a>				 				 
 							
-							<a data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">calculations</h5></a>
+							<a data-toggle="modal" data-target="#Oper_Calculations"><h5 class="reg_pay">calculations</h5></a>
 						</div>
 					</div>
 				</div>
