@@ -391,15 +391,17 @@ $(document).ready(function(){
 			   </tbody>
 			   </table>
 			   </div>
-			   <div class="col-lg-4">
-			     <div class="box-body no-padding">
-				 <div>
-				 <a>
-				 <i class="fa fa-credit-card fa-5x fa_pay"></i>
-				 <a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Setup Agreement</h5> </a>
-				 </div>
-				 </div>
-			   </div>
+				<div class="col-lg-4">
+					<div class="box-body no-padding">
+						<div>						
+							<i class="fa fa-credit-card fa-5x fa_pay"></i>
+							<a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Setup Agreement</h5></a>				 				 
+							
+							<a>calculations</a>
+						</div>
+					</div>
+				</div>
+				
 			   <div class="col-lg-12 op_agree_details">
 			  <div class="box-body table-responsive no-padding">
               <table class="table table-bordered table-hover">
