@@ -2155,6 +2155,7 @@ $(document).ready(function(){
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">Activity Update</h4>													
 						<?php
+							echo $_GET['task_id']; 
 							$sql = "select l.App_Logs_Id,l.App_Logs_CreatedOn,l.App_Logs_DateTime,l.App_Logs_ClientID,l.App_Logs_Answer,l.App_Logs_Action,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
 									from App_Logs l 
 									inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_ID
@@ -2172,195 +2173,152 @@ $(document).ready(function(){
 							<input type="hidden" name="applogsid" value="<?php echo $row['App_Logs_Id'] ?>" />
 							
 							<div class="modal-body">   
-							 <div class="box-body  no-padding md_box">
-							   <div class="col-lg-7 actv" style="width:65%">  
-									<table class="activity_tbl" style="margin-top:0px">
-									<tbody>
-									<tr>
-									  <td class="deb_info_row">ID:</td>
-									  <!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
-									  <td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
-									</tr>
-									<tr>
+								<div class="box-body  no-padding md_box">
+									<div class="col-lg-7 actv" style="width:65%">  
+										<table class="activity_tbl" style="margin-top:0px">
+											<tbody>
+												<tr>
+													<td class="deb_info_row">ID:</td>
+													<!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
+													<td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
+												</tr>
+												<tr>
 										
-									</tr>
-									<!--
-									 <tr>
-									  <td class="deb_info_row">Name:</td>
-									  <!-- <td class="deb_info_row1"><?php //echo $row3['App_Clients_FullName'] ?></td> -->
-									 <!-- <td class="deb_info_row1"><?php //echo $row['App_Users_fullname'] ?></td>
-									</tr>
-									-->
+												</tr>									
+											</tbody> 
+										</table>
+									</div>
 									
-								 </tbody> 
-								 </table>
-								 </div>
-								 <div class="col-lg-4">
-								 <div class="activity_head1" style="margin-left:0px;color:gray">
-								 <!--<h5><?php //echo $row1['App_Users_fullname'] ?></h5>-->	
-								 <h5><?php echo $row['App_Users_fullname'] ?></h5>
-								 <h5><?php echo $row['App_Logs_CreatedOn'] ?></h5>
-								 
-								 </div>
-								 </div>
-							  </div>
+									<div class="col-lg-4">
+										<div class="activity_head1" style="margin-left:0px;color:gray">
+											<!--<h5><?php //echo $row1['App_Users_fullname'] ?></h5>-->	
+											<h5><?php echo $row['App_Users_fullname'] ?></h5>
+											<h5><?php echo $row['App_Logs_CreatedOn'] ?></h5>								 
+										</div>
+									</div>
+								</div>
 		  
-		<div class="box-body">
-			<div class="col-lg-4" >	
-			
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
-						<div class="col-sm-8">
-							<select class="form-control" name="type" style="width:122%" required>
-								<option value=""> ----Select Type---</option>
-								<?php
-									$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
-									while ($r = mysql_fetch_assoc($ddl_secl)) {
-								?>				
-										<option <?php if($row['App_Logs_Action']==$r['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r['App_Aux_value']; ?>" > <?php echo $r[App_Aux_text]; ?></option>
-					
-								/*
-									   if($row['App_Logs_Action']==$r['App_Aux_value']){
-										$selected1= 'selected="selected"';
+								<div class="box-body">
+									<div class="col-lg-4" >									
+										<div class="form-group">
+											<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+											<div class="col-sm-8">
+												<select class="form-control" name="type" style="width:122%" required>
+													<option value=""> ----Select Type---</option>
+													<?php
+														$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
+														while ($r = mysql_fetch_assoc($ddl_secl)) {
+													?>				
+															<option <?php if($row['App_Logs_Action']==$r['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r['App_Aux_value']; ?>" > <?php echo $r[App_Aux_text]; ?></option>										
+													<?php
+														}							
+													?>
+												</select>
+											</div>
+										</div>
+																				
+										<div class="form-group">
+											<label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
+											<div class="col-sm-8">
+												<select class="form-control" name="respuesta" selected="selected" style="width:122%" required>
+													<option value=""> ----Select Respuesta---</option>
+													<?php
+														$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Answer'");
+														while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
+													?>				
+															<option <?php if($row['App_Logs_Answer']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
+													<?php
+														}							
+													?>
+													</select>
+											</div>
+										</div>
 										
-									}
-									else
-									{
-										$selected1='';
-									}
-									   echo " <!--<option $selected1 value='$r[App_Aux_value]'> $r[App_Aux_text] </option> -->";
-									*/
-								<?php
-									}							
-								?>
-							</select>
-						</div>
-					</div>
-					
-					
-					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
-						<div class="col-sm-8">
-							<select class="form-control" name="respuesta" selected="selected" style="width:122%" required>
-								<option value=""> ----Select Respuesta---</option>
-								<?php
-									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Answer'");
-									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
-								?>				
-										<option <?php if($row['App_Logs_Answer']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
-								<?php
-									}							
-								?>
-								</select>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="inputComp" class="col-sm-4 control-label">Comp/Abono:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Logs_TransAmmount']?>" >
-							<!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
-						</div>
-					</div>
-					
-					
-					<!--
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-4 control-label">Date</label>
-						<div class="col-sm-8">
-							<div class="input-group">
-								<input type="date" id="dateselector" name="date" class="form-control" style="width: 150px;" value="<?php echo $datetime[0] ?>" required>
-								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>																					
+										<div class="form-group">
+											<label for="inputComp" class="col-sm-4 control-label">Comp/Abono:</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Logs_TransAmmount']?>" >
+												<!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
+											</div>
+										</div>
+																				
+										<div class="form-group">
+											<label for="inputPassword3" class="col-sm-4 control-label">Status</label>
+											<div class="col-sm-8">
+												<div class="checkbox">
+													<label><input type="checkbox" name="status" <?php echo $checked; ?> value="1">Done</label>															                    
+												</div>
+											</div>
+										</div> 
+										
+									</div>
+									
+												
+									<div class="col-lg-4" > 									
+										<div class="form-group">
+											<label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
+											<div class="col-sm-8">
+												<select class="form-control" name="contacto" selected="selected" style="width: 188px;">
+													<option value=""> ----Select Contacto---</option>
+													<?php
+														$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Relation'");
+														while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
+													?>	 
+														<option <?php if($row['App_Logs_Contact']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
+													<?php
+														}							
+													?>
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
+											<div class="col-sm-8">
+												<div class="input-group">
+													<input type="date" id="dateselector" name="fecha" value="<?php echo $row['App_Logs_TransDateTime']; ?>" name="fecha" class="form-control" style="width: 150px;">
+													<div class="input-group-addon"><i class="fa fa-calendar"></i></div>								                  
+												</div>
+											</div>
+										</div>										
+									</div>
+									
+									<div class="col-lg-4" >   									
+										<div class="form-group">
+											<label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
+											<div class="col-sm-8">
+												<select class="form-control" name="tipo" selected="selected" >
+													<option value=""> ----Select Tipo---</option>
+													<?php
+														$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
+														while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
+													?>	 
+														<option <?php if($row['App_Logs_Type']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
+													<?php
+														}							
+													?>               
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label for="inputPassword3" class="col-sm-4 control-label">Hora:</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" name="hora">
+											</div>
+										</div>
+										
+										<div class="form-group" style="margin-left: -65%;">
+											<label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
+											<div class="col-sm-12" style="width: 100%;">
+												<textarea class="form-control" rows="5" name="outcome" required=""> <?php echo $row['App_Logs_Notes']; ?></textarea>
+											</div>
+										</div>										
+									</div>	
+									
+								</div>  
+								
 							</div>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-4 control-label">Time</label>
-						<div class="col-sm-8">			
-							<input type="time" class="form-control" id="timeselector" name="time" value="<?php echo $datetime[1] ?>" required>
-						</div>
-					</div>
-					-->
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-4 control-label">Status</label>
-						<div class="col-sm-8">
-							<div class="checkbox">
-								<label><input type="checkbox" name="status" <?php echo $checked; ?> value="1">Done</label>															                    
-							</div>
-						</div>
-					</div> 
-					
-				</div>
-				
-							
-				<div class="col-lg-4" > 
-				
-					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
-						<div class="col-sm-8">
-							<select class="form-control" name="contacto" selected="selected" style="width: 188px;">
-								<option value=""> ----Select Contacto---</option>
-								<?php
-									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Relation'");
-									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
-								?>	 
-									<option <?php if($row['App_Logs_Contact']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
-								<?php
-									}							
-								?>
-							</select>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
-						<div class="col-sm-8">
-							<div class="input-group">
-								<input type="date" id="dateselector" name="fecha" value="<?php echo $row['App_Logs_TransDateTime']; ?>" name="fecha" class="form-control" style="width: 150px;">
-								<div class="input-group-addon"><i class="fa fa-calendar"></i></div>								                  
-							</div>
-						</div>
-					</div>
-					
-				</div>
-				
-				<div class="col-lg-4" >   
-				
-					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-4 control-label">Tipo</label>
-						<div class="col-sm-8">
-							<select class="form-control" name="tipo" selected="selected" >
-								<option value=""> ----Select Tipo---</option>
-								<?php
-									$ddl_secl_res = mysql_query("select  * from App_Aux WHERE App_Aux_field = 'Tipo_Gestion'");
-									while ($r_res = mysql_fetch_assoc($ddl_secl_res)) {
-								?>	 
-									<option <?php if($row['App_Logs_Type']==$r_res['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r_res['App_Aux_value']; ?>" > <?php echo $r_res[App_Aux_text]; ?></option>					
-								<?php
-									}							
-								?>               
-							</select>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-4 control-label">Hora:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="hora">
-						</div>
-					</div>
-					
-					<div class="form-group" style="margin-left: -65%;">
-						<label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
-						<div class="col-sm-12" style="width: 100%;">
-							<textarea class="form-control" rows="5" name="outcome" required=""> <?php echo $row['App_Logs_Notes']; ?></textarea>
-						</div>
-					</div>
-					
-				</div>							  				 
-			</div>  		      
-         </div>
 			
 							<div class="modal-footer">
 								<button type="submit" class="btn btn-info pull-left" name="save"><i class="fa fa-plus"></i>Save</button>
