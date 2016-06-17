@@ -1699,8 +1699,12 @@ $(document).ready(function(){
 						$result1=mysql_query($sql1);
 						$row2=mysql_fetch_array($result1);
 						$CreatedOn=explode(" ",$row1['App_Agreement_CreatedOn']);
-			?>	
+			?>
 			<form class="form-horizontal" method="post" action="">
+				<input type="hidden" name="hiddebt" class="hiddebt" value="<?php echo $debt ?>" />
+				<input type="hidden" name="operationid" value="<?php echo $row['App_Amortization_BankOperation'];?>" />
+				<input type="hidden" name="debtid" value="<?php echo $row['App_Credits_DebtorId'] ?>" />
+				
 				<div class="modal-body">   					
 					<div class="box-body">
 						<div class="col-lg-4">
