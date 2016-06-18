@@ -556,7 +556,7 @@ $(document).ready(function(){
 				?>
 								
                 <tr>
-				  <td><?php echo date_format($row['App_Logs_DateTime'],'d/m/Y'); ?></td>
+				  <td><?php echo date_format($row['App_Logs_DateTime'],'d-m-Y'); ?></td>
                   <td><?php echo $row['respuesta']; ?>	</td>
                   <td><?php echo $row['contactto']; ?></td>
                   <td><?php echo $row['telefono']; ?></td>
