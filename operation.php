@@ -2374,6 +2374,7 @@ $(document).ready(function(){
 					<input type="hidden" name="operationid" value="<?php echo $row['App_Amortization_BankOperation'];?>" />
 					<input type="hidden" name="debtid" value="<?php echo $row['App_Credits_DebtorId'] ?>" />
 					<div class="modal-body">   
+						<!--
 						<div class="box-body  no-padding md_box">
 							<div class="col-lg-7 actv" style="width:82%">  
 								<span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
@@ -2381,42 +2382,43 @@ $(document).ready(function(){
 										<tbody>
 										<tr>
 											<td class="deb_info_row">Cedula/RUC:</td>
-											<td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
+											<td class="deb_info_row1"><?php //echo $row['App_Credits_DebtorId'] ?></td>          
 											<td class="deb_info_row"></td>
 											<td class="deb_info_row">Agreement</td>&nbsp;
 											<td class="deb_info_row">Status</td>
 										</tr>
 										<tr>
 											<td class="deb_info_row">Number:</td>
-											<td class="deb_info_row1"><?php echo $row['App_Clients_FullName'] ?></td>          
+											<td class="deb_info_row1"><?php //echo $row['App_Clients_FullName'] ?></td>          
 											<td class="deb_info_row"></td>
 											<td class="deb_info_row">
 												<select class="form-control" name="status" style="width:228%">
 													<option value="">Select Agreement Status</option>
 													<?php
-														$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
-														while ($r = mysql_fetch_assoc($ddl_secl)) {
-															echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
-														}
+														//$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'AgreementStatus'");
+														//while ($r = mysql_fetch_assoc($ddl_secl)) {
+															//echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
+														//}
 													?>
 												</select>
 											</td>
 										</tr>
 										<tr>
 											<td class="deb_info_row">Operation:</td>
-											<td class="deb_info_row1"><?php echo $row['App_Amortization_BankOperation'];?></td>          
+											<td class="deb_info_row1"><?php //echo $row['App_Amortization_BankOperation'];?></td>          
 										</tr>
 									</tbody> 
 								</table>
 							</div>
 							<div class="col-lg-4" style="float: right;width: 18%;">
 								<div class="activity_head1" style="margin-left:0px">
-									<h4><?php echo $row2['App_Users_fullname'] ?></h4>
-									<h4><?php echo $CreatedOn[0] ?></h4>
-									<h4><?php echo $CreatedOn[1] ?></h4>
+									<h4><?php //echo $row2['App_Users_fullname'] ?></h4>
+									<h4><?php //echo $CreatedOn[0] ?></h4>
+									<h4><?php// echo $CreatedOn[1] ?></h4>
 								</div>
 							</div>
 						</div>
+						-->
 						<div class="box-body">
 							<div class="col-lg-4">
 							 
@@ -2502,11 +2504,12 @@ $(document).ready(function(){
 						  </div>
 						</div>
 					</div>
-				 
+					<!--
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>
 						<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 					</div>
+					-->
 				</form>
 			 </div>
 			  
