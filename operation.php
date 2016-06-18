@@ -396,9 +396,9 @@ $(document).ready(function(){
 				 <div>
 				 <a>
 				 <i class="fa fa-credit-card fa-5x fa_pay"></i>
-				 <a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Setup Agreement</h5> </a>
+				 <a href="" data-toggle="modal" data-target="#Oper_Transactions" ><h5 class="reg_pay">Setup Agreement</h5> </a>
 				 
-				  <a href="#Oper_Transactions" data-toggle="modal" data-target="#Oper_Transactions"><h5 class="reg_pay">Calculations</h5> </a>
+				  <a href="" data-toggle="modal" data-target="#Oper_Calculations" id="calculation"><h5 class="reg_pay">Calculations</h5> </a>
 				 </div>
 				 </div>
 			   </div>
@@ -1519,7 +1519,7 @@ $(document).ready(function(){
 		<input type="hidden" name="hiddebt" class="hiddebt" value="<?php echo $debt ?>" />
 		<input type="hidden" name="operationid" value="<?php echo $row['App_Amortization_BankOperation'];?>" />
 		<input type="hidden" name="debtid" value="<?php echo $row['App_Credits_DebtorId'] ?>" />
-		<div class="modal-body">   
+		<div class="modal-body">   		
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:82%">  
 		   <span style="font-size: 18px;font-style: normal;font-weight: 600;text-decoration: underline;">New Agreement Setup</span>
