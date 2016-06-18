@@ -2423,7 +2423,7 @@ $(document).ready(function(){
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-4 control-label">Cur. Debt:</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control curdebt" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
+										<input type="text" class="form-control curdebtc" value="<?php echo number_format($currdebt, 2, '.', ''); ?>" name="curdebt" readonly >
 									</div>
 								</div>
 								<div class="form-group">
@@ -2438,7 +2438,7 @@ $(document).ready(function(){
 								<div class="form-group">
 								  <label for="inputEmail3" class="col-sm-4 control-label">Discount:</label>
 								  <div class="col-sm-8">
-								  <input type="text" class="form-control discount" name="discount" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
+								  <input type="text" class="form-control discountc" name="discountc" value="<?php echo number_format($collectionfee, 2, '.', ''); ?>" onchange="setTwoNumberDecimal()" >
 								</div>
 								</div>
 								<div class="form-group">
@@ -2454,14 +2454,14 @@ $(document).ready(function(){
 								<div class="form-group">
 								  <label for="inputEmail3" class="col-sm-4 control-label ">Balance:</label>
 								  <div class="col-sm-8">
-								  <input type="text" class="form-control balance1" name="balance1" readonly="">
+								  <input type="text" class="form-control balance1c" name="balance1c" readonly="">
 								</div>
 								</div>
 								 <div class="form-group">
 									
 								  <label for="inputPassword3" class="col-sm-4 control-label">Interest:</label>
 								  <div class="col-sm-8">
-								   <input type="text" class="form-control interest" name="interest" readonly="">
+								   <input type="text" class="form-control interestc" name="interestc" readonly="">
 								  </div>
 								</div>						 					  				 
 							</div>  
@@ -3350,6 +3350,22 @@ var Alerter = {
 			$('.monthpayment').val(Math.ceil(monthpayment/5)*5);
 			var lastpayment=total-($('.monthpayment').val()*($('.shares').val()));
 			$('.lastpayment').val(lastpayment.toFixed(2));
+			
+			//rahul add script
+			var discountc=$('.discountc').val();
+			var balance1c=curdebt-discountc;
+			$('.balance1c').val(balance1c.toFixed(2));			
+			var dpaymentc=$('.dpaymentc').val();
+			
+            
+			var balance2c=$('.balance1c').val()-$('.dpaymentc').val();
+			$('.balance2c').val(balance2c.toFixed(2));
+			var interestc=((($('.balance2c').val() * 0.18) / 360) *30) * $('.sharesc').val();
+			$('.interestc').val(interestc.toFixed(2));
+            var dwnpymtc=$('.dpaymentc').val();
+            $('.dwnpymtc').val(dwnpymtc);
+		
+			
 			
 			var rowcount=<?php echo $rowcnt ?>;
 			var i=1;
