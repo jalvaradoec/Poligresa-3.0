@@ -3324,7 +3324,7 @@ var Alerter = {
 		},
 		Alert : function(){
 			//debbuger;
-			alert("hello");
+			//alert("hello");
 			var curdebt=$('.curdebt').val();
 			var discount=$('.discount').val();
 			var balance1=curdebt-discount;
