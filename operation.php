@@ -1215,8 +1215,9 @@ $(document).ready(function(){
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Registered Contacts</h4>
         </div>
-		<?php
-		$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		<?php		
+		//$sql="select * from App_Contacts WHERE App_Contacts_CreatedBy =".$_SESSION["logged_in_user"]["App_Users_ID"];
+		$sql="select * from App_Contacts WHERE App_Contacts_DebtorId = '".$appcreditsdebid."'";
 		$result=mysql_query($sql);
 		?>
         <div class="modal-body">
