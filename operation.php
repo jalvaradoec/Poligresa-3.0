@@ -1833,7 +1833,7 @@ $(document).ready(function(){
       <div class="modal-content" style="width: 150%;margin-left: -24%;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Activity</h4>
+          <h4 class="modal-title">Activity my</h4>
         </div>
 		<?php
 			    $sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
@@ -2005,10 +2005,7 @@ $(document).ready(function(){
 				   </div>
                 </div>
 				
-				
-		  </div>
-		  <div  class="col-lg-12">
-			<div class="form-group" style="margin-left: -65%;">
+				<div class="form-group" style="margin-left: -65%;">
                   <label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
                   <div class="col-sm-12" style="width: 100%;">
                    <textarea class="form-control" rows="5" name="outcome" required ></textarea>
