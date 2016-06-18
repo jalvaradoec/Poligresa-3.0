@@ -3316,6 +3316,7 @@ function setTwoNumberDecimal1() {
 
 	
 var Alerter = {
+	debugger;
 		Wait : 1, 
 		Timer : null,
 		Init : function(){
