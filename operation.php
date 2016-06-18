@@ -1883,10 +1883,9 @@ $(document).ready(function(){
           </div>
 		  
 		<div class="box-body">
-		
-			<div class="col-lg-4">	
-			 <div class="form-group">
-				 <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+		  <div class="col-lg-4">		     
+                <div class="form-group">
+					<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
 					<div class="col-sm-8">
 						<select class="form-control" name="type" required>
 							<option value=""> Select Type </option>
@@ -1895,16 +1894,10 @@ $(document).ready(function(){
 								while ($r = mysql_fetch_assoc($ddl_secl)) {
 									echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
 								}
-							?>
-						</select>
-					</div>
+						?>
+                </select>
                 </div>
-			
-			</div>
-		
-		  <div class="col-lg-4">		     
-               
-				
+                </div>
 				<div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
                   <div class="col-sm-8">
@@ -1920,7 +1913,6 @@ $(document).ready(function(){
                 </select>
                 </div>
                 </div>
-				
 				 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
                   <div class="col-sm-8">
@@ -1938,7 +1930,7 @@ $(document).ready(function(){
                 </div>
 				-->
 		  </div>
-			<div class="col-lg-4">
+		<div class="col-lg-4">
 				<!--
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-4 control-label">Date</label>
@@ -1951,9 +1943,9 @@ $(document).ready(function(){
 					</div>
                   </div>
                 </div>
-				-->							
+				-->
                 
-				<div class="form-group">
+            <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
                   <div class="col-sm-8">
 				  <select class="form-control" name="contacto" style="width: 188px;" required>
