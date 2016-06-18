@@ -2463,7 +2463,7 @@ $(document).ready(function(){
 										<div class="form-group">
 											<label for="inputPassword3" class="col-sm-4 control-label">Hora:</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control" name="hora">
+												<input type="text" class="form-control" name="hora" value="<?php echo date("h:i:s"); ?>">
 											</div>
 										</div>
 										
