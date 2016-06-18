@@ -2330,6 +2330,7 @@ $(document).ready(function(){
 							<input type="hidden" name="applogsid" value="<?php echo $row['App_Logs_Id']; ?>" />
 							
 							<div class="modal-body">   
+								<!--
 								<div class="box-body  no-padding md_box">
 									<div class="col-lg-7 actv" style="width:65%">  
 										<table class="activity_tbl" style="margin-top:0px">
@@ -2337,7 +2338,7 @@ $(document).ready(function(){
 												<tr>
 													<td class="deb_info_row">ID:</td>
 													<!--<td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td> -->				  
-													<td class="deb_info_row1"><?php echo $row['App_Logs_ClientID'] ?></td>  
+													<!--<td class="deb_info_row1"><?php //echo $row['App_Logs_ClientID'] ?></td>  
 												</tr>
 												<tr>
 										
@@ -2349,11 +2350,12 @@ $(document).ready(function(){
 									<div class="col-lg-4">
 										<div class="activity_head1" style="margin-left:0px;color:gray">
 											<!--<h5><?php //echo $row1['App_Users_fullname'] ?></h5>-->	
-											<h5><?php echo $row['App_Users_fullname'] ?></h5>
-											<h5><?php echo $row['App_Logs_CreatedOn'] ?></h5>								 
+											<!--<h5><?php //echo $row['App_Users_fullname'] ?></h5>
+											<h5><?php //echo $row['App_Logs_CreatedOn'] ?></h5>								 
 										</div>
 									</div>
 								</div>
+								-->
 		  
 								<div class="box-body">
 								
@@ -2466,7 +2468,7 @@ $(document).ready(function(){
 										
 										<div class="col-lg-4">
 											<div class="form-group">
-												<label for="inputComp" class="col-sm-4 control-label">Comp/Abono:</label>
+												<label for="inputComp" class="col-sm-4 control-label">Comp/Abono</label>
 												<div class="col-sm-8">
 													<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Logs_TransAmmount']?>" >													
 												</div>
@@ -2489,7 +2491,7 @@ $(document).ready(function(){
 										
 										<div class="col-lg-4">
 											<div class="form-group">
-												<label for="inputPassword3" class="col-sm-4 control-label">Hora:</label>
+												<label for="inputPassword3" class="col-sm-4 control-label">Hora</label>
 												<div class="col-sm-8">
 													<input type="text" class="form-control" name="hora" value="<?php echo date("h:i:s"); ?>">
 												</div>
@@ -2629,7 +2631,7 @@ $(document).ready(function(){
 								<div class="box-body">	
 										<div class="col-lg-12">																			
 											<div class="form-group">
-												<label for="inputPassword3" class="col-sm-4 control-label" style="text-align: left; !importent">Outcome:</label>
+												<label for="inputPassword3" class="col-sm-4 control-label" style="text-align: left; !importent">Outcome</label>
 												<div class="col-sm-12" style="width: 100%;">
 													<textarea class="form-control" rows="5" name="outcome" required=""> <?php echo $row['App_Logs_Notes']; ?></textarea>
 												</div>
