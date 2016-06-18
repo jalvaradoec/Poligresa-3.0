@@ -1850,10 +1850,10 @@ $(document).ready(function(){
 				  
 		?>
 		<form class="form-horizontal" method="post" action="">
-		<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
-		<input type="hidden" name="debtorid" value="<?php echo $row['App_Task_DebtorID'] ?>"/>
-		<input type="hidden" name="createdon" value="<?php echo $row['App_Task_CreatedOn'] ?>" />
-		<input type="hidden" name="opertionid" value="<?php echo $_GET['operno'] ?>" />
+			<input type="hidden" name="regby" value="<?php echo $_SESSION["logged_in_user"]["App_Users_ID"] ?>"/>
+			<input type="hidden" name="debtorid" value="<?php echo $row['App_Task_DebtorID'] ?>"/>
+			<input type="hidden" name="createdon" value="<?php echo $row['App_Task_CreatedOn'] ?>" />
+			<input type="hidden" name="opertionid" value="<?php echo $_GET['operno'] ?>" />
 		<div class="modal-body">   
 		 <div class="box-body  no-padding md_box">
 		   <div class="col-lg-7 actv" style="width:82%">  
@@ -2031,10 +2031,21 @@ $(document).ready(function(){
                   </div>
               </div>
             </div>
-			-->
-			  
+			-->			  
 			  
 		  </div>  
+		  
+			<div class="box-body">			
+				<div class="col-lg-12">		  	
+					<div class="form-group" style="margin-left: -65%;">
+						<label for="inputPassword3" class="col-sm-4 control-label">Outcome:</label>
+						<div class="col-sm-12" style="width: 100%;">
+							<textarea class="form-control" rows="5" name="outcome" required ></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		  <div class="box-body table-responsive no-padding">
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
