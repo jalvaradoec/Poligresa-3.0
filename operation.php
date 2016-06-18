@@ -1901,7 +1901,9 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Fecha</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="fetchadate" value="<?php echo date(DEFAULT_DATE_FORMAT,strtotime( $row['App_Task_CreatedOn'];)) ?>" readonly >						
+							<input type="text" class="form-control" name="fetchadate" value="<?php echo date(DEFAULT_DATE_FORMAT,strtotime( $row['App_Task_CreatedOn'])); ?>" readonly >
+							
+							<td></td>	
 						</div>					
 					</div>
 				</div>
