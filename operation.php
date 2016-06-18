@@ -3323,8 +3323,8 @@ var Alerter = {
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		},
 		Alert : function(){
-			//debbuger;
-			alert("Rahul");
+			debbuger;
+			alert("hello");
 			var curdebt=$('.curdebt').val();
 			var discount=$('.discount').val();
 			var balance1=curdebt-discount;
