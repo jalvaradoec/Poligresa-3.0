@@ -3316,7 +3316,7 @@ function setTwoNumberDecimal1() {
 
 
 var Alerter = {
-		Wait : 1, 
+		Wait : 500, 
 		Timer : null,
 		Init : function(){
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
