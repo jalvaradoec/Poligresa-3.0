@@ -557,12 +557,12 @@ $(document).ready(function(){
 								
                 <tr>
 					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])) ?></td>				 
-                  <td><?php echo $row['respuesta']; ?>	</td>
-                  <td><?php echo $row['contactto']; ?></td>
-                  <td><?php echo $row['telefono']; ?></td>
-                  <td><?php echo $row['App_Logs_TransAmmount']; ?></td>
-                  <td><?php echo $row['App_Logs_TransDateTime']; ?></td>
-				  <td><?php echo $row['App_Logs_Notes']; ?></td>
+					<td><?php echo $row['respuesta']; ?>	</td>
+					<td><?php echo $row['contactto']; ?></td>
+					<td><?php echo $row['telefono']; ?></td>
+					<td><?php echo $row['App_Logs_TransAmmount']; ?></td>
+					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime( $row['App_Logs_TransDateTime'])) ?></td>											
+					<td><?php echo $row['App_Logs_Notes']; ?></td>
 				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
 				  <!--<td><a href="Oper_EditACtivities" data-toggle="modal" data-id="<?php //echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>-->
 				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>
