@@ -1962,7 +1962,7 @@ $(document).ready(function(){
 			
 				<div class="col-lg-4">
 					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono:</label>
+						<label for="inputPassword3" class="col-sm-4 control-label">Comp/Abono </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control comp" name="comp" required >
 							<!--<input type="text" class="form-control comp" name="comp" onchange="ChangeAmount(this.value)"; > -->
@@ -1986,7 +1986,7 @@ $(document).ready(function(){
 												
 				<div class="col-lg-4">				
 					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-4 control-label">Hora:</label>
+						<label for="inputPassword3" class="col-sm-4 control-label">Hora </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="hora">
 						</div>
