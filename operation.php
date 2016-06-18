@@ -3221,6 +3221,7 @@ tamt.push(totalamt);
 	}
 }
 $(document).on('change', '.chk_active', function () {
+	alert("Rahul"); return;
 	
         var value = ($(this).is(":checked")) ? 1 : 0;
         var taskId = $(this).attr('id');
