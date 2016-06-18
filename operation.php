@@ -2929,7 +2929,7 @@ $(document).ready(function(){
 <script src="dist/js/app.min.js"></script>
 <script>
 function ChangeAmount(data) {
-	alert ("Changeamount"); return;
+	
 	 //var rowcount=<?php echo $rowcnt ?>;
 	 var rowcount=$('.numrow').val();
 	 //alert("test"+data);
@@ -3153,7 +3153,7 @@ tamt.push(totalamt);
 			}
       });
 
-function ChangeAmount1(val1) {
+function ChangeAmount1(val1) { 
 	var rowcount=<?php echo $rowcnt ?>;
 	var num=$('.numrow').val();
 	var i=1;
@@ -3310,6 +3310,7 @@ function setTwoNumberDecimal() {
 	$('.discount').val(dis2);
 }
 function setTwoNumberDecimal1() {	
+	alert("Rahul");return;
 	var dis3=$('.dpayment').val();	
 	var dis4=parseFloat(dis3).toFixed(2);
 	$('.dpayment').val(dis4);
