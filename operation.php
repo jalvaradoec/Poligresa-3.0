@@ -3314,9 +3314,9 @@ function setTwoNumberDecimal1() {
 	$('.dpayment').val(dis4);
 }
 
-
+	
 var Alerter = {
-		Wait : 500, 
+		Wait : 1, 
 		Timer : null,
 		Init : function(){
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
