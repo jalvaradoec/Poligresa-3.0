@@ -2038,7 +2038,7 @@ $(document).ready(function(){
 			<div class="box-body">			
 				<div class="col-lg-12">		  	
 					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-12 control-label">Outcome:</label>
+						<label for="inputPassword3" class="col-sm-12 control-label" style="text-align: left; !importent">Outcome:</label>
 						<div class="col-sm-12" style="width: 100%;">
 							<textarea class="form-control" rows="5" name="outcome" required ></textarea>
 						</div>
