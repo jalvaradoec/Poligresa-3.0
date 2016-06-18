@@ -2380,7 +2380,7 @@ $(document).ready(function(){
 									<table class="activity_tbl" style="margin-top:0px">
 										<tbody>
 										<tr>
-											<td class="deb_info_row">rrrrrrCedula/RUC:</td>
+											<td class="deb_info_row">Cedula/RUC:</td>
 											<td class="deb_info_row1"><?php echo $row['App_Credits_DebtorId'] ?></td>          
 											<td class="deb_info_row"></td>
 											<td class="deb_info_row">Agreement</td>&nbsp;
