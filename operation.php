@@ -1890,7 +1890,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">ID</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Task_DebtorID'] ?>" readonly >
+							<input type="text" class="form-control" name="id" value="<?php echo $row['App_Task_DebtorID'] ?>" readonly >
 						</div>
 					</div>
 				</div>
@@ -1900,7 +1900,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Fecha</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control comp" name="comp" value="<?php echo $row['App_Task_CreatedOn'] ?>" readonly >
+							<input type="text" class="form-control" name="fetchadate" value="<?php echo $row['App_Task_CreatedOn'] ?>" readonly >
 						</div>					
 					</div>
 				</div>
