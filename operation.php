@@ -3356,14 +3356,22 @@ var Alerter = {
 			var balance1c=curdebt-discountc;
 			$('.balance1c').val(balance1c.toFixed(2));			
 			var dpaymentc=$('.dpaymentc').val();
-			
-            
+			            
 			var balance2c=$('.balance1c').val()-$('.dpaymentc').val();
 			$('.balance2c').val(balance2c.toFixed(2));
 			var interestc=((($('.balance2c').val() * 0.18) / 360) *30) * $('.sharesc').val();
 			$('.interestc').val(interestc.toFixed(2));
             var dwnpymtc=$('.dpaymentc').val();
             $('.dwnpymtc').val(dwnpymtc);
+			
+			var totalc=balance2c + interestc;
+			var sharesvalc=$('.sharesc').val();
+			var one=1;
+			var sharestotalc=+sharesvalc + +one;
+			var monthpaymentc=totalc/sharestotalc;
+			$('.monthpaymentc').val(Math.ceil(monthpaymentc/5)*5);
+			var lastpaymentc=totalc-($('.monthpaymentc').val()*($('.sharesc').val()));
+			$('.lastpaymentc').val(lastpaymentc.toFixed(2));
 		
 			
 			
