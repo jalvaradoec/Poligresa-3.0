@@ -2366,10 +2366,7 @@ $(document).ready(function(){
 												</div>
 											</div>
 										</div>
-									</div>
-									
-									
-									<div class="col-lg-12">
+								
 										<div class="col-lg-4">
 											<div class="form-group">
 												<label for="inputEmail3" class="col-sm-4 control-label">Fecha</label>
@@ -2378,10 +2375,7 @@ $(document).ready(function(){
 												</div>
 											</div>
 										</div>
-									</div>
-									
-								
-									<div class="col-lg-12">	
+										
 										<div class="col-lg-4" >											
 											<div class="form-group">
 												<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
