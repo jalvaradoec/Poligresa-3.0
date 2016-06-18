@@ -1885,6 +1885,27 @@ $(document).ready(function(){
 		<div class="box-body">	
 		
 			<div  class="col-lg-12">
+			
+				<div class="col-lg-4"> 
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">ID</label>
+						<div class="col-sm-8">
+							<input type="hidden" class="form-control comp" name="comp" value="<?php echo $row['App_Task_DebtorID'] ?>" >
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-lg-4">
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">ID</label>
+						<div class="col-sm-8">
+							<input type="hidden" class="form-control comp" name="comp" value="<?php echo $row['App_Task_CreatedOn'] ?>" >
+						</div>					
+					</div>
+				</div>
+				
+				
 				<div  class="col-lg-4"> 
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
