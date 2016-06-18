@@ -504,7 +504,9 @@ $(document).ready(function(){
 					<th>valro</th>
 					<th>F.Comp.</th>
 					<th>Comentarios</th>
+					 <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
 					<th></th>
+					 <?php } ?>
 				<!--
                   <th>Done</th>
                   <th>User</th>
@@ -589,7 +591,9 @@ $(document).ready(function(){
 					<th>valro</th>
 					<th>F.Comp.</th>
 					<th>Comentarios</th>
+					 <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
 					<th></th>
+					 <?php } ?>
                 </tr>
                 </tfoot>
               </table>
