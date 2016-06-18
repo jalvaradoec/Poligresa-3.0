@@ -2929,6 +2929,7 @@ $(document).ready(function(){
 <script src="dist/js/app.min.js"></script>
 <script>
 function ChangeAmount(data) {
+	alert ("Changeamount"); return;
 	 //var rowcount=<?php echo $rowcnt ?>;
 	 var rowcount=$('.numrow').val();
 	 //alert("test"+data);
@@ -3221,8 +3222,7 @@ tamt.push(totalamt);
 	}
 }
 $(document).on('change', '.chk_active', function () {
-	alert("Rahul"); return;
-	
+		
         var value = ($(this).is(":checked")) ? 1 : 0;
         var taskId = $(this).attr('id');
         $.ajax({
