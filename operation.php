@@ -2633,8 +2633,7 @@ $(document).ready(function(){
 												<div class="col-sm-12" style="width: 100%;">
 													<textarea class="form-control" rows="5" name="outcome" required=""> <?php echo $row['App_Logs_Notes']; ?></textarea>
 												</div>
-											</div>																			
-										<div>
+											</div>																												
 								</div>
 							</div>
 			
