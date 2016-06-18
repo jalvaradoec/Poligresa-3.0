@@ -2310,7 +2310,8 @@ $(document).ready(function(){
 				<div class="modal-content" style="width: 150%;margin-left: -24%;">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Activity Update</h4>													
+						<h4 class="modal-title">Activity Update</h4>
+					</div>
 						<?php							
 							$sql = "select l.App_Logs_Id,l.App_Logs_CreatedOn,l.App_Logs_DateTime,l.App_Logs_ClientID,l.App_Logs_Answer,l.App_Logs_Action,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
 									from App_Logs l 
