@@ -1905,9 +1905,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Fecha</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="fetchadate" value="<?php echo date(DEFAULT_DATE_FORMAT,strtotime( $row['App_Task_CreatedOn'])); ?>" readonly >
-							
-							<td></td>	
+							<input type="text" class="form-control" name="fetchadate" value="<?php echo date(DEFAULT_DATE_FORMAT,strtotime( $row['App_Task_CreatedOn'])); ?>" readonly >														
 						</div>					
 					</div>
 				</div>
@@ -2361,14 +2359,24 @@ $(document).ready(function(){
 								
 									<div class="col-lg-12">
 										<div class="col-lg-4">
-											<input type="text" class="form-control" name="appuserid" value="<?php echo $row['App_Logs_ClientID'] ?>" readonly >
+											<div class="form-group">
+												<label for="inputEmail3" class="col-sm-4 control-label">ID</label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control" name="appuserid" value="<?php echo $row['App_Logs_ClientID'] ?>" readonly >
+												</div>
+											</div>
 										</div>
 									</div>
 									
 									
 									<div class="col-lg-12">
 										<div class="col-lg-4">
-											<input type="text" class="form-control" name="fetchdate" value="<?php echo $row['App_Logs_CreatedOn'] ?>" >
+											<div class="form-group">
+												<label for="inputEmail3" class="col-sm-4 control-label">Fecha</label>
+												<div class="col-sm-8">
+													<input type="text" class="form-control" name="fetchdate" value="<?php echo $row['App_Logs_CreatedOn'] ?>" readonly >
+												</div>
+											</div>
 										</div>
 									</div>
 									
