@@ -1883,9 +1883,10 @@ $(document).ready(function(){
           </div>
 		  
 		<div class="box-body">
-		  <div class="col-lg-4">		     
-                <div class="form-group">
-					<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+		
+			<div class="col-lg-4">	
+			 <div class="form-group">
+				 <label for="inputEmail3" class="col-sm-4 control-label">Type</label>
 					<div class="col-sm-8">
 						<select class="form-control" name="type" required>
 							<option value=""> Select Type </option>
@@ -1898,6 +1899,11 @@ $(document).ready(function(){
 						</select>
 					</div>
                 </div>
+			
+			</div>
+		
+		  <div class="col-lg-4">		     
+               
 				
 				<div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Respuesta</label>
@@ -1945,23 +1951,7 @@ $(document).ready(function(){
 					</div>
                   </div>
                 </div>
-				-->
-				
-				<div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
-                  <div class="col-sm-8">
-				  <select class="form-control" name="contacto" style="width: 188px;" required>
-                    <option value=""> Select Contacto </option>
-					<?php
-						$ddl_secl_contact = mysql_query("select App_Aux_text,App_Aux_value from App_Aux WHERE App_Aux_field = 'Relation'");
-						while ($r = mysql_fetch_assoc($ddl_secl_contact)) {
-                        echo "<option value='$r[App_Aux_value]'> $r[App_Aux_text] </option>";
-                    }
-                    ?>
-                   
-                </select>
-                </div>
-                </div>
+				-->							
                 
 				<div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label">Contacto</label>
