@@ -2429,7 +2429,7 @@ $(document).ready(function(){
 								<div class="form-group">
 									<label for="inputPassword3" class="col-sm-4 control-label">Down Payment:</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control dpayment" name="dpayment" onchange="setTwoNumberDecimal()" >
+										<input type="text" class="form-control dpaymentc" name="dpaymentc" onchange="setTwoNumberDecimal()" >
 									</div>
 								</div>										  
 							</div>
@@ -2444,7 +2444,7 @@ $(document).ready(function(){
 								<div class="form-group">
 								  <label for="inputPassword3" class="col-sm-4 control-label">Balance:</label>
 								  <div class="col-sm-8">
-								   <input type="text" class="form-control balance2" name="balance2" readonly="">
+								   <input type="text" class="form-control balance2c" name="balance2c" readonly="">
 								   </div>
 								</div>
 								
@@ -2472,22 +2472,22 @@ $(document).ready(function(){
 								<div class="form-group" style="margin-top: 16px;">
 								 <label for="inputPassword3" class="col-sm-5 control-label">The agreement is a downpayment of</label>
 								  <div class="col-sm-4">
-								  <input type="text" class="form-control dwnpymt" name="dwnpymt" readonly="">
+								  <input type="text" class="form-control dwnpymtc" name="dwnpymtc" readonly="">
 								</div>
 								</div>
 								<div class="form-group">
 								  <label for="inputPassword3" class="col-sm-2 control-label" style="margin-left: -17px;">then</label>
-								  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control shares" name="shares">
+								  <div class="col-sm-2" style="margin-left: -21px;"><input type="text" class="form-control sharesc" name="sharesc">
 								  </div>
 								  <label for="inputPassword3" class="col-sm-3 control-label" style="margin-left: -34px;">monthly payments of</label>
 								  <div class="col-sm-4">
-									<input type="text" class="form-control monthpayment" name="monthpayment" readonly="">
+									<input type="text" class="form-control monthpaymentc" name="monthpaymentc" readonly="">
 								  </div>
 								</div>
 								<div class="form-group">
 								  <label for="inputPassword3" class="col-sm-4 control-label" style="margin-left: -24px;">and a last payments of</label>
 								  <div class="col-sm-2" style="margin-left: -19px;">
-									<input type="text" class="form-control lastpayment" name="lastpayment" readonly="">
+									<input type="text" class="form-control lastpaymentc" name="lastpaymentc" readonly="">
 								  </div>
 								  <label for="inputPassword3" class="col-sm-5 control-label" style="margin-left: -217px;">starting on</label>
 								  <div class="col-sm-4">
