@@ -2358,6 +2358,45 @@ $(document).ready(function(){
 								</div>
 		  
 								<div class="box-body">
+								
+									<div class="col-lg-12">
+										<div class="col-lg-4">
+											<input type="text" class="form-control" name="appuserid" value="<?php echo $row['App_Logs_ClientID'] ?>" readonly >
+										</div>
+									</div>
+									
+									
+									<div class="col-lg-12">
+										<div class="col-lg-4">
+											<input type="text" class="form-control" name="fetchdate" value="<?php echo $row['App_Logs_CreatedOn'] ?>" >
+										</div>
+									</div>
+									
+								
+									<div class="col-lg-12">	
+										<div class="col-lg-4" >											
+											<div class="form-group">
+												<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
+												<div class="col-sm-8">
+													<select class="form-control" name="type" style="width:122%" required>
+														<option value=""> ----Select Type---</option>
+														<?php
+															$ddl_secl = mysql_query("select * from App_Aux WHERE App_Aux_field = 'TaskType'");
+															while ($r = mysql_fetch_assoc($ddl_secl)) {
+														?>				
+																<option <?php if($row['App_Logs_Action']==$r['App_Aux_value']){ ?> selected="selected" <?php } ?> value="<?php echo $r['App_Aux_value']; ?>" > <?php echo $r[App_Aux_text]; ?></option>										
+														<?php
+															}							
+														?>
+													</select>
+												</div>
+											</div>										
+										</div>
+									</div>
+								
+								
+								
+								
 									<div class="col-lg-4" >									
 										<div class="form-group">
 											<label for="inputEmail3" class="col-sm-4 control-label">Type</label>
