@@ -3309,8 +3309,7 @@ function setTwoNumberDecimal() {
 	var dis2=parseFloat(dis1).toFixed(2);
 	$('.discount').val(dis2);
 }
-function setTwoNumberDecimal1() {	
-	alert("Rahul");return;
+function setTwoNumberDecimal1() {		
 	var dis3=$('.dpayment').val();	
 	var dis4=parseFloat(dis3).toFixed(2);
 	$('.dpayment').val(dis4);
