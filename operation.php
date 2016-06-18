@@ -1999,7 +1999,7 @@ $(document).ready(function(){
 						<label for="inputPassword3" class="col-sm-4 control-label">Fecha</label>
 						<div class="col-sm-8">
 							<div class="input-group">
-								<input type="date" id="dateselector" name="fecha" value="<?php echo date("h:i:s"); ?>" class="form-control" style="width: 150px;" required>
+								<input type="date" id="dateselector" name="fecha" class="form-control" style="width: 150px;" required>
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
@@ -2012,7 +2012,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-4 control-label">Hora </label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="hora">
+							<input type="text" class="form-control" name="hora" value="<?php echo date("h:i:s"); ?>">
 						</div>
 					</div>				
 				</div>											
