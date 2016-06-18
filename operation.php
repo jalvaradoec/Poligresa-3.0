@@ -1855,32 +1855,33 @@ $(document).ready(function(){
 			<input type="hidden" name="debtorid" value="<?php echo $row['App_Task_DebtorID'] ?>"/>
 			<input type="hidden" name="createdon" value="<?php echo $row['App_Task_CreatedOn'] ?>" />
 			<input type="hidden" name="opertionid" value="<?php echo $_GET['operno'] ?>" />
-		<div class="modal-body">   
-		 <div class="box-body  no-padding md_box">
-		   <div class="col-lg-7 actv" style="width:82%">  
-			    <table class="activity_tbl" style="margin-top:0px">
-                <tbody>
-				<tr>
-                  <td class="deb_info_row">ID:</td>
-                  <td class="deb_info_row1"><?php echo $row['App_Task_DebtorID'] ?></td>          
-                </tr>
-			     <!--<tr>
-                  <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1"><?php //echo $row3['App_Clients_FullName'] ?></td>          
-                </tr>
-				-->
-				
-			 </tbody> 
-		     </table>
-			 </div>
-			 <div class="col-lg-4" style="float: right;width: 18%;">
-			 <div class="activity_head1" style="margin-left:0px;color:gray">
-			 <h5><?php echo $row1['App_Users_fullname'] ?></h5>
-			 <h5><?php echo $row['App_Task_CreatedOn'] ?></h5>
-			 
-			 </div>
-			 </div>
-          </div>
+		<div class="modal-body"> 
+			<!--
+			<div class="box-body  no-padding md_box">
+				<div class="col-lg-7 actv" style="width:82%">  
+					<table class="activity_tbl" style="margin-top:0px">
+						<tbody>
+							<tr>
+							  <td class="deb_info_row">ID:</td>
+							  <td class="deb_info_row1"><?php //echo $row['App_Task_DebtorID'] ?></td>          
+							</tr>
+							 <!--<tr>
+							  <td class="deb_info_row">Name:</td>
+							  <td class="deb_info_row1"><?php //echo $row3['App_Clients_FullName'] ?></td>          
+							</tr>
+							-->	
+							<!--
+						</tbody> 
+					</table>
+				</div>
+				<div class="col-lg-4" style="float: right;width: 18%;">
+					<div class="activity_head1" style="margin-left:0px;color:gray">
+						<h5><?php //echo $row1['App_Users_fullname'] ?></h5>
+						<h5><?php //echo $row['App_Task_CreatedOn'] ?></h5>				
+					</div>
+				</div>
+			</div>
+			-->
 		  
 		<div class="box-body">	
 		
