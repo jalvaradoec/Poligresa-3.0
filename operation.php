@@ -394,11 +394,11 @@ $(document).ready(function(){
 			   <div class="col-lg-4">
 			     <div class="box-body no-padding">
 				 <div>
-				 <a>
+				 <a> <!-- #Oper_Calculations -->
 				 <i class="fa fa-credit-card fa-5x fa_pay"></i>
 				 <a href="" data-toggle="modal" data-target="#Oper_Transactions" ><h5 class="reg_pay">Setup Agreement</h5> </a>
 				 
-				  <a href="" data-toggle="modal" data-target="#Oper_Calculations" id="calculation"><h5 class="reg_pay">Calculations</h5> </a>
+				  <a href="" data-toggle="modal" data-target="#Oper_Transactions" id="calculation"><h5 class="reg_pay">Calculations</h5> </a>
 				 </div>
 				 </div>
 			   </div>
