@@ -1865,7 +1865,7 @@ $(document).ready(function(){
                 </tr>
 			     <!--<tr>
                   <td class="deb_info_row">Name:</td>
-				  <td class="deb_info_row1"><?php echo $row3['App_Clients_FullName'] ?></td>          
+				  <td class="deb_info_row1"><?php //echo $row3['App_Clients_FullName'] ?></td>          
                 </tr>
 				-->
 				
@@ -2013,7 +2013,7 @@ $(document).ready(function(){
                 </div>
 		  </div>
 		  
-		  
+		  <!--
 		  <div class="form-group">
 			  <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
 			  <div class="col-sm-3">
@@ -2030,7 +2030,8 @@ $(document).ready(function(){
                     
                   </div>
               </div>
-              </div>
+            </div>
+			-->
 			  
 			  
 		  </div>  
