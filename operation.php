@@ -27,7 +27,7 @@ $(document).ready(function(){
         }
 		else if (pathname.substr(1, 7) == "task_id") {
 				//$('#Oper_EditACtivities').modal('show');	
-				$('#Oper_ACtivitiesUpdate').modal('show');					
+				//$('#Oper_ACtivitiesUpdate').modal('show');					
 				
         }
 		else if (pathname.substr(1, 9) == "contactid") {
@@ -3575,6 +3575,7 @@ $(document).on("click", ".editaddress", function () {
 $(document).on("click", ".editactivity", function () {
      var TaskId = $(this).data('id');
      window.location.href='operation.php?task_id='+TaskId;
+	 $('#Oper_ACtivitiesUpdate').modal('show');	
 	 
 });
 $(document).on("click", ".addphone", function () {
@@ -3848,11 +3849,7 @@ if (isset($_POST['updateactivity'])) {
         $sql = "update App_Logs set App_Logs_Action='".$_POST['type']."', App_Logs_Answer='".$_POST['respuesta']."', App_Logs_TransAmmount='".$_POST['comp']."',App_Logs_Contact='".$_POST['contacto']."',App_Logs_TransDateTime='".$_POST['fecha']."', App_Logs_Type='".$_POST['tipo']."',App_Logs_Notes='".$_POST['outcome']."' where App_Logs_Id = '".$_POST['applogsid']."'";        				
 		$result = mysql_query($sql);
 		if($result)
-		{
-		?>
-		
-			<script> window.location.href='operation.php'; </script>
-		<?php
+		{	
 			echo "<script>window.location.href='operation.php';</script>";
 		}
 		
