@@ -25,11 +25,13 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 9) == "addressid") {
 				$('#Cli_EditAddress').modal('show');	
         }
+		/*
 		else if (pathname.substr(1, 7) == "task_id") {
 				//$('#Oper_EditACtivities').modal('show');	
 				$('#Oper_ACtivitiesUpdate').modal('show');					
 				var pathname = "";
         }
+		*/
 		else if (pathname.substr(1, 9) == "contactid") {
 				$('#Cli_Phones').modal('show');	
         }
@@ -3575,6 +3577,7 @@ $(document).on("click", ".editaddress", function () {
 $(document).on("click", ".editactivity", function () {
      var TaskId = $(this).data('id');
      window.location.href='operation.php?task_id='+TaskId;
+	 $('#Oper_ACtivitiesUpdate').modal('show');	
 	 
 });
 $(document).on("click", ".addphone", function () {
