@@ -3849,7 +3849,10 @@ if (isset($_POST['updateactivity'])) {
 		$result = mysql_query($sql);
 		if($result)
 		{
-			window.location.href='operation.php';
+		?>
+		
+			<script> window.location.href='operation.php'; </script>
+		<?php
 			echo "<script>window.location.href='operation.php';</script>";
 		}
 		
