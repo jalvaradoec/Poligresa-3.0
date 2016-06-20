@@ -13,43 +13,7 @@ h5
 	    margin-bottom: 10px;
 }
 </style>
-<script>
-$(document).ready(function(){
-	//var phone_id = getParameterByName('phoneid'); 
-	//alert(phone_id);
-	 var pathname = window.location.search;
-	if (pathname == "") {
-        } else if (pathname.substr(1, 7) == "phoneid") {
-				$('#Cli_EditPhones').modal('show');	
-        }
-		else if (pathname.substr(1, 9) == "addressid") {
-				$('#Cli_EditAddress').modal('show');	
-        }
-		else if (pathname.substr(1, 7) == "task_id") {
-				//$('#Oper_EditACtivities').modal('show');	
-				$('#Oper_ACtivitiesUpdate').modal('show');					
-				window.location.href="operation.php";
-        }
-		else if (pathname.substr(1, 9) == "contactid") {
-				$('#Cli_Phones').modal('show');	
-        }
-		else if (pathname.substr(1, 10) == "contact_id") {
-				$('#Cli_Address').modal('show');	
-        }
-		else if (pathname.substr(1, 9) == "debtphone") {
-				$('#Cli_Phones').modal('show');	
-        }
-		else if (pathname.substr(1, 11) == "debtaddress") {
-				$('#Cli_Address').modal('show');	
-        }
-		else if (pathname.substr(1, 8) == "trans_id") {
-				$('#Edit_Transactions').modal('show');	
-        }	
-		else if (pathname.substr(1, 9) == "Trans1_id") {
-				$('#Oper_Aggrement').modal('show');	
-        }
-});
-</script>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -3917,3 +3881,40 @@ if (isset($_POST['insert4'])) {
         echo "<script>window.location.href='operation.php';</script>";
 }
 ?>
+
+<script>
+$(document).ready(function(){
+	//var phone_id = getParameterByName('phoneid'); 
+	//alert(phone_id);
+	 var pathname = window.location.search;
+	if (pathname == "") {
+        } else if (pathname.substr(1, 7) == "phoneid") {
+				$('#Cli_EditPhones').modal('show');	
+        }
+		else if (pathname.substr(1, 9) == "addressid") {
+				$('#Cli_EditAddress').modal('show');	
+        }
+		else if (pathname.substr(1, 7) == "task_id") {
+				//$('#Oper_EditACtivities').modal('show');	
+				$('#Oper_ACtivitiesUpdate').modal('show');								
+        }
+		else if (pathname.substr(1, 9) == "contactid") {
+				$('#Cli_Phones').modal('show');	
+        }
+		else if (pathname.substr(1, 10) == "contact_id") {
+				$('#Cli_Address').modal('show');	
+        }
+		else if (pathname.substr(1, 9) == "debtphone") {
+				$('#Cli_Phones').modal('show');	
+        }
+		else if (pathname.substr(1, 11) == "debtaddress") {
+				$('#Cli_Address').modal('show');	
+        }
+		else if (pathname.substr(1, 8) == "trans_id") {
+				$('#Edit_Transactions').modal('show');	
+        }	
+		else if (pathname.substr(1, 9) == "Trans1_id") {
+				$('#Oper_Aggrement').modal('show');	
+        }
+});
+</script>
