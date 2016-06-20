@@ -28,7 +28,7 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 7) == "task_id") {
 				//$('#Oper_EditACtivities').modal('show');	
 				$('#Oper_ACtivitiesUpdate').modal('show');	
-				window.location.href='operation.php;
+				window.location.href='operation.php';
 				
         }
 		else if (pathname.substr(1, 9) == "contactid") {
