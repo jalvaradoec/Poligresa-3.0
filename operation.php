@@ -2156,7 +2156,7 @@ $(document).ready(function(){
 		  </div>
 		  -->
 		  
-		  <!--
+		  
 		  <div class="form-group">
 			  <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
 			  <div class="col-sm-3">
@@ -2174,7 +2174,7 @@ $(document).ready(function(){
                   </div>
               </div>
             </div>
-			-->			  
+				  
 			  
 		  </div>  
 		  
