@@ -2168,7 +2168,7 @@ h5
 				</thead>
                 <tbody>
 				<?php
-				/*
+				
 			if(isset($_GET['operno'])){
 			  $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."'";
 			  $sql4="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_ShareStatus!='4' and aa.App_Transactions_ShareStatus!='6' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."' and MONTH(aa.App_Transactions_ShareDueDate)<='".Date("m")."' and YEAR(aa.App_Transactions_ShareDueDate)<='".Date("Y")."'";
@@ -2189,24 +2189,21 @@ h5
 				  $num_row=mysql_num_rows($result4);
 				  $i=1;
 				  while($row4=mysql_fetch_array($result4)){ 
-				  */
+				  
 				  ?>
-				 <input type="hidden" name="rec" class="rec<?php //echo $i ?>" value="<?php //echo $i ?>"/>
+				 <input type="hidden" name="rec" class="rec<?php echo $i ?>" value="<?php echo $i ?>"/>
 				 <?php
-				// $i++;
-				 // }
+				 $i++;
+				  }
 				  ?>
-				  <input type="hidden" name="numrow" class="numrow" value="<?php //echo $num_row ?>"/>
-				  <input type="hidden" name="numrow3" class="numrow3" value="<?php //echo $num_row3 ?>"/>
+				  <input type="hidden" name="numrow" class="numrow" value="<?php echo $num_row ?>"/>
+				  <input type="hidden" name="numrow3" class="numrow3" value="<?php echo $num_row3 ?>"/>
 				  <?php
-				  /*
 				  $i=1;
 				  while($row4=mysql_fetch_array($result4)){ 
-				  */
 				  ?>
-				  <input type="hidden" name="transdate" class="transdate<?php// echo $i ?>" value="<?php //echo $row4['App_Transactions_ShareAmount'] ?>"/>
+				  <input type="hidden" name="transdate" class="transdate<?php echo $i ?>" value="<?php echo $row4['App_Transactions_ShareAmount'] ?>"/>
 		          <?php
-				  /*
 				  $i++;
 				  }
 				  $rowcnt=1;
@@ -2235,11 +2232,10 @@ h5
 				$payamt_amt=$row5['App_Transactions_ShareAmt'];
 				}
 				if($row3['App_Transactions_ShareAmount']==$payamt_amt){}else{
-				*/
 				?>
-				<input type="hidden" name="transids<?php //echo $rowcnt ?>" class="transids<?php //echo $rowcnt ?>" value="<?php //echo $row3['App_Transactions_Id'] ?>"/>
-				<input type="hidden" name="transid<?php// echo $rowcnt ?>" class="transid<?php //echo $rowcnt ?>" />
-				<input type="hidden" name="amountpay<?php //echo $rowcnt ?>" class="amountpay<?php //echo $rowcnt ?>" />
+				<input type="hidden" name="transids<?php echo $rowcnt ?>" class="transids<?php echo $rowcnt ?>" value="<?php echo $row3['App_Transactions_Id'] ?>"/>
+				<input type="hidden" name="transid<?php echo $rowcnt ?>" class="transid<?php echo $rowcnt ?>" />
+				<input type="hidden" name="amountpay<?php echo $rowcnt ?>" class="amountpay<?php echo $rowcnt ?>" />
                 <tr>
 				<td><input type="checkbox" name="chktransdate" class="chktransdateclass chktransdate<?php //echo $rowcnt ?>" id="chktransdate<?php //echo $rowcnt ?>" value= "<?php //echo $rowcnt ?>" onclick="ChangeAmount1(this.value)"; ></td>
 				  <td><?php //echo date(DEFAULT_DATE_FORMAT,strtotime($row3['App_Transactions_ShareDueDate'])) ?></td>
@@ -2248,13 +2244,13 @@ h5
 				  <td class="trsstatus<?php //echo $rowcnt ?>"><?php //echo $row1['App_Aux_text'] ?></td>
 				  <td class="amtdue<?php //echo $rowcnt ?>"><?php //echo number_format($dueamount, 2, '.', ''); ?></td>
 				  <td class="amtpay<?php //echo $rowcnt ?>"><?php //echo number_format($pay, 2, '.', ''); ?></td>
-				  <td style="display:none" class="amt_due<?php //echo $rowcnt ?>"><?php //echo number_format($dueamount, 2, '.', ''); ?></td>
+				  <td style="display:none" class="amt_due<?php//echo $rowcnt ?>"><?php //echo number_format($dueamount, 2, '.', ''); ?></td>
 				  <td style="display:none" class="amt_pay<?php //echo $rowcnt ?>"><?php //echo number_format($pay, 2, '.', ''); ?></td>
                 </tr>
 				<?php
-				//$rowcnt++;
-				//}
-				//} ?>
+				$rowcnt++;
+				}
+				} ?>
                 </tbody>
                
               </table>
