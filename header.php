@@ -85,7 +85,7 @@ switch ($pageName) {
 		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9) { ?>				
 			
 			<style>
-				.adminheader9{ display: block;}
+				.adminheader9{ display: block !important;;}
 				.adminheader5{ display: none !important;}
 				.adminheader1{ display: none !important;}
   
@@ -103,7 +103,7 @@ switch ($pageName) {
 				
 				<style>
 					.adminheader9{ display: none !important;}
-					.adminheader5{ display: block;}
+					.adminheader5{ display: block !important;;}
 					.adminheader1{ display: none !important;}  
 				</style>
 				<!-- Logo -->
@@ -120,7 +120,7 @@ switch ($pageName) {
 				<style>
 					.adminheader9{ display: none !important;}
 					.adminheader5{ display: none !important;}
-					.adminheader1{ display: block;}  
+					.adminheader1{ display: block !important;;}  
 				</style>
 				
 				<!-- Logo -->
