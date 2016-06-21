@@ -1,6 +1,8 @@
 <?php 
 session_start();
 include("web-config.php");
+echo "Rahul<br>";
+echo $_SESSION["username_admin"];
 ?><!DOCTYPE html>
 <html>
 <head>
