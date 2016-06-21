@@ -87,7 +87,7 @@ switch ($pageName) {
 			<style>
 				.adminheader9{ display: block;}
 				.adminheader5{ display: none !important;}
-				.adminheader1{ display: none; !important}
+				.adminheader1{ display: none !important;}
   
 			</style>
 			<!-- Logo -->
