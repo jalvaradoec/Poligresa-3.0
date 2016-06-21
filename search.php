@@ -364,7 +364,7 @@
 													<td><?php //echo $val["App_Credits_OriginalInterest"]; ?></td>
 													<td><?php //echo $val["App_Credits_OriginalCollectFees"]; ?></td>
 													-->													
-													<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime( $val["App_Credits_BankDueDate"]); ?></td>
+													<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime( $val["App_Credits_BankDueDate"])); ?></td>
 													<td><?php echo $val["StatusText"]; ?></td>													
 												</tr>
 												<?php
