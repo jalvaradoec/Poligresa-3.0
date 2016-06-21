@@ -2,10 +2,6 @@
 include_once("header.php");
 include_once("utils.php");
 
-echo "<pre>";
-print_r($_POST);
-die();
-
 if(!isset($_SESSION["logged_in_user"]["App_Users_ID"]))
 {
   echo "<script>window.location.href='login.php';</script>";
@@ -16,6 +12,9 @@ $appCreditsCond = " WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_use
 if(!empty($_POST["Operation_Status_ID"])) {
   $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . "";
 }
+
+echo $appCreditsCond;
+die();
 
 $appTasks = getAppTasks();
 $appCredits = getAppCredits($appCreditsCond);
