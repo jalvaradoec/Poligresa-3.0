@@ -2786,12 +2786,12 @@ h5
 						  </div>
 						</div>
 					</div>
-					<!--
+					
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>
+						<!--<button type="submit" class="btn btn-info pull-left" name="create"><i class="fa fa-plus"></i>Create Agreement</button>-->
 						<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 					</div>
-					-->
+				
 				</form>
 			 </div>
 			  
