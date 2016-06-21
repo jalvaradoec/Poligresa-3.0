@@ -82,7 +82,7 @@ switch ($pageName) {
 
   <header class="main-header">
 
-		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 10) { ?>				
+		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9) { ?>				
 			
 			<style>
 				.adminheader9{ display: block !important;;}
@@ -99,7 +99,7 @@ switch ($pageName) {
 			</a>
         <?php } ?>
 		
-		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 5  ) { ?>				
+		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>				
 				
 				<style>
 					.adminheader9{ display: none !important;}
@@ -115,7 +115,7 @@ switch ($pageName) {
 				</a>
         <?php } ?>
 		
-        <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 1 ) { ?>
+        <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1 ) { ?>
 				
 				<style>
 					.adminheader9{ display: none !important;}
