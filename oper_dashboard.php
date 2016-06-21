@@ -143,7 +143,7 @@ $operStatus = getViewOperStatus();
 							<?php foreach ($appCredits as $key => $value): ?>
 								<tr>
 									<td><input type="checkbox" /></td>
-									<td><?php echo $value["App_Credits_BankOperNumber"]; ?></td>
+									<td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $value["App_Credits_BankOperNumber"] ?>"><?php echo $value["App_Credits_BankOperNumber"]; ?></a></td>
 									<td><?php echo $value["App_Credits_DebtorId"]; ?></td>
 									<td><?php echo $value["App_Credits_BankTotalCredit"]; ?></td>
 									<td><?php echo $value["App_Credits_BankInterestRate"]; ?></td>
