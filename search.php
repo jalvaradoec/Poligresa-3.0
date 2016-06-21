@@ -333,6 +333,7 @@
 												<th>Bank Oper No</th>
 												<th>DebtorId</th>
 												<th>FullName</th>
+												<th>PhoneNumber</th>
 												<th>Capital</th>
 												<th>Interests</th>
 												<th>Collect Fees</th>
@@ -355,7 +356,8 @@
 													<td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $val["App_Credits_BankOperNumber"] ?>"><?php echo $val["App_Credits_BankOperNumber"]; ?></a></td>
 													<!--<td><?php //echo $val["App_Credits_BankOperNumber"]; ?></td>-->
 													<td><?php echo $val["App_Credits_DebtorId"]; ?></td>
-													<td><?php echo $val["App_Clients_FullName"]; ?></td>						
+													<td><?php echo $val["App_Clients_FullName"]; ?></td>
+													<td><?php echo $val["App_Contacts_PhoneNumber"]; ?></td>
 													<td><?php echo $val["App_Credits_OriginalCapital"]; ?></td>
 													<td><?php echo $val["App_Credits_OriginalInterest"]; ?></td>
 													<td><?php echo $val["App_Credits_OriginalCollectFees"]; ?></td>
