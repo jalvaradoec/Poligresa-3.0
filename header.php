@@ -83,8 +83,15 @@ switch ($pageName) {
   <header class="main-header">
 
 		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9) { ?>				
+			
+			<style>
+				.adminheader9{ display: block;}
+				.adminheader5{ display: none;}
+				.adminheader1{ display: none;}
+  
+			</style>
 			<!-- Logo -->
-			<a href="sup_dashboard.php" class="logo">
+			<a href="sup_dashboard.php" class="logo adminheader9">
 			<!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini"><b>P</b>3</span>
 			<!-- logo for regular state and mobile devices -->
@@ -93,8 +100,14 @@ switch ($pageName) {
         <?php } ?>
 		
 		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>				
+				
+				<style>
+					.adminheader9{ display: none;}
+					.adminheader5{ display: block;}
+					.adminheader1{ display: none;}  
+				</style>
 				<!-- Logo -->
-				<a href="sup_dashboard.php" class="logo">
+				<a href="sup_dashboard.php" class="logo adminheader5">
 				<!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>P</b>3</span>
 				<!-- logo for regular state and mobile devices -->
@@ -103,6 +116,13 @@ switch ($pageName) {
         <?php } ?>
 		
         <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1 ) { ?>
+				
+				<style>
+					.adminheader9{ display: none;}
+					.adminheader5{ display: none;}
+					.adminheader1{ display: block;}  
+				</style>
+				
 				<!-- Logo -->
 				<a href="oper_dashboard.php" class="logo">
 				<!-- mini logo for sidebar mini 50x50 pixels -->
