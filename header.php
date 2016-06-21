@@ -102,9 +102,9 @@ switch ($pageName) {
 		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>				
 				
 				<style>
-					.adminheader9{ display: none important;}
+					.adminheader9{ display: none !important;}
 					.adminheader5{ display: block;}
-					.adminheader1{ display: none important;}  
+					.adminheader1{ display: none !important;}  
 				</style>
 				<!-- Logo -->
 				<a href="sup_dashboard.php" class="logo adminheader5">
@@ -118,8 +118,8 @@ switch ($pageName) {
         <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1 ) { ?>
 				
 				<style>
-					.adminheader9{ display: none important;}
-					.adminheader5{ display: none important;}
+					.adminheader9{ display: none !important;}
+					.adminheader5{ display: none !important;}
 					.adminheader1{ display: block;}  
 				</style>
 				
