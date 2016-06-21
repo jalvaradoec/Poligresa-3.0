@@ -335,9 +335,10 @@
 												<th>DebtorId</th>
 												<th>FullName</th>
 												<th>PhoneNumber</th>
-												<th>Capital</th>
+												<!--<th>Capital</th>
 												<th>Interests</th>
 												<th>Collect Fees</th>
+												-->
 												<th>BankDueDate </th>
 												<th>Status</th>
 											</tr>
@@ -359,10 +360,11 @@
 													<td><?php echo $val["App_Credits_DebtorId"]; ?></td>
 													<td><?php echo $val["App_Clients_FullName"]; ?></td>
 													<td><?php echo $val["App_Contacts_PhoneNumber"]; ?></td>
-													<td><?php echo $val["App_Credits_OriginalCapital"]; ?></td>
-													<td><?php echo $val["App_Credits_OriginalInterest"]; ?></td>
-													<td><?php echo $val["App_Credits_OriginalCollectFees"]; ?></td>
-													<td><?php echo $val["App_Credits_BankDueDate"]; ?></td>
+													<!--<td><?php //echo $val["App_Credits_OriginalCapital"]; ?></td>
+													<td><?php //echo $val["App_Credits_OriginalInterest"]; ?></td>
+													<td><?php //echo $val["App_Credits_OriginalCollectFees"]; ?></td>
+													-->													
+													<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime( $val["App_Credits_BankDueDate"]); ?></td>
 													<td><?php echo $val["StatusText"]; ?></td>													
 												</tr>
 												<?php
@@ -375,10 +377,10 @@
 											<th>Bank Oper No</th>
 												<th>DebtorId</th>
 												<th>FullName</th>
-												<th>PhoneNumber</th>
-												<th>Capital</th>
+												<th>PhoneNumber</th>												
+												<!--<th>Capital</th>
 												<th>Interests</th>
-												<th>Collect Fees</th>
+												<th>Collect Fees</th>-->
 												<th>BankDueDate </th>
 												<th>Status</th>
 												</tr>
