@@ -374,6 +374,7 @@
 											<th>Bank Oper No</th>
 												<th>DebtorId</th>
 												<th>FullName</th>
+												<th>PhoneNumber</th>
 												<th>Capital</th>
 												<th>Interests</th>
 												<th>Collect Fees</th>
