@@ -7,7 +7,6 @@ if(!isset($_SESSION["logged_in_user"]["App_Users_ID"]))
   echo "<script>window.location.href='login.php';</script>";
 }
 
-
 $appCreditsCond = " WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]."";
 if(!empty($_POST["Operation_Status_ID"])) {
   $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . "";
@@ -125,7 +124,7 @@ $operStatus = getViewOperStatus();
 								<th></th>
 								<th>Operation</th>
 								<th>Debtor ID</th>
-								<th>Debtors Name</th>
+								<th> Debtors Name </th>
 								<th>Bank Total Credit</th>
 								<!--<th>Bank Interest Rate</th>-->
 								<th>Credit Date</th>
@@ -147,7 +146,7 @@ $operStatus = getViewOperStatus();
 									<td><input type="checkbox" /></td>
 									<td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $value["App_Credits_BankOperNumber"] ?>"><?php echo $value["App_Credits_BankOperNumber"]; ?></a></td>
 									<td><?php echo $value["App_Credits_DebtorId"]; ?></td>
-									<td><?php echo $value["App_Clients_FirstName"]; ?></td>
+									<td><?php echo $value["App_Clients_FirstName"]; ?> </td>
 									<td><?php echo $value["App_Credits_BankTotalCredit"]; ?></td>
 									<!--<td><?php// echo $value["App_Credits_BankInterestRate"]; ?></td>-->
 									<td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankCreditDate"])); ?></td>
