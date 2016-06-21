@@ -13,9 +13,6 @@ if(!empty($_POST["Operation_Status_ID"])) {
   $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . "";
 }
 
-echo $appCreditsCond;
-die();
-
 $appTasks = getAppTasks();
 $appCredits = getAppCredits($appCreditsCond);
 $operStatus = getViewOperStatus();
