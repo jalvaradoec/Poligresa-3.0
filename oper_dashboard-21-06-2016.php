@@ -64,104 +64,104 @@ $operStatus = getViewOperStatus();
         </div>
 	  </div>
     <div class="clearfix"></div>
-	<div class="row">
-	
-		<!--
-		<div class="col-sm-4">
-			<section class="col-lg-12 connectedSortable" style="padding: 0;">		  
-				<div class="box box-primary">
-					<div class="box-header">
-					<h3 class="box-title">Task</h3>
-					</div>
-					
-					<div class="box-body table-responsive no-padding">
-						<table class="table table-bordered table-hover" id="example2">
-							<tr>
-								<th></th>
-								<th>Task</th>
-								<th>Operation </th>
-								<th>Creation Date</th>
-							</tr>
-							<tbody id="tasksTbody">
-							</tbody>
-						</table>
-					</div>
-				
-				</div>
-			</section>
-		</div>
-		-->
-		
-		<div class="col-sm-12">
-			<!-- right col -->
-			<section class="col-lg-12 connectedSortable" style="padding: 0;">
-			<div class="box box-primary">
-				<div class="box-header">
-					<form name="frmOperations" method="post">
-						<?php
-							//echo $appCreditsCond;
-						?>
-						<h3 class="box-title">Assigned Operation</h3>
-						<select class="form-control select2 op_filter" name="Operation_Status_ID" id="Operation_Status_ID" onchange="this.form.submit();">
-							<option value="">Please Select Operation Status</option>
-								<?php if(!empty($operStatus)) {
-										foreach ($operStatus as $key => $value) {
-								?>
-										<option value="<?php echo $value['App_Aux_value']; ?>" <?php if(isset($_POST["Operation_Status_ID"]) && $_POST["Operation_Status_ID"] == $value['App_Aux_value']) echo "selected"; ?>><?php echo $value['App_Aux_text']; ?>
-										</option>
-								<?php
-									}
-								?>
-								<?php } ?>
-						</select>
-					</form>
-				</div>
-				<!-- /.box-header -->
-				<div class="box-body table-responsive no-padding">
-					<table id="example2" class="table table-bordered table-hover">
-						<thead>
-							<tr>
-								<th></th>
-								<th>Operation</th>
-								<th>Debtor ID</th>
-								<th>Bank Total Credit</th>
-								<th>Bank Interest Rate</th>
-								<th>Credit Date</th>
-								<th>Due Date</th>
-								<th>Bank State</th>
-								<th>Status</th>
-								<!--<th>Action</th> -->
-							</tr>
-						</thead>
-						<tbody>
-							<?php if(empty($appCredits)) { ?>
-								<tr>
-									<td colspan="7">No operations found.</td>                  
-								</tr>
-							<?php } else { ?>
+	  <div class="row">
+    <div class="col-sm-4">
+    <section class="col-lg-12 connectedSortable" style="padding: 0;">
+  
+          <div class="box box-primary">
+            <div class="box-header">
+              <h3 class="box-title">Task</h3>
+            </div>
+            <!-- /.box-header -->
+              <div class="box-body table-responsive no-padding">
+              <table class="table table-bordered table-hover" id="example2">
+                <tr>
+                  <th></th>
+                  <th>Task</th>
+                  <th>Operation </th>
+                  <th>Creation Date</th>
+                </tr>
+                <tbody id="tasksTbody">
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </section>
+    </div>
+    <div class="col-sm-8">
 
-							<?php foreach ($appCredits as $key => $value): ?>
-								<tr>
-									<td><input type="checkbox" /></td>
-									<td><?php echo $value["App_Credits_BankOperNumber"]; ?></td>
-									<td><?php echo $value["App_Credits_DebtorId"]; ?></td>
-									<td><?php echo $value["App_Credits_BankTotalCredit"]; ?></td>
-									<td><?php echo $value["App_Credits_BankInterestRate"]; ?></td>
-									<td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankCreditDate"])); ?></td>
-									<td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankDueDate"])); ?></td>
-									<td><?php echo getBankState($value["App_Credits_BankState"]);?></td>
-									<td><?php echo $value["StatusText"]; ?></td>
-									<!--<td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php //echo $value["App_Credits_BankOperNumber"] ?>">Links</a></td>-->
-								</tr>
-							<?php endforeach ?>
-							<?php } ?>               
-						</tfoot>
-					</table>
-				</div>
-				<!-- /.box-body -->
-			</div>
-			</section>
-		</div>
+        <!-- right col -->
+    <section class="col-lg-12 connectedSortable" style="padding: 0;">
+          <div class="box box-primary">
+            <div class="box-header">
+              <form name="frmOperations" method="post">
+              <?php
+//              echo $appCreditsCond;
+              ?>
+              <h3 class="box-title">Assigned Operation</h3>
+              <select class="form-control select2 op_filter" name="Operation_Status_ID" id="Operation_Status_ID" onchange="this.form.submit();">
+                <option value="">Please Select Operation Status</option>
+                <?php if(!empty($operStatus)) {
+                  foreach ($operStatus as $key => $value) {
+                    ?>
+                    <option value="<?php echo $value['App_Aux_value']; ?>" <?php if(isset($_POST["Operation_Status_ID"]) && $_POST["Operation_Status_ID"] == $value['App_Aux_value']) echo "selected"; ?>><?php echo $value['App_Aux_text']; ?>
+                    </option>
+                    <?php
+                  }
+                  ?>
+                <?php } ?>
+         </select>
+              </form>
+
+            </div>
+            <!-- /.box-header -->
+              <div class="box-body table-responsive no-padding">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Operation</th>
+                  <th>Debtor ID</th>
+                  <th>Bank Total Credit</th>
+                  <th>Bank Interest Rate</th>
+                  <th>Credit Date</th>
+                  <th>Due Date</th>
+                  <th>Bank State</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <?php if(empty($appCredits)) { ?>
+                <tr>
+                  <td colspan="7">No operations found.</td>                  
+                </tr>
+                <?php } else { ?>
+
+                <?php foreach ($appCredits as $key => $value): ?>
+                   <tr>
+                  <td><input type="checkbox" /></td>
+                  <td><?php echo $value["App_Credits_BankOperNumber"]; ?></td>
+                  <td><?php echo $value["App_Credits_DebtorId"]; ?></td>
+                  <td><?php echo $value["App_Credits_BankTotalCredit"]; ?></td>
+                  <td><?php echo $value["App_Credits_BankInterestRate"]; ?></td>
+                  <td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankCreditDate"])); ?></td>
+                  <td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankDueDate"])); ?></td>
+                  <td><?php echo getBankState($value["App_Credits_BankState"]);?></td>
+                  <td><?php echo $value["StatusText"]; ?></td>
+                  <td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $value["App_Credits_BankOperNumber"] ?>">Links</a></td>
+                </tr>
+                <?php endforeach ?>
+
+                <?php } ?>               
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+    </section>
+    </div>
     </div>
         
         <!-- /.Left col -->
