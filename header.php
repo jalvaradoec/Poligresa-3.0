@@ -82,13 +82,35 @@ switch ($pageName) {
 
   <header class="main-header">
 
-    <!-- Logo -->
-    <a href="supervisor.php" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>P</b>3</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Poligresa</b>3.0</span>
-    </a>
+		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9) { ?>				
+			<!-- Logo -->
+			<a href="sup_dashboard.php" class="logo">
+			<!-- mini logo for sidebar mini 50x50 pixels -->
+			<span class="logo-mini"><b>P</b>3</span>
+			<!-- logo for regular state and mobile devices -->
+			<span class="logo-lg"><b>Poligresa</b>3.0</span>	  			  	  	  
+			</a>
+        <?php } ?>
+		
+		<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>				
+				<!-- Logo -->
+				<a href="sup_dashboard.php" class="logo">
+				<!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>P</b>3</span>
+				<!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>Poligresa</b>3.0</span>	  			  	  	  
+				</a>
+        <?php } ?>
+		
+        <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1 ) { ?>
+				<!-- Logo -->
+				<a href="oper_dashboard.php" class="logo">
+				<!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>P</b>3</span>
+				<!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>Poligresa</b>3.0</span>	  			  	  	  
+				</a>
+        <?php } ?>
 
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
