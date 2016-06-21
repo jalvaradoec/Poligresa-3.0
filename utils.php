@@ -27,7 +27,7 @@ Created On : 14th Apr 2016
 function getAppCredits($appCreditsCond = null){
     global $objDb;
     $appCredits = array();
-    $appCreditsSql = "SELECT ac.*,vos.App_Aux_text StatusText,acl.App_Clients_FullName,ac1.App_Clients_FirstName FROM `App_Credits` ac 
+    $appCreditsSql = "SELECT ac.*,vos.App_Aux_text StatusText,acl.App_Clients_FullName,acl.App_Clients_FirstName FROM `App_Credits` ac 
     LEFT JOIN `View_OperStatus` vos ON ac.App_Credits_Status=vos.App_Aux_value 
     LEFT JOIN `App_Clients` acl ON ac.App_Credits_DebtorId=acl.App_Clients_DebtorIdNumber";
 	
