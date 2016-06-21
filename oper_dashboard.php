@@ -125,7 +125,7 @@ $operStatus = getViewOperStatus();
 								<th>Operation</th>
 								<th>Debtor ID</th>
 								<th>Bank Total Credit</th>
-								<th>Bank Interest Rate</th>
+								<!--<th>Bank Interest Rate</th>-->
 								<th>Credit Date</th>
 								<th>Due Date</th>
 								<th>Bank State</th>
@@ -146,7 +146,7 @@ $operStatus = getViewOperStatus();
 									<td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $value["App_Credits_BankOperNumber"] ?>"><?php echo $value["App_Credits_BankOperNumber"]; ?></a></td>
 									<td><?php echo $value["App_Credits_DebtorId"]; ?></td>
 									<td><?php echo $value["App_Credits_BankTotalCredit"]; ?></td>
-									<td><?php echo $value["App_Credits_BankInterestRate"]; ?></td>
+									<!--<td><?php// echo $value["App_Credits_BankInterestRate"]; ?></td>-->
 									<td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankCreditDate"])); ?></td>
 									<td ><?php echo date(DEFAULT_DATE_FORMAT,strtotime($value["App_Credits_BankDueDate"])); ?></td>
 									<td><?php echo getBankState($value["App_Credits_BankState"]);?></td>
