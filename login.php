@@ -107,6 +107,13 @@ include("web-config.php");
 </body>
 </html>
 <?php
+	
+	<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9) { ?>				
+	<?php } ?>
+		
+	<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>	
+	<?php } ?>
+				
 if(isset($_POST['signin'])){
 	$username=$_POST['username'];
 	$pwd=$_POST['pwd'];
