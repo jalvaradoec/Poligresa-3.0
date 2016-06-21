@@ -2152,7 +2152,7 @@ h5
 					</div>
 				</div>
 			</div>
-			
+		<!--
 		  <div class="box-body table-responsive no-padding">
           <table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
@@ -2253,7 +2253,7 @@ h5
                
               </table>
              
-            </div>
+            </div>-->
      
          </div>
         <div class="modal-footer">
