@@ -352,8 +352,8 @@
 												foreach($allCredits as $key =>$val){			
 												?>
 												<tr>
-													<td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $val["App_Credits_BankOperNumber"] ?>"><?php echo $value["App_Credits_BankOperNumber"]; ?></a></td>
-													<!--<td><?php echo $val["App_Credits_BankOperNumber"]; ?></td>-->
+													<td><a href="http://sistema.poligresa.com/3.0_dev/operation.php?operno=<?php echo $val["App_Credits_BankOperNumber"] ?>"><?php echo $val["App_Credits_BankOperNumber"]; ?></a></td>
+													<!--<td><?php echo //$val["App_Credits_BankOperNumber"]; ?></td>-->
 													<td><?php echo $val["App_Credits_DebtorId"]; ?></td>
 													<td><?php echo $val["App_Clients_FullName"]; ?></td>						
 													<td><?php echo $val["App_Credits_OriginalCapital"]; ?></td>
