@@ -2,7 +2,7 @@
 	session_start();
 	if(!empty($_SESSION["username_admin"]))
 	{
-		echo $_SESSION["username_admin"];
+		echo $_SESSION["username_admin"]; die();
 	}
 	else
 	{
