@@ -1,6 +1,8 @@
 <?php 
 	session_start();
 	include("web-config.php");
+	include("utils.php");
+	session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,25 +110,6 @@
 </body>
 </html>
 <?php
-
-if(!empty($_SESSION["username_admin"]))
-{
-	if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
-	{
-	  $page = "sup_dashboard.php";
-	}
-	else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5)
-	{
-	  $page = "sup_dashboard.php";
-	}
-	else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1)
-	{
-	  $page = "oper_dashboard.php";
-	}
-		echo "<script>window.location.href='".$page."';</script>";
-}
-else
-{
 	
 	
 	if(isset($_POST['signin']))
