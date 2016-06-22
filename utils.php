@@ -161,31 +161,26 @@ function getAppAux($appAuxCond = null){
 
 function session_check($logged_in_user)
 {
-	if($logged_in_user >= 9)
-	{
-	  $page = "sup_dashboard.php";
-	  echo "<script>window.location.href='".$page."';</script>";
-	  exit;
-	}
-	else if($logged_in_user >= 5)
-	{
-		$page = "sup_dashboard.php";
-		echo "<script>window.location.href='".$page."';</script>";
-		exit;
-	}
-	else if($logged_in_user >= 1)
-	{
-		$page = "oper_dashboard.php";
-		echo "<script>window.location.href='".$page."';</script>";
-		exit;
-		
-	} else {
-		
-		$page = "login.php";
-		echo "<script>window.location.href='".$page."';</script>";
-		exit;
-	}
-	
+	if(!empty($logged_in_user))
+		if($logged_in_user >= 9)
+		{
+		  $page = "sup_dashboard.php";
+		  echo "<script>window.location.href='".$page."';</script>";
+		}
+		else if($logged_in_user >= 5)
+		{
+			$page = "sup_dashboard.php";
+			echo "<script>window.location.href='".$page."';</script>";
+		}
+		else if($logged_in_user >= 1)
+		{
+			$page = "oper_dashboard.php";
+			echo "<script>window.location.href='".$page."';</script>";
+			
+		} 
+    }
+	$page = "login.php";
+	echo "<script>window.location.href='".$page."';</script>";
 }
 
 ?>

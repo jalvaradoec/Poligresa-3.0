@@ -2,10 +2,10 @@
 	session_start();
 	include("web-config.php");
 	include("utils.php");
-	if(session_start())
-	{
-		session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
-	}
+	
+	echo "Current user=>".$_SESSION["logged_in_user"]["App_Users_SecurityLevel"];
+	session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
+
 	
 ?>
 <!DOCTYPE html>
