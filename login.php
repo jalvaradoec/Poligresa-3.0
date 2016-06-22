@@ -2,7 +2,11 @@
 	session_start();
 	include("web-config.php");
 	include("utils.php");
-	session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
+	if(session_start())
+	{
+		session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
+	}
+	
 ?>
 <!DOCTYPE html>
 <html>
