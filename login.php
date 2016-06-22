@@ -2,7 +2,7 @@
 	session_start();
 	include("web-config.php");	
 	
-	if(!$_SESSION['username_admin'])
+	if(!empty($_SESSION['username_admin']))
 	{	
 		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
 		{
