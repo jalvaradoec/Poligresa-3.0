@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if(!empty($_SESSION['username_admin']))
+	{	
+		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 1)
+		{
 include_once("header.php");
 include_once("utils.php");
 
@@ -418,3 +423,7 @@ $operStatus = getViewOperStatus();
 
 </body>
 </html>
+<?php 
+		}
+	}
+?>
