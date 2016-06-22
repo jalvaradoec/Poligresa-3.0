@@ -14,7 +14,7 @@
 			$page = "sup_dashboard.php";
 			echo "<script>window.location.href='".$page."';</script>";
 		}
-		else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1)
+		else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 1)
 		{
 			$page = "oper_dashboard.php";
 			echo "<script>window.location.href='".$page."';</script>";
