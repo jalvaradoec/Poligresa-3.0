@@ -21,8 +21,11 @@
 			
 		} 
     }
+	else
+	{
 	$page = "login.php";
 	echo "<script>window.location.href='".$page."';</script>";
+	}
 
 	
 ?>
