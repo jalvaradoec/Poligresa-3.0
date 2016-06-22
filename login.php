@@ -108,7 +108,7 @@
 </body>
 </html>
 <?php
-/*
+
 if(!empty($_SESSION["username_admin"]))
 {
 	if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
@@ -127,7 +127,7 @@ if(!empty($_SESSION["username_admin"]))
 }
 else
 {
-	*/
+	
 	
 	if(isset($_POST['signin']))
 	{
@@ -167,6 +167,6 @@ else
 		<?php
 		}
 	}
-//}
+}
 
 ?>
