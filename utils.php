@@ -162,6 +162,7 @@ function getAppAux($appAuxCond = null){
 function session_check($logged_in_user)
 {
 	if(!empty($logged_in_user))
+	{
 		if($logged_in_user >= 9)
 		{
 		  $page = "sup_dashboard.php";
