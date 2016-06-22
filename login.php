@@ -4,7 +4,7 @@
 	
 	if(!empty($_SESSION['username_admin']))
 	{	
-		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 9)
+		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 10)
 		{
 		  $page = "sup_dashboard.php";
 		  echo "<script>window.location.href='".$page."';</script>";
