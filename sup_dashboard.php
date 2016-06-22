@@ -3,6 +3,11 @@ session_start();
 include("header.php");
 include_once("utils.php");
 $operators = getViewOperators();
+
+if(!empty($_SESSION['username_admin']))
+	{	
+		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 10 || $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 5)
+		{
 ?>
 
 
@@ -429,3 +434,7 @@ $operators = getViewOperators();
 </script>-->
 </body>
 </html>
+<?php 
+		} 
+	} 
+?>
