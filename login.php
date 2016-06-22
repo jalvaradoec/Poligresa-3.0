@@ -61,6 +61,14 @@
 			<?php
 			}
 		}
+		else
+		{
+				?>
+				<script>
+				$('.login-box-msg').text('Please Enter Valid Username and Password!!');
+				</script>
+				<?php
+		}
 	}
 
 	
