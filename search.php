@@ -322,7 +322,8 @@
 													OR acp.App_Phones_PhoneNumber like '%".$searchText."%'
 												";
 										}
-										$allCredits = getAppCredits($sqlCond);									
+										$allCredits = getAppCredits($sqlCond);
+										echo $allCredits; die();
 										?>
 										<?php if(!empty($searchText)){ ?>
 										<p class="help-block"> <?php echo $num_rows ." records found for \"".$searchText."\""; ?></p>
