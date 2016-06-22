@@ -319,6 +319,7 @@
 													OR ac.App_Credits_BankDueDate like '%".$searchText."%'
 													OR vos.App_Aux_text like '%".$searchText."%'
 													OR act.App_Contacts_PhoneNumber like '%".$searchText."%'
+													OR act.App_Contacts_RefId  like '%".$searchText."%'
 												";
 										}
 										$allCredits = getAppCredits($sqlCond);									
