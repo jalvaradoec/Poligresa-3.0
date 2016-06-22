@@ -438,4 +438,8 @@ $operators = getViewOperators();
 <?php 
 		} 
 	} 
+	else
+	{
+		header("location:index.php");
+	}
 ?>
