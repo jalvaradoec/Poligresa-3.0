@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	if(!empty($_SESSION["username_admin"]))
 	{
 		echo $_SESSION["username_admin"];
@@ -6,6 +7,7 @@
 	else
 	{
 		echo "No user Login";
+		echo "<script>window.location.href='login.php';</script>";
 	}
 	
 	/*
