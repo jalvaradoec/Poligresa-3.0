@@ -38,8 +38,7 @@ h5
 			   <div class="box-header">
 			   <h3>Debtor General Information</h3>
 			   </div>
-			   <?php
-			   //echo $_SESSION["logged_in_user"]["App_Users_ID"];
+			   <?php			   
 				//$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_BankOperNumber =".$_GET['operno'];
 				$result=mysql_query($sql);
@@ -500,7 +499,7 @@ h5
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
 							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
-							where App_Logs_OperationID = '035866320130617000' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' ";																	
+							where App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' ";																	
 					$result=mysql_query($sql);
 					
 					while($row=mysql_fetch_array($result)){ 
