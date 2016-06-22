@@ -3,7 +3,7 @@
 	include("web-config.php");
 	include("utils.php");
 	
-	echo "Current user=>".$_SESSION["logged_in_user"]["App_Users_SecurityLevel"];
+	echo "Current user=>".$_SESSION["logged_in_user"]["App_Users_SecurityLevel"]; die();
 	session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
 
 	
