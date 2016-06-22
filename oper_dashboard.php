@@ -1,25 +1,25 @@
 <?php 
-session_start();
-if(!empty($_SESSION['username_admin']))
+	session_start();
+	if(!empty($_SESSION['username_admin']))
 	{	
 		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] == 1)
 		{
-include_once("header.php");
-include_once("utils.php");
+			include_once("header.php");
+			include_once("utils.php");
 
-if(!isset($_SESSION["logged_in_user"]["App_Users_ID"]))
-{
-  echo "<script>window.location.href='login.php';</script>";
-}
+				if(!isset($_SESSION["logged_in_user"]["App_Users_ID"]))
+				{
+				  echo "<script>window.location.href='login.php';</script>";
+				}
 
-$appCreditsCond = " WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]."";
-if(!empty($_POST["Operation_Status_ID"])) {
-  $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . "";
-}
+				$appCreditsCond = " WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]."";
+				if(!empty($_POST["Operation_Status_ID"])) {
+				  $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . "";
+				}
 
-$appTasks = getAppTasks();
-$appCredits = getAppCredits($appCreditsCond);
-$operStatus = getViewOperStatus();
+				$appTasks = getAppTasks();
+				$appCredits = getAppCredits($appCreditsCond);
+				$operStatus = getViewOperStatus();
 
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -424,6 +424,13 @@ $operStatus = getViewOperStatus();
 </body>
 </html>
 <?php 
+		} 
+		else{
+			header("location:index.php");
 		}
+	} 
+	else
+	{
+		header("location:index.php");
 	}
 ?>
