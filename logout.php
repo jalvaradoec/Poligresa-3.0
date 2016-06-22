@@ -2,6 +2,6 @@
 session_start();
 unset($_SESSION['username_admin']);
 session_destroy();
-header("Location: indx.php");
+header("Location: index.php");
 exit;
 ?>
