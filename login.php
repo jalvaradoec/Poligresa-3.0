@@ -1,10 +1,34 @@
 <?php 
 	session_start();
 	include("web-config.php");	
-	include_once("utils.php");
+	
 	echo "RAhul";
 	echo "Current user=>".$_SESSION["logged_in_user"]["App_Users_SecurityLevel"];
-	//session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
+	session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
+	
+function session_check($logged_in_user)
+{
+	if(!empty($logged_in_user))
+		if($logged_in_user >= 9)
+		{
+		  $page = "sup_dashboard.php";
+		  echo "<script>window.location.href='".$page."';</script>";
+		}
+		else if($logged_in_user >= 5)
+		{
+			$page = "sup_dashboard.php";
+			echo "<script>window.location.href='".$page."';</script>";
+		}
+		else if($logged_in_user >= 1)
+		{
+			$page = "oper_dashboard.php";
+			echo "<script>window.location.href='".$page."';</script>";
+			
+		} 
+    }
+	$page = "login.php";
+	echo "<script>window.location.href='".$page."';</script>";
+}
 
 	
 ?>
