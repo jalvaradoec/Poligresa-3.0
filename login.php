@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	include("web-config.php");	
-	include_once("utils.php");
+	//include_once("utils.php");
 	echo "RAhul";
 	//echo "Current user=>".$_SESSION["logged_in_user"]["App_Users_SecurityLevel"]; die();
 	//session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
