@@ -6,8 +6,9 @@
 	{	
 		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
 		{
-		  $page = "sup_dashboard.php";
-		  echo "<script>window.location.href='".$page."';</script>";
+			header("location:sup_dashboard.php");
+		 // $page = "sup_dashboard.php";
+		  //echo "<script>window.location.href='".$page."';</script>";
 		}
 		else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5)
 		{
