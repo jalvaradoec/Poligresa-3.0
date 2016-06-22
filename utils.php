@@ -27,12 +27,22 @@ Created On : 14th Apr 2016
 function getAppCredits($appCreditsCond = null){
     global $objDb;
     $appCredits = array();
+	
+	
+    $appCreditsSql = "SELECT ac.*,vos.App_Aux_text StatusText,acl.App_Clients_FullName,acl.App_Clients_FirstName,act.App_Contacts_PhoneNumber,acp.App_Phones_PhoneNumber FROM `App_Credits` ac 
+    INNER JOIN `View_OperStatus` vos ON ac.App_Credits_Status=vos.App_Aux_value 
+    INNER JOIN `App_Clients` acl ON ac.App_Credits_DebtorId=acl.App_Clients_DebtorIdNumber
+	INNER JOIN App_Contacts act ON ac.App_Credits_DebtorId=act.App_Contacts_DebtorId
+	INNER JOIN App_Phones acp ON ac.App_Credits_DebtorId=acp.App_Phones_DebtorID
+	";
+	
+	/*
     $appCreditsSql = "SELECT ac.*,vos.App_Aux_text StatusText,acl.App_Clients_FullName,acl.App_Clients_FirstName,act.App_Contacts_PhoneNumber,acp.App_Phones_PhoneNumber FROM `App_Credits` ac 
     LEFT JOIN `View_OperStatus` vos ON ac.App_Credits_Status=vos.App_Aux_value 
     LEFT JOIN `App_Clients` acl ON ac.App_Credits_DebtorId=acl.App_Clients_DebtorIdNumber
 	LEFT JOIN App_Contacts act ON ac.App_Credits_DebtorId=act.App_Contacts_DebtorId
 	LEFT JOIN App_Phones acp ON ac.App_Credits_DebtorId=acp.App_Phones_DebtorID
-	";
+	";*/
 	
     if(!empty($appCreditsCond))
         $appCreditsSql .= " $appCreditsCond";
