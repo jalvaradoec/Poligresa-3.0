@@ -2,25 +2,19 @@
 	session_start();
 	include("web-config.php");	
 	
-	echo "RAhul";
-	echo "Current user=>".$_SESSION["logged_in_user"]["App_Users_SecurityLevel"];
-	session_check($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]);
-	
-function session_check($logged_in_user)
-{
-	if(!empty($logged_in_user))
+		if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]))
 	{	
-		if($logged_in_user >= 9)
+		if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
 		{
 		  $page = "sup_dashboard.php";
 		  echo "<script>window.location.href='".$page."';</script>";
 		}
-		else if($logged_in_user >= 5)
+		else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5)
 		{
 			$page = "sup_dashboard.php";
 			echo "<script>window.location.href='".$page."';</script>";
 		}
-		else if($logged_in_user >= 1)
+		else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1)
 		{
 			$page = "oper_dashboard.php";
 			echo "<script>window.location.href='".$page."';</script>";
@@ -29,7 +23,6 @@ function session_check($logged_in_user)
     }
 	$page = "login.php";
 	echo "<script>window.location.href='".$page."';</script>";
-}
 
 	
 ?>
