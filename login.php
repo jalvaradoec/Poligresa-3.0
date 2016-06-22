@@ -23,44 +23,44 @@
     }
 	else
 	{
-	if(isset($_POST['signin']))
-	{
-		$username=$_POST['username'];
-		$pwd=$_POST['pwd'];
-		$sql="select vl.*,au.App_Users_fullname,au.App_Users_email,au.App_Users_phone,au.App_Users_status,au.App_Users_memo from View_Logins vl LEFT JOIN App_Users au ON vl.App_Users_ID = au.App_Users_ID WHERE vl. App_Users_Username='".$username."' and vl.App_Users_password='".$pwd."'";
-	  
-		$result=mysql_query($sql);
-		$num_row=mysql_num_rows($result);
-		if($num_row>0)
+		if(isset($_POST['signin']))
 		{
-			$_SESSION["logged_in_user"] = mysql_fetch_assoc($result);
-			$_SESSION['username_admin']=$username;
-			$_SESSION['pwd_admin']=$pwd;
-			$page = "";
+			$username=$_POST['username'];
+			$pwd=$_POST['pwd'];
+			$sql="select vl.*,au.App_Users_fullname,au.App_Users_email,au.App_Users_phone,au.App_Users_status,au.App_Users_memo from View_Logins vl LEFT JOIN App_Users au ON vl.App_Users_ID = au.App_Users_ID WHERE vl. App_Users_Username='".$username."' and vl.App_Users_password='".$pwd."'";
+		  
+			$result=mysql_query($sql);
+			$num_row=mysql_num_rows($result);
+			if($num_row>0)
+			{
+				$_SESSION["logged_in_user"] = mysql_fetch_assoc($result);
+				$_SESSION['username_admin']=$username;
+				$_SESSION['pwd_admin']=$pwd;
+				$page = "";
 
-			if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
-			{
-			  $page = "sup_dashboard.php";
+				if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 9)
+				{
+				  $page = "sup_dashboard.php";
+				}
+				else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5)
+				{
+				  $page = "sup_dashboard.php";
+				}
+				else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1)
+				{
+				  $page = "oper_dashboard.php";
+				}
+					echo "<script>window.location.href='".$page."';</script>";
 			}
-			else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5)
+			else
 			{
-			  $page = "sup_dashboard.php";
+			?>
+				<script>
+				$('.login-box-msg').text('Please Enter Valid Username and Password!!');
+				</script>
+			<?php
 			}
-			else if($_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 1)
-			{
-			  $page = "oper_dashboard.php";
-			}
-				echo "<script>window.location.href='".$page."';</script>";
 		}
-		else
-		{
-		?>
-			<script>
-			$('.login-box-msg').text('Please Enter Valid Username and Password!!');
-			</script>
-		<?php
-		}
-	}
 	}
 
 	
