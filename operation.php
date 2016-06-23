@@ -3953,7 +3953,7 @@ $(document).ready(function(){
 				}
 			  });
 			  
-			  $('#loadbutton').hidden();
+			  $('.loadbutton').hidden();
 		});
 		/*
 	$('.loadmore').click(function (){		
