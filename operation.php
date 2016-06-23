@@ -524,7 +524,7 @@ h5
 				
 				?>
 								
-                <tr >
+                <tr>
 					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])) ?></td>				 
 					<td><?php echo $row['respuesta']; ?>	</td>
 					<td><?php echo $row['contactto']; ?></td>
@@ -3949,7 +3949,7 @@ $(document).ready(function(){
 				success: function(response){
 				  if(response){
 					ele.hide();
-					$("#example2 tbody").append(response);
+					$("#example2").append(response);
 				  }
 				}
 			  });
