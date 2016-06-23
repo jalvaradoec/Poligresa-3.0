@@ -27,32 +27,32 @@
 			<form action="#" method="post" enctype="multipart/form-data">
 				<div class="data_button">
 					
-					<div>
+					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<button class="btn btn-default">Address</button>
 					</div>
 					
-					<div>
+					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<button class="btn btn-default">Clients</button>	
 					</div>
 					
-					<div>
+					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<button class="btn btn-default">Contacts</button>
 					</div>
 					
-					<div>
+					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<button class="btn btn-default">Credits</button>
 					</div>
 					
-					<div>
+					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<button class="btn btn-default">Fees</button>
 					</div>
 					
-					<div>
+					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<button class="btn btn-default">Phones</button>
 					</div>
