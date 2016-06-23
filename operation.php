@@ -590,12 +590,14 @@ h5
         </div>
 		<?php
 		if(isset($_GET['contactid'])){
+		
 				$sql1="select * from App_Contacts where App_Contacts_Id='".$_GET['contactid']."'";
 				$result1=mysql_query($sql1);
 				$row1=mysql_fetch_array($result1);
 				$sql="select * from App_Contacts WHERE App_Contacts_RefId =".$row1['App_Contacts_RefId'];
 		}else{
-			   $sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				//$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];			
+				$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN App_Phones ap ON ac.App_Credits_DebtorId = ap.App_Phones_DebtorID WHERE  ac.App_Credits_BankOperNumber ='".$_GET['operno']."' ";
 		}
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
