@@ -78,7 +78,7 @@ h5
 				<tr>
                   <td><b>Address:</b></td>
                   <td><?php echo $row['App_Addresses_MainStreet']; ?></td>
-                  <td><a href="" data-toggle="modal" data-id="<?php echo $_GET['operno'];" class="debtaddress">More</a></td>
+                  <td><a href="" data-toggle="modal" data-id="<?php echo $_GET['operno']; ?>" class="debtaddress">More</a></td>
                
                 </tr>
 				<?php
