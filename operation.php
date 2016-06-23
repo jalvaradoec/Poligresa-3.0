@@ -563,7 +563,7 @@ h5
                 </tfoot>
               </table>
             <br>
-			<a float="right" class="moreactivity" > More</a>
+			<button type="button" class="btn btn-info moreactivity"><i class="fa fa-plus"></i>More</button>			
             </div>
          
             <!-- /.box-body -->
