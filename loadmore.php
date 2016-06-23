@@ -2,7 +2,7 @@
 <?php
 	if(isset($_POST['page'])):
 		$paged=$_POST['page'];
-		$resultsPerPage=50;
+		$resultsPerPage=3;
 		
 				
 		$sql="select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,a.App_Aux_text as respuesta,aa.App_Aux_text as contactto,aaa.App_Aux_text as telefono
