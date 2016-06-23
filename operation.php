@@ -659,7 +659,7 @@ h5
 				if(isset($_GET['contactid'])){	if($row['App_Contacts_PhoneNumber']==""){}else { ?>
                 <tr>
 					
-                  <td><a href="" class="editphone" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Contacts_PhoneNumber'] ?></a></td>
+                  <td><a href="" class="editphone"  data-operno="<?php echo $_GET['operno']; ?>" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Contacts_PhoneNumber'] ?></a></td>
                   <td><?php echo $row2['App_Users_fullname'] ?></td>
                   <td><?php echo $row['App_Contacts_CreatedOn'] ?></td>
                
@@ -667,7 +667,7 @@ h5
 				<?php } } else { ?>
 					<tr>
 					
-                  <td><a href="" class="editphone" data-id="<?php echo $row['App_Phones_ID'] ?>" data-toggle="modal"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
+                  <td><a href="" class="editphone"  data-operno="<?php echo $_GET['operno']; ?>"  data-id="<?php echo $row['App_Phones_ID'] ?>" data-toggle="modal"><?php echo $row['App_Phones_PhoneNumber'] ?></a></td>
                   <td><?php echo $row['App_Phones_Ext'] ?></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Phones_ID']; ?>" /></td>
@@ -684,7 +684,7 @@ h5
             </div>
         </div>
         <div class="modal-footer">
-           <a href="#Cli_AddPhones" class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_AddPhones"><i class="fa fa-plus"></i> Add New Number</a>
+           <a href="#Cli_AddPhones"   class="btn btn-info pull-left" data-toggle="modal" data-target="#Cli_AddPhones"><i class="fa fa-plus"></i> Add New Number</a>
             <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-reply"></i> Go Back</button>
 		</div>
       </div>
@@ -3535,8 +3535,9 @@ $(document).on('change', '.chk_active', function () {
     });
 	$(document).on("click", ".editphone", function () {
      var PhoneId = $(this).data('id');
+	 var operno = $(this).attr("data-operno");	 
      //ChangeUrl('Poligresa3.0', 'operation.php?phoneid='+PhoneId);
-	 window.location.href='operation.php?phoneid='+PhoneId;
+	 window.location.href='operation.php?phoneid='+PhoneId+'&operno='+operno;
 	 
 });
 $(document).on("click", ".editaddress", function () {
