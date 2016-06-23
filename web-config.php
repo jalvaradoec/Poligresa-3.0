@@ -10,6 +10,9 @@ $user = 'polidb_dev';
 $pass = 'rBmpUuqs';
 $db = 'poligresa_dev';
 
+//rahul add for limitation record search
+$resultsPerPage=3;
+
 // Check Connections
 $con=mysql_connect($server,$user,$pass) or die('Could not connect to server');
 mysql_select_db($db,$con) or die('Could not connect to database');
