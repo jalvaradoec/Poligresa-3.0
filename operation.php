@@ -3561,8 +3561,8 @@ $(document).on("click", ".addaddress", function () {
 	 
 });
 $(document).on("click", ".debtphone", function () {
-	alert ("Rahul"); alert($(this).attr("data-id")); alert($(this).attr("#data-id")); return;
-     window.location.href='operation.php?debtphone';
+	var operno = $(this).attr("data-id");
+     window.location.href='operation.php?debtphone&operno=operno';
 	 
 });
 $(document).on("click", ".debtaddress", function () {
