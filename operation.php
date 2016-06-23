@@ -916,14 +916,14 @@ h5
 				$row2=mysql_fetch_array($result2);
 				if(isset($_GET['contact_id'])){	if($row['App_Contacts_Address']==""){}else { ?>
                 <tr>
-                  <td><a href="" class="editaddress" data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Contacts_Address'] ?></a></td>
+                  <td><a href="" class="editaddress" data-operno="<?php echo $_GET['operno']; ?>"  data-id="<?php echo $row['App_Contacts_Id'] ?>" data-toggle="modal"><?php echo $row['App_Contacts_Address'] ?></a></td>
                   <td><?php echo $row2['App_Users_fullname'] ?></td>
 				  <td><?php echo $row['App_Contacts_CreatedOn'] ?></td>
                   
                 </tr>
 				<?php } } else { ?>
 				<tr>
-                  <td><a href="" class="editaddress" data-id="<?php echo $row['App_Addresses_Id'] ?>" data-toggle="modal"><?php echo $row['App_Addresses_MainStreet'] ?></a></td>
+                  <td><a href="" class="editaddress" data-operno="<?php echo $_GET['operno']; ?>" data-id="<?php echo $row['App_Addresses_Id'] ?>" data-toggle="modal"><?php echo $row['App_Addresses_MainStreet'] ?></a></td>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
                   <td><input type="checkbox" <?php echo $checked; ?> value="1" id="<?php echo $row['App_Addresses_Id']; ?>" /></td>
                   <td><?php if($row['App_Addresses_Status'] == 1){ echo "Active";}else{ echo "Inactive";} ?></td>
@@ -3542,7 +3542,8 @@ $(document).on('change', '.chk_active', function () {
 });
 $(document).on("click", ".editaddress", function () {
      var AddressId = $(this).data('id');
-     window.location.href='operation.php?addressid='+AddressId;
+	 var operno = $(this).attr("data-operno");	
+     window.location.href='operation.php?addressid='+AddressId+'&operno='+operno;
 	 
 });
 $(document).on("click", ".editactivity", function () {
