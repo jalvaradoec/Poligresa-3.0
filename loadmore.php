@@ -14,13 +14,13 @@
 		if($paged>0)
 		{
 		   $page_limit=$resultsPerPage*($paged-1);
-		   echo $page;
+		 
 		   $pagination_sql=" LIMIT  $page_limit, $resultsPerPage";
 		}
 		else{
 			$pagination_sql=" LIMIT 0 , $resultsPerPage";
 		}
-		echo $pagination_sql; die();
+		echo $sql.$pagination_sql; die();
 		
 		$result=mysql_query($sql.$pagination_sql);
 
