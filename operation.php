@@ -3921,7 +3921,7 @@ $(document).ready(function(){
 				$('#Oper_Aggrement').modal('show');	
         }
 		
-	$('#moreactivity').click(function (){
+	$('.moreactivity').click(function (){
 		alert ("More record found");
 		
 	});
