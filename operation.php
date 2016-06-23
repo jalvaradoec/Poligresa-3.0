@@ -495,7 +495,7 @@ h5
 					$resultrespu=mysql_query($sqlrespu);
 					$resultrespu=mysqli_fetch_array($resultrespu);
 					*/										
-							
+					$resultsPerPage = 3;
 					$sql="select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,a.App_Aux_text as respuesta,aa.App_Aux_text as contactto,aaa.App_Aux_text as telefono
 							from App_Logs l 
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
