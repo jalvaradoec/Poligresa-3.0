@@ -3936,7 +3936,7 @@ $(document).ready(function(){
 		
 		
 		$( document ).on( 'click', '.loadmore', function () {
-			 $('.loadmore').hide();
+			// $('.loadmore').hide();
 			//alert($(this).data('page'));
 			 //$(this).text('Loading...');
 			 var ele = $(this).parent('tbody');
