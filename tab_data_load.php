@@ -29,12 +29,12 @@
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-default btn-flat">Address</button>
+						<button class="btn btn-block btn-flat">Address</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-default btn-flat">Clients</button>	
+						<button class="btn btn-block btn-flat">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
