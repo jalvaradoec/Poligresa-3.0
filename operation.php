@@ -3936,7 +3936,8 @@ $(document).ready(function(){
 		
 		
 		$( document ).on( 'click', '.loadmore', function () {
-		//alert($(this).data('page'));
+			 $('.loadmore').hide();
+			//alert($(this).data('page'));
 			 //$(this).text('Loading...');
 			 var ele = $(this).parent('tbody');
 			  $.ajax({
@@ -3953,7 +3954,7 @@ $(document).ready(function(){
 				}
 			  });
 			  
-			  $('.loadbutton').hide();
+			 
 		});
 		/*
 	$('.loadmore').click(function (){		
