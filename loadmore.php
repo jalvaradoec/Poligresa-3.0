@@ -47,12 +47,11 @@
 			}
 		}
 		if($num_rows == $resultsPerPage){?>
-			<button type="button" class="btn btn-info loadbutton" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>
+			<button type="button" class="btn btn-info loadbutton" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">More</button>
 			<!--<li class="loadbutton"><button class="loadmore" data-page="<?php// echo  $paged+1 ;?>">Load More</button></li>-->
 <?php 
-		}else{
-			echo '<button type="button" class="btn btn-info loadbutton" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>';
-			//echo "<li class='loadbutton'><h3>No More Feeds</h3></li>";
+		}else{			
+			echo "<li class='loadbutton'><h3>No More Feeds</h3></li>";
 		}
 		endif;
 ?>
