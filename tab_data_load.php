@@ -26,25 +26,36 @@
             </div>
 			<form action="#" method="post" enctype="multipart/form-data">
 				<div class="data_button">
-				
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<button class="btn btn-default">Address</button><br>
 					
+					<div>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<button class="btn btn-default">Address</button><br>
+					</div>
 					
+					<div>
 					<input type="file" name="fileToUpload" id="fileToUpload">
 					<button class="btn btn-default">Clients</button><br>	
+					</div>
 					
+					<div>
 					<input type="file" name="fileToUpload" id="fileToUpload">
 					<button class="btn btn-default">Contacts</button><br>
+					</div>
 					
+					<div>
 					<input type="file" name="fileToUpload" id="fileToUpload">
 					<button class="btn btn-default">Credits</button><br>
+					</div>
 					
+					<div>
 					<input type="file" name="fileToUpload" id="fileToUpload">
 					<button class="btn btn-default">Fees</button><br>
+					</div>
 					
+					<div>
 					<input type="file" name="fileToUpload" id="fileToUpload">
 					<button class="btn btn-default">Phones</button>
+					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
 			</form>

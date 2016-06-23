@@ -11,7 +11,7 @@
 .data1{margin: 60px;}
 .data_p{margin-top: 25px;text-align: justify;}
 .data_button{text-align: center;}
-.data_button input[type="file"]{float: left;}
+.data_button > div{float: left;}
 .data_tools{text-align: center;margin-top: 10px;}
 .data_tools_button{text-align: center;}
 .tools_date h4 span{padding-right: 5px;}
