@@ -29,32 +29,32 @@
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-flat">Address</button>
+						<button class="btn  btn-default btn-flat">Address</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-flat">Clients</button>	
+						<button class="btn btn-default btn-flat">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-default btn-flat">Contacts</button>
+						<button class="btn  btn-default btn-flat">Contacts</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-default btn-flat">Credits</button>
+						<button class="btn  btn-default btn-flat">Credits</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-default btn-flat">Fees</button>
+						<button class="btn btn-default btn-flat">Fees</button>
 					</div>
 					
 					<div class="col-md-12"> 
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-block btn-default btn-flat">Phones</button>
+						<button class="btn  btn-default btn-flat">Phones</button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
