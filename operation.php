@@ -548,6 +548,7 @@ h5
                 </tr>
 				-->
 				<?php } ?>
+				<button type="button" class="btn btn-info loadmore" data-page="2" style="float:right; margin:20px;">More</button>
 		   </tbody>
                 <tfoot>
                 <tr>
@@ -565,7 +566,7 @@ h5
                 </tfoot>
               </table>
             <br>
-			<button type="button" class="btn btn-info loadmore" data-page="2" style="float:right; margin:20px;">More</button>			
+						
             </div>
          
             <!-- /.box-body -->
