@@ -20,7 +20,8 @@
 		else{
 			$pagination_sql=" LIMIT 0 , $resultsPerPage";
 		}
-
+		echo $pagination_sql; die();
+		
 		$result=mysql_query($sql.$pagination_sql);
 
 		$num_rows = mysql_num_rows($result);
