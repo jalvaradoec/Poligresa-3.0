@@ -536,8 +536,7 @@ h5
 				  <!--<td><a href="Oper_EditACtivities" data-toggle="modal" data-id="<?php //echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>-->
 				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
 				  <?php } ?>
-				  
-				  <button type="button" class="btn btn-info loadmore" data-page="2" style="float:right; margin:20px;">More</button>
+				  				  
                 </tr>
 				<!--
                 <tr>
@@ -552,6 +551,7 @@ h5
 				<?php } ?>
 				
 		   </tbody>
+				<button type="button" class="btn btn-info loadmore" data-page="2" style="float:right; margin:20px;">More</button>
                 <tfoot>
                 <tr>
 					<th>F.Ingreso</th>
