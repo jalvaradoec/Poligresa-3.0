@@ -78,7 +78,7 @@ h5
 				<tr>
                   <td><b>Address:</b></td>
                   <td><?php echo $row['App_Addresses_MainStreet']; ?></td>
-                  <td><a href="" data-toggle="modal" class="debtaddress">More</a></td>
+                  <td><a href="" data-toggle="modal" data-id="<?php echo $_GET['operno']; class="debtaddress">More</a></td>
                
                 </tr>
 				<?php
@@ -3565,7 +3565,8 @@ $(document).on("click", ".debtphone", function () {
 	 
 });
 $(document).on("click", ".debtaddress", function () {
-     window.location.href='operation.php?debtaddress';
+		var operno = $(this).attr("data-id");	
+     window.location.href='operation.php?debtaddress'+operno;
 	 
 });
 $(document).on("click", ".Edittransaction", function () {
