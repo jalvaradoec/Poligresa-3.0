@@ -54,7 +54,8 @@ h5
                   <td></td>
                 </tr>
 				<?php
-			   $sql="select * from App_Phones WHERE App_Phones_DebtorID ='".$row["App_Credits_DebtorId"]."' limit 3";			   
+			   $sql="select * from App_Phones WHERE App_Phones_DebtorID ='".$row["App_Credits_DebtorId"]."' AND App_Phones_PhoneStatus='1' limit 3";
+			   echo $sql; die();
 				$result=mysql_query($sql);
 				?>
 				<tr>
