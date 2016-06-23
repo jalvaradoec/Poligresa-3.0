@@ -3561,7 +3561,8 @@ $(document).on("click", ".addaddress", function () {
 	 
 });
 $(document).on("click", ".debtphone", function () {
-	var operno = $(this).attr("data-id");	
+	var operno = $(this).attr("data-id");
+	alert(operno); return;
      window.location.href='operation.php?debtphone&operno=operno';
 	 
 });
