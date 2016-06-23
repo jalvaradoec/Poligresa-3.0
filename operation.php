@@ -568,7 +568,7 @@ h5
                 </tr>
                 </tfoot>
               </table>
-			  <button type="button" class="btn btn-info loadmore" data-page="2" style="float:right; margin:20px;">More</button>
+			  <button type="button" class="btn btn-info loadmore" data-operno="<?php echo $_GET['operno']; ?>" data-page="2" style="float:right; margin:20px;">More</button>
             <br>
 						
             </div>
@@ -3944,7 +3944,7 @@ $(document).ready(function(){
 				url: 'loadmore.php',
 				type: 'POST',
 				data: {
-				  page:$(this).data('page'),
+				  page:$(this).data('page'), operno :$(this).data('operno'),
 				},
 				success: function(response){
 				  if(response){
