@@ -3952,6 +3952,8 @@ $(document).ready(function(){
 				  }
 				}
 			  });
+			  
+			  $('#loadbutton').hidden();
 		});
 		/*
 	$('.loadmore').click(function (){		
