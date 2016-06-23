@@ -68,7 +68,7 @@ h5
 				  echo $comma.$row['App_Phones_PhoneNumber'];
 				  $i++;
 				  } ?></td>
-                  <td><a href="" data-toggle="modal" class="debtphone">More</a></td>
+                  <td><a href="" data-toggle="modal" data-id="<?php echo $_GET['operno']; ?>" class="debtphone">More</a></td>
                 </tr>
 				<?php
 			   $sql="select * from App_Credits ac INNER JOIN App_Addresses aa ON ac.App_Credits_DebtorId = aa.App_Addresses_DebtorID WHERE aa.App_Addresses_Status = 1 and ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
@@ -3561,6 +3561,7 @@ $(document).on("click", ".addaddress", function () {
 	 
 });
 $(document).on("click", ".debtphone", function () {
+	alert ("Rahul"); alert($(this).attr("#data-id")); return;
      window.location.href='operation.php?debtphone';
 	 
 });
