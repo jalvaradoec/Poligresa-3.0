@@ -3923,7 +3923,7 @@ $(document).ready(function(){
 		
 	$('.moreactivity').click(function (){
 		alert ("More record found");
-		$('#applogsdata').append('<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>');																
+		$('#example2 tbody').append('<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>');																
 	});
 });
 </script>
