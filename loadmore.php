@@ -14,6 +14,7 @@
 		if($paged>0)
 		{
 		   $page_limit=$resultsPerPage*($paged-1);
+		   echo $page;
 		   $pagination_sql=" LIMIT  $page_limit, $resultsPerPage";
 		}
 		else{
@@ -46,7 +47,7 @@
 			}
 		}
 		if($num_rows == $resultsPerPage){?>
-			<button type="button" class="btn btn-info loadbutton" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>
+			<button type="button" class="btn btn-info loadbutton"  data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>
 			<!--<li class="loadbutton"><button class="loadmore" data-page="<?php// echo  $paged+1 ;?>">Load More</button></li>-->
 <?php 
 		}else{			
