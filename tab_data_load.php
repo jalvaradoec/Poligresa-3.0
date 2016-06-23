@@ -33,28 +33,28 @@
 					</div>
 					
 					<div>
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<button class="btn btn-default">Clients</button>	
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<button class="btn btn-default">Clients</button>	
 					</div>
 					
 					<div>
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<button class="btn btn-default">Contacts</button>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<button class="btn btn-default">Contacts</button>
 					</div>
 					
 					<div>
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<button class="btn btn-default">Credits</button>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<button class="btn btn-default">Credits</button>
 					</div>
 					
 					<div>
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<button class="btn btn-default">Fees</button>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<button class="btn btn-default">Fees</button>
 					</div>
 					
 					<div>
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<button class="btn btn-default">Phones</button>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<button class="btn btn-default">Phones</button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
