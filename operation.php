@@ -563,7 +563,7 @@ h5
                 </tfoot>
               </table>
             <br>
-			<a href="" > More</a>
+			<a align="right" href="#" > More</a>
             </div>
          
             <!-- /.box-body -->
