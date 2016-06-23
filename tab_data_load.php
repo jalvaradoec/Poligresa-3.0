@@ -29,32 +29,32 @@
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-default">Address</button>
+						<button class="btn btn-flat">Address</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-default">Clients</button>	
+						<button class="btn btn-flat">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-default">Contacts</button>
+						<button class="btn btn-flat">Contacts</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-default">Credits</button>
+						<button class="btn btn-flat">Credits</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-default">Fees</button>
+						<button class="btn btn-flat">Fees</button>
 					</div>
 					
-					<div class="col-md-12">
+					<div class="col-md-12"> 
 						<input type="file" name="fileToUpload" id="fileToUpload">
-						<button class="btn btn-default">Phones</button>
+						<button class="btn btn-flat">Phones</button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
