@@ -31,34 +31,20 @@ h5
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+		<div class="row">
 
-	    <section class="col-lg-7">
-              <div class="box box-primary"> 
-			   <div class="box-header">
-			   <h3>Debtor General Information</h3>
+			<section class="col-lg-7">
+				<div class="box box-primary"> 
+				<div class="box-header">
+					<h3>Debtor General Information</h3>
 			   </div>
 			   <?php			   
-				if(isset($_GET['operno']))
-				{
-					echo  "TRUE";
-					//$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-					$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_BankOperNumber ='".$_GET['operno']."' ";
-					//$result=mysql_query($sql);
-					//$row=mysql_fetch_array($result);
-					//$appcreditsdebid = $row['App_Credits_DebtorId'];
-				}
-				else{
-				echo  "FALSE";
-					$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
-					//$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_BankOperNumber ='".$_GET['operno']."' ";
-					//$row=mysql_fetch_array($result);
-					//$appcreditsdebid = $row['App_Credits_DebtorId'];
-				}
 				
+				//$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
+				$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Credits_BankOperNumber ='".$_GET['operno']."' ";				
 				$result=mysql_query($sql);
-					$row=mysql_fetch_array($result);
-					$appcreditsdebid = $row['App_Credits_DebtorId'];
+				$row=mysql_fetch_array($result);
+				$appcreditsdebid = $row['App_Credits_DebtorId'];
 				
 			   ?>
             <div class="box-body no-padding">
