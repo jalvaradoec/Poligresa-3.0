@@ -25,11 +25,14 @@
                     sugar.</p>
             </div>
             <div class="data_button">
-                <button class="btn btn-default">Load New Portfolio Information</button>
-            </div>
+                <button class="btn btn-default">Address</button>
+				<button class="btn btn-default">Clients</button>				
+				<button class="btn btn-default">Contacts</button>
+				<button class="btn btn-default">Credits</button>
+				<button class="btn btn-default">Fees</button>
+				<button class="btn btn-default">Phones</button>
+				<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
+            </div>			
         </div>
-
-
     </div>
-
 </div>
