@@ -1,4 +1,4 @@
-<?php include('config.php'); ?>
+<?php include('web-config.php'); ?>
 <?php
 	if(isset($_POST['page'])):
  	$paged=$_POST['page'];

@@ -3929,8 +3929,29 @@ $(document).ready(function(){
 				$('#Oper_Aggrement').modal('show');	
         }
 		
-	$('.moreactivity').click(function (){		
+		
+		$( document ).on( 'click', '.loadmore', function () {
+		alert($(this).data('page'));
+			 //$(this).text('Loading...');
+			 var ele = $(this).parent('tbody');
+			  $.ajax({
+				url: 'loadmore.php',
+				type: 'POST',
+				data: {
+				  page:$(this).data('page'),
+				},
+				success: function(response){
+				  if(response){
+					ele.hide();
+					$("#example2 tbody").append(response);
+				  }
+				}
+			  });
+		});
+		/*
+	$('.loadmore').click(function (){		
 		$('#example2 tbody').append('<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>');																
 	});
+	*/
 });
 </script>
