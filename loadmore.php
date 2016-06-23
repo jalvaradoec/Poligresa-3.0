@@ -2,8 +2,16 @@
 <?php
 	if(isset($_POST['page'])):
 		$paged=$_POST['page'];
-		echo $paged; die();
-		$sql="SELECT * FROM `news_feed`ORDER BY `news_feed`.`news_id` ASC";
+		$resultsPerPage=50;
+		
+				
+		$sql="select l.App_Logs_Id,l.App_Logs_DateTime,l.App_Logs_Answer,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,a.App_Aux_text as respuesta,aa.App_Aux_text as contactto,aaa.App_Aux_text as telefono
+				from App_Logs l 
+				inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
+				inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
+				inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
+				where App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC ";																										
+								
 		if($paged>0)
 		{
 		   $page_limit=$resultsPerPage*($paged-1);
@@ -18,11 +26,22 @@
 		$num_rows = mysql_num_rows($result);
 		if($num_rows>0)
 		{
-			while($data=mysql_fetch_array($result))
+			while($row=mysql_fetch_array($result))
 			{
-				$title=$data['news_title'];
-				$content=$data['news_description'];
-				echo "<li><h3>$title</h3><p>$content<p></li>";
+				  <tr id="applogsdata">
+					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])) ?></td>				 
+					<td><?php echo $row['respuesta']; ?>	</td>
+					<td><?php echo $row['contactto']; ?></td>
+					<td><?php echo $row['telefono']; ?></td>
+					<td><?php echo $row['App_Logs_TransAmmount']; ?></td>
+					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime( $row['App_Logs_TransDateTime'])) ?></td>											
+					<td><?php echo $row['App_Logs_Notes']; ?></td>
+				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
+				  <!--<td><a href="Oper_EditACtivities" data-toggle="modal" data-id="<?php //echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>-->
+				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
+				  <?php } ?>
+				  				  
+                </tr>
 			}
 		}
 		if($num_rows == $resultsPerPage){?>
