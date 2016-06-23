@@ -29,7 +29,7 @@
 			while($row=mysql_fetch_array($result))
 			{
 		?>
-				  <tr id="applogsdata">
+				  <tr>
 					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])) ?></td>				 
 					<td><?php echo $row['respuesta']; ?>	</td>
 					<td><?php echo $row['contactto']; ?></td>
@@ -47,7 +47,7 @@
 			}
 		}
 		if($num_rows == $resultsPerPage){?>
-			<button type="button" class="btn btn-info loadbutton" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">More</button>
+			<button type="button" class="btn btn-info loadbutton" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>
 			<!--<li class="loadbutton"><button class="loadmore" data-page="<?php// echo  $paged+1 ;?>">Load More</button></li>-->
 <?php 
 		}else{			
