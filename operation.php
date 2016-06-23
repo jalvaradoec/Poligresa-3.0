@@ -551,8 +551,9 @@ h5
 				<?php } ?>
 				
 		   </tbody>
-				<button type="button" class="btn btn-info loadmore" data-page="2" style="float:right; margin:20px;">More</button>
+				
                 <tfoot>
+				
                 <tr>
 					<th>F.Ingreso</th>
 					<th>Respuesta</th>
@@ -567,6 +568,7 @@ h5
                 </tr>
                 </tfoot>
               </table>
+			  <button type="button" class="btn btn-info loadmore" data-page="2" style="float:right; margin:20px;">More</button>
             <br>
 						
             </div>
