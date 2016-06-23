@@ -28,6 +28,7 @@
 		{
 			while($row=mysql_fetch_array($result))
 			{
+		?>
 				  <tr id="applogsdata">
 					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])) ?></td>				 
 					<td><?php echo $row['respuesta']; ?>	</td>
@@ -42,6 +43,7 @@
 				  <?php } ?>
 				  				  
                 </tr>
+		<?php
 			}
 		}
 		if($num_rows == $resultsPerPage){?>
