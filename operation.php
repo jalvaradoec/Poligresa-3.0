@@ -563,7 +563,7 @@ h5
                 </tfoot>
               </table>
             <br>
-			<a align="right" href="#" > More</a>
+			<a align="right" href="#" class="moreactivity" > More</a>
             </div>
          
             <!-- /.box-body -->
@@ -3920,5 +3920,10 @@ $(document).ready(function(){
 		else if (pathname.substr(1, 9) == "Trans1_id") {
 				$('#Oper_Aggrement').modal('show');	
         }
+		
+	$('#moreactivity').click(function (){
+		alert ("More record found");
+		
+	});
 });
 </script>
