@@ -24,15 +24,30 @@
                     americano black iced skinny whipped french press macchiato
                     sugar.</p>
             </div>
-            <div class="data_button">
-                <button class="btn btn-default">Address</button>
-				<button class="btn btn-default">Clients</button>				
-				<button class="btn btn-default">Contacts</button>
-				<button class="btn btn-default">Credits</button>
-				<button class="btn btn-default">Fees</button>
-				<button class="btn btn-default">Phones</button>
-				<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
-            </div>			
+			<form action="#" method="post" enctype="multipart/form-data">
+				<div class="data_button">
+				
+					<input type="file" name="fileToUpload" id="fileToUpload">
+					<button class="btn btn-default">Address</button><br>
+					
+					
+					<input type="file" name="fileToUpload" id="fileToUpload">
+					<button class="btn btn-default">Clients</button><br>	
+					
+					<input type="file" name="fileToUpload" id="fileToUpload">
+					<button class="btn btn-default">Contacts</button><br>
+					
+					<input type="file" name="fileToUpload" id="fileToUpload">
+					<button class="btn btn-default">Credits</button><br>
+					
+					<input type="file" name="fileToUpload" id="fileToUpload">
+					<button class="btn btn-default">Fees</button><br>
+					
+					<input type="file" name="fileToUpload" id="fileToUpload">
+					<button class="btn btn-default">Phones</button>
+					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
+				</div>	
+			</form>
         </div>
     </div>
 </div>
