@@ -32,7 +32,7 @@
 	}
 	if($condition == ""){
 	
-	     $condition = "";
+	     $condition = "Rahul";
 	}
 	
 	echo "Condition = ".$condition; die();
