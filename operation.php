@@ -3964,29 +3964,29 @@ $(document).ready(function(){
 		});
 		
 		/* Rahul add search table filter */
-		$( "#fingreso" ).keypress(function() {
+		$( "#fingreso" ).focusout(function() {
 			alert ("fingreso");
 		});
 		
-		$( "#respuesta" ).keypress(function() {
+		$( "#respuesta" ).focusout(function() {
 			alert ("respuesta");
 		});
 		
-		$( "#contacto" ).keypress(function() {
+		$( "#contacto" ).focusout(function() {
 			alert ("contacto");
 		});
-		$( "#telefono" ).keypress(function() {
+		$( "#telefono" ).focusout(function() {
 			alert ("telefono");
 		});
 		
-		$( "#valro" ).keypress(function() {
+		$( "#valro" ).focusout(function() {
 			alert ("valro");
 		});
 		
-		$( "#fComp" ).keypress(function() {
+		$( "#fComp" ).focusout(function() {
 			alert ("fComp");
 		});
-		$( "#comentarios" ).keypress(function() {
+		$( "#comentarios" ).focusout(function() {
 			alert ("comentarios");
 		});
 		
