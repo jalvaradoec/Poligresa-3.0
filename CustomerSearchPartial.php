@@ -48,21 +48,5 @@
 					
 					while($row=mysql_fetch_array($result)){ 
 					*/
-
-					l.App_Logs_DateTime
-					a.App_Aux_text
-					aa.App_Aux_text
-					aaa.App_Aux_text
-					l.App_Logs_TransAmmount
-					l.App_Logs_TransDateTime
-					l.App_Logs_Notes
 					
-					
-					ac.App_Credits_BankOperNumber like '%".$searchText."%'
-													OR ac.App_Credits_DebtorId like '%".$searchText."%'
-													OR acl.App_Clients_FullName like '%".$searchText."%'
-													OR ac.App_Credits_BankDueDate like '%".$searchText."%'
-													OR vos.App_Aux_text like '%".$searchText."%'
-													
-													OR acp.App_Phones_PhoneNumber like '%".$searchText."%'
 ?>
