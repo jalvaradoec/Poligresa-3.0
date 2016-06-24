@@ -32,7 +32,7 @@
 	}
 	if($condition == ""){
 	
-	     $condition .= "";
+	     $condition = "";
 	}
 		
 	
