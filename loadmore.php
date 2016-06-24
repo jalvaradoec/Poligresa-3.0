@@ -21,7 +21,7 @@
 			$pagination_sql=" LIMIT 0 , $resultsPerPage";
 		}
 		
-		echo $sql.$pagination_sql; die();
+		echo $sql.$pagination_sql;
 		
 		$result=mysql_query($sql.$pagination_sql);
 
