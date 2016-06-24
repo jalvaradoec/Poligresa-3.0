@@ -484,7 +484,7 @@ h5
 				  -->
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbodymore">
 				<?php
 				/*
 					$sqldate = "select App_Logs_DateTime from App_Logs where App_Logs_OperationID = '".$_GET['operno']."'";					
@@ -3948,7 +3948,7 @@ $(document).ready(function(){
 				success: function(response){
 				  if(response){
 					ele.hide();
-					$("#example2").append(response);
+					$("#tbodymore").append(response);
 				  }
 				}
 			  });
