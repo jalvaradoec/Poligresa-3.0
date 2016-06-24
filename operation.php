@@ -624,8 +624,8 @@ h5
 			 </tbody> 
 		     </table> 
 			 </div>
-			  <div class="box-body table-responsive no-padding">
-          <table id="example2" class="table table-bordered table-responsive table-hover">
+			<div class="box-body table-responsive no-padding">
+				<table id="example2" class="table table-bordered table-responsive table-hover">
                 <thead>
                 <tr>
                  <th>Number</th>
@@ -3732,7 +3732,9 @@ var Alerter = {
 			}
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
-	};
+	};	
+	
+	Alerter.Init();
 	
 	$(function () 
 	{		
@@ -3745,8 +3747,6 @@ var Alerter = {
 		  "autoWidth": false
 		});
 	});
-	
-	Alerter.Init();
 </script>
 </body>
 </html>
