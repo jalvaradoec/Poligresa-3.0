@@ -484,13 +484,13 @@ h5
 				  -->
                 </tr>
 				<tr>
-					<td><input type="text" placeholder="F.Ingres"></td>
-					<td><input type="text" placeholder="Respuesta"></td>
-					<td><input type="text" placeholder="Contacto"></td>
-					<td><input type="text" placeholder="Telefono"></td>
-					<td><input type="text" placeholder="valro"></td>
-					<td><input type="text" placeholder="F.Comp."></td>
-					<td><input type="text" placeholder="Comentarios"></td>
+					<td><input type="text" id="fingreso" placeholder="F.Ingres"></td>
+					<td><input type="text" id="respuesta" placeholder="Respuesta"></td>
+					<td><input type="text" id="contacto" placeholder="Contacto"></td>
+					<td><input type="text" id="telefono" placeholder="Telefono"></td>
+					<td><input type="text" id="valro" placeholder="valro"></td>
+					<td><input type="text" id="fComp" placeholder="F.Comp."></td>
+					<td><input type="text" id="comentarios" placeholder="Comentarios"></td>
 				<tr>
                 </thead>
                 <tbody id="tbodymore">
@@ -3940,7 +3940,7 @@ $(document).ready(function(){
 				$('#Oper_Aggrement').modal('show');	
         }
 		
-		
+		/*Rahul add more result search */
 		$( document ).on( 'click', '.loadmore', function () {
 			// $('.loadmore').hide();
 			//alert($(this).data('page'));
@@ -3962,6 +3962,22 @@ $(document).ready(function(){
 			  
 			 
 		});
+		
+		/* Rahul add search table filter */
+		$( "#fingreso" ).keypress(function() {
+			alert ("fingreso");
+		});
+		
+		$( "#respuesta" ).keypress(function() {
+			alert ("respuesta");
+		});
+		
+		$( "#contacto" ).keypress(function() {
+			alert ("contacto");
+		});
+		
+		
+		
 		/*
 	$('.loadmore').click(function (){		
 		$('#example2 tbody').append('<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>');																
