@@ -40,9 +40,7 @@
 						<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>				  
 							<td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
 						<?php } ?>				  				  
-                </tr>
-				<button type="button" class="btn btn-info loadmorenew" data-operno="<?php echo $id; ?>" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">More</button>
-				
+                </tr>				
 		<?php
 			}			
 		}
