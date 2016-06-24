@@ -483,6 +483,15 @@ h5
                   <th></th>
 				  -->
                 </tr>
+				<tr>
+					<td><input type="text" placeholder="F.Ingres"></td>
+					<td><input type="text" placeholder="Respuesta"></td>
+					<td><input type="text" placeholder="Contacto"></td>
+					<td><input type="text" placeholder="Telefono"></td>
+					<td><input type="text" placeholder="valro"></td>
+					<td><input type="text" placeholder="F.Comp."></td>
+					<td><input type="text" placeholder="Comentarios"></td>
+				<tr>
                 </thead>
                 <tbody id="tbodymore">
 				<?php
