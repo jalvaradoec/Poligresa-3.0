@@ -3,9 +3,9 @@
 
 	$condition = "";
 	if(isset($_GET['fingreso']) && $_GET['fingreso'] != "")
-	{
-		//$condition .= " AND l.App_Logs_DateTime='".$_GET['fingreso']."'";
-		$condition .= " AND l.App_Logs_DateTime like '%".$_GET['fingreso']."%'";
+	{		
+		$fingresodate = date("Y-m-d", strtotime($_GET['fingreso']) );
+		$condition .= " AND l.App_Logs_DateTime like '%".$fingresodate."%'";
 	}
 	if(isset($_GET['respuesta']) && $_GET['respuesta'] != "")
 	{
@@ -25,7 +25,8 @@
 	}
 	if(isset($_GET['fComp']) && $_GET['fComp'] != "")
 	{
-		$condition .= "AND l.App_Logs_TransDateTime='".$_GET['fComp']."'";
+		$fCompdate = date("Y-m-d", strtotime($_GET['fComp']) );
+		$condition .= "AND l.App_Logs_TransDateTime like '%".$fCompdate."%'";
 	}
 	if(isset($_GET['comentarios']) && $_GET['comentarios'] != "")
 	{
