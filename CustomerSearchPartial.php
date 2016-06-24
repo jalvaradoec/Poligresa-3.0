@@ -51,12 +51,12 @@
 		//$data[]=$row;
 		$data  = "";
 		$data .= '<tr>
-					<td>'.$row['App_Logs_DateTime'].'</td>
+					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])).'</td>
 					<td>'.$row['respuesta'].'</td>
 					<td>'.$row['contactto'].'</td>
 					<td>'.$row['telefono'].'</td>
 					<td>'.$row['App_Logs_TransAmmount'].'</td>
-					<td>'.$row['App_Logs_TransDateTime'].'</td>											
+					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_TransDateTime'])).'</td>											
 					<td>'.$row['App_Logs_Notes'].'</td>
 				</tr>';
 	}
