@@ -46,6 +46,6 @@
 	
 		$data[]=$row;
 	}
-	print_r($data);					
+	echo json_encode($data);
 					
 ?>
