@@ -4,7 +4,8 @@
 	$condition = "";
 	if(isset($_GET['fingreso']) && $_GET['fingreso'] != "")
 	{
-		$condition .= " AND l.App_Logs_DateTime='".$_GET['fingreso']."'";
+		//$condition .= " AND l.App_Logs_DateTime='".$_GET['fingreso']."'";
+		$condition .= " AND l.App_Logs_DateTime like '%".$_GET['fingreso']."%'";
 	}
 	if(isset($_GET['respuesta']) && $_GET['respuesta'] != "")
 	{
