@@ -39,14 +39,14 @@
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
 							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
-							where 1=1 $condition AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC";																																																				
+							where 1=1 $condition AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC LIMIT 0,$resultsPerPage";																																																					
 				
 		$result=mysql_query($sql);
 	
 				
 	while($row=mysql_fetch_array($result)){ 		
 	
-		$data  = "";
+		//$data  = "";
 		echo  '<tr>
 					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])).'</td>
 					<td>'.$row['respuesta'].'</td>
@@ -58,20 +58,7 @@
 				</tr>';
 				
 	}
-	/*
-		for($i=0;$i<=count($data);$i++)
-		{
-			echo '<tr>
-					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($data['App_Logs_DateTime'])).'</td>
-					<td>'.$data['respuesta'].'</td>
-					<td>'.$data['contactto'].'</td>
-					<td>'.$data['telefono'].'</td>
-					<td>'.$data['App_Logs_TransAmmount'].'</td>
-					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($data['App_Logs_TransDateTime'])).'</td>											
-					<td>'.$data['App_Logs_Notes'].'</td>
-				</tr>';
-		}
-	*/
+	
 	//echo $data;
 	
 					
