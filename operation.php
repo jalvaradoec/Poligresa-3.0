@@ -3952,11 +3952,9 @@ $(document).ready(function(){
 				  page:$(this).data('page'), operno :$(this).data('operno'),
 				},
 				success: function(response){
-				  if(response){
-					//ele.hide();
+				  if(response){					
 					$('.loadmore').hide();
-					$("#tbodymore").append(response);
-					$('.loadmorenew').show();
+					$("#tbodymore").append(response);					
 				  }
 				}
 			  });
