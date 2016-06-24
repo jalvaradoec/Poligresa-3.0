@@ -9,7 +9,7 @@
 	{
 		$condition .= "AND l.App_Logs_DateTime='".$_GET['fingreso']."'";
 	}
-	elseif(isset($_GET['respuesta']) && $_GET['respuesta'] != "")
+	if(isset($_GET['respuesta']) && $_GET['respuesta'] != "")
 	{
 		$condition .= "AND a.App_Aux_text='".$_GET['respuesta']."'";
 	}
