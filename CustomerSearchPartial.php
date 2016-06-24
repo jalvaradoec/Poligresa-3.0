@@ -11,7 +11,7 @@
 	}
 	if(isset($_GET['respuesta']) && $_GET['respuesta'] != "")
 	{
-		$condition .= ' AND a.App_Aux_text='.$_GET['respuesta'];
+		$condition .= AND a.App_Aux_text=$_GET['respuesta'];
 	}
 	if(isset($_GET['contacto']) && $_GET['contacto'] != "")
 	{
