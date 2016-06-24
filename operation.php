@@ -4000,10 +4000,8 @@ $(document).ready(function(){
 		
 		function AllSearch(data)
 		{		
-			var operno = "<?php echo $_GET['operno']?>";
-			alert (operno); return;
-			
-			var strurl = 'CustomerSearchPartial.php?fingreso=' + $('#fingreso').val() + '&respuesta=' + $('#respuesta').val() + '&contacto=' + $('#contacto').val() + '&telefono=' + $('#telefono').val() + '&valro=' +$('#valro').val() + '&fComp=' + $('#fComp').val() + '&comentarios=' +$('#comentarios').val(); 	
+			var operno = "<?php echo $_GET['operno']?>";			
+			var strurl = 'CustomerSearchPartial.php?fingreso=' + $('#fingreso').val() + '&respuesta=' + $('#respuesta').val() + '&contacto=' + $('#contacto').val() + '&telefono=' + $('#telefono').val() + '&valro=' +$('#valro').val() + '&fComp=' + $('#fComp').val() + '&comentarios=' +$('#comentarios').val() + '&operno=' + operno; 	
 						
 			$.ajax({
 				url: strurl,
