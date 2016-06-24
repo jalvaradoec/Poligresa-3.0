@@ -15,8 +15,7 @@
 		   $page_limit=$resultsPerPage*($paged-1);
 		 
 		   $pagination_sql=" LIMIT  $page_limit, $resultsPerPage";
-		   
-		   echo $pagination_sql; die();
+		   		  
 		}
 		else{
 			$pagination_sql=" LIMIT 0 , $resultsPerPage";
