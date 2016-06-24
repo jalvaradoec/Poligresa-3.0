@@ -3945,8 +3945,7 @@ $(document).ready(function(){
 			// $('.loadmore').hide();
 			//alert($(this).data('page'));
 			 $(this).text('Loading...');
-			 //var ele = $(this).parent('table');
-				var ele = $(this).parent('tr');
+			 //var ele = $(this).parent('table');				
 			  $.ajax({
 				url: 'loadmore.php',
 				type: 'POST',
@@ -3955,7 +3954,8 @@ $(document).ready(function(){
 				},
 				success: function(response){
 				  if(response){
-					ele.hide();
+					//ele.hide();
+					$('.loadmore').hide();
 					$("#tbodymore").append(response);
 				  }
 				}
