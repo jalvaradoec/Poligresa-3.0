@@ -42,11 +42,9 @@
 							where 1=1 $condition AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC LIMIT 0,$resultsPerPage";																																																					
 				
 		$result=mysql_query($sql);
-	
 				
-	while($row=mysql_fetch_array($result)){ 		
-	
-		//$data  = "";
+	while($row=mysql_fetch_array($result))
+	{ 				
 		echo  '<tr>
 					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])).'</td>
 					<td>'.$row['respuesta'].'</td>
@@ -57,9 +55,5 @@
 					<td>'.$row['App_Logs_Notes'].'</td>
 				</tr>';
 				
-	}
-	
-	//echo $data;
-	
-					
+	}						
 ?>
