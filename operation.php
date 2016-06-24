@@ -4001,7 +4001,17 @@ $(document).ready(function(){
 		function AllSearch(data)
 		{					
 			var strurl = 'CustomerSearchPartial.php?fingreso=' + $('#fingreso').val() + '&respuesta=' + $('#respuesta').val() + '&contacto=' + $('#contacto').val() + '&telefono=' + $('#telefono').val() + '&valro=' +$('#valro').val() + '&fComp=' + $('#fComp').val() + '&comentarios=' +$('#comentarios').val(); 	
-			alert (strurl); 
+						
+			$.ajax({
+				url: strurl,
+				cache: false,
+				type: 'POST',
+				data: {},
+				success: function(data){
+						$("#tbodymore").html(data);
+					}
+				}
+			});
 		}
 		
 		
