@@ -3975,6 +3975,20 @@ $(document).ready(function(){
 		$( "#contacto" ).keypress(function() {
 			alert ("contacto");
 		});
+		$( "#telefono" ).keypress(function() {
+			alert ("telefono");
+		});
+		
+		$( "#valro" ).keypress(function() {
+			alert ("valro");
+		});
+		
+		$( "#fComp" ).keypress(function() {
+			alert ("fComp");
+		});
+		$( "#comentarios" ).keypress(function() {
+			alert ("comentarios");
+		});
 		
 		
 		
