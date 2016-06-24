@@ -3945,7 +3945,8 @@ $(document).ready(function(){
 			// $('.loadmore').hide();
 			//alert($(this).data('page'));
 			 $(this).text('Loading...');
-			 var ele = $(this).parent('table');
+			 //var ele = $(this).parent('table');
+				var ele = $(this).parent('tr');
 			  $.ajax({
 				url: 'loadmore.php',
 				type: 'POST',
