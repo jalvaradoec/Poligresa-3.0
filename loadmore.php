@@ -46,7 +46,7 @@
 		}
 		if($num_rows == $resultsPerPage){
 		?>
-			<button type="button" class="btn btn-info loadmorenew" data-operno="<?php echo $id; ?>" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">More</button>
+			<button type="button" class="btn btn-info loadmore" data-operno="<?php echo $id; ?>" data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">More</button>
 		<?php
 		}else{			
 			echo "<h3>No More Feeds</h3>";
