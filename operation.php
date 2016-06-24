@@ -4009,8 +4009,7 @@ $(document).ready(function(){
 				data: {},
 				success: function(data){
 						$("#tbodymore").html(data);
-					}
-				}
+					}				
 			});
 		}
 		
