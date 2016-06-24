@@ -47,8 +47,8 @@
 	while($row=mysql_fetch_array($result)){ 
 	
 		//$data[]=$row;
-		$data  = "";
-		$data .= '<tr>
+		//$data[]  = "";
+		$data[] .= '<tr>
 					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])).'</td>
 					<td>'.$row['respuesta'].'</td>
 					<td>'.$row['contactto'].'</td>
