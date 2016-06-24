@@ -42,6 +42,7 @@
 							where 1=1 $condition AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC  LIMIT 0,$resultsPerPage";																																																				
 		
 		$sql; die();
+		/*
 		$result=mysql_query($sql);
 	
 				
@@ -60,5 +61,6 @@
 				</tr>';
 	}
 	echo $data;
+	*/
 					
 ?>
