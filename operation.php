@@ -4009,7 +4009,7 @@ $(document).ready(function(){
 				type: 'POST',
 				data: {},
 				success: function(data){
-					alert(data);
+					alert(data.respuesta);
 						$("#tbodymore").html(data);
 					}				
 			});
