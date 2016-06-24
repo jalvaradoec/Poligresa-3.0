@@ -46,7 +46,6 @@
 	
 		$data[]=$row;
 	}
-	print_r($data); die();
-					
+	print_r($data);					
 					
 ?>
