@@ -39,7 +39,7 @@
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
 							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
-							where 1=1 $condition AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC  LIMIT 0,$resultsPerPage";																																																				
+							where 1=1 $condition AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC";																																																				
 				
 		$result=mysql_query($sql);
 	
