@@ -14,6 +14,8 @@ h5
 }
 </style>
 
+<link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -3208,6 +3210,12 @@ h5
 
 
 
+	<!-- Rahul add jquery -->
+	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>  
+	<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>  
+	<script src="../../dist/js/demo.js"></script>
+	<!-- end  Rahul -->
+
 
 <!-- jQuery 2.2.0 -->
 <!--<script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>-->
@@ -3725,6 +3733,18 @@ var Alerter = {
 			this.Timer = setTimeout("Alerter.Alert()", this.Wait * 100);
 		}
 	};
+	
+	$(function () 
+	{		
+		$('#example2').DataTable({
+		  "paging": true,
+		  "lengthChange": false,
+		  "searching": false,
+		  "ordering": true,
+		  "info": true,
+		  "autoWidth": false
+		});
+	});
 	
 	Alerter.Init();
 </script>
