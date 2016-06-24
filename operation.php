@@ -14,7 +14,7 @@ h5
 }
 </style>
 
-<link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -3211,9 +3211,9 @@ h5
 
 
 	<!-- Rahul add jquery -->
-	<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>  
-	<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>  
-	<script src="../../dist/js/demo.js"></script>
+	<script src="plugins/datatables/jquery.dataTables.min.js"></script>  
+	<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>  
+	<script src="dist/js/demo.js"></script>
 	<!-- end  Rahul -->
 
 
