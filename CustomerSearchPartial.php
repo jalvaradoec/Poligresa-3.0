@@ -44,8 +44,18 @@
 				
 	while($row=mysql_fetch_array($result)){ 
 	
-		$data[]=$row;
+		//$data[]=$row;
+		$data  = "";
+		$data. = '<tr>
+					<td>'.$row['App_Logs_DateTime'].'</td>
+					<td>'.$row['respuesta'].'</td>
+					<td>'.$row['contactto'].'</td>
+					<td>'.$row['telefono'].'</td>
+					<td>'.$row['App_Logs_TransAmmount'].'</td>
+					<td>'.$row['App_Logs_TransDateTime'].'</td>											
+					<td>'.$row['App_Logs_Notes'].'</td>
+				</tr>';
 	}
-	echo json_encode($data);
+	echo $data;
 					
 ?>
