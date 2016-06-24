@@ -29,7 +29,7 @@
 			while($row=mysql_fetch_array($result))
 			{
 		?>
-				  <tr>
+				<tr>
 					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])) ?></td>				 
 					<td><?php echo $row['respuesta']; ?>	</td>
 					<td><?php echo $row['contactto']; ?></td>
@@ -37,18 +37,15 @@
 					<td><?php echo $row['App_Logs_TransAmmount']; ?></td>
 					<td><?php echo date(DEFAULT_DATE_FORMAT,strtotime( $row['App_Logs_TransDateTime'])) ?></td>											
 					<td><?php echo $row['App_Logs_Notes']; ?></td>
-				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
-				  <!--<td><a href="Oper_EditACtivities" data-toggle="modal" data-id="<?php //echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>-->
-				  <td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
-				  <?php } ?>
-				  				  
+						<?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>				  
+							<td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
+						<?php } ?>				  				  
                 </tr>
 		<?php
 			}
 		}
 		if($num_rows == $resultsPerPage){?>
-			<button type="button" class="btn btn-info loadbutton"  data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>
-			<!--<li class="loadbutton"><button class="loadmore" data-page="<?php// echo  $paged+1 ;?>">Load More</button></li>-->
+			<button type="button" class="btn btn-info loadbutton"  data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>			
 <?php 
 		}else{			
 			echo "<li class='loadbutton'><h3>No More Feeds</h3></li>";
