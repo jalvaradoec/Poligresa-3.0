@@ -3234,6 +3234,19 @@ h5
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script>
+	
+	$(function () {
+	
+		$('#example2').DataTable({
+		  "paging": true,
+		  "lengthChange": false,
+		  "searching": false,
+		  "ordering": true,
+		  "info": true,
+		  "autoWidth": false
+		});
+	});
+	
 function ChangeAmount(data) {
 	 //var rowcount=<?php echo $rowcnt ?>;
 	 var rowcount=$('.numrow').val();
