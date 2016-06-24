@@ -3241,7 +3241,7 @@ h5
 		  "lengthChange": false,
 		  "searching": false,
 		  "ordering": true,
-		  "info": true,
+		  "info": false,
 		  "autoWidth": false
 		});
 	});
