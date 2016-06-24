@@ -4008,8 +4008,8 @@ $(document).ready(function(){
 				cache: false,
 				type: 'POST',
 				data: {},
-				success: function(result){
-					alert(result);
+				success: function(data){
+					alert(data);
 						$("#tbodymore").html(data);
 					}				
 			});
