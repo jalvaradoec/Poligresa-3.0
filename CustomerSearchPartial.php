@@ -46,7 +46,8 @@
 				
 	while($row=mysql_fetch_array($result)){ 
 	
-		//$data[]=$row;
+		$data[]=$row;
+		/*
 		$data  = "";
 		$data .= '<tr>
 					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_DateTime'])).'</td>
@@ -57,8 +58,22 @@
 					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($row['App_Logs_TransDateTime'])).'</td>											
 					<td>'.$row['App_Logs_Notes'].'</td>
 				</tr>';
+				*/
 	}
-	echo $data;
+		for($i=0;i<=count($data);i++)
+		{
+			echo '<tr>
+					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($data['App_Logs_DateTime'])).'</td>
+					<td>'.$data['respuesta'].'</td>
+					<td>'.$data['contactto'].'</td>
+					<td>'.$data['telefono'].'</td>
+					<td>'.$data['App_Logs_TransAmmount'].'</td>
+					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($data['App_Logs_TransDateTime'])).'</td>											
+					<td>'.$data['App_Logs_Notes'].'</td>
+				</tr>';
+		}
+	
+	//echo $data;
 	
 					
 ?>
