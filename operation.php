@@ -14,8 +14,6 @@ h5
 }
 </style>
 
-<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -3207,15 +3205,6 @@ h5
   <div class="control-sidebar-bg"></div>
 </div>
 
-
-
-	<!-- Rahul add jquery -->
-	<script src="plugins/datatables/jquery.dataTables.min.js"></script>  
-	<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>  
-	<script src="dist/js/demo.js"></script>
-	<!-- end  Rahul -->
-
-
 <!-- jQuery 2.2.0 -->
 <!--<script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>-->
 <!-- jQuery UI 1.11.4 -->
@@ -3234,18 +3223,7 @@ h5
 <script src="dist/js/app.min.js"></script>
 <script>
 	
-	$(function () {
-	
-		$('#example2').DataTable({
-		  "paging": false,
-		  "lengthChange": false,
-		  "searching": false,
-		  "ordering": true,
-		  "info": false,
-		  "autoWidth": false
-		});
-	});
-	
+
 function ChangeAmount(data) {
 	 //var rowcount=<?php echo $rowcnt ?>;
 	 var rowcount=$('.numrow').val();
