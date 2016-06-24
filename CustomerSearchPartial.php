@@ -41,9 +41,12 @@
 					
 	$result=mysql_query($sql);
 	
-	echo $result;
-					
-	//while($row=mysql_fetch_array($result)){ 
+				
+	while($row=mysql_fetch_array($result)){ 
+	
+		$data[]=$row;
+	}
+	echo $data;
 					
 					
 ?>
