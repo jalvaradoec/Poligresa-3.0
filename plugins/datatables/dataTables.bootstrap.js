@@ -35,7 +35,6 @@ $.extend( DataTable.ext.classes, {
 
 
 /* Bootstrap paging button renderer */
-/*
 DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, buttons, page, pages ) {
 	var api     = new DataTable.Api( settings );
 	var classes = settings.oClasses;
@@ -147,8 +146,6 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 		$(host).find( '[data-dt-idx='+activeEl+']' ).focus();
 	}
 };
-
-*/
 
 
 /*
