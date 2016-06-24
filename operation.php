@@ -3237,7 +3237,7 @@ h5
 	$(function () {
 	
 		$('#example2').DataTable({
-		  "paging": true,
+		  "paging": false,
 		  "lengthChange": false,
 		  "searching": false,
 		  "ordering": true,
