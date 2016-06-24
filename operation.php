@@ -501,6 +501,7 @@ h5
 							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
 							where App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC  LIMIT 0,$resultsPerPage";																																			
+					$sql; die();
 					$result=mysql_query($sql);
 					
 					while($row=mysql_fetch_array($result)){ 
