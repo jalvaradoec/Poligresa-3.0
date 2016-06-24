@@ -60,7 +60,7 @@
 				</tr>';
 				*/
 	}
-		for($i=0;i<=count($data);i++)
+		for($i=0;$i<=count($data);$i++)
 		{
 			echo '<tr>
 					<td>'.date(DEFAULT_DATE_FORMAT,strtotime($data['App_Logs_DateTime'])).'</td>
