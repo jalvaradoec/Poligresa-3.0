@@ -7,15 +7,15 @@
 	$condition = "";
 	if(isset($_GET['fingreso']) && $_GET['fingreso'] != "")
 	{
-		$condition .= ' AND l.App_Logs_DateTime='.$_GET['fingreso'];
+		$condition .= " AND l.App_Logs_DateTime=".$_GET['fingreso'];
 	}
 	if(isset($_GET['respuesta']) && $_GET['respuesta'] != "")
 	{
-		$condition .= AND a.App_Aux_text=$_GET['respuesta'];
+		$condition .= "AND a.App_Aux_text=".$_GET['respuesta'];
 	}
 	if(isset($_GET['contacto']) && $_GET['contacto'] != "")
 	{
-		$condition .= "AND aa.App_Aux_text=".$_GET['contacto'];
+		$condition .= " AND aa.App_Aux_text=".$_GET['contacto'];
 	}
 	if(isset($_GET['telefono']) && $_GET['telefono'] != "")
 	{
@@ -40,7 +40,7 @@
 							inner join App_Aux a ON l.App_Logs_Answer = a.App_Aux_value 
 							inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 							inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
-							where 1=1 '".$condition."' AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC  LIMIT 0,$resultsPerPage";																																																			
+							where 1=1 $condition AND  App_Logs_OperationID = '".$_GET['operno']."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC  LIMIT 0,$resultsPerPage";																																																			
 	echo $sql; die();
 					
 	//$result=mysql_query($sql);
