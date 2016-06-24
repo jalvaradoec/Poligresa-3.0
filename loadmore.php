@@ -20,9 +20,7 @@
 		else{
 			$pagination_sql=" LIMIT 0 , $resultsPerPage";
 		}
-		
-		echo $sql.$pagination_sql;
-		
+				
 		$result=mysql_query($sql.$pagination_sql);
 
 		$num_rows = mysql_num_rows($result);
@@ -45,11 +43,10 @@
                 </tr>
 				
 		<?php
-			}
-			echo "<button type='button' class='btn btn-info loadbutton'  data-page='<?php echo  $paged+1 ;?>' style='float:right; margin:20px;'>Load More</button>";			
+			}			
 		}
 		if($num_rows == $resultsPerPage){
-			echo "<button type='button' class='btn btn-info loadbutton'  data-page='<?php echo  $paged+1 ;?>' style='float:right; margin:20px;'>Load More</button>";			
+			<button type="button" class="btn btn-info loadbutton"  data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>
 		
 		}else{			
 			echo "<li class='loadbutton'><h3>No More Feeds</h3></li>";
