@@ -3942,10 +3942,9 @@ $(document).ready(function(){
 		
 		/*Rahul add more result search */
 		$( document ).on( 'click', '.loadmore', function () {
-			// $('.loadmore').hide();
-			//alert($(this).data('page'));
+
 			 $(this).text('Loading...');
-			 //var ele = $(this).parent('table');				
+			 				
 			  $.ajax({
 				url: 'loadmore.php',
 				type: 'POST',
