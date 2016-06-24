@@ -10,7 +10,7 @@
 				inner join App_Aux aa ON l.App_Logs_Contact = aa.App_Aux_value
 				inner join App_Aux aaa ON l.App_Logs_Type = aaa.App_Aux_value							
 				where App_Logs_OperationID = '".$id."' and a.App_Aux_field = 'Answer' and aa.App_Aux_field='Relation' and aaa.App_Aux_field='Tipo_Gestion' order by App_Logs_Id DESC ";																										
-					
+		echo $sql; die();
 		if($paged>0)
 		{
 		   $page_limit=$resultsPerPage*($paged-1);
