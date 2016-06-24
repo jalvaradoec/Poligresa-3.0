@@ -3,7 +3,7 @@
 	
 	echo "<pre>";
 	print_r($_GET);
-	die();
+
 	$condition = "";
 	if(isset($_GET['fingreso']) && $_GET['fingreso'] != "")
 	{
