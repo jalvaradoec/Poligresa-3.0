@@ -3965,33 +3965,45 @@ $(document).ready(function(){
 		
 		/* Rahul add search table filter */
 		$( "#fingreso" ).focusout(function() {
-			var fingreso = $(this).val();
-			alert (fingreso);
-			 //AllSearch(DomainName);
+			//var fingreso = $(this).val();			
+			AllSearch();
 		});
 		
 		$( "#respuesta" ).focusout(function() {
-			alert ("respuesta");
+			//var respuesta = $(this).val();
+			AllSearch();
 		});
 		
 		$( "#contacto" ).focusout(function() {
-			alert ("contacto");
+			//var contacto = $(this).val();
+			AllSearch();
 		});
 		$( "#telefono" ).focusout(function() {
-			alert ("telefono");
+			//var telefono = $(this).val();
+			AllSearch();
 		});
 		
 		$( "#valro" ).focusout(function() {
-			alert ("valro");
+			//var valro = $(this).val();
+			AllSearch();
 		});
 		
 		$( "#fComp" ).focusout(function() {
-			alert ("fComp");
+			//var fComp = $(this).val();
+			AllSearch();
 		});
 		$( "#comentarios" ).focusout(function() {
-			alert ("comentarios");
+			//var comentarios = $(this).val();
+			AllSearch();
 		});
 		
+		
+		function AllSearch(data)
+		{
+			alert($('#fingreso').val());
+			
+			
+		}
 		
 		
 		/*
