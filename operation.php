@@ -553,8 +553,7 @@ h5
 				
 		   </tbody>
 				
-                <tfoot>
-				
+                <tfoot>				
                 <tr>
 					<th>F.Ingreso</th>
 					<th>Respuesta</th>
