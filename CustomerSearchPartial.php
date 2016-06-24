@@ -46,7 +46,7 @@
 	
 		//$data[]=$row;
 		$data  = "";
-		$data. = '<tr>
+		$data .= '<tr>
 					<td>'.$row['App_Logs_DateTime'].'</td>
 					<td>'.$row['respuesta'].'</td>
 					<td>'.$row['contactto'].'</td>
