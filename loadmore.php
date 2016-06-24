@@ -41,8 +41,10 @@
 							<td><a href="" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
 						<?php } ?>				  				  
                 </tr>
+				
 		<?php
 			}
+			echo "<button type='button' class='btn btn-info loadbutton'  data-page='<?php echo  $paged+1 ;?>' style='float:right; margin:20px;'>Load More</button>";			
 		}
 		if($num_rows == $resultsPerPage){
 			echo "<button type='button' class='btn btn-info loadbutton'  data-page='<?php echo  $paged+1 ;?>' style='float:right; margin:20px;'>Load More</button>";			
