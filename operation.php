@@ -3734,19 +3734,7 @@ var Alerter = {
 		}
 	};	
 	
-	Alerter.Init();
-	
-	$(function () 
-	{		
-		$('#example2').DataTable({
-		  "paging": true,
-		  "lengthChange": false,
-		  "searching": false,
-		  "ordering": true,
-		  "info": true,
-		  "autoWidth": false
-		});
-	});
+	Alerter.Init();	
 </script>
 </body>
 </html>
