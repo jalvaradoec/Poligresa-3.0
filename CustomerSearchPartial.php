@@ -7,31 +7,31 @@
 	$condition = "";
 	if(isset($_GET['fingreso']) && $_GET['fingreso'] != "")
 	{
-		$condition .= " AND l.App_Logs_DateTime='".$_GET['fingreso']."'";
+		$condition .= AND l.App_Logs_DateTime='".$_GET['fingreso']."';
 	}
 	if(isset($_GET['respuesta']) && $_GET['respuesta'] != "")
 	{
-		$condition .= " AND a.App_Aux_text='".$_GET['respuesta']."'";
+		$condition .= AND a.App_Aux_text='".$_GET['respuesta']."';
 	}
 	if(isset($_GET['contacto']) && $_GET['contacto'] != "")
 	{
-		$condition .= " AND aa.App_Aux_text='".$_GET['contacto']."'";
+		$condition .= AND aa.App_Aux_text='".$_GET['contacto']."';
 	}
 	if(isset($_GET['telefono']) && $_GET['telefono'] != "")
 	{
-		$condition .= " AND aaa.App_Aux_text='".$_GET['telefono']."'";
+		$condition .= AND aaa.App_Aux_text='".$_GET['telefono']."';
 	}
 	if(isset($_GET['valro']) && $_GET['valro'] != "")
 	{
-		$condition = " AND l.App_Logs_TransAmmount='".$_GET['valro']."'";
+		$condition = AND l.App_Logs_TransAmmount='".$_GET['valro']."';
 	}
 	if(isset($_GET['fComp']) && $_GET['fComp'] != "")
 	{
-		$condition .= " AND l.App_Logs_TransDateTime='".$_GET['fComp']."'";
+		$condition .= AND l.App_Logs_TransDateTime='".$_GET['fComp']."';
 	}
 	if(isset($_GET['comentarios']) && $_GET['comentarios'] != "")
 	{
-		$condition .= " AND l.App_Logs_Notes='".$_GET['comentarios']."'";
+		$condition .= AND l.App_Logs_Notes='".$_GET['comentarios']."';
 	}
 		
 	
