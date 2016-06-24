@@ -44,9 +44,9 @@
 		<?php
 			}
 		}
-		if($num_rows == $resultsPerPage){?>
-			<button type="button" class="btn btn-info loadbutton"  data-page="<?php echo  $paged+1 ;?>" style="float:right; margin:20px;">Load More</button>			
-<?php 
+		if($num_rows == $resultsPerPage){
+			echo "<button type='button' class='btn btn-info loadbutton'  data-page='<?php echo  $paged+1 ;?>' style='float:right; margin:20px;'>Load More</button>";			
+		
 		}else{			
 			echo "<li class='loadbutton'><h3>No More Feeds</h3></li>";
 		}
