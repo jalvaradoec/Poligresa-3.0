@@ -3965,7 +3965,9 @@ $(document).ready(function(){
 		
 		/* Rahul add search table filter */
 		$( "#fingreso" ).focusout(function() {
-			alert ("fingreso");
+			var fingreso = $(this).val();
+			alert (fingreso);
+			 //AllSearch(DomainName);
 		});
 		
 		$( "#respuesta" ).focusout(function() {
