@@ -58,7 +58,7 @@
 					<td>'.$row['App_Logs_Notes'].'</td>
 				</tr>';
 	}
-	echo $data;
+	print($data);
 	
 					
 ?>
