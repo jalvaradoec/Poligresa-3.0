@@ -23,7 +23,7 @@
 			  			   
 				$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 				
-				$data = new Spreadsheet_Excel_Reader($readfile);
+				$data = new Spreadsheet_Excel_Reader($_FILES["userfile"]["name"]);
 
 				echo "Total Sheets in this xls file: ".count($data->sheets)."<br /><br />";
 
