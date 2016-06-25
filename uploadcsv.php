@@ -18,7 +18,8 @@
 		$target_dir = "uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
 		
-		echo $target_file;
+		echo "servere path=".$_SERVER['DOCUMENT_ROOT'];
+		echo "<br>my path = ".$target_file;
 		
 		die();
 		
