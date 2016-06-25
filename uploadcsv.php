@@ -24,7 +24,7 @@
 			   
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
-					while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) 
+					while (($row = fgetcsv($handle, 4096, ",")) !== FALSE) 
 					{
 						echo "<pre>";
 					   print_r($row);
