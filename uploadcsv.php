@@ -15,10 +15,10 @@
 	}
 	else
 	{
-		$target_dir = "uploads/";
+		$target_dir =  $SITE_URL."uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
 		
-		echo "servere path=".$_SERVER['DOCUMENT_ROOT'];
+		echo "servere path=".$SITE_URL."uploads/";
 		echo "<br>my path = ".$target_file;
 		
 		die();
