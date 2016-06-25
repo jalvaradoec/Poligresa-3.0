@@ -3946,7 +3946,7 @@ $(document).ready(function(){
 		$( document ).on( 'click', '.loadmore', function () {
 
 			 $(this).text('Loading...');
-			  var btnmore = $(this).parent().find("#btnloadmore");
+			  var morediv = $(this).parent().find("#morediv");
 			 				
 			  $.ajax({
 				url: 'loadmore.php',
@@ -3957,7 +3957,7 @@ $(document).ready(function(){
 				success: function(response){
 				  if(response){	
 					alert (response)
-					btnmore.hide();					
+					morediv.hide();					
 					$("#tbodymore").append(response);						
 				  }
 				}
