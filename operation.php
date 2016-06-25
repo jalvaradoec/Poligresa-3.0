@@ -557,6 +557,7 @@ h5
                 </tr>
 				-->
 				<?php } ?>
+				<button type="button" id="btnloadmore" class="btn btn-info loadmore" data-operno="<?php echo $_GET['operno']; ?>" data-page="2" style="float:right; margin:20px;">More</button>
 				
 		   </tbody>
 				
@@ -573,7 +574,7 @@ h5
 					<th></th>
 					 <?php } ?>
                 </tr>
-				 <button type="button" id="btnloadmore" class="btn btn-info loadmore" data-operno="<?php echo $_GET['operno']; ?>" data-page="2" style="float:right; margin:20px;">More</button>
+				 
                 </tfoot>
               </table>
 			 
