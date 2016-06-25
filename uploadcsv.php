@@ -18,6 +18,10 @@
 		$target_dir = "uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
 		
+		echo $target_file;
+		
+		die();
+		
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
 			echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
