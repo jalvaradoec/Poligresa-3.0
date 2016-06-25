@@ -1,7 +1,7 @@
 <?php
 	include_once("web-config.php");
-		
-	$target_dir =  $SITE_URL."/uploads/";
+	$target_dir = "https://github.com/jalvaradoec/Poligresa-3.0/tree/master/uploads";
+	//$target_dir =  $SITE_URL."/uploads/";
 	$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
 	
 	$allowed =  array('csv');
@@ -21,7 +21,7 @@
 			echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
 			   //SampleCSVFile_2kb.csv 
 			   
-			   //$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];
+			   $readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];
 			   $readfile = "https://github.com/jalvaradoec/Poligresa-3.0/tree/master/uploads";
 			   
 			   $file_handle = fopen($readfile, "r");
