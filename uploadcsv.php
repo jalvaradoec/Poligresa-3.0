@@ -26,7 +26,7 @@
 
 				while (!feof($file_handle) ) {
 				
-					print_r($row);
+					print_r($file_handle);
 	
 					//$line_of_text = fgetcsv($file_handle, 1024);
 	
