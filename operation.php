@@ -575,7 +575,9 @@ h5
                 </tr>
                 </tfoot>
               </table>
-			  <button type="button" id="btnloadmore" class="btn btn-info loadmore" data-operno="<?php echo $_GET['operno']; ?>" data-page="2" style="float:right; margin:20px;">More</button>
+				<div id="morediv">
+					<button type="button" id="btnloadmore" class="btn btn-info loadmore" data-operno="<?php echo $_GET['operno']; ?>" data-page="2" style="float:right; margin:20px;">More</button>
+				</div>
             <br>
 						
             </div>
@@ -3956,7 +3958,8 @@ $(document).ready(function(){
 				  if(response){	
 					alert (response)
 					btnmore.hide();					
-					$("#tbodymore").append(response);					
+					$("#tbodymore").append(response);	
+					$("#morediv").append(".loadmore");
 				  }
 				}
 			  });
