@@ -20,8 +20,17 @@
 			echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
 			   //SampleCSVFile_2kb.csv 
 			   
-			   $readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];			  
+			   $readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 			   
+			   if (($handle = fopen($readfile, 'r')) !== FALSE)
+				{
+					while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) 
+					{
+						echo "<pre>";
+					   print_r($row);
+					 }
+				}
+				/*			   
 			   $file_handle = fopen($readfile, "r");
 
 				while (!feof($file_handle) ) {
@@ -33,6 +42,7 @@
 					//print $line_of_text[0] . $line_of_text[1]. $line_of_text[2] . "<BR>";
 	
 				}
+				*/
 
 				fclose($file_handle);					
 		}else 
