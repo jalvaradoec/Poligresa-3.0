@@ -82,7 +82,7 @@
 <script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
-	
+	/*
 		$('#address').click(function(){
 			uploadcsv();
 		});
@@ -110,8 +110,9 @@
 		function uploadcsv()
 		{
 			alert ("File upload");
+			
 		}
-		
+		*/
 	});
 		
 </script>
