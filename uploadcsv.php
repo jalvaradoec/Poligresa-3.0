@@ -21,29 +21,15 @@
 		{
 			$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 			
-			// Opening the file for reading...
-			$fp = fopen($readfile, 'r');
-
-			// Headrow
-			$head = fgetcsv($fp, 4096, ';', '"');
-
-			// Rows
-			while($column = fgetcsv($fp, 4096, ';', '"'))
-			{
-				// This is a great trick, to get an associative row by combining the headrow with the content-rows.
-				$column = array_combine($head, $column);
-
-				echo $column['column1'];
-			}
-			   /*
+			   
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
-					while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) 
+					while (($row = fgetcsv($handle, 1000, ";")) !== FALSE) 
 					{
 						echo "<pre>";
 					   print_r($row);
 					 }
-				}*/
+				}
 				/*															  
 			   $file_handle = fopen($readfile, "r");
 
