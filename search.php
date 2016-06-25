@@ -330,7 +330,7 @@
 													OR acl.App_Clients_FullName like '%".$searchText."%'
 													OR ac.App_Credits_BankDueDate like '%".$searchText."%'
 													OR vos.App_Aux_text like '%".$searchText."%'													
-													OR acp.App_Phones_PhoneNumber ='".$searchText."'
+													OR acp.App_Phones_PhoneNumber like '%".$searchText."%'
 													GROUP BY  ac.App_Credits_BankOperNumber
 												";
 										}
