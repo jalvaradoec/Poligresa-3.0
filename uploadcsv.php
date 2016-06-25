@@ -3,7 +3,8 @@
 	echo "<br>Rahul<br>";
 	
 	echo "<pre>";
-	print_r($_FILES); 
+	print_r($_FILES);
+	echo $_FILES['file']['name'];
 	//print_r($_FILES['file']['name']);
 	die();
 	
