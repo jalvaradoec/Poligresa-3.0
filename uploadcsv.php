@@ -17,12 +17,8 @@
 	{
 		$target_dir = "uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
-
-		echo "<br>"."Upload file";
 		
-		
-		$file = fopen($filename,"r");
-		print_r(fgetcsv($file));
+		move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file);
 
 	}
 	
