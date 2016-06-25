@@ -484,13 +484,13 @@ h5
 				  -->
                 </tr>
 				<tr>
-					<td><input type="text" id="fingreso" placeholder="F.Ingres"></td>
-					<td><input type="text" id="respuesta" placeholder="Respuesta"></td>
-					<td><input type="text" id="contacto" placeholder="Contacto"></td>
-					<td><input type="text" id="telefono" placeholder="Telefono"></td>
-					<td><input type="text" id="valro" placeholder="valro"></td>
-					<td><input type="text" id="fComp" placeholder="F.Comp."></td>
-					<td><input type="text" id="comentarios" placeholder="Comentarios"></td>
+					<td><input type="text" id="fingreso" class="form-control" ></td>
+					<td><input type="text" id="respuesta" class="form-control"></td>
+					<td><input type="text" id="contacto" class="form-control"></td>
+					<td><input type="text" id="telefono" class="form-control"></td>
+					<td><input type="text" id="valro" class="form-control"></td>
+					<td><input type="text" id="fComp" class="form-control"></td>
+					<td><input type="text" id="comentarios" class="form-control"></td>
 				<tr>
                 </thead>
                 <tbody id="tbodymore">
