@@ -24,7 +24,7 @@ $objDb = new database();
 
 $SITE_URL1 =  "http://" . $_SERVER['SERVER_NAME']."/3.0_dev/";
 $SITE_URL =  dirname(__FILE__);
-echo $SITE_URL;
+echo $SITE_URL1;
 echo "<br>";
 echo $SITE_URL;
 ?>
