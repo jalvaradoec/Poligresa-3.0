@@ -24,6 +24,4 @@ $objDb = new database();
 
 $SITE_URL =  "http://" . $_SERVER['SERVER_NAME']."/3.0_dev/";
 
-define($UPLOADDIR,$SITE_URL."uploads/");
-echo $UPLOADDIR;
 ?>

@@ -18,7 +18,7 @@
 		$target_dir =  $SITE_URL."uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
 		
-		echo "servere path=".$SITE_URL."uploads/";
+		echo "servere path=".$target_dir;
 		echo "<br>my path = ".$target_file;
 		
 		die();
