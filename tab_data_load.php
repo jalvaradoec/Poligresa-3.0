@@ -65,10 +65,22 @@
 <script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
-		alert("rahul");
-		$('#csv').click(function(){
-			alert("Rahul");
-		});
+	
+		
+		
+	
+		var fileInput = document.getElementById("csv"),
+		
+			readFile = function () {
+				var reader = new FileReader();
+				reader.onload = function () {
+					document.getElementById('out').innerHTML = reader.result;
+				};
+				// start reading the file. When it is done, calls the onload event defined above.
+				reader.readAsBinaryString(fileInput.files[0]);
+			};
+			fileInput.addEventListener('change', readFile);		
+		
 	});
 		
 		/*
@@ -84,7 +96,7 @@
     };
 
 fileInput.addEventListener('change', readFile);
-	});
+
 	*/
 	
 	
