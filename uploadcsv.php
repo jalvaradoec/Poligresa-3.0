@@ -4,7 +4,7 @@
 	print_r($_FILES);
 	echo $_FILES["userfile"]["name"];
 	
-	if (($_FILES["file"]["type"] == "text/csv"))
+	if (($_FILES["userfile"]["type"] == "text/csv"))
 	{
 		echo $_FILES["userfile"]["name"];
 	}
