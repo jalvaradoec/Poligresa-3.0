@@ -11,13 +11,9 @@
 	}
 	else
 	{
-		$target_dir =  $SITE_URL."uploads/";
+		$target_dir =  $SITE_URL."/uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
 		
-		echo "Drerecoty name =". dirname(__FILE__);
-		
-		die();
-	
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
 			echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
@@ -26,7 +22,6 @@
 			echo "Sorry, there was an error uploading your file.";
 		}	
 	}
-	
-	die();
+die();
 	
 ?>
