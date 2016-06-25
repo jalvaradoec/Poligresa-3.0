@@ -23,7 +23,7 @@
 
 			$all_rows = array();
 			$header = null;
-			while ($row = fgetcsv($readfile)) {
+			while ($row = fgetcsv($_FILES["userfile"]["name"])) {
 				if ($header === null) {
 					$header = $row;
 					continue;
