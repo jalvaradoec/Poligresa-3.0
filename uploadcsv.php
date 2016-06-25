@@ -4,7 +4,7 @@
 	
 	echo "<pre>";
 	print_r($_FILES);
-	echo $_FILES['file']['name'];
+	echo $_FILES["fileToUpload"]["name"];
 	//print_r($_FILES['file']['name']);
 	die();
 	
