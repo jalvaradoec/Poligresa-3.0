@@ -37,27 +37,27 @@
 					</div>
 					
 					<div class="col-md-12">
-						<input type="file" accept=".csv" />
+						<input type="file" name="userfile" accept=".csv" />
 						<button type="submit" name="clients"  id="clients" class="btn btn-default btn-flat btn-lg uploadbtn">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
-						<input type="file" accept=".csv" />
+						<input type="file" name="userfile" accept=".csv" />
 						<button type="submit" name="contacts" id="contacts" class="btn  btn-default btn-flat btn-lg uploadbtn">Contacts</button>
 					</div>
 					
 					<div class="col-md-12">
-						<input type="file" accept=".csv" />
+						<input type="file" name="userfile" accept=".csv" />
 						<button type="submit" name="credits"  id="credits" class="btn  btn-default btn-flat btn-lg uploadbtn">Credits</button>
 					</div>
 					
 					<div class="col-md-12">
-						<input type="file" accept=".csv" />
+						<input type="file" name="userfile" accept=".csv" />
 						<button type="submit" name="fees" id="fees" class="btn btn-default btn-flat btn-lg uploadbtn">Fees</button>
 					</div>
 					
 					<div class="col-md-12"> 
-						<input type="file" accept=".csv" />
+						<input type="file" name="userfile" accept=".csv" />
 						<button type="submit" name="phones" value="Phones"  id="phones" class="btn  btn-default btn-flat btn-lg uploadbtn"></button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
