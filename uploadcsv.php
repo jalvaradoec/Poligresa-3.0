@@ -3,8 +3,7 @@
 		
 	$target_dir =  $SITE_URL."/uploads/";
 	$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
-	echo $target_file;
-	die();
+	
 	$allowed =  array('csv');
 	$filename = $_FILES['userfile']['name'];
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
