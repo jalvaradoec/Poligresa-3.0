@@ -15,7 +15,12 @@
 	}
 	else
 	{
+		$target_dir = "uploads/";
+		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
+
 		echo "<br>"."Upload file";
+		
+		
 		$file = fopen($filename,"r");
 		print_r(fgetcsv($file));
 
