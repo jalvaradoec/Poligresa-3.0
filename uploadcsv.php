@@ -20,8 +20,12 @@
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
 			$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
-				
-				
+			
+			$csv = array_map("str_getcsv", file($readfile,FILE_SKIP_EMPTY_LINES));
+			foreach ($csv as $i=>$row) {
+				$csv[$i] = array_combine($keys, $row);
+			}
+			print_r($csv);
 			   /*
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
@@ -31,7 +35,7 @@
 					   print_r($row);
 					 }
 				}*/
-																			  
+				/*															  
 			   $file_handle = fopen($readfile, "r");
 
 				while (!feof($file_handle) ) {
@@ -42,7 +46,7 @@
 					print $line_of_text[0] . $line_of_text[1]. $line_of_text[2] . $line_of_text[3] .$line_of_text[4] .$line_of_text[5] .$line_of_text[6] . "<BR>";
 	
 				}
-			
+				*/
 
 				fclose($file_handle);					
 		}else 
