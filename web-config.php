@@ -22,4 +22,7 @@ ini_set('display_errors', 'Off');
 include_once "./lib/db.class.php";
 $objDb = new database();
 
+$SITE_URL =  "http://" . $_SERVER['SERVER_NAME'];
+echo $SITE_URL;
+
 ?>
