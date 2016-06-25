@@ -19,15 +19,7 @@
 		
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
-			//echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
-			  			   
-				$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
-				
-				$data = new Spreadsheet_Excel_Reader($_FILES["userfile"]["name"]);
-
-				echo "Total Sheets in this xls file: ".count($data->sheets)."<br /><br />";
-
-				die();
+			$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 				
 				
 			   /*
@@ -39,20 +31,19 @@
 					   print_r($row);
 					 }
 				}*/
-														
-				/*			   
+																			  
 			   $file_handle = fopen($readfile, "r");
 
 				while (!feof($file_handle) ) {
 				
 					print_r($file_handle);
 	
-					//$line_of_text = fgetcsv($file_handle, 1024);
+					$line_of_text = fgetcsv($file_handle, 1024);
 	
-					//print $line_of_text[0] . $line_of_text[1]. $line_of_text[2] . "<BR>";
+					print $line_of_text[0] . $line_of_text[1]. $line_of_text[2] . "<BR>";
 	
 				}
-				*/
+			
 
 				fclose($file_handle);					
 		}else 
