@@ -30,6 +30,8 @@
 					   
 						$num = count($data);
 						
+						echo $num; die();
+						
 						for ($c=0; $c < $num; $c++) {
 						  $col[$c] = $data[$c];
 						}
