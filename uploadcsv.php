@@ -17,11 +17,27 @@
 		
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
-			echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
-			   //SampleCSVFile_2kb.csv 
-			   
+			//echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
+			  			   
 			   $readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 			   
+			   echo '<table>';
+
+				// Get headers
+				if (($data = fgetcsv($readfile, 1000, ',')) !== FALSE)
+				{
+					echo '<tr><th>'.implode('</th><th>', $data).'</th></tr>';
+				}
+
+				// Get the rest
+				while (($data = fgetcsv($readfile, 1000, ',')) !== FALSE)
+				{
+					echo '<tr><td>'.implode('</td><td>', $data).'</td></tr>';
+				}
+				fclose($readfile);
+				echo '</table>';
+			   
+			   /*
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
 					while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) 
@@ -30,6 +46,9 @@
 					   print_r($row);
 					 }
 				}
+				*/
+				
+				
 				/*			   
 			   $file_handle = fopen($readfile, "r");
 
