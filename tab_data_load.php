@@ -33,32 +33,32 @@
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button type="submit" id="address" class="btn  btn-default btn-flat btn-lg uploadbtn">Address</button>
+						<button type="submit" name="address" value="Address" id="address" class="btn  btn-default btn-flat btn-lg uploadbtn"></button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button type="submit" id="clients" class="btn btn-default btn-flat btn-lg uploadbtn">Clients</button>	
+						<button type="submit" name="clients" value="Clients"  id="clients" class="btn btn-default btn-flat btn-lg uploadbtn"></button>	
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button type="submit" id="contacts" class="btn  btn-default btn-flat btn-lg uploadbtn">Contacts</button>
+						<button type="submit" name="contacts" value="Contacts"  id="contacts" class="btn  btn-default btn-flat btn-lg uploadbtn"></button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button type="submit" id="credits" class="btn  btn-default btn-flat btn-lg uploadbtn">Credits</button>
+						<button type="submit" name="credits" value="Credits"  id="credits" class="btn  btn-default btn-flat btn-lg uploadbtn"></button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button type="submit" id="fees" class="btn btn-default btn-flat btn-lg uploadbtn">Fees</button>
+						<button type="submit" name="fees" value="Fees"  id="fees" class="btn btn-default btn-flat btn-lg uploadbtn"></button>
 					</div>
 					
 					<div class="col-md-12"> 
 						<input type="file" accept=".csv" />
-						<button type="submit" id="phones" class="btn  btn-default btn-flat btn-lg uploadbtn">Phones</button>
+						<button type="submit" name="phones" value="Phones"  id="phones" class="btn  btn-default btn-flat btn-lg uploadbtn"></button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
