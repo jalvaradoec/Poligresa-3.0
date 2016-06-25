@@ -22,9 +22,12 @@ ini_set('display_errors', 'Off');
 include_once "./lib/db.class.php";
 $objDb = new database();
 
+$SITE_URL = "https://github.com/jalvaradoec/Poligresa-3.0/tree/master/uploads/";
+/*
 $SITE_URL1 =  "http://" . $_SERVER['SERVER_NAME']."/3.0_dev/";
 $SITE_URL =  dirname(__FILE__);
 echo $SITE_URL1;
 echo "<br>";
 echo $SITE_URL;
+*/
 ?>
