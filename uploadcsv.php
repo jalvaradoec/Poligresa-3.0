@@ -21,8 +21,41 @@
 			  			   
 			   $readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 			   
-			 		   
-			   
+			 	
+				
+				if (($handle = fopen($readfile, "r")) !== FALSE) {
+	
+				   fgetcsv($handle);   
+				   while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+					   
+						$num = count($data);
+						
+						for ($c=0; $c < $num; $c++) {
+						  $col[$c] = $data[$c];
+						}
+
+						 $col1 = $col[0];
+						 $col2 = $col[1];
+						 $col3 = $col[2];
+						 
+						 echo "col1=".$col1;
+						 echo "col2=".$col2;
+						 echo "col3=".$col3;
+						 echo "<br>";
+				   
+				   // SQL Query to insert data into DataBase
+						// $query = "INSERT INTO csvtbl(ID,name,city) VALUES(".$col1.",'".$col2."','".$col3."')";
+						 //$res   = mysql_query($query);
+						 
+						
+					}
+					fclose($handle);
+				}
+
+				
+				
+				
+			   /*
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
 					while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) 
@@ -30,10 +63,8 @@
 						echo "<pre>";
 					   print_r($row);
 					 }
-				}
-			
-				
-				
+				}*/
+														
 				/*			   
 			   $file_handle = fopen($readfile, "r");
 
