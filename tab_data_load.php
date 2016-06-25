@@ -28,7 +28,7 @@
 				<div class="data_button">
 					
 					<div class="col-md-12">
-						<input type="file" name="fileToUpload" id="fileToUpload">
+						<input id="csv" type="file" name="fileToUpload" id="fileToUpload">
 						<button class="btn  btn-default btn-flat">Address</button>
 					</div>
 					
@@ -62,3 +62,28 @@
         </div>
     </div>
 </div>
+<script>
+	$(document).ready(function(){
+	
+		$('#csv').click(function(){
+			alert("Rahul");
+		});
+		
+		/*
+		var fileInput = document.getElementById("csv"),
+
+    readFile = function () {
+        var reader = new FileReader();
+        reader.onload = function () {
+            document.getElementById('out').innerHTML = reader.result;
+        };
+        // start reading the file. When it is done, calls the onload event defined above.
+        reader.readAsBinaryString(fileInput.files[0]);
+    };
+
+fileInput.addEventListener('change', readFile);
+	});
+	*/
+	
+	
+</script>
