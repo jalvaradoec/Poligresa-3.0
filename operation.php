@@ -3946,7 +3946,7 @@ $(document).ready(function(){
 		$( document ).on( 'click', '.loadmore', function () {
 
 			 $(this).text('Loading...');
-			  var morebutton = $(this).parent('#btnloadmore');
+			  var morebutton = $(this).parent().find('#btnloadmore');
 			 				
 			  $.ajax({
 				url: 'loadmore.php',
