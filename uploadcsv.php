@@ -25,21 +25,14 @@
 			   
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
-					 $all_rows = array();
-					$header = null;
-					
+								
 					while (($row = fgetcsv($handle, 4096, ",")) !== FALSE) 
 					{
-						//echo "<pre>";
-					   //print_r($row);
-					   if ($header === null) {
-						$header = $row;
-						continue;
-						}
-						$all_rows[] = array_combine($header, $row);
+						$array[]=$row;
 				
-					}
-					print_r($all_rows);
+					}	
+					echo "<pre>";
+					   print_r($array);
 				}
 				
 				
