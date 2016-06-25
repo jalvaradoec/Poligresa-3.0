@@ -24,6 +24,8 @@
 			$csv = array_map("str_getcsv", file($readfile,FILE_SKIP_EMPTY_LINES));
 			foreach ($csv as $i=>$row) {
 				$csv[$i] = array_combine($keys, $row);
+				echo $csv[$i];
+				echo "<br>";
 			}
 			print_r($csv);
 			   /*
