@@ -3,19 +3,6 @@
 		width: 20%;
 	}
 </style>
-
-<?php
-	if (($_FILES["file"]["type"] == "text/csv"))
-	{
-
-	}
-	else
-	{
-	
-	}
-
-?>
-
 <!-- The timeline -->
 <div class="post">
     <div class="row margin-bottom">
@@ -41,7 +28,7 @@
                     americano black iced skinny whipped french press macchiato
                     sugar.</p>
             </div>
-			<form action="#" method="post" enctype="multipart/form-data">
+			<form action="uploadcsv.php" method="post" enctype="multipart/form-data">
 				<div class="data_button">
 					
 					<div class="col-md-12">
