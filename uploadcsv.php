@@ -4,7 +4,7 @@
 	
 	echo "<pre>";
 	print_r($_FILES);
-	echo "<br>".$_FILES["userfile"]["name"];
+	echo "<br>".$_FILES['userfile']['name']
 	echo "<br>".$_FILES["userfile"]["type"];
 	echo "<br>".$_FILES["userfile"]["tmp_name"];
 	echo "<br>".$_FILES["userfile"]["size"];
