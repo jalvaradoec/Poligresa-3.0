@@ -8,22 +8,21 @@
 	$allowed =  array('csv');
 	$filename = $_FILES['userfile']['name'];
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
-	if(!in_array($ext,$allowed) ) {
+	
+	if(!in_array($ext,$allowed) ) 
+	{
 		echo 'error';
 	}
 	else
 	{
-	 echo "<br>"."Upload file";
+		echo "<br>"."Upload file";
+	 
+		$data = new Spreadsheet_Excel_Reader($filename);
+ 
+		echo "<br>Total Sheets in this xls file: ".count($data->sheets)."<br /><br />";
+
 	}
 	
 	die();
-	if (($_FILES["userfile"]["type"] == "text/csv"))
-	{
-		echo "File Type=".$_FILES["userfile"]["type"];
-	}
-	else
-	{
-		echo "Not .csv file";
-	}
-	die();
+	
 ?>
