@@ -36,8 +36,7 @@
 
 				while (!feof($file_handle) ) {
 				
-					print_r($file_handle);
-	
+					
 					$line_of_text = fgetcsv($file_handle, 1024);
 	
 					print $line_of_text[0] . $line_of_text[1]. $line_of_text[2] . $line_of_text[3] .$line_of_text[4] .$line_of_text[5] .$line_of_text[6] . "<BR>";
