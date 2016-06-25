@@ -3959,7 +3959,7 @@ $(document).ready(function(){
 					alert (response)
 					btnmore.hide();					
 					$("#tbodymore").append(response);	
-					$("#morediv").append(response).fiend(".loadmore");
+					$("#morediv").append(response).find(".loadmore");
 				  }
 				}
 			  });
