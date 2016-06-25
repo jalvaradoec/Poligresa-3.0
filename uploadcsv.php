@@ -21,27 +21,28 @@
 		{
 			$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 
-			$all_rows = array();
-			$header = null;
-			while ($row = fgetcsv($_FILES["userfile"]["name"])) {
-				if ($header === null) {
-					$header = $row;
-					continue;
-				}
-				$all_rows[] = array_combine($header, $row);
-			}
-			print_r($all_rows);
-			
-			   /*
+				
+			   
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
+					 $all_rows = array();
+					$header = null;
+					
 					while (($row = fgetcsv($handle, 4096, ",")) !== FALSE) 
 					{
-						echo "<pre>";
-					   print_r($row);
-					 }
+						//echo "<pre>";
+					   //print_r($row);
+					   if ($header === null) {
+						$header = $row;
+						continue;
+						}
+						$all_rows[] = array_combine($header, $row);
+				
+					}
+					print_r($all_rows);
 				}
-				*/
+				
+				
 				/*															  
 			   $file_handle = fopen($readfile, "r");
 
