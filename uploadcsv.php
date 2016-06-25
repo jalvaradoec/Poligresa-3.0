@@ -18,6 +18,8 @@
 		echo "<br>"."Upload file";
 	 
 		$data = new Spreadsheet_Excel_Reader($filename);
+		
+		print_r($data);
  
 		echo "<br>Total Sheets in this xls file: ".count($data->sheets)."<br /><br />";
 
