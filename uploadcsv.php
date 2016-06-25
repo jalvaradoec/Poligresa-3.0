@@ -17,12 +17,7 @@
 	{
 		$target_dir =  $SITE_URL."uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
-		
-		echo "servere path=".$target_dir;
-		echo "<br>my path = ".$target_file;
-		
-		die();
-		
+	
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
 			echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
