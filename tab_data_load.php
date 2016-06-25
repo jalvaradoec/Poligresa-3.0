@@ -84,29 +84,32 @@
 	$(document).ready(function () {
 	
 		$('#address').click(function(){
-		
+			uploadcsv();
 		});
 		
 		$('#clients').click(function(){
-		
+			uploadcsv();
 		});
 		
 		$('#contacts').click(function(){
-		
+			uploadcsv();
 		});
 		
 		$('#credits').click(function(){
+			uploadcsv();
 		});
 		
 		$('#fees').click(function(){
+			uploadcsv();
 		});
 		
 		$('#phones').click(function(){
+			uploadcsv();
 		});
 		
 		function uploadcsv()
 		{
-			
+			alert ("File upload");
 		}
 		
 	});
