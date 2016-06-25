@@ -1,20 +1,16 @@
 <?php
 	include_once("web-config.php");
-	echo "<br>Rahul<br>";
 	
-	echo "<pre>";
 	print_r($_FILES);
 	echo $_FILES["userfile"]["name"];
-	//print_r($_FILES['file']['name']);
-	die();
 	
 	if (($_FILES["file"]["type"] == "text/csv"))
 	{
-
+		echo $_FILES["userfile"]["name"];
 	}
 	else
 	{
-	
+		echo "error";
 	}
 
 ?>
