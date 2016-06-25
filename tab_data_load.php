@@ -33,32 +33,32 @@
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button id="address" class="btn  btn-default btn-flat btn-lg uploadbtn">Address</button>
+						<button type="submit" id="address" class="btn  btn-default btn-flat btn-lg uploadbtn">Address</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button id="clients" class="btn btn-default btn-flat btn-lg uploadbtn">Clients</button>	
+						<button type="submit" id="clients" class="btn btn-default btn-flat btn-lg uploadbtn">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button id="contacts" class="btn  btn-default btn-flat btn-lg uploadbtn">Contacts</button>
+						<button type="submit" id="contacts" class="btn  btn-default btn-flat btn-lg uploadbtn">Contacts</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button id="credits" class="btn  btn-default btn-flat btn-lg uploadbtn">Credits</button>
+						<button type="submit" id="credits" class="btn  btn-default btn-flat btn-lg uploadbtn">Credits</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button id="fees" class="btn btn-default btn-flat btn-lg uploadbtn">Fees</button>
+						<button type="submit" id="fees" class="btn btn-default btn-flat btn-lg uploadbtn">Fees</button>
 					</div>
 					
 					<div class="col-md-12"> 
 						<input type="file" accept=".csv" />
-						<button id="phones" class="btn  btn-default btn-flat btn-lg uploadbtn">Phones</button>
+						<button type="submit" id="phones" class="btn  btn-default btn-flat btn-lg uploadbtn">Phones</button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
