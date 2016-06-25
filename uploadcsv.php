@@ -1,10 +1,6 @@
 <?php
 	include_once("web-config.php");
-	
-	echo "<pre>";
-	print_r($_FILES);
-	echo "File name=".$_FILES["userfile"]["name"];
-	
+		
 	$allowed =  array('csv');
 	$filename = $_FILES['userfile']['name'];
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -17,6 +13,10 @@
 	{
 		$target_dir =  $SITE_URL."uploads/";
 		$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
+		
+		echo "Drerecoty name =". dirname(__FILE__);
+		
+		die();
 	
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
