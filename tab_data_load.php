@@ -4,6 +4,18 @@
 	}
 </style>
 
+<?php
+	if (($_FILES["file"]["type"] == "text/csv"))
+	{
+
+	}
+	else
+	{
+	
+	}
+
+?>
+
 <!-- The timeline -->
 <div class="post">
     <div class="row margin-bottom">
@@ -34,32 +46,32 @@
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Address</button>
+						<button id="address" class="btn  btn-default btn-flat btn-lg uploadbtn">Address</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn btn-default btn-flat btn-lg uploadbtn">Clients</button>	
+						<button id="clients" class="btn btn-default btn-flat btn-lg uploadbtn">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Contacts</button>
+						<button id="contacts" class="btn  btn-default btn-flat btn-lg uploadbtn">Contacts</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Credits</button>
+						<button id="credits" class="btn  btn-default btn-flat btn-lg uploadbtn">Credits</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn btn-default btn-flat btn-lg uploadbtn">Fees</button>
+						<button id="fees" class="btn btn-default btn-flat btn-lg uploadbtn">Fees</button>
 					</div>
 					
 					<div class="col-md-12"> 
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Phones</button>
+						<button id="phones" class="btn  btn-default btn-flat btn-lg uploadbtn">Phones</button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
@@ -70,6 +82,32 @@
 <script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
+	
+		$('#address').click(function(){
+		
+		});
+		
+		$('#clients').click(function(){
+		
+		});
+		
+		$('#contacts').click(function(){
+		
+		});
+		
+		$('#credits').click(function(){
+		});
+		
+		$('#fees').click(function(){
+		});
+		
+		$('#phones').click(function(){
+		});
+		
+		function uploadcsv()
+		{
+			
+		}
 		
 	});
 		
