@@ -1,20 +1,20 @@
 <?php
 	include_once("web-config.php");
+	echo "<br>Rahul<br>";
 	
+	echo "<pre>";
 	print_r($_FILES);
-	echo $_FILES["userfile"]["name"];
-	
-	echo $_FILES["userfile"]["type"];
-	
+	echo $_FILES["fileToUpload"]["name"];
+	//print_r($_FILES['file']['name']);
 	die();
 	
-	if (($_FILES["userfile"]["type"] == "text/csv"))
+	if (($_FILES["file"]["type"] == "text/csv"))
 	{
-		echo $_FILES["userfile"]["name"];
+
 	}
 	else
 	{
-		echo "error";
+	
 	}
 
 ?>
