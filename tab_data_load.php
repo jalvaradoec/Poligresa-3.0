@@ -1,3 +1,8 @@
+<style>
+	.uploadbtn{
+		width: 20%;
+	}
+</style>
 
 <!-- The timeline -->
 <div class="post">
@@ -29,32 +34,32 @@
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg">Address</button>
+						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Address</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn btn-default btn-flat btn-lg">Clients</button>	
+						<button class="btn btn-default btn-flat btn-lg uploadbtn">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg">Contacts</button>
+						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Contacts</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg">Credits</button>
+						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Credits</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn btn-default btn-flat btn-lg">Fees</button>
+						<button class="btn btn-default btn-flat btn-lg uploadbtn">Fees</button>
 					</div>
 					
 					<div class="col-md-12"> 
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat btn-lg">Phones</button>
+						<button class="btn  btn-default btn-flat btn-lg uploadbtn">Phones</button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
