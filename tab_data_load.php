@@ -29,32 +29,32 @@
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat">Address</button>
+						<button class="btn  btn-default btn-flat btn-lg">Address</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn btn-default btn-flat">Clients</button>	
+						<button class="btn btn-default btn-flat btn-lg">Clients</button>	
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat">Contacts</button>
+						<button class="btn  btn-default btn-flat btn-lg">Contacts</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat">Credits</button>
+						<button class="btn  btn-default btn-flat btn-lg">Credits</button>
 					</div>
 					
 					<div class="col-md-12">
 						<input type="file" accept=".csv" />
-						<button class="btn btn-default btn-flat">Fees</button>
+						<button class="btn btn-default btn-flat btn-lg">Fees</button>
 					</div>
 					
 					<div class="col-md-12"> 
 						<input type="file" accept=".csv" />
-						<button class="btn  btn-default btn-flat">Phones</button>
+						<button class="btn  btn-default btn-flat btn-lg">Phones</button>
 					</div>
 					<!--<button class="btn btn-default">Load New Portfolio Information</button>-->
 				</div>	
