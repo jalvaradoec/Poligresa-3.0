@@ -34,8 +34,6 @@ function getAppCredits($appCreditsCond = null){
     LEFT JOIN `View_OperStatus` vos ON ac.App_Credits_Status=vos.App_Aux_value 
     LEFT JOIN `App_Clients` acl ON ac.App_Credits_DebtorId=acl.App_Clients_DebtorIdNumber
 	LEFT JOIN App_Phones acp ON ac.App_Credits_DebtorId=acp.App_Phones_DebtorID
-	LEFT JOIN App_Contacts act ON ac.App_Credits_DebtorId=act.App_Contacts_DebtorId
-	
 	";
 	
     if(!empty($appCreditsCond))
