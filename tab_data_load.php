@@ -62,7 +62,8 @@
         </div>
     </div>
 </div>
-<script>
+<script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script type="text/javascript">
 	$(document).ready(function(){
 		alert("rahul");
 		$('#csv').click(function(){
