@@ -20,8 +20,19 @@
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
 			$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
+
+			$all_rows = array();
+			$header = null;
+			while ($row = fgetcsv($readfile)) {
+				if ($header === null) {
+					$header = $row;
+					continue;
+				}
+				$all_rows[] = array_combine($header, $row);
+			}
+			print_r($all_rows);
 			
-			   
+			   /*
 			   if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
 					while (($row = fgetcsv($handle, 4096, ",")) !== FALSE) 
@@ -30,6 +41,7 @@
 					   print_r($row);
 					 }
 				}
+				*/
 				/*															  
 			   $file_handle = fopen($readfile, "r");
 
