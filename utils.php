@@ -30,7 +30,7 @@ function getAppCredits($appCreditsCond = null){
 	//act.App_Contacts_PhoneNumber,
 	//LEFT JOIN App_Contacts act ON ac.App_Credits_DebtorId=act.App_Contacts_DebtorId
 	
-    $appCreditsSql = "SELECT ac.*,vos.App_Aux_text StatusText,acl.App_Clients_FullName,acl.App_Clients_FirstName,act.App_Contacts_PhoneNumber,act.App_Contacts_PhoneNumber,acp.App_Phones_PhoneNumber FROM `App_Credits` ac 
+    $appCreditsSql = "SELECT ac.*,vos.App_Aux_text StatusText,acl.App_Clients_FullName,acl.App_Clients_FirstName,act.App_Contacts_PhoneNumber,acp.App_Phones_PhoneNumber FROM `App_Credits` ac 
     LEFT JOIN `View_OperStatus` vos ON ac.App_Credits_Status=vos.App_Aux_value 
     LEFT JOIN `App_Clients` acl ON ac.App_Credits_DebtorId=acl.App_Clients_DebtorIdNumber
 	LEFT JOIN App_Phones acp ON ac.App_Credits_DebtorId=acp.App_Phones_DebtorID
