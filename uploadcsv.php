@@ -4,17 +4,17 @@
 	echo "<pre>";
 	print_r($_FILES);
 	echo "File name=".$_FILES["userfile"]["name"];
-	echo "File Type=".$_FILES["userfile"]["type"];
+	//echo "File Type=".$_FILES["userfile"]["type"];
 	
-	die();
+	//die();
 	
-	if (($_FILES["file"]["type"] == "text/csv"))
+	if (($_FILES["userfile"]["type"] == "text/csv"))
 	{
-
+		echo "File Type=".$_FILES["userfile"]["type"];
 	}
 	else
 	{
-	
+		echo "Not .csv file";
 	}
-
+	die();
 ?>
