@@ -1,5 +1,7 @@
 <?php
 	include_once("web-config.php");	
+	require_once 'excel_reader2.php';
+	
 	$target_dir =  $SITE_URL."/uploads/";
 	$target_file = $target_dir . basename($_FILES["userfile"]["name"]);
 	
@@ -19,42 +21,13 @@
 		{
 			//echo "The file ". basename( $_FILES["userfile"]["name"]). " has been uploaded.";
 			  			   
-			   $readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
-			   
-			 	
+				$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 				
-				if (($handle = fopen($readfile, "r")) !== FALSE) {
-	
-				   fgetcsv($handle);   
-				   while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-					   
-						$num = count($data);
-						
-						echo $num; die();
-						
-						for ($c=0; $c < $num; $c++) {
-						  $col[$c] = $data[$c];
-						}
+				$data = new Spreadsheet_Excel_Reader($readfile);
 
-						 $col1 = $col[0];
-						 $col2 = $col[1];
-						 $col3 = $col[2];
-						 
-						 echo "col1=".$col1;
-						 echo "col2=".$col2;
-						 echo "col3=".$col3;
-						 echo "<br>";
-				   
-				   // SQL Query to insert data into DataBase
-						// $query = "INSERT INTO csvtbl(ID,name,city) VALUES(".$col1.",'".$col2."','".$col3."')";
-						 //$res   = mysql_query($query);
-						 
-						
-					}
-					fclose($handle);
-				}
+				echo "Total Sheets in this xls file: ".count($data->sheets)."<br /><br />";
 
-				
+				die();
 				
 				
 			   /*
