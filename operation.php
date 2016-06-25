@@ -575,9 +575,9 @@ h5
                 </tr>
                 </tfoot>
               </table>
-				<div id="morediv">
+				
 					<button type="button" id="btnloadmore" class="btn btn-info loadmore" data-operno="<?php echo $_GET['operno']; ?>" data-page="2" style="float:right; margin:20px;">More</button>
-				</div>
+				
             <br>
 						
             </div>
@@ -3946,7 +3946,7 @@ $(document).ready(function(){
 		$( document ).on( 'click', '.loadmore', function () {
 
 			 $(this).text('Loading...');
-			  var morediv = $(this).parent('button');
+			  var morebutton = $(this).parent('button');
 			 				
 			  $.ajax({
 				url: 'loadmore.php',
@@ -3957,7 +3957,7 @@ $(document).ready(function(){
 				success: function(response){
 				  if(response){	
 					alert (response)
-					morediv.hide();					
+					morebutton.hide();					
 					$("#tbodymore").append(response);						
 				  }
 				}
