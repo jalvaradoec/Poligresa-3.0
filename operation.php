@@ -3775,10 +3775,11 @@ if (isset($_POST['update1'])) {
 if (isset($_POST['save'])) {
 		$date = $_POST['fecha'];
 		$time = $_POST['hora'];
-		$datetime = $date." ".$time;					
+		$datetime = $date." ".$time;
+		$currenttime = date("Y-m-d | h:i:s");
        // $sql = "insert into App_Tasks(App_Task_CreatedBy,App_Task_CreatedOn,App_Task_DebtorID,App_Tasks_AssignedTo,App_Task_TaskType,App_Task_DueDateTime,App_Task_Description,App_Task_Status,App_Task_Outcome) values('" . $_POST['regby'] . "','" . date('Y-m-d H:i:s') . "','" . $_POST['debtorid'] . "','" . $_SESSION["logged_in_user"]["App_Users_ID"] . "','" . $_POST['type'] . "','" . $_POST['date']." ".$_POST['time'] . "','" . $_POST['task'] . "','" . $_POST['status'] . "','" . $_POST['outcome'] . "')";
         $sql = "insert into App_Logs(App_Logs_CreatedBy,App_Logs_CreatedOn,App_Logs_ClientID,App_Logs_OperationID,App_Logs_DateTime,App_Logs_Action,App_Logs_Answer,App_Logs_Contact,App_Logs_Type,App_Logs_TransAmmount,App_Logs_TransDateTime,App_Logs_Notes,App_Credits_LastActivity ) 
-				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['respuesta']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$datetime."','".$_POST['outcome']."',date('Y-m-d | h:i:s'))";
+				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['respuesta']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$datetime."','".$_POST['outcome']."','".$currenttime."')";
 		echo $sql; die();
 		mysql_query($sql);
 		$sql10="select * from App_Tasks order by App_Task_ID desc";
