@@ -467,10 +467,10 @@ h5
 						
 						
 						
-						$sqlnextbtn = "select * from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' and App_Credits_LastActivity='".date("Y-m-d")."' ";
+						$sqlnextbtn = "select App_Credits_LastActivity from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' ";
 						$resultnextbtn = mysql_query($sqlnextbtn);
-						$row =  mysql_affected_rows(resultnextbtn); 
-						if($row > 0)
+						$row =  mysql_fetch_array($resultnextbtn); 
+						if($row['App_Credits_LastActivity'] == date("Y-m-d"))
 						{ 
 					?>
 						<i style="color:#367FA9;padding-left:10px;"> Next</i>
