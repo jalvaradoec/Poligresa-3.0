@@ -2306,15 +2306,7 @@ h5
 									where l.App_Logs_Id='".$_GET['task_id']."' ";											
 							$result = mysql_query($sql);
 							$row=mysql_fetch_array($result);
-							
-							$sqllastactive = "select * from App_Credits where App_Credits_DebtorId = '".$row['App_Logs_ClientID']."'";
-							$resultactive = mysql_query($sqllastactive);
-							if(mysqli_affected_rows($resultactive) >0 )
-							{
-								$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_DebtorId = '".$row['App_Logs_ClientID']."'";
-								$resultactiveupdate = mysql_query($sqlactiveupdate);
-							}
-							
+														
 							//Client fullname display
 							$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 							$result3=mysql_query($sql3);
@@ -2323,6 +2315,7 @@ h5
 						
 						<form class="form-horizontal" method="post" action="">
 							<input type="hidden" name="applogsid" value="<?php echo $row['App_Logs_Id']; ?>" />
+							<input type="hidden" name="applogclientid" value="<?php echo $row['App_Logs_ClientID']; ?>" />
 							
 							<div class="modal-body">   
 								<!--
@@ -3845,6 +3838,16 @@ if (isset($_POST['updateactivity'])) {
         //$sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
         $sql = "update App_Logs set App_Logs_Action='".$_POST['type']."', App_Logs_Answer='".$_POST['respuesta']."', App_Logs_TransAmmount='".$_POST['comp']."',App_Logs_Contact='".$_POST['contacto']."',App_Logs_TransDateTime='".$_POST['fecha']."', App_Logs_Type='".$_POST['tipo']."',App_Logs_Notes='".$_POST['outcome']."' where App_Logs_Id = '".$_POST['applogsid']."'";        				
 		$result = mysql_query($sql);
+		
+		$sqllastactive = "select * from App_Credits where App_Credits_DebtorId = '".$_POST['applogclientid']."'";
+		$resultactive = mysql_query($sqllastactive);
+		if(mysqli_affected_rows($resultactive) >0 )
+		{
+							
+			$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_DebtorId = '".$_POST['applogclientid']."'";
+			$resultactiveupdate = mysql_query($sqlactiveupdate);
+		}
+				
 		if($result)
 		{	
 			echo "<script>window.location.href='operation.php';</script>";
