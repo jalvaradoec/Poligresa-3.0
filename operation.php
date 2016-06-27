@@ -3841,7 +3841,6 @@ if (isset($_POST['updateactivity'])) {
 		
 							
 		$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_DebtorId = '".$_POST['applogclientid']."'";
-		echo $sqlactiveupdate; die();
 		$resultactiveupdate = mysql_query($sqlactiveupdate);
 			
 		if($result)
