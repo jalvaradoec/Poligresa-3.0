@@ -38,19 +38,7 @@
 								echo $data[$c] . "<br />\n";
 							}
 							
-						}
-						
-						for ($c=0; $c < $num; $c++) 
-						{
-							if($c==1 || $c==2 || $c==3 || $c==4 || $c==5 || $c==6 || $c==7)
-							{
-								continue;
-							}
-							else{
-								echo $data[$c] . "<br />\n";
-							}
-							
-						}
+						}						
 						
 					}
 					fclose($handle);
