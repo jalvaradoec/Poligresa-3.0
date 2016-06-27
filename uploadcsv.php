@@ -29,12 +29,12 @@
 						
 						$row++;
 						for ($c=0; $c < $num; $c++) {
-							if($c!=6)
+							if($c==7)
 							{
-								echo $data[$c] . "<br />\n";
+								exit;
 							}
 							else{
-								exit;
+								echo $data[$c] . "<br />\n";
 							}
 							
 						}
