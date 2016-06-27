@@ -1827,6 +1827,7 @@ h5
 		<?php
 			    //$sql="select * from App_Tasks WHERE App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
 				$sql="select * from App_Tasks WHERE App_Tasks_Operation =".$_GET['operno'];
+				echo $sql;
 				$result=mysql_query($sql);
 				$row=mysql_fetch_array($result);
 				$checked = ($row['App_Task_Status'] == 1) ? 'checked="checked' : '';
