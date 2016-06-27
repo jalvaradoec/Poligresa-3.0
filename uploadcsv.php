@@ -32,7 +32,7 @@
 						{
 							if($c==7)
 							{
-								exit;
+								break;
 							}
 							else{
 								echo $data[$c] . "<br />\n";
