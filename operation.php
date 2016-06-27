@@ -2303,12 +2303,17 @@ h5
 							$sql = "select l.App_Logs_Id,l.App_Logs_CreatedOn,l.App_Logs_DateTime,l.App_Logs_ClientID,l.App_Logs_Answer,l.App_Logs_Action,l.App_Logs_Contact,l.App_Logs_Type,l.App_Logs_TransAmmount,l.App_Logs_TransDateTime,l.App_Logs_Notes,u.App_Users_fullname
 									from App_Logs l 
 									inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_ID
-									where l.App_Logs_Id='".$_GET['task_id']."' ";
-									
-							echo $sql;
+									where l.App_Logs_Id='".$_GET['task_id']."' ";											
 							$result = mysql_query($sql);
 							$row=mysql_fetch_array($result);
 							
+							$sqllastactive = "select * from App_Credits where App_Credits_DebtorId = '".$row['App_Logs_ClientID']."'";
+							$resultactive = mysql_query($sqllastactive);
+							if(mysqli_affected_rows($resultactive) >0 )
+							{
+								$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' ";
+								$resultactiveupdate = mysql_query($sqlactiveupdate);
+							}
 							
 							//Client fullname display
 							$sql3="select * from App_Tasks ac INNER JOIN App_Clients ac1 ON ac.App_Task_DebtorID = ac1.App_Clients_DebtorIdNumber WHERE  ac.App_Tasks_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];
