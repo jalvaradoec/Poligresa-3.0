@@ -25,6 +25,7 @@
 				if($CSVfp !== FALSE) {
 				 while(! feof($CSVfp)) {
 				  $data = fgetcsv($CSVfp, 1000, ",");
+				  echo "<pre>";
 				  print_r($data);
 				 }
 				}
