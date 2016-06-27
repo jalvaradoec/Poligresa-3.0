@@ -471,7 +471,7 @@ h5
 						$resultnextbtn = mysql_query($sqlnextbtn);
 						$row =  mysql_fetch_array($resultnextbtn);
 						
-						echo DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity']));
+						echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity']));
 						
 						 
 						if(date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity'])) == date("Y/m/d"))
