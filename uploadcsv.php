@@ -33,6 +33,7 @@
 														
 							if($c==6)
 							{
+								echo $data[$c] . "<br />\n";
 								break;
 							}
 							else{
