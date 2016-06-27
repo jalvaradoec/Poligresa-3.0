@@ -462,17 +462,13 @@ h5
 						$sqlnextbtn = "select App_Credits_LastActivity from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' ";
 						$resultnextbtn = mysql_query($sqlnextbtn);
 						$row =  mysql_fetch_array($resultnextbtn);
-						
-					//	echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity']));
-						//echo "<br>".date("d/m/Y");
-						 
+			 
 						if(date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity'])) == date("m/d/Y"))
 						{ 
 					?>
 						<i style="color:#367FA9;padding-left:10px;"> Next</i>
 					<?php } ?>
-				</h2>			
-				
+				</h2>							
 				<!-- <i class="fa  fa-angle-double-right" style="color:#367FA9;padding-left:10px;"></i> -->
             </div>
             <!-- /.box-header -->
