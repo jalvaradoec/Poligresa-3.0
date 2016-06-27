@@ -3848,7 +3848,7 @@ if (isset($_POST['updateactivity'])) {
 	?>
 			<script>
 				var id = '<?php echo $_POST['apptaskoperation'] ?>';
-				window.location.href='oper_dashboard.php?operno=+id';
+				window.location.href='oper_dashboard.php?operno='+id;
 			</script>
 <?php
 		}
