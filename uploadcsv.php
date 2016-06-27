@@ -20,7 +20,7 @@
 		if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $target_file))
 		{
 			$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
-			
+				$row = 1;
 				if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
 					while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) 
@@ -29,7 +29,7 @@
 						echo "<p> $num fields in line $row: <br /></p>\n";
 						$row++;
 						for ($c=0; $c < $num; $c++) {
-							echo "<br/>".$data[$c];
+							echo $data[$c] . "<br />\n";
 						}
 						
 					}
