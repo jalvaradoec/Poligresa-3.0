@@ -14,7 +14,7 @@
 
 				$appCreditsCond = " WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." ORDER BY ac.App_Credits_LastActivity ASC";
 				if(!empty($_POST["Operation_Status_ID"])) {
-				  $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . " ORDER BY ac.App_Credits_LastActivity DESC";
+				  $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . " ORDER BY ac.App_Credits_LastActivity ASC";
 				}
 				
 				$appTasks = getAppTasks();
