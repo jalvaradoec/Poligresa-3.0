@@ -3850,7 +3850,7 @@ if (isset($_POST['updateactivity'])) {
 				
 		if($result)
 		{	
-			echo "<script>window.location.href='operation.php';</script>";
+			echo "<script>window.location.href='oper_dashboard.php';</script>";
 		}
 		
 }
