@@ -12,14 +12,13 @@
 				  echo "<script>window.location.href='login.php';</script>";
 				}
 
-				$appCreditsCond = " WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]."";
+				$appCreditsCond = " WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"]." ";
 				if(!empty($_POST["Operation_Status_ID"])) {
 				  $appCreditsCond .= " AND ac.App_Credits_Status = " . $_POST["Operation_Status_ID"] . "";
 				}
 				
 				$appTasks = getAppTasks();
-				$appCredits = getAppCredits($appCreditsCond);
-				echo $appCredits; die(); 
+				$appCredits = getAppCredits($appCreditsCond);				
 				$operStatus = getViewOperStatus();
 
 ?>
