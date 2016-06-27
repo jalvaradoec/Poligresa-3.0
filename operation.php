@@ -2314,8 +2314,8 @@ h5
 						?>
 						
 						<form class="form-horizontal" method="post" action="">
-							<input type="hidden" name="applogsid" value="<?php echo $row['App_Logs_Id']; ?>" />
-							<input type="hidden" name="applogclientid" value="<?php echo $row['App_Logs_ClientID']; ?>" />
+							<input type="hidden" name="applogsid" value="<?php echo $row['App_Logs_Id']; ?>" />							
+							<input type="hidden" name="apptaskoperation" value="<?php echo $row['App_Task_Operation']; ?>" />
 							
 							<div class="modal-body">   
 								<!--
@@ -3782,6 +3782,11 @@ if (isset($_POST['save'])) {
         $sql = "insert into App_Logs(App_Logs_CreatedBy,App_Logs_CreatedOn,App_Logs_ClientID,App_Logs_OperationID,App_Logs_DateTime,App_Logs_Action,App_Logs_Answer,App_Logs_Contact,App_Logs_Type,App_Logs_TransAmmount,App_Logs_TransDateTime,App_Logs_Notes) 
 				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['respuesta']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$datetime."','".$_POST['outcome']."')";		
 		mysql_query($sql);
+		
+		$sql
+		
+		
+		
 		$sql10="select * from App_Tasks order by App_Task_ID desc";
 		$result10=mysql_query($sql10);
 		$row10=mysql_fetch_array($result10);
@@ -3840,7 +3845,7 @@ if (isset($_POST['updateactivity'])) {
 		$result = mysql_query($sql);
 		
 							
-		$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_DebtorId = '".$_POST['applogclientid']."'";
+		$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_BankOperNumber = '".$_POST['apptaskoperation']."'";
 		$resultactiveupdate = mysql_query($sqlactiveupdate);
 			
 		if($result)
