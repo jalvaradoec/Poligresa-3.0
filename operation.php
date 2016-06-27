@@ -3839,15 +3839,11 @@ if (isset($_POST['updateactivity'])) {
         $sql = "update App_Logs set App_Logs_Action='".$_POST['type']."', App_Logs_Answer='".$_POST['respuesta']."', App_Logs_TransAmmount='".$_POST['comp']."',App_Logs_Contact='".$_POST['contacto']."',App_Logs_TransDateTime='".$_POST['fecha']."', App_Logs_Type='".$_POST['tipo']."',App_Logs_Notes='".$_POST['outcome']."' where App_Logs_Id = '".$_POST['applogsid']."'";        				
 		$result = mysql_query($sql);
 		
-		$sqllastactive = "select * from App_Credits where App_Credits_DebtorId = '".$_POST['applogclientid']."'";
-		$resultactive = mysql_query($sqllastactive);
-		if(mysqli_affected_rows($resultactive) >0 )
-		{
 							
-			$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_DebtorId = '".$_POST['applogclientid']."'";
-			$resultactiveupdate = mysql_query($sqlactiveupdate);
-		}
-				
+		$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_DebtorId = '".$_POST['applogclientid']."'";
+		echo $sqlactiveupdate; die();
+		$resultactiveupdate = mysql_query($sqlactiveupdate);
+			
 		if($result)
 		{	
 			echo "<script>window.location.href='oper_dashboard.php';</script>";
