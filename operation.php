@@ -469,12 +469,12 @@ h5
 						
 						$sqlnextbtn = "select * from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' and App_Credits_LastActivity='".date("Y-m-d")."' ";
 						$resultnextbtn = mysql_query($sqlnextbtn);
-						$row =  mysql_affected_rows(resultnextbtn) 
+						$row =  mysql_affected_rows(resultnextbtn); 
 						if($row > 0)
 						{ 
 					?>
 						<i style="color:#367FA9;padding-left:10px;"> Next</i>
-						<?php } ?>
+					<?php } ?>
 				</h2>			
 				
 				<!-- <i class="fa  fa-angle-double-right" style="color:#367FA9;padding-left:10px;"></i> -->
