@@ -456,7 +456,9 @@ h5
 		<div class="box">
             <div class="box-header">
 				<h3 class="box-title bx_title">Activity</h3>
-				<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a> <i class="fa  fa-angle-double-right" style="color:#367FA9;padding-left:10px;"></i></h2>			
+				<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a> <i style="color:#367FA9;padding-left:10px;"> Next</i></h2>			
+				
+				<!-- <i class="fa  fa-angle-double-right" style="color:#367FA9;padding-left:10px;"></i> -->
             </div>
             <!-- /.box-header -->
           
