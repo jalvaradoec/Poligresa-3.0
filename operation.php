@@ -3844,8 +3844,13 @@ if (isset($_POST['updateactivity'])) {
 		$resultactiveupdate = mysql_query($sqlactiveupdate);
 			
 		if($result)
-		{	
-			echo "<script>window.location.href='oper_dashboard.php?operno=$_POST['apptaskoperation']</script>";
+		{
+	?>
+			<script>
+				var id = '<?php echo $_POST['apptaskoperation'] ?>';
+				window.location.href='oper_dashboard.php?operno=+id';
+			</script>
+<?php
 		}
 		
 }
