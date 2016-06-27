@@ -2305,7 +2305,7 @@ h5
 									inner join App_Users u ON l.App_Logs_CreatedBy = u.App_Users_ID
 									where l.App_Logs_Id='".$_GET['task_id']."' ";
 									
-							echo $sql; die();
+							echo $sql;
 							$result = mysql_query($sql);
 							$row=mysql_fetch_array($result);
 							
