@@ -542,7 +542,7 @@ h5
 					<td><?php echo $row['App_Logs_Notes']; ?></td>
 				  <?php if(!empty($_SESSION["logged_in_user"]["App_Users_SecurityLevel"]) && $_SESSION["logged_in_user"]["App_Users_SecurityLevel"] >= 5  ) { ?>
 					<!--<td><a href="Oper_EditACtivities" data-toggle="modal" data-id="<?php //echo $row['App_Logs_Id'] ?>" class="editactivity">Edit</a></td>-->
-					<td><a href="Oper_ACtivitiesUpdate" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
+					<td><a href="Oper_ACtivitiesUpdate" data-operno="<?php echo $_GET['operno']; ?>" data-toggle="modal" data-id="<?php echo $row['App_Logs_Id']  ?>" class="editactivity" >Edit</a></td>
 				  <?php } ?>
 				  				  
                 </tr>
@@ -3562,7 +3562,8 @@ $(document).on("click", ".editaddress", function () {
 });
 $(document).on("click", ".editactivity", function () {
      var TaskId = $(this).data('id');
-     window.location.href='operation.php?task_id='+TaskId;
+	 var operno = $(this).attr("data-operno");
+     window.location.href='operation.php?task_id='+TaskId+'&operno='+operno;
 	 
 });
 $(document).on("click", ".addphone", function () {
