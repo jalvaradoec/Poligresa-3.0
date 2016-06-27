@@ -3959,10 +3959,11 @@ $(document).ready(function(){
 					//alert (response)
 					//morebutton.hide();					
 					$("#tbodymore").append(response);
-					
-					var a = $('#btnloadmore').data('id'); 
+					/*
+					var a = $('#btnloadmore').data('page'); 
 					var i = 1+a;
-					$('#tbodymore').data('id','i');
+					$('#tbodymore').data('page','i');
+					*/
 				  }
 				}
 			  });
