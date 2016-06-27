@@ -37,9 +37,7 @@ function getAppCredits($appCreditsCond = null){
 	";
 	
     if(!empty($appCreditsCond))
-        $appCreditsSql .= " $appCreditsCond";	
-	
-	echo appCreditsSql;
+        $appCreditsSql .= " $appCreditsCond";		
 	    $appCredits = $objDb->get_results($appCreditsSql);
     return $appCredits;
 }
