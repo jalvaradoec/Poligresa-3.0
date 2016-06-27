@@ -31,15 +31,14 @@
 						for ($c=0; $c < $num; $c++) 
 						{
 							echo $data[$c] . "<br />\n";
-							/*
-							if($c==7)
+							
+							if($c==6)
 							{
 								break;
 							}
 							else{
 								echo $data[$c] . "<br />\n";
 							}
-							*/
 							
 						}						
 						
