@@ -21,13 +21,11 @@
 		{
 			$readfile =  $SITE_URL."/uploads/".$_FILES["userfile"]["name"];	
 				
-				$CSVfp = fopen($readfile, "r");
-				if($CSVfp !== FALSE) {
-				 while(! feof($CSVfp)) {
-				  $data = fgetcsv($CSVfp, 1000, ",");
-				  echo "<pre>";
-				  print_r($data);
-				 }
+				$row = str_getcsv($readfile, "\n");
+				$length = count($row);
+				for($i=0;$i<$length;$i++) {
+				 $data = str_getcsv($row[$i], ",");
+				 print_r($data);
 				}
 				/*
 				$row = 1;
