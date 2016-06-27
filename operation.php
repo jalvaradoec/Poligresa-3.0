@@ -459,20 +459,12 @@ h5
 				<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a> 
 					<?php 
 				
-					/*
-						$sqlchkdate = "select App_Credits_LastActivity from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' ";
-						$resultchkdate = mysql_query($sqlchkdate);
-						$row = mysql_fetch_array($resultchkdate);
-						*/
-						
-						
-						
 						$sqlnextbtn = "select App_Credits_LastActivity from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' ";
 						$resultnextbtn = mysql_query($sqlnextbtn);
 						$row =  mysql_fetch_array($resultnextbtn);
 						
-						//echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity']));
-						
+						echo date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity']));
+						echo "<br>".date("d/m/Y");
 						 
 						if(date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity'])) == date("d/m/Y"))
 						{ 
