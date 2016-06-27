@@ -456,7 +456,7 @@ h5
 		<div class="box">
             <div class="box-header">
             <h3 class="box-title bx_title">Activity</h3>
-			<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a></h2>
+			<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a> <i class="fa  fa-angle-double-right"></i></h2>
 			<h2 class="fa_cal"><i class="fa  fa-angle-double-right"></i></h2>
             </div>
             <!-- /.box-header -->
