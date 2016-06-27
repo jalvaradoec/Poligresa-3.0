@@ -23,7 +23,7 @@
 				$row = 1;
 				if (($handle = fopen($readfile, 'r')) !== FALSE)
 				{
-					while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) 
+					while (($data = fgetcsv($handle, 1000, ","," ")) !== FALSE) 
 					{
 						$num = count($data);
 						
