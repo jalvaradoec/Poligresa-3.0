@@ -2311,7 +2311,7 @@ h5
 							$resultactive = mysql_query($sqllastactive);
 							if(mysqli_affected_rows($resultactive) >0 )
 							{
-								$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' ";
+								$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_DebtorId = '".$row['App_Logs_ClientID']."'";
 								$resultactiveupdate = mysql_query($sqlactiveupdate);
 							}
 							
