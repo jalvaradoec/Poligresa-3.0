@@ -3783,10 +3783,7 @@ if (isset($_POST['save'])) {
 				values ('".$_POST['regby']."','".$_POST['createdon']."','".$_POST['debtorid']."','".$_POST['opertionid']."','".date('Y-m-d H:i:s')."','".$_POST['type']."','".$_POST['respuesta']."','".$_POST['contacto']."','".$_POST['tipo']."','".$_POST['comp']."','".$datetime."','".$_POST['outcome']."')";		
 		mysql_query($sql);
 		
-		$sql
-		
-		
-		
+
 		$sql10="select * from App_Tasks order by App_Task_ID desc";
 		$result10=mysql_query($sql10);
 		$row10=mysql_fetch_array($result10);
@@ -3842,9 +3839,7 @@ if (isset($_POST['save'])) {
 if (isset($_POST['updateactivity'])) {
         //$sql = "update App_Tasks set App_Task_TaskType='" . $_POST['type'] . "',App_Task_DueDateTime='" . $_POST['date']." ".$_POST['time'] . "',App_Task_Description='" . $_POST['task'] . "',App_Task_Status='" . $_POST['status'] . "',App_Task_Outcome='" . $_POST['outcome'] . "' where App_Task_ID='" . $_GET['task_id'] . "'";
         $sql = "update App_Logs set App_Logs_Action='".$_POST['type']."', App_Logs_Answer='".$_POST['respuesta']."', App_Logs_TransAmmount='".$_POST['comp']."',App_Logs_Contact='".$_POST['contacto']."',App_Logs_TransDateTime='".$_POST['fecha']."', App_Logs_Type='".$_POST['tipo']."',App_Logs_Notes='".$_POST['outcome']."' where App_Logs_Id = '".$_POST['applogsid']."'";        				
-		$result = mysql_query($sql);
-		
-							
+		$result = mysql_query($sql);							
 		$sqlactiveupdate = "update App_Credits set App_Credits_LastActivity = '".date("Y-m-d h:i:s")."' where App_Credits_BankOperNumber = '".$_POST['apptaskoperation']."'";
 		$resultactiveupdate = mysql_query($sqlactiveupdate);
 			
