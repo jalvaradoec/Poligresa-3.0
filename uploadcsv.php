@@ -23,11 +23,12 @@
 				
 				$CSVfp = fopen($readfile, "r");
 				if($CSVfp !== FALSE) {
-				 while(! feof($CSVfp)) {
-				  $data = fgetcsv($CSVfp, 1000, ",");
-				  echo "<pre>";
-				  print_r($data);
-				 }
+					while(! feof($CSVfp)) {
+						$data = fgetcsv($CSVfp, 1000, ",");
+						echo "<pre>";
+						print_r($data);
+												
+					}
 				}
 				/*
 				$row = 1;
