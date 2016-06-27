@@ -31,6 +31,7 @@
 						for ($c=0; $c < $num; $c++) {
 							echo $data[$c] . "<br />\n";
 						}
+						echo "<br>";
 					}
 					fclose($handle);
 				}
