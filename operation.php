@@ -3945,7 +3945,7 @@ $(document).ready(function(){
 		/*Rahul add more result search */
 		$( document ).on( 'click', '.loadmore', function () {
 
-			 $(this).text('Loading...');
+			 //$(this).text('Loading...');
 			  var morebutton = $(this).parent().find('#btnloadmore');
 			 				
 			  $.ajax({
@@ -3956,9 +3956,13 @@ $(document).ready(function(){
 				},
 				success: function(response){
 				  if(response){	
-					alert (response)
-					morebutton.hide();					
-					$("#tbodymore").append(response);						
+					//alert (response)
+					//morebutton.hide();					
+					$("#tbodymore").append(response);
+					
+					var a = $('#btnloadmore').data('id'); 
+					var i = 1+a;
+					$('#tbodymore').data('id','i');
 				  }
 				}
 			  });
