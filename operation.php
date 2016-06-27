@@ -456,7 +456,26 @@ h5
 		<div class="box">
             <div class="box-header">
 				<h3 class="box-title bx_title">Activity</h3>
-				<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a> <i style="color:#367FA9;padding-left:10px;"> Next</i></h2>			
+				<h2 class="fa_cal"><a href="#Oper_ACtivities" data-toggle="modal" data-target="#Oper_ACtivities"><i class="fa fa-calendar-plus-o"></i></a> 
+					<?php 
+				
+					/*
+						$sqlchkdate = "select App_Credits_LastActivity from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' ";
+						$resultchkdate = mysql_query($sqlchkdate);
+						$row = mysql_fetch_array($resultchkdate);
+						*/
+						
+						
+						
+						$sqlnextbtn = "select * from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' and App_Credits_LastActivity='".date("Y-m-d")."' ";
+						$resultnextbtn = mysql_query($sqlnextbtn);
+						$row =  mysql_affected_rows(resultnextbtn) 
+						if($row > 0)
+						{ 
+					?>
+						<i style="color:#367FA9;padding-left:10px;"> Next</i>
+						<?php } ?>
+				</h2>			
 				
 				<!-- <i class="fa  fa-angle-double-right" style="color:#367FA9;padding-left:10px;"></i> -->
             </div>
