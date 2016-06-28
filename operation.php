@@ -384,18 +384,15 @@ h5
                 <tbody>
 				<?php
 				if(isset($_GET['operno'])){
-					$sql3="select * from View_AgremTable WHERE App_Transactions_OperationID =".$_GET['operno'];
-					//$sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."'";
-					echo "IF=".$sql3;
-					
+					//$sql3="select * from View_AgremTable WHERE App_Transactions_OperationID =".$_GET['operno'];
+					$sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID='".$_GET["operno"]."' and ac.App_Credits_BankOperNumber='".$_GET["operno"]."'";										
 				}
 				else
 				{
 					$sql="select * from App_Credits ac INNER JOIN App_Clients ac1 ON ac.App_Credits_DebtorId = ac1.App_Clients_DebtorIdNumber INNER JOIN View_AgremTable ap ON ac.App_Credits_BankOperNumber = ap.App_Transactions_OperationID WHERE  ac.App_Credits_AssignedTo =".$_SESSION["logged_in_user"]["App_Users_ID"];	
 				    $result=mysql_query($sql);
 				    $row=mysql_fetch_array($result);
-			        $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";	
-					echo "else=".$sql3;
+			        $sql3="select * from View_AgremTable aa INNER JOIN App_Credits ac ON ac.App_Credits_DebtorId = aa.App_Transactions_ClientID WHERE ac.App_Credits_AssignedTo ='".$_SESSION["logged_in_user"]["App_Users_ID"]."' and aa.App_Transactions_OperationID='".$row['App_Transactions_OperationID']."' and ac.App_Credits_BankOperNumber='".$row['App_Transactions_OperationID']."'";						
 					
 				}
 				  $result3=mysql_query($sql3);
