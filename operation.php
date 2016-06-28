@@ -429,7 +429,7 @@ h5
 					}
 				  ?>
                   <td><?php echo $row1['App_Aux_text'] ?></td>
-                  <td><a href="" data-id="<?php echo $row3['App_Transactions_Id'] ?>" data-toggle="modal" class="Edittransaction">Edit</a></td>
+                  <td><a href="" data-operno="<?php echo $_GET['operno']; ?>" data-id="<?php echo $row3['App_Transactions_Id'] ?>" data-toggle="modal" class="Edittransaction">Edit</a></td>
                 </tr>
 				  <?php } ?>
 				
@@ -3601,7 +3601,8 @@ $(document).on("click", ".debtaddress", function () {
 });
 $(document).on("click", ".Edittransaction", function () {
 	var trans_id = $(this).data('id');
-     window.location.href='operation.php?trans_id='+trans_id;
+	var operno = $(this).attr("data-operno");
+     window.location.href='operation.php?trans_id='+trans_id+'&operno='+operno;
 	 
 });
 $(document).on("click", ".agreementactivity", function () {
