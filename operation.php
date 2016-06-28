@@ -461,7 +461,8 @@ h5
 						$sqlnextbtn = "select App_Credits_LastActivity from App_Credits where App_Credits_BankOperNumber= '".$_GET['operno']."' ";
 						$resultnextbtn = mysql_query($sqlnextbtn);
 						$row =  mysql_fetch_array($resultnextbtn);
-			 
+						echo "<br>Data date=".date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity']));
+						echo "<br>Current date = ".date("m/d/Y");
 						if(date(DEFAULT_DATE_FORMAT,strtotime($row['App_Credits_LastActivity'])) == date("m/d/Y"))
 						{ 
 					?>
